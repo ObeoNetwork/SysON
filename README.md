@@ -2,7 +2,8 @@
 
 Welcome to the temporary repository of the Eclipse SysON project.
 
-🚧 **Note:** This repository is temporary and is awaiting the official creation of the repository by the Eclipse Foundation. The proposal for the project is available here: [Eclipse SysOn Proposal](https://projects.eclipse.org/proposals/eclipse-syson).
+🚧 **Note:** This repository is temporary and is awaiting the official creation of the repository by the Eclipse Foundation. The proposal for the project is available here: [Eclipse SysON Proposal](https://projects.eclipse.org/proposals/eclipse-syson).
+
 
 ## Overview
 
