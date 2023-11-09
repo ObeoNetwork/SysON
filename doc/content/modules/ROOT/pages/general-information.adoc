@@ -1,0 +1,13 @@
+= Overview
+* Name: {product-name}
+
+== Source code
+* License: xref:product-legal:index.adoc[Obeo]
+
+== Tracker
+
+* Bug tracker: {bug}
+
+== Communication
+
+* Website: {website}
