@@ -12,7 +12,9 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.syson.sysml.Association;
@@ -153,7 +156,7 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public boolean isIsImplied() {
-        return isImplied;
+        return this.isImplied;
     }
 
     /**
@@ -163,10 +166,10 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public void setIsImplied(boolean newIsImplied) {
-        boolean oldIsImplied = isImplied;
-        isImplied = newIsImplied;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTOR_AS_USAGE__IS_IMPLIED, oldIsImplied, isImplied));
+        boolean oldIsImplied = this.isImplied;
+        this.isImplied = newIsImplied;
+        if (this.eNotificationRequired())
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTOR_AS_USAGE__IS_IMPLIED, oldIsImplied, this.isImplied));
     }
 
     /**
@@ -176,10 +179,10 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Element> getOwnedRelatedElement() {
-        if (ownedRelatedElement == null) {
-            ownedRelatedElement = new EObjectContainmentWithInverseEList<Element>(Element.class, this, SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT, SysmlPackage.ELEMENT__OWNING_RELATIONSHIP);
+        if (this.ownedRelatedElement == null) {
+            this.ownedRelatedElement = new EObjectContainmentWithInverseEList<Element>(Element.class, this, SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT, SysmlPackage.ELEMENT__OWNING_RELATIONSHIP);
         }
-        return ownedRelatedElement;
+        return this.ownedRelatedElement;
     }
 
     /**
@@ -189,8 +192,8 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public Element getOwningRelatedElement() {
-        if (eContainerFeatureID() != SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT) return null;
-        return (Element)eInternalContainer();
+        if (this.eContainerFeatureID() != SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT) return null;
+        return (Element)this.eInternalContainer();
     }
 
     /**
@@ -199,7 +202,7 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      * @generated
      */
     public NotificationChain basicSetOwningRelatedElement(Element newOwningRelatedElement, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newOwningRelatedElement, SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT, msgs);
+        msgs = this.eBasicSetContainer((InternalEObject)newOwningRelatedElement, SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT, msgs);
         return msgs;
     }
 
@@ -210,19 +213,19 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public void setOwningRelatedElement(Element newOwningRelatedElement) {
-        if (newOwningRelatedElement != eInternalContainer() || (eContainerFeatureID() != SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT && newOwningRelatedElement != null)) {
+        if (newOwningRelatedElement != this.eInternalContainer() || (this.eContainerFeatureID() != SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT && newOwningRelatedElement != null)) {
             if (EcoreUtil.isAncestor(this, newOwningRelatedElement))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
+            if (this.eInternalContainer() != null)
+                msgs = this.eBasicRemoveFromContainer(msgs);
             if (newOwningRelatedElement != null)
                 msgs = ((InternalEObject)newOwningRelatedElement).eInverseAdd(this, SysmlPackage.ELEMENT__OWNED_RELATIONSHIP, Element.class, msgs);
-            msgs = basicSetOwningRelatedElement(newOwningRelatedElement, msgs);
+            msgs = this.basicSetOwningRelatedElement(newOwningRelatedElement, msgs);
             if (msgs != null) msgs.dispatch();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT, newOwningRelatedElement, newOwningRelatedElement));
+        else if (this.eNotificationRequired())
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT, newOwningRelatedElement, newOwningRelatedElement));
     }
 
     /**
@@ -232,11 +235,8 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Element> getRelatedElement() {
-        // TODO: implement this method to return the 'Related Element' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Element> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRelationship_RelatedElement(), data.size(), data.toArray());
     }
 
     /**
@@ -246,10 +246,10 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Element> getSource() {
-        if (source == null) {
-            source = new EObjectResolvingEList<Element>(Element.class, this, SysmlPackage.CONNECTOR_AS_USAGE__SOURCE);
+        if (this.source == null) {
+            this.source = new EObjectResolvingEList<Element>(Element.class, this, SysmlPackage.CONNECTOR_AS_USAGE__SOURCE);
         }
-        return source;
+        return this.source;
     }
 
     /**
@@ -259,10 +259,10 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Element> getTarget() {
-        if (target == null) {
-            target = new EObjectResolvingEList<Element>(Element.class, this, SysmlPackage.CONNECTOR_AS_USAGE__TARGET);
+        if (this.target == null) {
+            this.target = new EObjectResolvingEList<Element>(Element.class, this, SysmlPackage.CONNECTOR_AS_USAGE__TARGET);
         }
-        return target;
+        return this.target;
     }
 
     /**
@@ -272,11 +272,8 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Association> getAssociation() {
-        // TODO: implement this method to return the 'Association' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Association> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getConnector_Association(), data.size(), data.toArray());
     }
 
     /**
@@ -286,11 +283,8 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Feature> getConnectorEnd() {
-        // TODO: implement this method to return the 'Connector End' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Feature> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getConnector_ConnectorEnd(), data.size(), data.toArray());
     }
 
     /**
@@ -300,7 +294,7 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public boolean isIsDirected() {
-        return isDirected;
+        return this.isDirected;
     }
 
     /**
@@ -310,10 +304,10 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public void setIsDirected(boolean newIsDirected) {
-        boolean oldIsDirected = isDirected;
-        isDirected = newIsDirected;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTOR_AS_USAGE__IS_DIRECTED, oldIsDirected, isDirected));
+        boolean oldIsDirected = this.isDirected;
+        this.isDirected = newIsDirected;
+        if (this.eNotificationRequired())
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTOR_AS_USAGE__IS_DIRECTED, oldIsDirected, this.isDirected));
     }
 
     /**
@@ -323,11 +317,8 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Feature> getRelatedFeature() {
-        // TODO: implement this method to return the 'Related Feature' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Feature> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getConnector_RelatedFeature(), data.size(), data.toArray());
     }
 
     /**
@@ -337,8 +328,8 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public Feature getSourceFeature() {
-        Feature sourceFeature = basicGetSourceFeature();
-        return sourceFeature != null && sourceFeature.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)sourceFeature) : sourceFeature;
+        Feature sourceFeature = this.basicGetSourceFeature();
+        return sourceFeature != null && sourceFeature.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)sourceFeature) : sourceFeature;
     }
 
     /**
@@ -360,11 +351,8 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public EList<Feature> getTargetFeature() {
-        // TODO: implement this method to return the 'Target Feature' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Feature> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getConnector_TargetFeature(), data.size(), data.toArray());
     }
 
     /**
@@ -377,11 +365,11 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedRelatedElement()).basicAdd(otherEnd, msgs);
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)this.getOwnedRelatedElement()).basicAdd(otherEnd, msgs);
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetOwningRelatedElement((Element)otherEnd, msgs);
+                if (this.eInternalContainer() != null)
+                    msgs = this.eBasicRemoveFromContainer(msgs);
+                return this.basicSetOwningRelatedElement((Element)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -395,9 +383,9 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT:
-                return ((InternalEList<?>)getOwnedRelatedElement()).basicRemove(otherEnd, msgs);
+                return ((InternalEList<?>)this.getOwnedRelatedElement()).basicRemove(otherEnd, msgs);
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT:
-                return basicSetOwningRelatedElement(null, msgs);
+                return this.basicSetOwningRelatedElement(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -409,9 +397,9 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+        switch (this.eContainerFeatureID()) {
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT:
-                return eInternalContainer().eInverseRemove(this, SysmlPackage.ELEMENT__OWNED_RELATIONSHIP, Element.class, msgs);
+                return this.eInternalContainer().eInverseRemove(this, SysmlPackage.ELEMENT__OWNED_RELATIONSHIP, Element.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -425,30 +413,30 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_IMPLIED:
-                return isIsImplied();
+                return this.isIsImplied();
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT:
-                return getOwnedRelatedElement();
+                return this.getOwnedRelatedElement();
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT:
-                return getOwningRelatedElement();
+                return this.getOwningRelatedElement();
             case SysmlPackage.CONNECTOR_AS_USAGE__RELATED_ELEMENT:
-                return getRelatedElement();
+                return this.getRelatedElement();
             case SysmlPackage.CONNECTOR_AS_USAGE__SOURCE:
-                return getSource();
+                return this.getSource();
             case SysmlPackage.CONNECTOR_AS_USAGE__TARGET:
-                return getTarget();
+                return this.getTarget();
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_DIRECTED:
-                return isIsDirected();
+                return this.isIsDirected();
             case SysmlPackage.CONNECTOR_AS_USAGE__ASSOCIATION:
-                return getAssociation();
+                return this.getAssociation();
             case SysmlPackage.CONNECTOR_AS_USAGE__CONNECTOR_END:
-                return getConnectorEnd();
+                return this.getConnectorEnd();
             case SysmlPackage.CONNECTOR_AS_USAGE__RELATED_FEATURE:
-                return getRelatedFeature();
+                return this.getRelatedFeature();
             case SysmlPackage.CONNECTOR_AS_USAGE__SOURCE_FEATURE:
-                if (resolve) return getSourceFeature();
-                return basicGetSourceFeature();
+                if (resolve) return this.getSourceFeature();
+                return this.basicGetSourceFeature();
             case SysmlPackage.CONNECTOR_AS_USAGE__TARGET_FEATURE:
-                return getTargetFeature();
+                return this.getTargetFeature();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -463,25 +451,25 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_IMPLIED:
-                setIsImplied((Boolean)newValue);
+                this.setIsImplied((Boolean)newValue);
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT:
-                getOwnedRelatedElement().clear();
-                getOwnedRelatedElement().addAll((Collection<? extends Element>)newValue);
+                this.getOwnedRelatedElement().clear();
+                this.getOwnedRelatedElement().addAll((Collection<? extends Element>)newValue);
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT:
-                setOwningRelatedElement((Element)newValue);
+                this.setOwningRelatedElement((Element)newValue);
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__SOURCE:
-                getSource().clear();
-                getSource().addAll((Collection<? extends Element>)newValue);
+                this.getSource().clear();
+                this.getSource().addAll((Collection<? extends Element>)newValue);
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__TARGET:
-                getTarget().clear();
-                getTarget().addAll((Collection<? extends Element>)newValue);
+                this.getTarget().clear();
+                this.getTarget().addAll((Collection<? extends Element>)newValue);
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_DIRECTED:
-                setIsDirected((Boolean)newValue);
+                this.setIsDirected((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -496,22 +484,22 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_IMPLIED:
-                setIsImplied(IS_IMPLIED_EDEFAULT);
+                this.setIsImplied(IS_IMPLIED_EDEFAULT);
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT:
-                getOwnedRelatedElement().clear();
+                this.getOwnedRelatedElement().clear();
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT:
-                setOwningRelatedElement((Element)null);
+                this.setOwningRelatedElement((Element)null);
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__SOURCE:
-                getSource().clear();
+                this.getSource().clear();
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__TARGET:
-                getTarget().clear();
+                this.getTarget().clear();
                 return;
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_DIRECTED:
-                setIsDirected(IS_DIRECTED_EDEFAULT);
+                this.setIsDirected(IS_DIRECTED_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -526,29 +514,29 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_IMPLIED:
-                return isImplied != IS_IMPLIED_EDEFAULT;
+                return this.isImplied != IS_IMPLIED_EDEFAULT;
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNED_RELATED_ELEMENT:
-                return ownedRelatedElement != null && !ownedRelatedElement.isEmpty();
+                return this.ownedRelatedElement != null && !this.ownedRelatedElement.isEmpty();
             case SysmlPackage.CONNECTOR_AS_USAGE__OWNING_RELATED_ELEMENT:
-                return getOwningRelatedElement() != null;
+                return this.getOwningRelatedElement() != null;
             case SysmlPackage.CONNECTOR_AS_USAGE__RELATED_ELEMENT:
-                return !getRelatedElement().isEmpty();
+                return !this.getRelatedElement().isEmpty();
             case SysmlPackage.CONNECTOR_AS_USAGE__SOURCE:
-                return source != null && !source.isEmpty();
+                return this.source != null && !this.source.isEmpty();
             case SysmlPackage.CONNECTOR_AS_USAGE__TARGET:
-                return target != null && !target.isEmpty();
+                return this.target != null && !this.target.isEmpty();
             case SysmlPackage.CONNECTOR_AS_USAGE__IS_DIRECTED:
-                return isDirected != IS_DIRECTED_EDEFAULT;
+                return this.isDirected != IS_DIRECTED_EDEFAULT;
             case SysmlPackage.CONNECTOR_AS_USAGE__ASSOCIATION:
-                return !getAssociation().isEmpty();
+                return !this.getAssociation().isEmpty();
             case SysmlPackage.CONNECTOR_AS_USAGE__CONNECTOR_END:
-                return !getConnectorEnd().isEmpty();
+                return !this.getConnectorEnd().isEmpty();
             case SysmlPackage.CONNECTOR_AS_USAGE__RELATED_FEATURE:
-                return !getRelatedFeature().isEmpty();
+                return !this.getRelatedFeature().isEmpty();
             case SysmlPackage.CONNECTOR_AS_USAGE__SOURCE_FEATURE:
-                return basicGetSourceFeature() != null;
+                return this.basicGetSourceFeature() != null;
             case SysmlPackage.CONNECTOR_AS_USAGE__TARGET_FEATURE:
-                return !getTargetFeature().isEmpty();
+                return !this.getTargetFeature().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -624,13 +612,13 @@ public abstract class ConnectorAsUsageImpl extends UsageImpl implements Connecto
      */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+        if (this.eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (isImplied: ");
-        result.append(isImplied);
+        result.append(this.isImplied);
         result.append(", isDirected: ");
-        result.append(isDirected);
+        result.append(this.isDirected);
         result.append(')');
         return result.toString();
     }

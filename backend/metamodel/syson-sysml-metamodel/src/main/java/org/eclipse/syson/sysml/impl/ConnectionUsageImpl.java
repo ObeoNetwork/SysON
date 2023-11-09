@@ -12,11 +12,15 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.AssociationStructure;
 import org.eclipse.syson.sysml.ConnectionUsage;
 import org.eclipse.syson.sysml.ItemUsage;
@@ -114,8 +118,8 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public OccurrenceDefinition getIndividualDefinition() {
-        OccurrenceDefinition individualDefinition = basicGetIndividualDefinition();
-        return individualDefinition != null && individualDefinition.eIsProxy() ? (OccurrenceDefinition)eResolveProxy((InternalEObject)individualDefinition) : individualDefinition;
+        OccurrenceDefinition individualDefinition = this.basicGetIndividualDefinition();
+        return individualDefinition != null && individualDefinition.eIsProxy() ? (OccurrenceDefinition)this.eResolveProxy((InternalEObject)individualDefinition) : individualDefinition;
     }
 
     /**
@@ -137,7 +141,7 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public boolean isIsIndividual() {
-        return isIndividual;
+        return this.isIndividual;
     }
 
     /**
@@ -147,10 +151,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public void setIsIndividual(boolean newIsIndividual) {
-        boolean oldIsIndividual = isIndividual;
-        isIndividual = newIsIndividual;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL, oldIsIndividual, isIndividual));
+        boolean oldIsIndividual = this.isIndividual;
+        this.isIndividual = newIsIndividual;
+        if (this.eNotificationRequired())
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL, oldIsIndividual, this.isIndividual));
     }
 
     /**
@@ -160,11 +164,8 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public EList<org.eclipse.syson.sysml.Class> getOccurrenceDefinition() {
-        // TODO: implement this method to return the 'Occurrence Definition' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<org.eclipse.syson.sysml.Class> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getOccurrenceUsage_OccurrenceDefinition(), data.size(), data.toArray());
     }
 
     /**
@@ -174,7 +175,7 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public PortionKind getPortionKind() {
-        return portionKind;
+        return this.portionKind;
     }
 
     /**
@@ -184,10 +185,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public void setPortionKind(PortionKind newPortionKind) {
-        PortionKind oldPortionKind = portionKind;
-        portionKind = newPortionKind == null ? PORTION_KIND_EDEFAULT : newPortionKind;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__PORTION_KIND, oldPortionKind, portionKind));
+        PortionKind oldPortionKind = this.portionKind;
+        this.portionKind = newPortionKind == null ? PORTION_KIND_EDEFAULT : newPortionKind;
+        if (this.eNotificationRequired())
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__PORTION_KIND, oldPortionKind, this.portionKind));
     }
 
     /**
@@ -197,11 +198,8 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public EList<Structure> getItemDefinition() {
-        // TODO: implement this method to return the 'Item Definition' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Structure> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getItemUsage_ItemDefinition(), data.size(), data.toArray());
     }
 
     /**
@@ -211,11 +209,8 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public EList<PartDefinition> getPartDefinition() {
-        // TODO: implement this method to return the 'Part Definition' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<PartDefinition> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getPartUsage_PartDefinition(), data.size(), data.toArray());
     }
 
     /**
@@ -225,11 +220,8 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public EList<AssociationStructure> getConnectionDefinition() {
-        // TODO: implement this method to return the 'Connection Definition' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<AssociationStructure> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getConnectionUsage_ConnectionDefinition(), data.size(), data.toArray());
     }
 
     /**
@@ -241,20 +233,20 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                return isIsIndividual();
+                return this.isIsIndividual();
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                return getPortionKind();
+                return this.getPortionKind();
             case SysmlPackage.CONNECTION_USAGE__INDIVIDUAL_DEFINITION:
-                if (resolve) return getIndividualDefinition();
-                return basicGetIndividualDefinition();
+                if (resolve) return this.getIndividualDefinition();
+                return this.basicGetIndividualDefinition();
             case SysmlPackage.CONNECTION_USAGE__OCCURRENCE_DEFINITION:
-                return getOccurrenceDefinition();
+                return this.getOccurrenceDefinition();
             case SysmlPackage.CONNECTION_USAGE__ITEM_DEFINITION:
-                return getItemDefinition();
+                return this.getItemDefinition();
             case SysmlPackage.CONNECTION_USAGE__PART_DEFINITION:
-                return getPartDefinition();
+                return this.getPartDefinition();
             case SysmlPackage.CONNECTION_USAGE__CONNECTION_DEFINITION:
-                return getConnectionDefinition();
+                return this.getConnectionDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -269,10 +261,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                setIsIndividual((Boolean)newValue);
+                this.setIsIndividual((Boolean)newValue);
                 return;
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                setPortionKind((PortionKind)newValue);
+                this.setPortionKind((PortionKind)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -287,10 +279,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                setIsIndividual(IS_INDIVIDUAL_EDEFAULT);
+                this.setIsIndividual(IS_INDIVIDUAL_EDEFAULT);
                 return;
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                setPortionKind(PORTION_KIND_EDEFAULT);
+                this.setPortionKind(PORTION_KIND_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -305,19 +297,19 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                return isIndividual != IS_INDIVIDUAL_EDEFAULT;
+                return this.isIndividual != IS_INDIVIDUAL_EDEFAULT;
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                return portionKind != PORTION_KIND_EDEFAULT;
+                return this.portionKind != PORTION_KIND_EDEFAULT;
             case SysmlPackage.CONNECTION_USAGE__INDIVIDUAL_DEFINITION:
-                return basicGetIndividualDefinition() != null;
+                return this.basicGetIndividualDefinition() != null;
             case SysmlPackage.CONNECTION_USAGE__OCCURRENCE_DEFINITION:
-                return !getOccurrenceDefinition().isEmpty();
+                return !this.getOccurrenceDefinition().isEmpty();
             case SysmlPackage.CONNECTION_USAGE__ITEM_DEFINITION:
-                return !getItemDefinition().isEmpty();
+                return !this.getItemDefinition().isEmpty();
             case SysmlPackage.CONNECTION_USAGE__PART_DEFINITION:
-                return !getPartDefinition().isEmpty();
+                return !this.getPartDefinition().isEmpty();
             case SysmlPackage.CONNECTION_USAGE__CONNECTION_DEFINITION:
-                return !getConnectionDefinition().isEmpty();
+                return !this.getConnectionDefinition().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -391,13 +383,13 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+        if (this.eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (isIndividual: ");
-        result.append(isIndividual);
+        result.append(this.isIndividual);
         result.append(", portionKind: ");
-        result.append(portionKind);
+        result.append(this.portionKind);
         result.append(')');
         return result.toString();
     }

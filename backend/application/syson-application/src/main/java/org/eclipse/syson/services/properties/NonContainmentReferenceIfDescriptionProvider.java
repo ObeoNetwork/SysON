@@ -28,7 +28,6 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.sirius.components.collaborative.api.ChangeKind;
 import org.eclipse.sirius.components.compatibility.emf.properties.api.IPropertiesValidationProvider;
 import org.eclipse.sirius.components.compatibility.forms.WidgetIdProvider;
-import org.eclipse.sirius.components.core.api.IEditService;
 import org.eclipse.sirius.components.core.api.IFeedbackMessageService;
 import org.eclipse.sirius.components.core.api.IObjectService;
 import org.eclipse.sirius.components.emf.services.api.IEMFKindService;
@@ -65,13 +64,10 @@ public class NonContainmentReferenceIfDescriptionProvider {
 
     private final IFeedbackMessageService feedbackMessageService;
 
-    private final IEditService editService;
-
-    public NonContainmentReferenceIfDescriptionProvider(ComposedAdapterFactory composedAdapterFactory, IObjectService objectService, IEditService editService, IEMFKindService emfKindService,
+    public NonContainmentReferenceIfDescriptionProvider(ComposedAdapterFactory composedAdapterFactory, IObjectService objectService, IEMFKindService emfKindService,
             IFeedbackMessageService feedbackMessageService, IPropertiesValidationProvider propertiesValidationProvider, Function<VariableManager, String> semanticTargetIdProvider) {
         this.composedAdapterFactory = Objects.requireNonNull(composedAdapterFactory);
         this.objectService = Objects.requireNonNull(objectService);
-        this.editService = Objects.requireNonNull(editService);
         this.propertiesValidationProvider = Objects.requireNonNull(propertiesValidationProvider);
         this.semanticTargetIdProvider = Objects.requireNonNull(semanticTargetIdProvider);
         this.emfKindService = Objects.requireNonNull(emfKindService);
@@ -104,7 +100,7 @@ public class NonContainmentReferenceIfDescriptionProvider {
                 .itemIdProvider(this::getItemId)
                 .itemKindProvider(this::getItemKind)
                 .itemLabelProvider(this::getItemLabel)
-                .itemImageURLProvider(this::getItemIconURL)
+                .itemIconURLProvider(this::getItemIconURL)
                 .ownerKindProvider(this::getTypeName)
                 .referenceKindProvider(this::getReferenceKind)
                 .isContainmentProvider(this::isContainment)

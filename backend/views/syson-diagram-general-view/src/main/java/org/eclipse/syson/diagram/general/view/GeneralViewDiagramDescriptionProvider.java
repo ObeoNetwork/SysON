@@ -87,7 +87,8 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
                 new PartDefinitionNodeDescriptionProvider(colorProvider),
                 new PartUsageNodeDescriptionProvider(colorProvider),
                 new PortDefinitionNodeDescriptionProvider(colorProvider),
-                new PortUsageNodeDescriptionProvider(colorProvider)
+                new PortUsageNodeDescriptionProvider(colorProvider),
+                new NestedPartEdgeDescriptionProvider(colorProvider)
         );
 
         diagramElementDescriptionProviders.stream().
@@ -131,7 +132,7 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
         SetValueBuilder setValue = this.viewBuilderHelper.newSetValue();
         setValue
                 .featureName("declaredName")
-                .valueExpression("New " + eClass.getName());
+                .valueExpression(eClass.getName());
 
         ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext();
         changeContextNewInstance
