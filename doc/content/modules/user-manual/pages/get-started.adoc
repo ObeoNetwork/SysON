@@ -1,0 +1,9 @@
+= Getting started
+
+== Get {product-name}
+
+[.small .gray]#_Refers to the installation guide._#
+
+include::user-manual:requirements.adoc[leveloffset=+1]
+include::user-manual:scaling-limits.adoc[leveloffset=+1]
+include::user-manual:support-process.adoc[leveloffset=+2]

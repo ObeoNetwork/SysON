@@ -1,0 +1,6 @@
+* xref:user-manual:index.adoc[]
+** xref:user-manual:get-started.adoc[]
+** xref:user-manual:features-status.adoc[]
+** xref:user-manual:use.adoc[]
+** xref:user-manual:admin.adoc[]
+** xref:user-manual:release-notes.adoc[]

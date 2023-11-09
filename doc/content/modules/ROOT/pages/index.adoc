@@ -1,0 +1,8 @@
+= Welcome
+
+Welcome to the {product-name} Help Center!
+From here, you can access the different documentations.
+
+Use the menu on the left to navigate or the menu bar at the top of the page.
+
+include::general-information.adoc[leveloffset=+1]

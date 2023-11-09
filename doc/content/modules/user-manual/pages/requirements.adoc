@@ -1,0 +1,27 @@
+= Requirements
+
+[.small .gray]#_Details the requirements needed to run the product according to the scaling objectives._#
+
+|===
+| |Client |Server |Comment
+
+|Memory Usage
+|-Xmx1024m
+|n/a
+|
+
+|CPU
+|2 Ghz 64-bit (x64) processor
+|n/a
+|
+
+|Networking
+|n/a
+|n/a
+|
+
+|Scalability
+|n/a
+|n/a
+|
+|===

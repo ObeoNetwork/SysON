@@ -1,0 +1,11 @@
+name: syson
+title: SysON
+version: true
+nav:
+  - modules/ROOT/nav.adoc
+
+asciidoc:
+  attributes:
+    bug: "https://github.com/ObeoNetwork/SysON/issues"
+    product-name: "SysON"
+    website: "https://eclipse.dev/syson/"

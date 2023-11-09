@@ -1,0 +1,12 @@
+= Features
+
+[.small .gray]#_Details the features and their status._#
+
+[Features]
+|===
+| |Status |Comment
+
+|Feature 1
+|Confidence coefficient (high, normal, low,experimental)
+|
+|===
