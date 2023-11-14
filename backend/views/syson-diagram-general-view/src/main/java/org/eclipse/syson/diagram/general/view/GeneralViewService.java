@@ -27,9 +27,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.syson.diagram.general.view.services.ContainerLabelSwitch;
+import org.eclipse.syson.sysml.Dependency;
 import org.eclipse.syson.sysml.Element;
 import org.eclipse.syson.sysml.FeatureMembership;
 import org.eclipse.syson.sysml.Membership;
+import org.eclipse.syson.sysml.Package;
 import org.eclipse.syson.sysml.PartUsage;
 import org.eclipse.syson.sysml.SysmlFactory;
 
@@ -49,6 +51,34 @@ public class GeneralViewService {
      */
     public String getContainerLabel(Element element) {
         return new ContainerLabelSwitch().doSwitch(element);
+    }
+
+    /**
+     * Return the edge label for the given {@link Dependency}.
+     *
+     * @param dependency
+     *            the given {@link Dependency}.
+     * @return the edge label for the given {@link Dependency}.
+     */
+    public String getDependencyEdgeLabel(Dependency dependency) {
+        return LabelConstants.OPEN_QUOTE + "dependency" + LabelConstants.CLOSE_QUOTE + LabelConstants.CR + dependency.getDeclaredName();
+    }
+
+    /**
+     * Return the {@link Package} containing the given {@link EObject}.
+     *
+     * @param element
+     *            the {@link EObject} element.
+     * @return the {@link Package} containing the given {@link EObject}.
+     */
+    public org.eclipse.syson.sysml.Package getContainerPackage(EObject element) {
+        org.eclipse.syson.sysml.Package pack = null;
+        if (element instanceof org.eclipse.syson.sysml.Package pkg) {
+            pack = pkg;
+        } else if (element != null) {
+            return this.getContainerPackage(element.eContainer());
+        }
+        return pack;
     }
 
     /**

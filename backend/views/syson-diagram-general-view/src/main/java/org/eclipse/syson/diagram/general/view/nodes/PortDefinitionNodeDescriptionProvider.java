@@ -10,7 +10,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.syson.diagram.general.view;
+package org.eclipse.syson.diagram.general.view.nodes;
 
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.generated.ListLayoutStrategyDescriptionBuilder;
@@ -18,6 +18,8 @@ import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.SysmlPackage;
 
 /**
@@ -37,17 +39,19 @@ public class PortDefinitionNodeDescriptionProvider extends AbstractNodeDescripti
     public NodeDescription create() {
         String domainType = SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortDefinition());
         return this.diagramBuilderHelper.newNodeDescription()
-            .childrenDescriptions(this.createDefinitionAttributesCompartment(NAME), this.createDefinitionItemsCompartment(NAME))
-            .childrenLayoutStrategy(new ListLayoutStrategyDescriptionBuilder().build())
-            .domainType(domainType)
-            .labelExpression("aql:self.getContainerLabel()")
-            .name(NAME)
-            .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
-            .style(this.createDefinitionNodeStyle())
-            .userResizable(true)
-            .palette(this.createDefaultNodePalette())
-            .synchronizationPolicy(SynchronizationPolicy.UNSYNCHRONIZED)
-            .build();
+                .childrenDescriptions(this.createDefinitionAttributesCompartment(NAME), this.createDefinitionItemsCompartment(NAME))
+                .childrenLayoutStrategy(new ListLayoutStrategyDescriptionBuilder().build())
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_CONTAINER_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
+                .domainType(domainType)
+                .labelExpression("aql:self.getContainerLabel()")
+                .name(NAME)
+                .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
+                .style(this.createDefinitionNodeStyle())
+                .userResizable(true)
+                .palette(this.createDefaultNodePalette())
+                .synchronizationPolicy(SynchronizationPolicy.UNSYNCHRONIZED)
+                .build();
     }
 
     @Override

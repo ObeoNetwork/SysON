@@ -10,7 +10,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.syson.diagram.general.view;
+package org.eclipse.syson.diagram.general.view.nodes;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
@@ -28,6 +28,8 @@ import org.eclipse.sirius.components.view.diagram.NodePalette;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.sirius.components.view.diagram.NodeToolSection;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.SysmlPackage;
 
 /**
@@ -47,15 +49,17 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
     public NodeDescription create() {
         String domainType = SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPackage());
         return this.diagramBuilderHelper.newNodeDescription()
-            .childrenLayoutStrategy(new FreeFormLayoutStrategyDescriptionBuilder().build())
-            .domainType(domainType)
-            .labelExpression("aql:self.getContainerLabel()")
-            .name(NAME)
-            .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
-            .style(this.createDefinitionNodeStyle())
-            .userResizable(true)
-            .synchronizationPolicy(SynchronizationPolicy.UNSYNCHRONIZED)
-            .build();
+                .childrenLayoutStrategy(new FreeFormLayoutStrategyDescriptionBuilder().build())
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_CONTAINER_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
+                .domainType(domainType)
+                .labelExpression("aql:self.getContainerLabel()")
+                .name(NAME)
+                .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
+                .style(this.createDefinitionNodeStyle())
+                .userResizable(true)
+                .synchronizationPolicy(SynchronizationPolicy.UNSYNCHRONIZED)
+                .build();
     }
 
     @Override
@@ -74,31 +78,32 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
                 .toolSections(this.createNodeToolSection(cache))
                 .build();
     }
+
     private NodeToolSection createNodeToolSection(IViewDiagramElementFinder cache) {
         return this.diagramBuilderHelper.newNodeToolSection()
                 .name("Create")
-                .nodeTools(this.createNodeToolFromPackage(cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getAttributeDefinition()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(AttributeUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getAttributeUsage()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(EnumerationDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getEnumerationDefinition()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(InterfaceDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getInterfaceDefinition()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(InterfaceUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getInterfaceUsage()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(ItemDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getItemDefinition()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getItemUsage()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(PackageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPackage()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPartDefinition()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPartUsage()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPortDefinition()),
-                           this.createNodeToolFromPackage(cache.getNodeDescription(PortUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPortUsage()))
+                .nodeTools(this.createNodeTool(cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getAttributeDefinition()),
+                           this.createNodeTool(cache.getNodeDescription(AttributeUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getAttributeUsage()),
+                           this.createNodeTool(cache.getNodeDescription(EnumerationDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getEnumerationDefinition()),
+                           this.createNodeTool(cache.getNodeDescription(InterfaceDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getInterfaceDefinition()),
+                           this.createNodeTool(cache.getNodeDescription(InterfaceUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getInterfaceUsage()),
+                           this.createNodeTool(cache.getNodeDescription(ItemDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getItemDefinition()),
+                           this.createNodeTool(cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getItemUsage()),
+                           this.createNodeTool(cache.getNodeDescription(PackageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPackage()),
+                           this.createNodeTool(cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPartDefinition()),
+                           this.createNodeTool(cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPartUsage()),
+                           this.createNodeTool(cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPortDefinition()),
+                           this.createNodeTool(cache.getNodeDescription(PortUsageNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getPortUsage()))
                 .build();
     }
 
-    private NodeTool createNodeToolFromPackage(NodeDescription nodeDescription, EClass eClass) {
+    private NodeTool createNodeTool(NodeDescription nodeDescription, EClass eClass) {
         NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
 
         SetValueBuilder setValue = this.viewBuilderHelper.newSetValue();
         setValue
             .featureName("declaredName")
-            .valueExpression("New " + eClass.getName());
+                .valueExpression(eClass.getName());
 
         ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext();
         changeContextNewInstance

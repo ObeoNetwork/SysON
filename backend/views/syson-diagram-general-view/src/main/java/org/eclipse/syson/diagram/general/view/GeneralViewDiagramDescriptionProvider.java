@@ -32,6 +32,20 @@ import org.eclipse.sirius.components.view.diagram.DiagramToolSection;
 import org.eclipse.sirius.components.view.diagram.NodeContainmentKind;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
+import org.eclipse.syson.diagram.general.view.edges.DependencyEdgeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.edges.NestedPartEdgeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.AttributeDefinitionNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.AttributeUsageNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.EnumerationDefinitionNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.InterfaceDefinitionNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.InterfaceUsageNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.ItemDefinitionNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.ItemUsageNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.PackageNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.PartDefinitionNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.PartUsageNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.PortDefinitionNodeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.nodes.PortUsageNodeDescriptionProvider;
 import org.eclipse.syson.sysml.SysmlPackage;
 
 /**
@@ -43,7 +57,7 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
 
     public static final String DEFAULT_LABEL_EXPRESSION = "aql:self.declaredName";
 
-    public static final String DEFAULT_WIDTH = "100";
+    public static final String DEFAULT_NODE_WIDTH = "100";
 
     public static final String DEFAULT_COMPARTMENT_NODE_HEIGHT = "50";
 
@@ -56,6 +70,8 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
     public static final String DEFAULT_BORDER_COLOR = "black";
 
     public static final String DEFAULT_LABEL_COLOR = "black";
+
+    public static final String DEFAULT_EDGE_COLOR = "black";
 
     private final DiagramBuilders diagramBuilderHelper = new DiagramBuilders();
 
@@ -88,7 +104,8 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
                 new PartUsageNodeDescriptionProvider(colorProvider),
                 new PortDefinitionNodeDescriptionProvider(colorProvider),
                 new PortUsageNodeDescriptionProvider(colorProvider),
-                new NestedPartEdgeDescriptionProvider(colorProvider)
+                new NestedPartEdgeDescriptionProvider(colorProvider),
+                new DependencyEdgeDescriptionProvider(colorProvider)
         );
 
         diagramElementDescriptionProviders.stream().
@@ -129,38 +146,32 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
     private NodeTool createNodeToolFromPackage(NodeDescription nodeDescription, EClass eClass) {
         NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
 
-        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue();
-        setValue
+        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression(eClass.getName());
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext();
-        changeContextNewInstance
+        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setValue.build());
 
-        CreateInstanceBuilder createEClassInstance =  this.viewBuilderHelper.newCreateInstance();
-        createEClassInstance
+        CreateInstanceBuilder createEClassInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
                 .referenceName("ownedRelatedElement")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        CreateViewBuilder createView = this.diagramBuilderHelper.newCreateView();
-        createView
+        CreateViewBuilder createView = this.diagramBuilderHelper.newCreateView()
                 .containmentKind(NodeContainmentKind.CHILD_NODE)
                 .elementDescription(nodeDescription)
                 .parentViewExpression("aql:selectedNode")
                 .semanticElementExpression("aql:newInstance")
                 .variableName("newInstanceView");
 
-        ChangeContextBuilder changeContexMembership = this.viewBuilderHelper.newChangeContext();
-        changeContexMembership
+        ChangeContextBuilder changeContexMembership = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newOwningMembership")
                 .children(createEClassInstance.build(), createView.build());
 
-        CreateInstanceBuilder createMembership =  this.viewBuilderHelper.newCreateInstance();
-        createMembership
+        CreateInstanceBuilder createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
                 .referenceName("ownedRelationship")
                 .variableName("newOwningMembership")

@@ -10,7 +10,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.syson.diagram.general.view;
+package org.eclipse.syson.diagram.general.view.edges;
 
 import java.util.Objects;
 
@@ -24,6 +24,9 @@ import org.eclipse.sirius.components.view.diagram.EdgeDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeStyle;
 import org.eclipse.sirius.components.view.diagram.LineStyle;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
+import org.eclipse.syson.diagram.general.view.nodes.PartUsageNodeDescriptionProvider;
 import org.eclipse.syson.sysml.SysmlPackage;
 
 /**
@@ -72,7 +75,7 @@ public class NestedPartEdgeDescriptionProvider implements IEdgeDescriptionProvid
 
     private EdgeStyle createEdgeStyle() {
         return this.diagramBuilderHelper.newEdgeStyle()
-                .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BORDER_COLOR))
+                .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_EDGE_COLOR))
                 .edgeWidth(1)
                 .lineStyle(LineStyle.SOLID)
                 .sourceArrowStyle(ArrowStyle.FILL_DIAMOND)

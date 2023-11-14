@@ -10,8 +10,9 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.syson.diagram.general.view;
+package org.eclipse.syson.diagram.general.view.nodes;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.eclipse.emf.ecore.EClass;
@@ -19,17 +20,21 @@ import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder
 import org.eclipse.sirius.components.view.builder.generated.CreateInstanceBuilder;
 import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.DiagramBuilders;
+import org.eclipse.sirius.components.view.builder.generated.EdgeToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.NodeDescriptionBuilder;
 import org.eclipse.sirius.components.view.builder.generated.NodeToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.SetValueBuilder;
 import org.eclipse.sirius.components.view.builder.generated.ViewBuilders;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.builder.providers.INodeDescriptionProvider;
+import org.eclipse.sirius.components.view.diagram.EdgeTool;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodePalette;
 import org.eclipse.sirius.components.view.diagram.NodeStyleDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.SysmlPackage;
 
 /**
@@ -56,6 +61,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         return attributeNodeBuilder
                 .childrenDescriptions(this.createDefinitionAttributesCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("attributes")
                 .name(name + " AttributesCompartment")
@@ -70,6 +77,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createDefinitionAttributesCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + " AttributesCompartmentItem")
@@ -86,6 +95,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         return attributeNodeBuilder
                 .childrenDescriptions(this.createDefinitionPortsCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("ports")
                 .name(name + " PortsCompartment")
@@ -100,6 +111,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createDefinitionPortsCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + "PortsCompartmentItem")
@@ -116,6 +129,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         return attributeNodeBuilder
                 .childrenDescriptions(this.createDefinitionItemsCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("items")
                 .name(name + " ItemsCompartment")
@@ -130,6 +145,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createDefinitionItemsCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getItemUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + " ItemsCompartmentItem")
@@ -147,10 +164,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .borderRadius(0)
                 .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BACKGROUND_COLOR))
                 .displayHeaderSeparator(true)
-                .heightComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_CONTAINER_NODE_HEIGHT)
                 .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
                 .showIcon(true)
-                .widthComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_WIDTH)
                 .withHeader(true)
                 .build();
     }
@@ -161,11 +176,10 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .borderRadius(0)
                 .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_BACKGROUND_COLOR))
                 .displayHeaderSeparator(false)
-                .fontSize(12).heightComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .fontSize(12)
                 .italic(true)
                 .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
                 .showIcon(false)
-                .widthComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_WIDTH)
                 .withHeader(true)
                 .build();
     }
@@ -175,10 +189,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .borderColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BORDER_COLOR))
                 .borderRadius(0)
                 .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BACKGROUND_COLOR))
-                .heightComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
                 .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
                 .showIcon(true)
-                .widthComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_WIDTH)
                 .build();
     }
 
@@ -187,6 +199,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         return attributeNodeBuilder
                 .childrenDescriptions(this.createUsageAttributesCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("attributes")
                 .name(name + " AttributesCompartment")
@@ -201,6 +215,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createUsageAttributesCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + " AttributesCompartmentItem")
@@ -217,6 +233,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         return attributeNodeBuilder
                 .childrenDescriptions(this.createUsagePortsCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("ports")
                 .name(name + " PortsCompartment")
@@ -231,6 +249,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createUsagePortsCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + "PortsCompartmentItem")
@@ -248,10 +268,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .borderRadius(10)
                 .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BACKGROUND_COLOR))
                 .displayHeaderSeparator(true)
-                .heightComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_CONTAINER_NODE_HEIGHT)
                 .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
                 .showIcon(true)
-                .widthComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_WIDTH)
                 .withHeader(true)
                 .build();
     }
@@ -263,11 +281,9 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_BACKGROUND_COLOR))
                 .displayHeaderSeparator(false)
                 .fontSize(12)
-                .heightComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
                 .italic(true)
                 .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
                 .showIcon(false)
-                .widthComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_WIDTH)
                 .withHeader(true)
                 .build();
     }
@@ -277,10 +293,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .borderColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BORDER_COLOR))
                 .borderRadius(0)
                 .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BACKGROUND_COLOR))
-                .heightComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
                 .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
                 .showIcon(true)
-                .widthComputationExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_WIDTH)
                 .build();
     }
 
@@ -318,30 +332,25 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeTool createCompartmentNodeTool(EClass eClass, String defaultLabel) {
         NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
 
-        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue();
-        setValue
+        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression(defaultLabel);
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext();
-        changeContextNewInstance
+        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setValue.build());
 
-        CreateInstanceBuilder createInstance =  this.viewBuilderHelper.newCreateInstance();
-        createInstance
+        CreateInstanceBuilder createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
                 .referenceName("ownedRelatedElement")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        ChangeContextBuilder changeContextMembership = this.viewBuilderHelper.newChangeContext();
-        changeContextMembership
+        ChangeContextBuilder changeContextMembership = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newFeatureMembership")
                 .children(createInstance.build());
 
-        CreateInstanceBuilder createMembership =  this.viewBuilderHelper.newCreateInstance();
-        createMembership
+        CreateInstanceBuilder createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getFeatureMembership()))
                 .referenceName("ownedRelationship")
                 .variableName("newFeatureMembership")
@@ -350,6 +359,52 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         return builder
                 .name(eClass.getName())
                 .body(createMembership.build())
+                .build();
+    }
+
+    protected EdgeTool createDependencyEdgeTool(List<NodeDescription> targetElementDescriptions) {
+        EdgeToolBuilder builder = this.diagramBuilderHelper.newEdgeTool();
+
+        SetValueBuilder setName = this.viewBuilderHelper.newSetValue()
+                .featureName("declaredName")
+                .valueExpression("dependency");
+
+        SetValueBuilder setClient = this.viewBuilderHelper.newSetValue()
+                .featureName("client")
+                .valueExpression("aql:semanticEdgeSource");
+
+        SetValueBuilder setSupplier = this.viewBuilderHelper.newSetValue()
+                .featureName("supplier")
+                .valueExpression("aql:semanticEdgeTarget");
+
+        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:newInstance")
+                .children(setName.build(), setClient.build(), setSupplier.build());
+
+        CreateInstanceBuilder createInstance =  this.viewBuilderHelper.newCreateInstance()
+                .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getDependency()))
+                .referenceName("ownedRelatedElement")
+                .variableName("newInstance")
+                .children(changeContextNewInstance.build());
+
+        ChangeContextBuilder changeContextMembership = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:newOwningMembership")
+                .children(createInstance.build());
+
+        CreateInstanceBuilder createMembership =  this.viewBuilderHelper.newCreateInstance()
+                .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
+                .referenceName("ownedRelationship")
+                .variableName("newOwningMembership")
+                .children(changeContextMembership.build());
+
+        ChangeContextBuilder body =  this.viewBuilderHelper.newChangeContext()
+                .expression("aql:semanticEdgeSource.getContainerPackage()")
+                .children(createMembership.build());
+
+        return builder
+                .name(SysmlPackage.eINSTANCE.getDependency().getName())
+                .body(body.build())
+                .targetElementDescriptions(targetElementDescriptions.toArray(new NodeDescription[targetElementDescriptions.size()]))
                 .build();
     }
 }
