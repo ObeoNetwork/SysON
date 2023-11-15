@@ -15,12 +15,16 @@ package org.eclipse.syson.diagram.general.view.edges;
 import java.util.Objects;
 
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
+import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
+import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.DiagramBuilders;
+import org.eclipse.sirius.components.view.builder.generated.ViewBuilders;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.builder.providers.IEdgeDescriptionProvider;
 import org.eclipse.sirius.components.view.diagram.ArrowStyle;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeDescription;
+import org.eclipse.sirius.components.view.diagram.EdgePalette;
 import org.eclipse.sirius.components.view.diagram.EdgeStyle;
 import org.eclipse.sirius.components.view.diagram.LineStyle;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
@@ -50,7 +54,9 @@ public class DependencyEdgeDescriptionProvider implements IEdgeDescriptionProvid
 
     public static final String NAME = "GV Edge Dependency";
 
-    protected final DiagramBuilders diagramBuilderHelper = new DiagramBuilders();
+    private final ViewBuilders viewBuilderHelper = new ViewBuilders();
+
+    private final DiagramBuilders diagramBuilderHelper = new DiagramBuilders();
 
     private IColorProvider colorProvider;
 
@@ -66,6 +72,7 @@ public class DependencyEdgeDescriptionProvider implements IEdgeDescriptionProvid
                 .isDomainBasedEdge(true)
                 .labelExpression("aql:self.getDependencyEdgeLabel()")
                 .name(NAME)
+                .palette(this.createEdgePalette())
                 .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
                 .sourceNodesExpression("aql:self.client")
                 .style(this.createEdgeStyle())
@@ -152,5 +159,14 @@ public class DependencyEdgeDescriptionProvider implements IEdgeDescriptionProvid
                 .sourceArrowStyle(ArrowStyle.NONE)
                 .targetArrowStyle(ArrowStyle.INPUT_ARROW)
                 .build();
+    }
+
+    protected EdgePalette createEdgePalette() {
+        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext();
+        changeContext.expression("aql:self.deleteFromModel()");
+
+        DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool().name("Delete from Model").body(changeContext.build());
+
+        return this.diagramBuilderHelper.newEdgePalette().deleteTool(deleteTool.build()).build();
     }
 }

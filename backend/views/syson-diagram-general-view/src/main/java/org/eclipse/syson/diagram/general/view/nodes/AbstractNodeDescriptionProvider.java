@@ -77,7 +77,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createDefinitionAttributesCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
-                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
@@ -111,7 +111,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createDefinitionPortsCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
-                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
@@ -145,7 +145,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createDefinitionItemsCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
-                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getItemUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
@@ -215,7 +215,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createUsageAttributesCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
-                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
@@ -249,7 +249,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     protected NodeDescription createUsagePortsCompartmentItem(String name) {
         NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
         return attributeNodeBuilder
-                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
+                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
@@ -299,8 +299,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodePalette createDefaultNodePalette() {
-        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext();
-        changeContext.expression("aql:self.deleteWithMembership()");
+        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:self.deleteFromModel()");
 
         DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")

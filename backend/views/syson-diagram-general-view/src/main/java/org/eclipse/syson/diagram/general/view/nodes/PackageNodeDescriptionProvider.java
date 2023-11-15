@@ -17,6 +17,7 @@ import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
 import org.eclipse.sirius.components.view.builder.generated.CreateInstanceBuilder;
 import org.eclipse.sirius.components.view.builder.generated.CreateViewBuilder;
+import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.FreeFormLayoutStrategyDescriptionBuilder;
 import org.eclipse.sirius.components.view.builder.generated.NodeToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.SetValueBuilder;
@@ -25,6 +26,7 @@ import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.NodeContainmentKind;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodePalette;
+import org.eclipse.sirius.components.view.diagram.NodeStyleDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.sirius.components.view.diagram.NodeToolSection;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
@@ -50,13 +52,13 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
         String domainType = SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPackage());
         return this.diagramBuilderHelper.newNodeDescription()
                 .childrenLayoutStrategy(new FreeFormLayoutStrategyDescriptionBuilder().build())
-                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_CONTAINER_NODE_HEIGHT)
-                .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
+                .defaultHeightExpression("300")
+                .defaultWidthExpression("300")
                 .domainType(domainType)
                 .labelExpression("aql:self.getContainerLabel()")
                 .name(NAME)
                 .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
-                .style(this.createDefinitionNodeStyle())
+                .style(this.createPackageNodeStyle())
                 .userResizable(true)
                 .synchronizationPolicy(SynchronizationPolicy.UNSYNCHRONIZED)
                 .build();
@@ -66,6 +68,14 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
     public void link(DiagramDescription diagramDescription, IViewDiagramElementFinder cache) {
         NodeDescription packageNodeDescription = cache.getNodeDescription(NAME).get();
         diagramDescription.getNodeDescriptions().add(packageNodeDescription);
+        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME).get());
+        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(AttributeUsageNodeDescriptionProvider.NAME).get());
+        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(EnumerationDefinitionNodeDescriptionProvider.NAME).get());
+        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(InterfaceDefinitionNodeDescriptionProvider.NAME).get());
+        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(InterfaceUsageNodeDescriptionProvider.NAME).get());
+        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(ItemDefinitionNodeDescriptionProvider.NAME).get());
+        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME).get());
+        packageNodeDescription.getReusedChildNodeDescriptions().add(packageNodeDescription);
         packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME).get());
         packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME).get());
         packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME).get());
@@ -73,9 +83,29 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
         packageNodeDescription.setPalette(this.createNodePalette(cache));
     }
 
+    protected NodeStyleDescription createPackageNodeStyle() {
+        return this.diagramBuilderHelper.newRectangularNodeStyleDescription()
+                .borderColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BORDER_COLOR))
+                .borderRadius(0)
+                .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BACKGROUND_COLOR))
+                .displayHeaderSeparator(false)
+                .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
+                .showIcon(true)
+                .withHeader(true)
+                .build();
+    }
+
     private NodePalette createNodePalette(IViewDiagramElementFinder cache) {
+        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:self.deleteFromModel()");
+
+        DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool()
+                .name("Delete from Model")
+                .body(changeContext.build());
+
         return this.diagramBuilderHelper.newNodePalette()
-                .toolSections(this.createNodeToolSection(cache))
+                .deleteTool(deleteTool.build())
+                .toolSections(this.createNodeToolSection(cache), this.addElementsToolSection(cache))
                 .build();
     }
 
@@ -100,46 +130,59 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
     private NodeTool createNodeTool(NodeDescription nodeDescription, EClass eClass) {
         NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
 
-        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue();
-        setValue
-            .featureName("declaredName")
+        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue()
+                .featureName("declaredName")
                 .valueExpression(eClass.getName());
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext();
-        changeContextNewInstance
-            .expression("aql:newInstance")
-            .children(setValue.build());
+        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:newInstance")
+                .children(setValue.build());
 
-        CreateInstanceBuilder createEClassInstance =  this.viewBuilderHelper.newCreateInstance();
-        createEClassInstance
-            .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
-            .referenceName("ownedRelatedElement")
-            .variableName("newInstance")
-            .children(changeContextNewInstance.build());
+        CreateInstanceBuilder createEClassInstance =  this.viewBuilderHelper.newCreateInstance()
+                .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
+                .referenceName("ownedRelatedElement")
+                .variableName("newInstance")
+                .children(changeContextNewInstance.build());
 
-        CreateViewBuilder createView = this.diagramBuilderHelper.newCreateView();
-        createView
-            .containmentKind(NodeContainmentKind.CHILD_NODE)
-            .elementDescription(nodeDescription)
-            .parentViewExpression("aql:selectedNode")
-            .semanticElementExpression("aql:newInstance")
-            .variableName("newInstanceView");
+        CreateViewBuilder createView = this.diagramBuilderHelper.newCreateView()
+                .containmentKind(NodeContainmentKind.CHILD_NODE)
+                .elementDescription(nodeDescription)
+                .parentViewExpression("aql:selectedNode")
+                .semanticElementExpression("aql:newInstance")
+                .variableName("newInstanceView");
 
-        ChangeContextBuilder changeContexMembership = this.viewBuilderHelper.newChangeContext();
-        changeContexMembership
-            .expression("aql:newOwningMembership")
-            .children(createEClassInstance.build(), createView.build());
+        ChangeContextBuilder changeContexMembership = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:newOwningMembership")
+                .children(createEClassInstance.build(), createView.build());
 
-        CreateInstanceBuilder createMembership =  this.viewBuilderHelper.newCreateInstance();
-        createMembership
-            .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
-            .referenceName("ownedRelationship")
-            .variableName("newOwningMembership")
-            .children(changeContexMembership.build());
+        CreateInstanceBuilder createMembership =  this.viewBuilderHelper.newCreateInstance()
+                .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
+                .referenceName("ownedRelationship")
+                .variableName("newOwningMembership")
+                .children(changeContexMembership.build());
 
         return builder
                 .name(eClass.getName())
                 .body(createMembership.build())
+                .build();
+    }
+
+    private NodeToolSection addElementsToolSection(IViewDiagramElementFinder cache) {
+        return this.diagramBuilderHelper.newNodeToolSection()
+                .name("Add")
+                .nodeTools(this.addExistingElementsTool())
+                .build();
+    }
+
+    private NodeTool addExistingElementsTool() {
+        NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
+
+        ChangeContextBuilder addExistingelements = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:self.addExistingElements(diagramContext, selectedNode, convertedNodes)");
+
+        return builder
+                .name("Add existing elements")
+                .body(addExistingelements.build())
                 .build();
     }
 }

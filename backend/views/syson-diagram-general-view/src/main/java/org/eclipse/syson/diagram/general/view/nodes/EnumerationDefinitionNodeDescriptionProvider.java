@@ -16,6 +16,7 @@ import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
+import org.eclipse.sirius.components.view.diagram.NodeStyleDescription;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
@@ -38,7 +39,7 @@ public class EnumerationDefinitionNodeDescriptionProvider extends AbstractNodeDe
     public NodeDescription create() {
         String domainType = SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getEnumerationDefinition());
         return this.diagramBuilderHelper.newNodeDescription()
-                .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_CONTAINER_NODE_HEIGHT)
+                .defaultHeightExpression("60")
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(domainType)
                 .labelExpression("aql:self.getContainerLabel()")
@@ -54,5 +55,18 @@ public class EnumerationDefinitionNodeDescriptionProvider extends AbstractNodeDe
     @Override
     public void link(DiagramDescription diagramDescription, IViewDiagramElementFinder cache) {
         diagramDescription.getNodeDescriptions().add(cache.getNodeDescription(NAME).get());
+    }
+
+    @Override
+    protected NodeStyleDescription createDefinitionNodeStyle() {
+        return this.diagramBuilderHelper.newRectangularNodeStyleDescription()
+                .borderColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BORDER_COLOR))
+                .borderRadius(0)
+                .color(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_BACKGROUND_COLOR))
+                .displayHeaderSeparator(false)
+                .labelColor(this.colorProvider.getColor(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_COLOR))
+                .showIcon(true)
+                .withHeader(false)
+                .build();
     }
 }

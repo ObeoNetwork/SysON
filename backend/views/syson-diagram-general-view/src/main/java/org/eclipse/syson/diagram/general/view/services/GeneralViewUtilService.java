@@ -10,7 +10,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.syson.diagram.general.view;
+package org.eclipse.syson.diagram.general.view.services;
 
 import java.util.List;
 import java.util.Spliterator;
@@ -25,44 +25,17 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.syson.diagram.general.view.services.ContainerLabelSwitch;
-import org.eclipse.syson.sysml.Dependency;
+import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.Element;
-import org.eclipse.syson.sysml.FeatureMembership;
-import org.eclipse.syson.sysml.Membership;
 import org.eclipse.syson.sysml.Package;
-import org.eclipse.syson.sysml.PartUsage;
-import org.eclipse.syson.sysml.SysmlFactory;
 
 /**
- * List of all Java services used by the {@link GeneralViewDiagramDescriptionProvider}.
+ * Miscellaneous Java services used by the {@link GeneralViewDiagramDescriptionProvider}.
  *
  * @author arichard
  */
-public class GeneralViewService {
-
-    /**
-     * Return the container label for the given {@link Element}.
-     *
-     * @param element
-     *            the given {@link Element}.
-     * @return the container label for the given {@link Element}.
-     */
-    public String getContainerLabel(Element element) {
-        return new ContainerLabelSwitch().doSwitch(element);
-    }
-
-    /**
-     * Return the edge label for the given {@link Dependency}.
-     *
-     * @param dependency
-     *            the given {@link Dependency}.
-     * @return the edge label for the given {@link Dependency}.
-     */
-    public String getDependencyEdgeLabel(Dependency dependency) {
-        return LabelConstants.OPEN_QUOTE + "dependency" + LabelConstants.CLOSE_QUOTE + LabelConstants.CR + dependency.getDeclaredName();
-    }
+public class GeneralViewUtilService {
 
     /**
      * Return the {@link Package} containing the given {@link EObject}.
@@ -79,38 +52,6 @@ public class GeneralViewService {
             return this.getContainerPackage(element.eContainer());
         }
         return pack;
-    }
-
-    /**
-     * Delete the given {@link Element} and its container if it's a {@link Membership}.
-     *
-     * @param element
-     *            the {@link Element} to delete.
-     * @return the deleted element.
-     */
-    public EObject deleteWithMembership(Element element) {
-        Element elementToDelete = element;
-        if (element.eContainer() instanceof Membership membership) {
-            elementToDelete = membership;
-        }
-        EcoreUtil.remove(elementToDelete);
-        return element;
-    }
-
-    /**
-     * Create a {@link PartUsage} under the given {@link PartUsage}.
-     *
-     * @param partUsage
-     *            the {@link PartUsage} on which we want to create a nested {@link PartUsage}.
-     * @return the created element.
-     */
-    public PartUsage createNestedPartUsage(PartUsage partUsage) {
-        PartUsage newPartUsage = SysmlFactory.eINSTANCE.createPartUsage();
-        newPartUsage.setDeclaredName("part");
-        FeatureMembership membership = SysmlFactory.eINSTANCE.createFeatureMembership();
-        membership.getOwnedRelatedElement().add(newPartUsage);
-        partUsage.getOwnedRelationship().add(membership);
-        return newPartUsage;
     }
 
     /**

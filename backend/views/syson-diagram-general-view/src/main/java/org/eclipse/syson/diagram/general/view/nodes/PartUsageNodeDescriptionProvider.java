@@ -129,7 +129,7 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
 
         ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext();
         changeContext
-                .expression("aql:self.deleteWithMembership()");
+                .expression("aql:self.deleteFromModel()");
 
         DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")

@@ -57,11 +57,13 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
 
     public static final String DEFAULT_LABEL_EXPRESSION = "aql:self.declaredName";
 
-    public static final String DEFAULT_NODE_WIDTH = "100";
+    public static final String DEFAULT_NODE_WIDTH = "125";
 
-    public static final String DEFAULT_COMPARTMENT_NODE_HEIGHT = "50";
+    public static final String DEFAULT_COMPARTMENT_NODE_HEIGHT = "60";
 
-    public static final String DEFAULT_CONTAINER_NODE_HEIGHT = "150";
+    public static final String DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT = "15";
+
+    public static final String DEFAULT_CONTAINER_NODE_HEIGHT = "60";
 
     public static final String DEFAULT_BACKGROUND_COLOR = "white";
 
@@ -121,11 +123,11 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
 
     private DiagramPalette createDiagramPalette(IViewDiagramElementFinder cache) {
         return this.diagramBuilderHelper.newDiagramPalette()
-                .toolSections(this.createDiagramToolSection(cache))
+                .toolSections(this.createElementsToolSection(cache), this.addElementsToolSection(cache))
                 .build();
     }
 
-    private DiagramToolSection createDiagramToolSection(IViewDiagramElementFinder cache) {
+    private DiagramToolSection createElementsToolSection(IViewDiagramElementFinder cache) {
         return this.diagramBuilderHelper.newDiagramToolSection()
                 .name("Create")
                 .nodeTools(this.createNodeToolFromPackage(cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME).get(), SysmlPackage.eINSTANCE.getAttributeDefinition()),
@@ -178,8 +180,27 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
                 .children(changeContexMembership.build());
 
         return builder
-                .name(eClass.getName())
+                .name("New  " + eClass.getName())
                 .body(createMembership.build())
+                .build();
+    }
+
+    private DiagramToolSection addElementsToolSection(IViewDiagramElementFinder cache) {
+        return this.diagramBuilderHelper.newDiagramToolSection()
+                .name("Add")
+                .nodeTools(this.addExistingElementsTool())
+                .build();
+    }
+
+    private NodeTool addExistingElementsTool() {
+        NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
+
+        ChangeContextBuilder addExistingelements = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:self.addExistingElements(diagramContext, selectedNode, convertedNodes)");
+
+        return builder
+                .name("Add existing elements")
+                .body(addExistingelements.build())
                 .build();
     }
 }

@@ -16,11 +16,17 @@ import java.util.List;
 
 import org.eclipse.sirius.components.view.View;
 import org.eclipse.sirius.components.view.emf.IJavaServiceProvider;
+import org.eclipse.syson.diagram.general.view.services.GeneralViewCreateService;
+import org.eclipse.syson.diagram.general.view.services.GeneralViewDeleteService;
+import org.eclipse.syson.diagram.general.view.services.GeneralViewEditService;
+import org.eclipse.syson.diagram.general.view.services.GeneralViewLabelService;
+import org.eclipse.syson.diagram.general.view.services.GeneralViewToolService;
+import org.eclipse.syson.diagram.general.view.services.GeneralViewUtilService;
 import org.springframework.context.annotation.Configuration;
 
 /**
  * List of all Java services classes used by the {@link GeneralViewDiagramDescriptionProvider}.
- * 
+ *
  * @author arichard
  */
 @Configuration
@@ -28,6 +34,7 @@ public class GeneralViewJavaServiceProvider implements IJavaServiceProvider {
 
     @Override
     public List<Class<?>> getServiceClasses(View view) {
-        return List.of(GeneralViewService.class);
+        return List.of(GeneralViewCreateService.class, GeneralViewDeleteService.class, GeneralViewEditService.class, GeneralViewLabelService.class, GeneralViewToolService.class,
+                GeneralViewUtilService.class);
     }
 }

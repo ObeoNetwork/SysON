@@ -24,7 +24,7 @@ import org.eclipse.syson.sysml.SysmlPackage;
 
 /**
  * Used to create the interface definition node description.
- * 
+ *
  * @author arichard
  */
 public class InterfaceDefinitionNodeDescriptionProvider extends AbstractNodeDescriptionProvider {

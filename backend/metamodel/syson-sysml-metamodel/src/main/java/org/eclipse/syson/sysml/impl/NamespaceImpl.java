@@ -83,8 +83,8 @@ public class NamespaceImpl extends ElementImpl implements Namespace {
      */
     @Override
     public EList<Element> getMember() {
-        List<Element> data = new ArrayList<>();
-        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getNamespace_Member(), data.size(), data.toArray());
+        List<Element> members = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getNamespace_Member(), members.size(), members.toArray());
     }
 
     /**
@@ -116,8 +116,13 @@ public class NamespaceImpl extends ElementImpl implements Namespace {
      */
     @Override
     public EList<Element> getOwnedMember() {
-        List<Element> data = new ArrayList<>();
-        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getNamespace_OwnedMember(), data.size(), data.toArray());
+        List<Element> ownedMembers = new ArrayList<>();
+        this.getOwnedRelationship().stream()
+            .filter(Membership.class::isInstance)
+            .map(Membership.class::cast)
+            .flatMap(m -> m.getOwnedRelatedElement().stream())
+            .forEach(ownedMembers::add);
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getNamespace_OwnedMember(), ownedMembers.size(), ownedMembers.toArray());
     }
 
     /**
@@ -260,17 +265,17 @@ public class NamespaceImpl extends ElementImpl implements Namespace {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.NAMESPACE__IMPORTED_MEMBERSHIP:
-                return getImportedMembership();
+                return this.getImportedMembership();
             case SysmlPackage.NAMESPACE__MEMBER:
-                return getMember();
+                return this.getMember();
             case SysmlPackage.NAMESPACE__MEMBERSHIP:
-                return getMembership();
+                return this.getMembership();
             case SysmlPackage.NAMESPACE__OWNED_IMPORT:
-                return getOwnedImport();
+                return this.getOwnedImport();
             case SysmlPackage.NAMESPACE__OWNED_MEMBER:
-                return getOwnedMember();
+                return this.getOwnedMember();
             case SysmlPackage.NAMESPACE__OWNED_MEMBERSHIP:
-                return getOwnedMembership();
+                return this.getOwnedMembership();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -284,17 +289,17 @@ public class NamespaceImpl extends ElementImpl implements Namespace {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.NAMESPACE__IMPORTED_MEMBERSHIP:
-                return !getImportedMembership().isEmpty();
+                return !this.getImportedMembership().isEmpty();
             case SysmlPackage.NAMESPACE__MEMBER:
-                return !getMember().isEmpty();
+                return !this.getMember().isEmpty();
             case SysmlPackage.NAMESPACE__MEMBERSHIP:
-                return !getMembership().isEmpty();
+                return !this.getMembership().isEmpty();
             case SysmlPackage.NAMESPACE__OWNED_IMPORT:
-                return !getOwnedImport().isEmpty();
+                return !this.getOwnedImport().isEmpty();
             case SysmlPackage.NAMESPACE__OWNED_MEMBER:
-                return !getOwnedMember().isEmpty();
+                return !this.getOwnedMember().isEmpty();
             case SysmlPackage.NAMESPACE__OWNED_MEMBERSHIP:
-                return !getOwnedMembership().isEmpty();
+                return !this.getOwnedMembership().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -309,25 +314,25 @@ public class NamespaceImpl extends ElementImpl implements Namespace {
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.NAMESPACE___IMPORTED_MEMBERSHIPS__ELIST:
-                return importedMemberships((EList<Namespace>)arguments.get(0));
+                return this.importedMemberships((EList<Namespace>)arguments.get(0));
             case SysmlPackage.NAMESPACE___NAMES_OF__ELEMENT:
-                return namesOf((Element)arguments.get(0));
+                return this.namesOf((Element)arguments.get(0));
             case SysmlPackage.NAMESPACE___QUALIFICATION_OF__STRING:
-                return qualificationOf((String)arguments.get(0));
+                return this.qualificationOf((String)arguments.get(0));
             case SysmlPackage.NAMESPACE___RESOLVE__STRING:
-                return resolve((String)arguments.get(0));
+                return this.resolve((String)arguments.get(0));
             case SysmlPackage.NAMESPACE___RESOLVE_GLOBAL__STRING:
-                return resolveGlobal((String)arguments.get(0));
+                return this.resolveGlobal((String)arguments.get(0));
             case SysmlPackage.NAMESPACE___RESOLVE_LOCAL__STRING:
-                return resolveLocal((String)arguments.get(0));
+                return this.resolveLocal((String)arguments.get(0));
             case SysmlPackage.NAMESPACE___RESOLVE_VISIBLE__STRING:
-                return resolveVisible((String)arguments.get(0));
+                return this.resolveVisible((String)arguments.get(0));
             case SysmlPackage.NAMESPACE___UNQUALIFIED_NAME_OF__STRING:
-                return unqualifiedNameOf((String)arguments.get(0));
+                return this.unqualifiedNameOf((String)arguments.get(0));
             case SysmlPackage.NAMESPACE___VISIBILITY_OF__MEMBERSHIP:
-                return visibilityOf((Membership)arguments.get(0));
+                return this.visibilityOf((Membership)arguments.get(0));
             case SysmlPackage.NAMESPACE___VISIBLE_MEMBERSHIPS__ELIST_BOOLEAN_BOOLEAN:
-                return visibleMemberships((EList<Namespace>)arguments.get(0), (Boolean)arguments.get(1), (Boolean)arguments.get(2));
+                return this.visibleMemberships((EList<Namespace>)arguments.get(0), (Boolean)arguments.get(1), (Boolean)arguments.get(2));
         }
         return super.eInvoke(operationID, arguments);
     }
