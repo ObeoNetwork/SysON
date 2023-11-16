@@ -12,12 +12,8 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.edges;
 
-import java.util.Objects;
-
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
-import org.eclipse.sirius.components.view.builder.generated.DiagramBuilders;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
-import org.eclipse.sirius.components.view.builder.providers.IEdgeDescriptionProvider;
 import org.eclipse.sirius.components.view.diagram.ArrowStyle;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeDescription;
@@ -34,16 +30,12 @@ import org.eclipse.syson.sysml.SysmlPackage;
  *
  * @author arichard
  */
-public class NestedPartEdgeDescriptionProvider implements IEdgeDescriptionProvider {
+public class NestedPartEdgeDescriptionProvider extends AbstractEdgeDescriptionProvider {
 
     public static final String NAME = "GV Edge Nested Part Usage";
 
-    protected final DiagramBuilders diagramBuilderHelper = new DiagramBuilders();
-
-    private IColorProvider colorProvider;
-
     public NestedPartEdgeDescriptionProvider(IColorProvider colorProvider) {
-        this.colorProvider = Objects.requireNonNull(colorProvider);
+        super(colorProvider);
     }
 
     @Override
@@ -57,7 +49,7 @@ public class NestedPartEdgeDescriptionProvider implements IEdgeDescriptionProvid
                 .sourceNodesExpression("aql:self")
                 .style(this.createEdgeStyle())
                 .synchronizationPolicy(SynchronizationPolicy.SYNCHRONIZED)
-                .targetNodesExpression("aql:self.nestedPart")
+                .targetNodesExpression("aql:self." + SysmlPackage.eINSTANCE.getUsage_NestedPart().getName())
                 .build();
     }
 

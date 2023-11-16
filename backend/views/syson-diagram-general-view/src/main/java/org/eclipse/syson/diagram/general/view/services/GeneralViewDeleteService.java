@@ -12,10 +12,8 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.services;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
@@ -27,7 +25,6 @@ import org.eclipse.syson.sysml.Dependency;
 import org.eclipse.syson.sysml.Element;
 import org.eclipse.syson.sysml.Membership;
 import org.eclipse.syson.sysml.Relationship;
-import org.eclipse.syson.sysml.SysmlPackage;
 
 /**
  * Deletion-related Java services used by the {@link GeneralViewDiagramDescriptionProvider}.
@@ -55,25 +52,16 @@ public class GeneralViewDeleteService {
         return element;
     }
 
-    private List<EObject> collectRelatedElements(Element element) {
-        List<EObject> relatedElements = new ArrayList<>();
+    private Set<EObject> collectRelatedElements(Element element) {
+        Set<EObject> relatedElements = new HashSet<>();
         var optAdapter = element.eAdapters().stream().filter(EditingContextCrossReferenceAdapter.class::isInstance).map(EditingContextCrossReferenceAdapter.class::cast).findFirst();
         if (optAdapter.isPresent()) {
             EditingContextCrossReferenceAdapter referenceAdapter = optAdapter.get();
             Collection<Setting> inverseReferences = referenceAdapter.getInverseReferences(element);
             for (Setting setting : inverseReferences) {
                 EObject relatedElement = setting.getEObject();
-                if (SysmlPackage.eINSTANCE.getDependency_Client().equals(setting.getEStructuralFeature())) {
-                    relatedElements.add(relatedElement);
-                    if (relatedElement.eContainer() instanceof Membership membership) {
-                        relatedElements.add(membership);
-                    }
-                } else if (SysmlPackage.eINSTANCE.getDependency_Supplier().equals(setting.getEStructuralFeature())) {
-                    relatedElements.add(relatedElement);
-                    if (relatedElement.eContainer() instanceof Membership membership) {
-                        relatedElements.add(membership);
-                    }
-                }
+                Set<EObject> collectedElements = new RelatedElementsSwitch(setting.getEStructuralFeature()).doSwitch(relatedElement);
+                relatedElements.addAll(collectedElements);
             }
         }
         return relatedElements;

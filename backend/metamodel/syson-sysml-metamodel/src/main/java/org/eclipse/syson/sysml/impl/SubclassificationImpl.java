@@ -89,13 +89,10 @@ public class SubclassificationImpl extends SpecializationImpl implements Subclas
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     public Classifier basicGetOwningClassifier() {
-        // TODO: implement this method to return the 'Owning Classifier' reference
-        // -> do not perform proxy resolution
-        // Ensure that you remove @generated or mark it @generated NOT
-        return null;
+        return getSubclassifier();
     }
 
     /**

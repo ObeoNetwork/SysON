@@ -13,13 +13,11 @@
 package org.eclipse.syson.diagram.general.view;
 
 /**
- * Label-related constants.
+ * AQL-related constants.
  *
  * @author arichard
  */
-public class LabelConstants {
+public class AQLConstants {
 
-    public static final String CR = "\n";
-    public static final String CLOSE_QUOTE = "\u00BB";
-    public static final String OPEN_QUOTE = "\u00AB";
+    public static final String AQL = "aql:";
 }

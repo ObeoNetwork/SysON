@@ -12,6 +12,9 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.nodes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
@@ -66,21 +69,51 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
 
     @Override
     public void link(DiagramDescription diagramDescription, IViewDiagramElementFinder cache) {
-        NodeDescription packageNodeDescription = cache.getNodeDescription(NAME).get();
-        diagramDescription.getNodeDescriptions().add(packageNodeDescription);
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(AttributeUsageNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(EnumerationDefinitionNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(InterfaceDefinitionNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(InterfaceUsageNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(ItemDefinitionNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(packageNodeDescription);
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.getReusedChildNodeDescriptions().add(cache.getNodeDescription(PortUsageNodeDescriptionProvider.NAME).get());
-        packageNodeDescription.setPalette(this.createNodePalette(cache));
+        var dependencyTargetNodeDescriptions = new ArrayList<NodeDescription>();
+
+        var optAttributeDefinitionNodeDescription = cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME);
+        var optAttributeUsageNodeDescription = cache.getNodeDescription(AttributeUsageNodeDescriptionProvider.NAME);
+        var optEnumerationDefinitionNodeDescription = cache.getNodeDescription(EnumerationDefinitionNodeDescriptionProvider.NAME);
+        var optInterfaceDefinitionNodeDescription = cache.getNodeDescription(InterfaceDefinitionNodeDescriptionProvider.NAME);
+        var optInterfaceUsageNodeDescription = cache.getNodeDescription(InterfaceUsageNodeDescriptionProvider.NAME);
+        var optItemDefinitionNodeDescription = cache.getNodeDescription(ItemDefinitionNodeDescriptionProvider.NAME);
+        var optItemUsageNodeDescription = cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME);
+        var optPackageNodeDescription = cache.getNodeDescription(PackageNodeDescriptionProvider.NAME);
+        var optPartDefinitionNodeDescription = cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME);
+        var optPartUsageNodeDescription = cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME);
+        var optPortDefinitionNodeDescription = cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME);
+        var optPortUsageNodeDescription = cache.getNodeDescription(PortUsageNodeDescriptionProvider.NAME);
+
+        dependencyTargetNodeDescriptions.add(optAttributeDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optAttributeUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optEnumerationDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optInterfaceDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optInterfaceUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optItemDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optItemUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPackageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPartDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPartUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPortDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPortUsageNodeDescription.get());
+
+        if (optPartUsageNodeDescription.isPresent()) {
+            NodeDescription packageNodeDescription = optPackageNodeDescription.get();
+            diagramDescription.getNodeDescriptions().add(packageNodeDescription);
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optAttributeDefinitionNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optAttributeUsageNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optEnumerationDefinitionNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optInterfaceDefinitionNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optInterfaceUsageNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optItemDefinitionNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optItemUsageNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(packageNodeDescription);
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optPartDefinitionNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optPartUsageNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optPortDefinitionNodeDescription.get());
+            packageNodeDescription.getReusedChildNodeDescriptions().add(optPortUsageNodeDescription.get());
+            packageNodeDescription.setPalette(this.createNodePalette(packageNodeDescription, cache, dependencyTargetNodeDescriptions));
+        }
     }
 
     protected NodeStyleDescription createPackageNodeStyle() {
@@ -95,7 +128,7 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
                 .build();
     }
 
-    private NodePalette createNodePalette(IViewDiagramElementFinder cache) {
+    private NodePalette createNodePalette(NodeDescription nodeDescription, IViewDiagramElementFinder cache, List<NodeDescription> allNodeDescriptions) {
         ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:self.deleteFromModel()");
 
@@ -106,6 +139,7 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
         return this.diagramBuilderHelper.newNodePalette()
                 .deleteTool(deleteTool.build())
                 .toolSections(this.createNodeToolSection(cache), this.addElementsToolSection(cache))
+                .edgeTools(this.createDependencyEdgeTool(allNodeDescriptions))
                 .build();
     }
 

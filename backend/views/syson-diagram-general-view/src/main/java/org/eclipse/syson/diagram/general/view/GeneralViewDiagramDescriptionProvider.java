@@ -34,6 +34,8 @@ import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.syson.diagram.general.view.edges.DependencyEdgeDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.edges.NestedPartEdgeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.edges.RedefinitionEdgeDescriptionProvider;
+import org.eclipse.syson.diagram.general.view.edges.SubclassificationEdgeDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.nodes.AttributeDefinitionNodeDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.nodes.AttributeUsageNodeDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.nodes.EnumerationDefinitionNodeDescriptionProvider;
@@ -107,7 +109,9 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
                 new PortDefinitionNodeDescriptionProvider(colorProvider),
                 new PortUsageNodeDescriptionProvider(colorProvider),
                 new NestedPartEdgeDescriptionProvider(colorProvider),
-                new DependencyEdgeDescriptionProvider(colorProvider)
+                new DependencyEdgeDescriptionProvider(colorProvider),
+                new SubclassificationEdgeDescriptionProvider(colorProvider),
+                new RedefinitionEdgeDescriptionProvider(colorProvider)
         );
 
         diagramElementDescriptionProviders.stream().

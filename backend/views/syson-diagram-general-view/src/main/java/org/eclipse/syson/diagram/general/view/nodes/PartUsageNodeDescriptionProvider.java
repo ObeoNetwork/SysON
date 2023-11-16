@@ -78,53 +78,31 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
         var optItemUsageNodeDescription = cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME);
         var optPackageNodeDescription = cache.getNodeDescription(PackageNodeDescriptionProvider.NAME);
         var optPartDefinitionNodeDescription = cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME);
+        var optPartUsageNodeDescription = cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME);
         var optPortDefinitionNodeDescription = cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME);
         var optPortUsageNodeDescription = cache.getNodeDescription(PortUsageNodeDescriptionProvider.NAME);
 
-        if (optAttributeDefinitionNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optAttributeDefinitionNodeDescription.get());
-        }
-        if (optAttributeUsageNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optAttributeUsageNodeDescription.get());
-        }
-        if (optEnumerationDefinitionNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optEnumerationDefinitionNodeDescription.get());
-        }
-        if (optInterfaceDefinitionNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optInterfaceDefinitionNodeDescription.get());
-        }
-        if (optInterfaceUsageNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optInterfaceUsageNodeDescription.get());
-        }
-        if (optItemDefinitionNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optItemDefinitionNodeDescription.get());
-        }
-        if (optItemUsageNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optItemUsageNodeDescription.get());
-        }
-        if (optPackageNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optPackageNodeDescription.get());
-        }
-        if (optPartDefinitionNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optPartDefinitionNodeDescription.get());
-        }
-        if (optPortDefinitionNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optPortDefinitionNodeDescription.get());
-        }
-        if (optPortUsageNodeDescription.isPresent()) {
-            dependencyTargetNodeDescriptions.add(optPortUsageNodeDescription.get());
-        }
+        dependencyTargetNodeDescriptions.add(optAttributeDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optAttributeUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optEnumerationDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optInterfaceDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optInterfaceUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optItemDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optItemUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPackageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPartDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPartUsageNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPortDefinitionNodeDescription.get());
+        dependencyTargetNodeDescriptions.add(optPortUsageNodeDescription.get());
 
-        var optPartUsageNodeDescription = cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME);
         if (optPartUsageNodeDescription.isPresent()) {
             NodeDescription nodeDescription = optPartUsageNodeDescription.get();
             diagramDescription.getNodeDescriptions().add(nodeDescription);
-            dependencyTargetNodeDescriptions.add(nodeDescription);
-            nodeDescription.setPalette(this.createPartUsagePalette(nodeDescription, dependencyTargetNodeDescriptions));
+            nodeDescription.setPalette(this.createNodePalette(nodeDescription, dependencyTargetNodeDescriptions));
         }
     }
 
-    private NodePalette createPartUsagePalette(NodeDescription nodeDescription, List<NodeDescription> dependencyTargetNodeDescriptions) {
+    private NodePalette createNodePalette(NodeDescription nodeDescription, List<NodeDescription> allNodeDescriptions) {
         NodeToolBuilder nodeTool = this.createNestedPartNodeTool(nodeDescription);
 
         ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext();
@@ -138,7 +116,8 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
         return this.diagramBuilderHelper.newNodePalette()
                 .deleteTool(deleteTool.build())
                 .nodeTools(nodeTool.build())
-                .edgeTools(this.createDependencyEdgeTool(dependencyTargetNodeDescriptions))
+                .edgeTools(this.createDependencyEdgeTool(allNodeDescriptions),
+                        this.createRedefinitionEdgeTool(allNodeDescriptions.stream().filter(nodeDesc -> NAME.equals(nodeDesc.getName())).toList()))
                 .build();
     }
 

@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.sirius.components.diagrams.description.EdgeDescription;
 import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
 import org.eclipse.sirius.components.view.builder.generated.CreateInstanceBuilder;
 import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
@@ -33,6 +34,7 @@ import org.eclipse.sirius.components.view.diagram.NodePalette;
 import org.eclipse.sirius.components.view.diagram.NodeStyleDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.syson.diagram.general.view.AQLConstants;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.SysmlPackage;
@@ -371,11 +373,11 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         SetValueBuilder setClient = this.viewBuilderHelper.newSetValue()
                 .featureName("client")
-                .valueExpression("aql:semanticEdgeSource");
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
 
         SetValueBuilder setSupplier = this.viewBuilderHelper.newSetValue()
                 .featureName("supplier")
-                .valueExpression("aql:semanticEdgeTarget");
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
 
         ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
@@ -398,11 +400,108 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .children(changeContextMembership.build());
 
         ChangeContextBuilder body =  this.viewBuilderHelper.newChangeContext()
-                .expression("aql:semanticEdgeSource.getContainerPackage()")
+                .expression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE + ".getContainerPackage()")
                 .children(createMembership.build());
 
         return builder
-                .name(SysmlPackage.eINSTANCE.getDependency().getName())
+                .name("New " + SysmlPackage.eINSTANCE.getDependency().getName())
+                .body(body.build())
+                .targetElementDescriptions(targetElementDescriptions.toArray(new NodeDescription[targetElementDescriptions.size()]))
+                .build();
+    }
+
+    protected EdgeTool createSubclassificationEdgeTool(List<NodeDescription> targetElementDescriptions) {
+        EdgeToolBuilder builder = this.diagramBuilderHelper.newEdgeTool();
+
+        SetValueBuilder setName = this.viewBuilderHelper.newSetValue()
+                .featureName("declaredName")
+                .valueExpression("specializes");
+
+        SetValueBuilder setSubclassifier = this.viewBuilderHelper.newSetValue()
+                .featureName("subclassifier")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
+
+        SetValueBuilder setSuperclassifier = this.viewBuilderHelper.newSetValue()
+                .featureName("superclassifier")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
+
+        SetValueBuilder setSpecific = this.viewBuilderHelper.newSetValue()
+                .featureName("specific")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
+
+        SetValueBuilder setGeneral = this.viewBuilderHelper.newSetValue()
+                .featureName("general")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
+
+        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:newInstance")
+                .children(setName.build(), setSubclassifier.build(), setSuperclassifier.build(), setSpecific.build(), setGeneral.build());
+
+        CreateInstanceBuilder createInstance =  this.viewBuilderHelper.newCreateInstance()
+                .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getSubclassification()))
+                .referenceName("ownedRelationship")
+                .variableName("newInstance")
+                .children(changeContextNewInstance.build());
+
+        ChangeContextBuilder body =  this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE)
+                .children(createInstance.build());
+
+        return builder
+                .name("New " + SysmlPackage.eINSTANCE.getSubclassification().getName())
+                .body(body.build())
+                .targetElementDescriptions(targetElementDescriptions.toArray(new NodeDescription[targetElementDescriptions.size()]))
+                .build();
+    }
+
+    protected EdgeTool createRedefinitionEdgeTool(List<NodeDescription> targetElementDescriptions) {
+        EdgeToolBuilder builder = this.diagramBuilderHelper.newEdgeTool();
+
+        SetValueBuilder setName = this.viewBuilderHelper.newSetValue()
+                .featureName("declaredName")
+                .valueExpression("redefines");
+
+        SetValueBuilder setRedefiningFeature = this.viewBuilderHelper.newSetValue()
+                .featureName("redefiningFeature")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
+
+        SetValueBuilder setRedefinedFeature = this.viewBuilderHelper.newSetValue()
+                .featureName("redefinedFeature")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
+
+        SetValueBuilder setSubsettingFeature = this.viewBuilderHelper.newSetValue()
+                .featureName("subsettingFeature")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
+
+        SetValueBuilder setSubsettedFeature = this.viewBuilderHelper.newSetValue()
+                .featureName("subsettedFeature")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
+
+        SetValueBuilder setSpecific = this.viewBuilderHelper.newSetValue()
+                .featureName("specific")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
+
+        SetValueBuilder setGeneral = this.viewBuilderHelper.newSetValue()
+                .featureName("general")
+                .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
+
+        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:newInstance")
+                .children(setName.build(), setRedefiningFeature.build(), setRedefinedFeature.build(), setSubsettingFeature.build(), setSubsettedFeature.build(), setSpecific.build(),
+                        setGeneral.build());
+
+        CreateInstanceBuilder createInstance =  this.viewBuilderHelper.newCreateInstance()
+                .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getRedefinition()))
+                .referenceName("ownedRelationship")
+                .variableName("newInstance")
+                .children(changeContextNewInstance.build());
+
+        ChangeContextBuilder body =  this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE)
+                .children(createInstance.build());
+
+        return builder
+                .name("New " + SysmlPackage.eINSTANCE.getRedefinition().getName())
                 .body(body.build())
                 .targetElementDescriptions(targetElementDescriptions.toArray(new NodeDescription[targetElementDescriptions.size()]))
                 .build();
