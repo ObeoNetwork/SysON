@@ -17,12 +17,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.sirius.components.view.RepresentationDescription;
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
-import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
-import org.eclipse.sirius.components.view.builder.generated.CreateInstanceBuilder;
-import org.eclipse.sirius.components.view.builder.generated.CreateViewBuilder;
 import org.eclipse.sirius.components.view.builder.generated.DiagramBuilders;
-import org.eclipse.sirius.components.view.builder.generated.NodeToolBuilder;
-import org.eclipse.sirius.components.view.builder.generated.SetValueBuilder;
 import org.eclipse.sirius.components.view.builder.generated.ViewBuilders;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.builder.providers.IDiagramElementDescriptionProvider;
@@ -150,34 +145,34 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
     }
 
     private NodeTool createNodeToolFromPackage(NodeDescription nodeDescription, EClass eClass) {
-        NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
+        var builder = this.diagramBuilderHelper.newNodeTool();
 
-        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue()
+        var setValue = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression(eClass.getName());
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+        var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setValue.build());
 
-        CreateInstanceBuilder createEClassInstance = this.viewBuilderHelper.newCreateInstance()
+        var createEClassInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
                 .referenceName("ownedRelatedElement")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        CreateViewBuilder createView = this.diagramBuilderHelper.newCreateView()
+        var createView = this.diagramBuilderHelper.newCreateView()
                 .containmentKind(NodeContainmentKind.CHILD_NODE)
                 .elementDescription(nodeDescription)
                 .parentViewExpression("aql:selectedNode")
                 .semanticElementExpression("aql:newInstance")
                 .variableName("newInstanceView");
 
-        ChangeContextBuilder changeContexMembership = this.viewBuilderHelper.newChangeContext()
+        var changeContexMembership = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newOwningMembership")
                 .children(createEClassInstance.build(), createView.build());
 
-        CreateInstanceBuilder createMembership = this.viewBuilderHelper.newCreateInstance()
+        var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
                 .referenceName("ownedRelationship")
                 .variableName("newOwningMembership")
@@ -197,9 +192,9 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
     }
 
     private NodeTool addExistingElementsTool() {
-        NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
+        var builder = this.diagramBuilderHelper.newNodeTool();
 
-        ChangeContextBuilder addExistingelements = this.viewBuilderHelper.newChangeContext()
+        var addExistingelements = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:self.addExistingElements(diagramContext, selectedNode, convertedNodes)");
 
         return builder

@@ -12,15 +12,15 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.edges;
 
+import java.util.List;
 import java.util.Objects;
 
-import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
-import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.DiagramBuilders;
 import org.eclipse.sirius.components.view.builder.generated.ViewBuilders;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.builder.providers.IEdgeDescriptionProvider;
 import org.eclipse.sirius.components.view.diagram.EdgePalette;
+import org.eclipse.sirius.components.view.diagram.EdgeReconnectionTool;
 
 /**
  * Common pieces of edge descriptions shared by {@link IEdgeDescriptionProvider} in General View.
@@ -39,17 +39,18 @@ public abstract class AbstractEdgeDescriptionProvider implements IEdgeDescriptio
         this.colorProvider = Objects.requireNonNull(colorProvider);
     }
 
-    protected EdgePalette createEdgePalette() {
-        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext()
+    protected EdgePalette createEdgePalette(List<EdgeReconnectionTool> edgeReconnectionTools) {
+        var changeContext = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:self.deleteFromModel()");
 
-        DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool()
+        var deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")
                 .body(changeContext.build());
 
         return this.diagramBuilderHelper
                 .newEdgePalette()
                 .deleteTool(deleteTool.build())
+                .edgeReconnectionTools(edgeReconnectionTools.toArray(new EdgeReconnectionTool[edgeReconnectionTools.size()]))
                 .build();
     }
 }

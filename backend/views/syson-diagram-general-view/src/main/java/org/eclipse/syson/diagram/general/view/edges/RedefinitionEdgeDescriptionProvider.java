@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.edges;
 
+import java.util.List;
+
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.ArrowStyle;
@@ -19,7 +21,10 @@ import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeStyle;
 import org.eclipse.sirius.components.view.diagram.LineStyle;
+import org.eclipse.sirius.components.view.diagram.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.sirius.components.view.diagram.TargetEdgeEndReconnectionTool;
+import org.eclipse.syson.diagram.general.view.AQLConstants;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.diagram.general.view.nodes.AttributeUsageNodeDescriptionProvider;
@@ -51,7 +56,6 @@ public class RedefinitionEdgeDescriptionProvider extends AbstractEdgeDescription
                 .isDomainBasedEdge(true)
                 .labelExpression("")
                 .name(NAME)
-                .palette(this.createEdgePalette())
                 .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
                 .sourceNodesExpression("aql:self." + SysmlPackage.eINSTANCE.getRedefinition_RedefiningFeature().getName())
                 .style(this.createEdgeStyle())
@@ -82,6 +86,8 @@ public class RedefinitionEdgeDescriptionProvider extends AbstractEdgeDescription
             edgeDescription.getTargetNodeDescriptions().add(optPartUsageNodeDescription.get());
             edgeDescription.getSourceNodeDescriptions().add(optPortUsageNodeDescription.get());
             edgeDescription.getTargetNodeDescriptions().add(optPortUsageNodeDescription.get());
+
+            edgeDescription.setPalette(this.createEdgePalette(List.of(this.createSourceReconnectTool(), this.createTargetReconnectTool())));
         }
     }
 
@@ -92,6 +98,90 @@ public class RedefinitionEdgeDescriptionProvider extends AbstractEdgeDescription
                 .lineStyle(LineStyle.SOLID)
                 .sourceArrowStyle(ArrowStyle.NONE)
                 .targetArrowStyle(ArrowStyle.CLOSED_ARROW_WITH_VERTICAL_BAR)
+                .build();
+    }
+
+    private SourceEdgeEndReconnectionTool createSourceReconnectTool() {
+        var builder = this.diagramBuilderHelper.newSourceEdgeEndReconnectionTool();
+
+        var unsetOldRedefiningFeature = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getRedefinition_RedefiningFeature().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewRedefiningFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getRedefinition_RedefiningFeature().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var unsetOldSubsettingFeature = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubsetting_SubsettingFeature().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSubsettingFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubsetting_SubsettingFeature().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var unsetOldSpecific = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_Specific().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSpecific = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_Specific().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var setNewContainer = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT);
+
+        var changeContextNewContainer = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET)
+                .children(setNewContainer.build());
+
+        var body = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT)
+                .children(unsetOldRedefiningFeature.build(), unsetOldSubsettingFeature.build(), unsetOldSpecific.build(), setNewRedefiningFeature.build(), setNewSubsettingFeature.build(),
+                        setNewSpecific.build(), changeContextNewContainer.build());
+
+        return builder
+                .name("Reconnect Source")
+                .body(body.build())
+                .build();
+    }
+
+    private TargetEdgeEndReconnectionTool createTargetReconnectTool() {
+        var builder = this.diagramBuilderHelper.newTargetEdgeEndReconnectionTool();
+
+        var unsetOldRedefinedFeature = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getRedefinition_RedefinedFeature().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewRedefinedFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getRedefinition_RedefinedFeature().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var unsetOldSubsettedFeature = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubsetting_SubsettedFeature().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSubsettedFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubsetting_SubsettedFeature().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var unsetOldGeneral = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_General().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewGeneral = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_General().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var body = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT)
+                .children(unsetOldRedefinedFeature.build(), unsetOldSubsettedFeature.build(), unsetOldGeneral.build(), setNewRedefinedFeature.build(), setNewSubsettedFeature.build(),
+                        setNewGeneral.build());
+
+        return builder
+                .name("Reconnect Target")
+                .body(body.build())
                 .build();
     }
 }

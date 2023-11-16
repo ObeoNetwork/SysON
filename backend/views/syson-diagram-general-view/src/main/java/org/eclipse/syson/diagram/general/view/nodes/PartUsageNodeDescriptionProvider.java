@@ -16,18 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
-import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
-import org.eclipse.sirius.components.view.builder.generated.CreateInstanceBuilder;
-import org.eclipse.sirius.components.view.builder.generated.CreateViewBuilder;
-import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.ListLayoutStrategyDescriptionBuilder;
-import org.eclipse.sirius.components.view.builder.generated.NodeToolBuilder;
-import org.eclipse.sirius.components.view.builder.generated.SetValueBuilder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.NodeContainmentKind;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodePalette;
+import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
@@ -103,67 +98,58 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
     }
 
     private NodePalette createNodePalette(NodeDescription nodeDescription, List<NodeDescription> allNodeDescriptions) {
-        NodeToolBuilder nodeTool = this.createNestedPartNodeTool(nodeDescription);
+        var nodeTool = this.createNestedPartNodeTool(nodeDescription);
 
-        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext();
-        changeContext
+        var changeContext = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:self.deleteFromModel()");
 
-        DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool()
+        var deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")
                 .body(changeContext.build());
 
         return this.diagramBuilderHelper.newNodePalette()
                 .deleteTool(deleteTool.build())
-                .nodeTools(nodeTool.build())
+                .nodeTools(nodeTool)
                 .edgeTools(this.createDependencyEdgeTool(allNodeDescriptions),
                         this.createRedefinitionEdgeTool(allNodeDescriptions.stream().filter(nodeDesc -> NAME.equals(nodeDesc.getName())).toList()))
                 .build();
     }
 
-    private NodeToolBuilder createNestedPartNodeTool(NodeDescription nodeDescription) {
-        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue();
-        setValue
+    private NodeTool createNestedPartNodeTool(NodeDescription nodeDescription) {
+        var setValue = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression("PartUsage");
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext();
-        changeContextNewInstance
+        var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setValue.build());
 
-        CreateInstanceBuilder createEClassInstance =  this.viewBuilderHelper.newCreateInstance();
-        createEClassInstance
+        var createEClassInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPartUsage()))
                 .referenceName("ownedRelatedElement")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        CreateViewBuilder createView = this.diagramBuilderHelper.newCreateView();
-        createView
+        var createView = this.diagramBuilderHelper.newCreateView()
                 .containmentKind(NodeContainmentKind.CHILD_NODE)
                 .elementDescription(nodeDescription)
                 .parentViewExpression("aql:diagram")
                 .semanticElementExpression("aql:newInstance")
                 .variableName("newInstanceView");
 
-        ChangeContextBuilder changeContexMembership = this.viewBuilderHelper.newChangeContext();
-        changeContexMembership
+        var changeContexMembership = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newFeatureMembership")
                 .children(createEClassInstance.build(), createView.build());
 
-        CreateInstanceBuilder createMembership =  this.viewBuilderHelper.newCreateInstance();
-        createMembership
+        var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getFeatureMembership()))
                 .referenceName("ownedRelationship")
                 .variableName("newFeatureMembership")
                 .children(changeContexMembership.build());
 
-        NodeToolBuilder nodeTool = this.diagramBuilderHelper.newNodeTool();
-        nodeTool
+        return this.diagramBuilderHelper.newNodeTool()
                 .name("PartUsage")
                 .body(createMembership.build())
                 .build();
-        return nodeTool;
     }
 }

@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.edges;
 
+import java.util.List;
+
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.ArrowStyle;
@@ -19,7 +21,10 @@ import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeStyle;
 import org.eclipse.sirius.components.view.diagram.LineStyle;
+import org.eclipse.sirius.components.view.diagram.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.sirius.components.view.diagram.TargetEdgeEndReconnectionTool;
+import org.eclipse.syson.diagram.general.view.AQLConstants;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.diagram.general.view.nodes.AttributeDefinitionNodeDescriptionProvider;
@@ -53,7 +58,6 @@ public class SubclassificationEdgeDescriptionProvider extends AbstractEdgeDescri
                 .isDomainBasedEdge(true)
                 .labelExpression("")
                 .name(NAME)
-                .palette(this.createEdgePalette())
                 .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
                 .sourceNodesExpression("aql:self." + SysmlPackage.eINSTANCE.getSubclassification_Subclassifier().getName())
                 .style(this.createEdgeStyle())
@@ -90,6 +94,9 @@ public class SubclassificationEdgeDescriptionProvider extends AbstractEdgeDescri
             edgeDescription.getTargetNodeDescriptions().add(optPartDefinitionNodeDescription.get());
             edgeDescription.getSourceNodeDescriptions().add(optPortDefinitionNodeDescription.get());
             edgeDescription.getTargetNodeDescriptions().add(optPortDefinitionNodeDescription.get());
+
+            edgeDescription.setPalette(this.createEdgePalette(List.of(this.createSourceReconnectTool(),
+                    this.createTargetReconnectTool())));
         }
     }
 
@@ -100,6 +107,73 @@ public class SubclassificationEdgeDescriptionProvider extends AbstractEdgeDescri
                 .lineStyle(LineStyle.SOLID)
                 .sourceArrowStyle(ArrowStyle.NONE)
                 .targetArrowStyle(ArrowStyle.INPUT_CLOSED_ARROW)
+                .build();
+    }
+
+    private SourceEdgeEndReconnectionTool createSourceReconnectTool() {
+        var builder = this.diagramBuilderHelper.newSourceEdgeEndReconnectionTool();
+
+        var unsetOldSubclassifier = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubclassification_Subclassifier().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSubclassifier = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubclassification_Subclassifier().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var unsetOldSpecific = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_Specific().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSpecific = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_Specific().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var setNewContainer = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT);
+
+        var changeContextNewContainer = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET)
+                .children(setNewContainer.build());
+
+        var body = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT)
+                .children(unsetOldSubclassifier.build(), unsetOldSpecific.build(), setNewSubclassifier.build(), setNewSpecific.build(), changeContextNewContainer.build());
+
+        return builder
+                .name("Reconnect Source")
+                .body(body.build())
+                .build();
+    }
+
+    private TargetEdgeEndReconnectionTool createTargetReconnectTool() {
+        var builder = this.diagramBuilderHelper.newTargetEdgeEndReconnectionTool();
+
+        var unsetOldSuperclassifier = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubclassification_Superclassifier().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSuperclassifier = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubclassification_Superclassifier().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var unsetOldGeneral = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_General().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewGeneral = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_General().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var body = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT)
+                .children(unsetOldSuperclassifier.build(), unsetOldGeneral.build(), setNewSuperclassifier.build(),
+                        setNewGeneral.build());
+
+        return builder
+                .name("Reconnect Target")
+                .body(body.build())
                 .build();
     }
 }

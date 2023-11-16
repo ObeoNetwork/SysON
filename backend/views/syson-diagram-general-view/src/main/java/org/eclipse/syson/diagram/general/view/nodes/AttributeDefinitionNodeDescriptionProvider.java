@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
-import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
-import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
@@ -108,11 +106,10 @@ public class AttributeDefinitionNodeDescriptionProvider extends AbstractNodeDesc
     }
 
     private NodePalette createNodePalette(NodeDescription nodeDescription, List<NodeDescription> allNodeDescriptions) {
-        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext();
-        changeContext
+        var changeContext = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:self.deleteFromModel()");
 
-        DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool()
+        var deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")
                 .body(changeContext.build());
 

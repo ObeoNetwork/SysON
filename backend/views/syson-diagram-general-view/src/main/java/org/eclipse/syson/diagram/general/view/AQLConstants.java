@@ -20,4 +20,23 @@ package org.eclipse.syson.diagram.general.view;
 public class AQLConstants {
 
     public static final String AQL = "aql:";
+
+    public static final String DIAGRAM = "diagram";
+
+    public static final String EDGE_SEMANTIC_ELEMENT = "edgeSemanticElement";
+
+    public static final String EDGE_VIEW = "edgeView";
+
+    public static final String OTHER_END = "otherEnd";
+
+    public static final String RECONNECTION_SOURCE_VIEW = "reconnectionSourceView";
+
+    public static final String RECONNECTION_TARGET_VIEW = "reconnectionTargetView";
+
+    public static final String SEMANTIC_OTHER_END = "semanticOtherEnd";
+
+    public static final String SEMANTIC_RECONNECTION_SOURCE = "semanticReconnectionSource";
+
+    public static final String SEMANTIC_RECONNECTION_TARGET = "semanticReconnectionTarget";
+
 }

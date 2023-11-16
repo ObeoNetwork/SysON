@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.edges;
 
+import java.util.List;
+
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.ArrowStyle;
@@ -19,7 +21,10 @@ import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeDescription;
 import org.eclipse.sirius.components.view.diagram.EdgeStyle;
 import org.eclipse.sirius.components.view.diagram.LineStyle;
+import org.eclipse.sirius.components.view.diagram.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.sirius.components.view.diagram.TargetEdgeEndReconnectionTool;
+import org.eclipse.syson.diagram.general.view.AQLConstants;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.diagram.general.view.nodes.AttributeDefinitionNodeDescriptionProvider;
@@ -58,7 +63,6 @@ public class DependencyEdgeDescriptionProvider extends AbstractEdgeDescriptionPr
                 .isDomainBasedEdge(true)
                 .labelExpression("")
                 .name(NAME)
-                .palette(this.createEdgePalette())
                 .semanticCandidatesExpression("aql:self.getAllReachable(" + domainType + ")")
                 .sourceNodesExpression("aql:self." + SysmlPackage.eINSTANCE.getDependency_Client().getName())
                 .style(this.createEdgeStyle())
@@ -110,6 +114,9 @@ public class DependencyEdgeDescriptionProvider extends AbstractEdgeDescriptionPr
             edgeDescription.getTargetNodeDescriptions().add(optPortDefinitionNodeDescription.get());
             edgeDescription.getSourceNodeDescriptions().add(optPortUsageNodeDescription.get());
             edgeDescription.getTargetNodeDescriptions().add(optPortUsageNodeDescription.get());
+
+            edgeDescription.setPalette(this.createEdgePalette(List.of(this.createSourceReconnectTool(),
+                    this.createTargetReconnectTool())));
         }
     }
 
@@ -120,6 +127,48 @@ public class DependencyEdgeDescriptionProvider extends AbstractEdgeDescriptionPr
                 .lineStyle(LineStyle.DASH)
                 .sourceArrowStyle(ArrowStyle.NONE)
                 .targetArrowStyle(ArrowStyle.INPUT_ARROW)
+                .build();
+    }
+
+    private SourceEdgeEndReconnectionTool createSourceReconnectTool() {
+        var builder = this.diagramBuilderHelper.newSourceEdgeEndReconnectionTool();
+
+        var unsetOldSource = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getDependency_Client().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSource = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getDependency_Client().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var body = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT)
+                .children(unsetOldSource.build(), setNewSource.build());
+
+        return builder
+                .name("Reconnect Source")
+                .body(body.build())
+                .build();
+    }
+
+    private TargetEdgeEndReconnectionTool createTargetReconnectTool() {
+        var builder = this.diagramBuilderHelper.newTargetEdgeEndReconnectionTool();
+
+        var unsetOldSource = this.viewBuilderHelper.newUnsetValue()
+                .featureName(SysmlPackage.eINSTANCE.getDependency_Supplier().getName())
+                .elementExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_SOURCE);
+
+        var setNewSource = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getDependency_Supplier().getName())
+                .valueExpression(AQLConstants.AQL + AQLConstants.SEMANTIC_RECONNECTION_TARGET);
+
+        var body = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + AQLConstants.EDGE_SEMANTIC_ELEMENT)
+                .children(unsetOldSource.build(), setNewSource.build());
+
+        return builder
+                .name("Reconnect Target")
+                .body(body.build())
                 .build();
     }
 }

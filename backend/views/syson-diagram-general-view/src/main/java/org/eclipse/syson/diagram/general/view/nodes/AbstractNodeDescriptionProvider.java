@@ -17,14 +17,7 @@ import java.util.Objects;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.sirius.components.diagrams.description.EdgeDescription;
-import org.eclipse.sirius.components.view.builder.generated.ChangeContextBuilder;
-import org.eclipse.sirius.components.view.builder.generated.CreateInstanceBuilder;
-import org.eclipse.sirius.components.view.builder.generated.DeleteToolBuilder;
 import org.eclipse.sirius.components.view.builder.generated.DiagramBuilders;
-import org.eclipse.sirius.components.view.builder.generated.EdgeToolBuilder;
-import org.eclipse.sirius.components.view.builder.generated.NodeDescriptionBuilder;
-import org.eclipse.sirius.components.view.builder.generated.NodeToolBuilder;
-import org.eclipse.sirius.components.view.builder.generated.SetValueBuilder;
 import org.eclipse.sirius.components.view.builder.generated.ViewBuilders;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.builder.providers.INodeDescriptionProvider;
@@ -59,8 +52,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createDefinitionAttributesCompartment(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .childrenDescriptions(this.createDefinitionAttributesCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
@@ -77,8 +69,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createDefinitionAttributesCompartmentItem(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
@@ -93,8 +84,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createDefinitionPortsCompartment(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .childrenDescriptions(this.createDefinitionPortsCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
@@ -111,8 +101,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createDefinitionPortsCompartmentItem(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
@@ -127,8 +116,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createDefinitionItemsCompartment(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .childrenDescriptions(this.createDefinitionItemsCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
@@ -145,8 +133,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createDefinitionItemsCompartmentItem(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getItemUsage()))
@@ -197,8 +184,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createUsageAttributesCompartment(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .childrenDescriptions(this.createUsageAttributesCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
@@ -215,8 +201,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createUsageAttributesCompartmentItem(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
@@ -231,8 +216,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createUsagePortsCompartment(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .childrenDescriptions(this.createUsagePortsCompartmentItem(name))
                 .childrenLayoutStrategy(this.diagramBuilderHelper.newListLayoutStrategyDescription().build())
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_HEIGHT)
@@ -249,8 +233,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeDescription createUsagePortsCompartmentItem(String name) {
-        NodeDescriptionBuilder attributeNodeBuilder = this.diagramBuilderHelper.newNodeDescription();
-        return attributeNodeBuilder
+        return this.diagramBuilderHelper.newNodeDescription()
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
@@ -301,10 +284,10 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodePalette createDefaultNodePalette() {
-        ChangeContextBuilder changeContext = this.viewBuilderHelper.newChangeContext()
+        var changeContext = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:self.deleteFromModel()");
 
-        DeleteToolBuilder deleteTool = this.diagramBuilderHelper.newDeleteTool()
+        var deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")
                 .body(changeContext.build());
 
@@ -332,27 +315,27 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodeTool createCompartmentNodeTool(EClass eClass, String defaultLabel) {
-        NodeToolBuilder builder = this.diagramBuilderHelper.newNodeTool();
+        var builder = this.diagramBuilderHelper.newNodeTool();
 
-        SetValueBuilder setValue = this.viewBuilderHelper.newSetValue()
+        var setValue = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression(defaultLabel);
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+        var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setValue.build());
 
-        CreateInstanceBuilder createInstance = this.viewBuilderHelper.newCreateInstance()
+        var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
                 .referenceName("ownedRelatedElement")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        ChangeContextBuilder changeContextMembership = this.viewBuilderHelper.newChangeContext()
+        var changeContextMembership = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newFeatureMembership")
                 .children(createInstance.build());
 
-        CreateInstanceBuilder createMembership = this.viewBuilderHelper.newCreateInstance()
+        var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getFeatureMembership()))
                 .referenceName("ownedRelationship")
                 .variableName("newFeatureMembership")
@@ -365,41 +348,41 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected EdgeTool createDependencyEdgeTool(List<NodeDescription> targetElementDescriptions) {
-        EdgeToolBuilder builder = this.diagramBuilderHelper.newEdgeTool();
+        var builder = this.diagramBuilderHelper.newEdgeTool();
 
-        SetValueBuilder setName = this.viewBuilderHelper.newSetValue()
+        var setName = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression("dependency");
 
-        SetValueBuilder setClient = this.viewBuilderHelper.newSetValue()
-                .featureName("client")
+        var setClient = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getDependency_Client().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
 
-        SetValueBuilder setSupplier = this.viewBuilderHelper.newSetValue()
-                .featureName("supplier")
+        var setSupplier = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getDependency_Supplier().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+        var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setName.build(), setClient.build(), setSupplier.build());
 
-        CreateInstanceBuilder createInstance =  this.viewBuilderHelper.newCreateInstance()
+        var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getDependency()))
                 .referenceName("ownedRelatedElement")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        ChangeContextBuilder changeContextMembership = this.viewBuilderHelper.newChangeContext()
+        var changeContextMembership = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newOwningMembership")
                 .children(createInstance.build());
 
-        CreateInstanceBuilder createMembership =  this.viewBuilderHelper.newCreateInstance()
+        var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
                 .referenceName("ownedRelationship")
                 .variableName("newOwningMembership")
                 .children(changeContextMembership.build());
 
-        ChangeContextBuilder body =  this.viewBuilderHelper.newChangeContext()
+        var body = this.viewBuilderHelper.newChangeContext()
                 .expression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE + ".getContainerPackage()")
                 .children(createMembership.build());
 
@@ -411,39 +394,39 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected EdgeTool createSubclassificationEdgeTool(List<NodeDescription> targetElementDescriptions) {
-        EdgeToolBuilder builder = this.diagramBuilderHelper.newEdgeTool();
+        var builder = this.diagramBuilderHelper.newEdgeTool();
 
-        SetValueBuilder setName = this.viewBuilderHelper.newSetValue()
+        var setName = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression("specializes");
 
-        SetValueBuilder setSubclassifier = this.viewBuilderHelper.newSetValue()
-                .featureName("subclassifier")
+        var setSubclassifier = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubclassification_Subclassifier().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
 
-        SetValueBuilder setSuperclassifier = this.viewBuilderHelper.newSetValue()
-                .featureName("superclassifier")
+        var setSuperclassifier = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubclassification_Superclassifier().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
 
-        SetValueBuilder setSpecific = this.viewBuilderHelper.newSetValue()
-                .featureName("specific")
+        var setSpecific = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_Specific().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
 
-        SetValueBuilder setGeneral = this.viewBuilderHelper.newSetValue()
-                .featureName("general")
+        var setGeneral = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_General().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+        var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setName.build(), setSubclassifier.build(), setSuperclassifier.build(), setSpecific.build(), setGeneral.build());
 
-        CreateInstanceBuilder createInstance =  this.viewBuilderHelper.newCreateInstance()
+        var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getSubclassification()))
                 .referenceName("ownedRelationship")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        ChangeContextBuilder body =  this.viewBuilderHelper.newChangeContext()
+        var body = this.viewBuilderHelper.newChangeContext()
                 .expression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE)
                 .children(createInstance.build());
 
@@ -455,48 +438,48 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected EdgeTool createRedefinitionEdgeTool(List<NodeDescription> targetElementDescriptions) {
-        EdgeToolBuilder builder = this.diagramBuilderHelper.newEdgeTool();
+        var builder = this.diagramBuilderHelper.newEdgeTool();
 
-        SetValueBuilder setName = this.viewBuilderHelper.newSetValue()
+        var setName = this.viewBuilderHelper.newSetValue()
                 .featureName("declaredName")
                 .valueExpression("redefines");
 
-        SetValueBuilder setRedefiningFeature = this.viewBuilderHelper.newSetValue()
-                .featureName("redefiningFeature")
+        var setRedefiningFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getRedefinition_RedefiningFeature().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
 
-        SetValueBuilder setRedefinedFeature = this.viewBuilderHelper.newSetValue()
-                .featureName("redefinedFeature")
+        var setRedefinedFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getRedefinition_RedefinedFeature().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
 
-        SetValueBuilder setSubsettingFeature = this.viewBuilderHelper.newSetValue()
-                .featureName("subsettingFeature")
+        var setSubsettingFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubsetting_SubsettingFeature().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
 
-        SetValueBuilder setSubsettedFeature = this.viewBuilderHelper.newSetValue()
-                .featureName("subsettedFeature")
+        var setSubsettedFeature = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSubsetting_SubsettedFeature().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
 
-        SetValueBuilder setSpecific = this.viewBuilderHelper.newSetValue()
-                .featureName("specific")
+        var setSpecific = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_Specific().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE);
 
-        SetValueBuilder setGeneral = this.viewBuilderHelper.newSetValue()
-                .featureName("general")
+        var setGeneral = this.viewBuilderHelper.newSetValue()
+                .featureName(SysmlPackage.eINSTANCE.getSpecialization_General().getName())
                 .valueExpression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_TARGET);
 
-        ChangeContextBuilder changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
+        var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
                 .expression("aql:newInstance")
                 .children(setName.build(), setRedefiningFeature.build(), setRedefinedFeature.build(), setSubsettingFeature.build(), setSubsettedFeature.build(), setSpecific.build(),
                         setGeneral.build());
 
-        CreateInstanceBuilder createInstance =  this.viewBuilderHelper.newCreateInstance()
+        var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getRedefinition()))
                 .referenceName("ownedRelationship")
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
-        ChangeContextBuilder body =  this.viewBuilderHelper.newChangeContext()
+        var body = this.viewBuilderHelper.newChangeContext()
                 .expression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE)
                 .children(createInstance.build());
 
