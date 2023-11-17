@@ -4,18 +4,20 @@
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
  * https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
- * 
+ *
  * Contributors:
  *     Obeo - initial API and implementation
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.EnumerationDefinition;
 import org.eclipse.syson.sysml.EnumerationUsage;
 import org.eclipse.syson.sysml.SysmlPackage;
@@ -60,11 +62,8 @@ public class EnumerationDefinitionImpl extends AttributeDefinitionImpl implement
      */
     @Override
     public EList<EnumerationUsage> getEnumeratedValue() {
-        // TODO: implement this method to return the 'Enumerated Value' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<EnumerationUsage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getEnumerationDefinition_EnumeratedValue(), data.size(), data.toArray());
     }
 
     /**
@@ -76,7 +75,7 @@ public class EnumerationDefinitionImpl extends AttributeDefinitionImpl implement
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.ENUMERATION_DEFINITION__ENUMERATED_VALUE:
-                return getEnumeratedValue();
+                return this.getEnumeratedValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -90,7 +89,7 @@ public class EnumerationDefinitionImpl extends AttributeDefinitionImpl implement
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.ENUMERATION_DEFINITION__ENUMERATED_VALUE:
-                return !getEnumeratedValue().isEmpty();
+                return !this.getEnumeratedValue().isEmpty();
         }
         return super.eIsSet(featureID);
     }

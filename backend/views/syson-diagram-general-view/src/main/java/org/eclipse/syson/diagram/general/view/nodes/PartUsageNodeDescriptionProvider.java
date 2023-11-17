@@ -117,7 +117,7 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
 
     private NodeTool createNestedPartNodeTool(NodeDescription nodeDescription) {
         var setValue = this.viewBuilderHelper.newSetValue()
-                .featureName("declaredName")
+                .featureName(SysmlPackage.eINSTANCE.getElement_DeclaredName().getName())
                 .valueExpression("PartUsage");
 
         var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
@@ -126,7 +126,7 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
 
         var createEClassInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPartUsage()))
-                .referenceName("ownedRelatedElement")
+                .referenceName(SysmlPackage.eINSTANCE.getRelationship_OwnedRelatedElement().getName())
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
@@ -143,7 +143,7 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
 
         var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getFeatureMembership()))
-                .referenceName("ownedRelationship")
+                .referenceName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
                 .variableName("newFeatureMembership")
                 .children(changeContexMembership.build());
 

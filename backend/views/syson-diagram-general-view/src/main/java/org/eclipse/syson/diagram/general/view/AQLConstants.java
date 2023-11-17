@@ -21,6 +21,8 @@ public class AQLConstants {
 
     public static final String AQL = "aql:";
 
+    public static final String AQL_SELF = "aql:self";
+
     public static final String DIAGRAM = "diagram";
 
     public static final String EDGE_SEMANTIC_ELEMENT = "edgeSemanticElement";
@@ -38,5 +40,4 @@ public class AQLConstants {
     public static final String SEMANTIC_RECONNECTION_SOURCE = "semanticReconnectionSource";
 
     public static final String SEMANTIC_RECONNECTION_TARGET = "semanticReconnectionTarget";
-
 }

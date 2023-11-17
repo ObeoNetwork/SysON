@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +25,8 @@ import org.eclipse.sirius.components.view.builder.providers.IDiagramElementDescr
 import org.eclipse.sirius.components.view.builder.providers.IRepresentationDescriptionProvider;
 import org.eclipse.sirius.components.view.diagram.DiagramPalette;
 import org.eclipse.sirius.components.view.diagram.DiagramToolSection;
+import org.eclipse.sirius.components.view.diagram.DropNodeTool;
+import org.eclipse.sirius.components.view.diagram.DropTool;
 import org.eclipse.sirius.components.view.diagram.NodeContainmentKind;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
@@ -122,7 +125,58 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
 
     private DiagramPalette createDiagramPalette(IViewDiagramElementFinder cache) {
         return this.diagramBuilderHelper.newDiagramPalette()
+                .dropNodeTool(this.createDropFromDiagramTool(cache))
+                .dropTool(this.createDropFromExplorerTool(cache))
                 .toolSections(this.createElementsToolSection(cache), this.addElementsToolSection(cache))
+                .build();
+    }
+
+    private DropNodeTool createDropFromDiagramTool(IViewDiagramElementFinder cache) {
+        var acceptedNodeTypes = new ArrayList<NodeDescription>();
+
+        var optAttributeDefinitionNodeDescription = cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME);
+        var optAttributeUsageNodeDescription = cache.getNodeDescription(AttributeUsageNodeDescriptionProvider.NAME);
+        var optEnumerationDefinitionNodeDescription = cache.getNodeDescription(EnumerationDefinitionNodeDescriptionProvider.NAME);
+        var optInterfaceDefinitionNodeDescription = cache.getNodeDescription(InterfaceDefinitionNodeDescriptionProvider.NAME);
+        var optInterfaceUsageNodeDescription = cache.getNodeDescription(InterfaceUsageNodeDescriptionProvider.NAME);
+        var optItemDefinitionNodeDescription = cache.getNodeDescription(ItemDefinitionNodeDescriptionProvider.NAME);
+        var optItemUsageNodeDescription = cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME);
+        var optPackageNodeDescription = cache.getNodeDescription(PackageNodeDescriptionProvider.NAME);
+        var optPartDefinitionNodeDescription = cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME);
+        var optPartUsageNodeDescription = cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME);
+        var optPortDefinitionNodeDescription = cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME);
+        var optPortUsageNodeDescription = cache.getNodeDescription(PortUsageNodeDescriptionProvider.NAME);
+
+        acceptedNodeTypes.add(optAttributeDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optAttributeUsageNodeDescription.get());
+        acceptedNodeTypes.add(optEnumerationDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optInterfaceDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optInterfaceUsageNodeDescription.get());
+        acceptedNodeTypes.add(optItemDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optItemUsageNodeDescription.get());
+        acceptedNodeTypes.add(optPackageNodeDescription.get());
+        acceptedNodeTypes.add(optPartDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optPartUsageNodeDescription.get());
+        acceptedNodeTypes.add(optPortDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optPortUsageNodeDescription.get());
+
+        var dropElementFromDiagram = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:droppedElement.dropElementFromDiagram(droppedNode, targetElement, targetNode, editingContext, diagramContext, convertedNodes)");
+
+        return this.diagramBuilderHelper.newDropNodeTool()
+                .name("Drop from Diagram")
+                .acceptedNodeTypes(acceptedNodeTypes.toArray(new NodeDescription[acceptedNodeTypes.size()]))
+                .body(dropElementFromDiagram.build())
+                .build();
+    }
+
+    private DropTool createDropFromExplorerTool(IViewDiagramElementFinder cache) {
+        var dropElementFromExplorer = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:self.dropElementFromExplorer(editingContext, diagramContext, selectedNode, convertedNodes)");
+
+        return this.diagramBuilderHelper.newDropTool()
+                .name("Drop from Explorer")
+                .body(dropElementFromExplorer.build())
                 .build();
     }
 
@@ -148,7 +202,7 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
         var builder = this.diagramBuilderHelper.newNodeTool();
 
         var setValue = this.viewBuilderHelper.newSetValue()
-                .featureName("declaredName")
+                .featureName(SysmlPackage.eINSTANCE.getElement_DeclaredName().getName())
                 .valueExpression(eClass.getName());
 
         var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
@@ -157,7 +211,7 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
 
         var createEClassInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
-                .referenceName("ownedRelatedElement")
+                .referenceName(SysmlPackage.eINSTANCE.getRelationship_OwnedRelatedElement().getName())
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
@@ -174,7 +228,7 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
 
         var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
-                .referenceName("ownedRelationship")
+                .referenceName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
                 .variableName("newOwningMembership")
                 .children(changeContexMembership.build());
 
@@ -195,7 +249,7 @@ public class GeneralViewDiagramDescriptionProvider implements IRepresentationDes
         var builder = this.diagramBuilderHelper.newNodeTool();
 
         var addExistingelements = this.viewBuilderHelper.newChangeContext()
-                .expression("aql:self.addExistingElements(diagramContext, selectedNode, convertedNodes)");
+                .expression("aql:self.addExistingElements(editingContext, diagramContext, selectedNode, convertedNodes)");
 
         return builder
                 .name("Add existing elements")

@@ -39,8 +39,6 @@ import org.eclipse.syson.sysml.SysmlPackage;
  */
 public abstract class AbstractNodeDescriptionProvider implements INodeDescriptionProvider {
 
-    private static final String AQL_SELF = "aql:self";
-
     protected final ViewBuilders viewBuilderHelper = new ViewBuilders();
 
     protected final DiagramBuilders diagramBuilderHelper = new DiagramBuilders();
@@ -60,7 +58,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("attributes")
                 .name(name + " AttributesCompartment")
-                .semanticCandidatesExpression(AQL_SELF)
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF)
                 .style(this.createDefinitionCompartmentNodeStyle())
                 .userResizable(false)
                 .palette(this.createAttributesCompartmentPalette())
@@ -75,7 +73,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + " AttributesCompartmentItem")
-                .semanticCandidatesExpression("aql:self.ownedAttribute")
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getDefinition_OwnedAttribute().getName())
                 .style(this.createDefinitionCompartmentItemNodeStyle())
                 .userResizable(false)
                 .palette(this.createDefaultNodePalette())
@@ -92,7 +90,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("ports")
                 .name(name + " PortsCompartment")
-                .semanticCandidatesExpression(AQL_SELF)
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF)
                 .style(this.createDefinitionCompartmentNodeStyle())
                 .userResizable(false)
                 .palette(this.createPortsCompartmentPalette())
@@ -106,8 +104,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
-                .name(name + "PortsCompartmentItem")
-                .semanticCandidatesExpression("aql:self.ownedPort")
+                .name(name + " PortsCompartmentItem")
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getDefinition_OwnedPort().getName())
                 .style(this.createDefinitionCompartmentItemNodeStyle())
                 .userResizable(false)
                 .palette(this.createDefaultNodePalette())
@@ -124,7 +122,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("items")
                 .name(name + " ItemsCompartment")
-                .semanticCandidatesExpression(AQL_SELF)
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF)
                 .style(this.createDefinitionCompartmentNodeStyle())
                 .userResizable(false)
                 .palette(this.createItemsCompartmentPalette())
@@ -139,7 +137,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getItemUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + " ItemsCompartmentItem")
-                .semanticCandidatesExpression("aql:self.ownedItem")
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getDefinition_OwnedItem().getName())
                 .style(this.createDefinitionCompartmentItemNodeStyle())
                 .userResizable(false)
                 .palette(this.createDefaultNodePalette())
@@ -192,7 +190,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("attributes")
                 .name(name + " AttributesCompartment")
-                .semanticCandidatesExpression(AQL_SELF)
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF)
                 .style(this.createUsageCompartmentNodeStyle())
                 .userResizable(false)
                 .palette(this.createAttributesCompartmentPalette())
@@ -207,7 +205,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
                 .name(name + " AttributesCompartmentItem")
-                .semanticCandidatesExpression("aql:self.nestedAttribute")
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getUsage_NestedAttribute().getName())
                 .style(this.createUsageCompartmentItemNodeStyle())
                 .userResizable(false)
                 .palette(this.createDefaultNodePalette())
@@ -224,7 +222,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getElement()))
                 .labelExpression("ports")
                 .name(name + " PortsCompartment")
-                .semanticCandidatesExpression(AQL_SELF)
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF)
                 .style(this.createUsageCompartmentNodeStyle())
                 .userResizable(false)
                 .palette(this.createPortsCompartmentPalette())
@@ -238,8 +236,8 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getPortUsage()))
                 .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
-                .name(name + "PortsCompartmentItem")
-                .semanticCandidatesExpression("aql:self.nestedPort")
+                .name(name + " PortsCompartmentItem")
+                .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getUsage_NestedPort().getName())
                 .style(this.createUsageCompartmentItemNodeStyle())
                 .userResizable(false)
                 .palette(this.createDefaultNodePalette())
@@ -285,7 +283,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
     protected NodePalette createDefaultNodePalette() {
         var changeContext = this.viewBuilderHelper.newChangeContext()
-                .expression("aql:self.deleteFromModel()");
+                .expression(AQLConstants.AQL_SELF + ".deleteFromModel()");
 
         var deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")
@@ -318,7 +316,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         var builder = this.diagramBuilderHelper.newNodeTool();
 
         var setValue = this.viewBuilderHelper.newSetValue()
-                .featureName("declaredName")
+                .featureName(SysmlPackage.eINSTANCE.getElement_DeclaredName().getName())
                 .valueExpression(defaultLabel);
 
         var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
@@ -327,7 +325,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
-                .referenceName("ownedRelatedElement")
+                .referenceName(SysmlPackage.eINSTANCE.getRelationship_OwnedRelatedElement().getName())
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
@@ -337,7 +335,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getFeatureMembership()))
-                .referenceName("ownedRelationship")
+                .referenceName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
                 .variableName("newFeatureMembership")
                 .children(changeContextMembership.build());
 
@@ -351,7 +349,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         var builder = this.diagramBuilderHelper.newEdgeTool();
 
         var setName = this.viewBuilderHelper.newSetValue()
-                .featureName("declaredName")
+                .featureName(SysmlPackage.eINSTANCE.getElement_DeclaredName().getName())
                 .valueExpression("dependency");
 
         var setClient = this.viewBuilderHelper.newSetValue()
@@ -368,7 +366,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getDependency()))
-                .referenceName("ownedRelatedElement")
+                .referenceName(SysmlPackage.eINSTANCE.getRelationship_OwnedRelatedElement().getName())
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
@@ -378,7 +376,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
-                .referenceName("ownedRelationship")
+                .referenceName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
                 .variableName("newOwningMembership")
                 .children(changeContextMembership.build());
 
@@ -397,7 +395,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         var builder = this.diagramBuilderHelper.newEdgeTool();
 
         var setName = this.viewBuilderHelper.newSetValue()
-                .featureName("declaredName")
+                .featureName(SysmlPackage.eINSTANCE.getElement_DeclaredName().getName())
                 .valueExpression("specializes");
 
         var setSubclassifier = this.viewBuilderHelper.newSetValue()
@@ -422,7 +420,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getSubclassification()))
-                .referenceName("ownedRelationship")
+                .referenceName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
@@ -441,7 +439,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
         var builder = this.diagramBuilderHelper.newEdgeTool();
 
         var setName = this.viewBuilderHelper.newSetValue()
-                .featureName("declaredName")
+                .featureName(SysmlPackage.eINSTANCE.getElement_DeclaredName().getName())
                 .valueExpression("redefines");
 
         var setRedefiningFeature = this.viewBuilderHelper.newSetValue()
@@ -475,7 +473,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         var createInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getRedefinition()))
-                .referenceName("ownedRelationship")
+                .referenceName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 

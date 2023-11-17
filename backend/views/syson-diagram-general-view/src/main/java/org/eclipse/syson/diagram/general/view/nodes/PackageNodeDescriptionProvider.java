@@ -159,7 +159,7 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
         var builder = this.diagramBuilderHelper.newNodeTool();
 
         var setValue = this.viewBuilderHelper.newSetValue()
-                .featureName("declaredName")
+                .featureName(SysmlPackage.eINSTANCE.getElement_DeclaredName().getName())
                 .valueExpression(eClass.getName());
 
         var changeContextNewInstance = this.viewBuilderHelper.newChangeContext()
@@ -168,7 +168,7 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
 
         var createEClassInstance = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(eClass))
-                .referenceName("ownedRelatedElement")
+                .referenceName(SysmlPackage.eINSTANCE.getRelationship_OwnedRelatedElement().getName())
                 .variableName("newInstance")
                 .children(changeContextNewInstance.build());
 
@@ -185,7 +185,7 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
 
         var createMembership = this.viewBuilderHelper.newCreateInstance()
                 .typeName(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getOwningMembership()))
-                .referenceName("ownedRelationship")
+                .referenceName(SysmlPackage.eINSTANCE.getElement_OwnedRelationship().getName())
                 .variableName("newOwningMembership")
                 .children(changeContexMembership.build());
 
@@ -206,7 +206,7 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
         var builder = this.diagramBuilderHelper.newNodeTool();
 
         var addExistingelements = this.viewBuilderHelper.newChangeContext()
-                .expression("aql:self.addExistingElements(diagramContext, selectedNode, convertedNodes)");
+                .expression("aql:self.addExistingElements(editingContext, diagramContext, selectedNode, convertedNodes)");
 
         return builder
                 .name("Add existing elements")
