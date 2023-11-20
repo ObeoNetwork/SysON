@@ -12,10 +12,14 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.util.EcoreEList;
+import org.eclipse.syson.sysml.ActionUsage;
 import org.eclipse.syson.sysml.InterfaceDefinition;
 import org.eclipse.syson.sysml.PortUsage;
 import org.eclipse.syson.sysml.SysmlPackage;
@@ -60,11 +64,8 @@ public class InterfaceDefinitionImpl extends ConnectionDefinitionImpl implements
      */
     @Override
     public EList<PortUsage> getInterfaceEnd() {
-        // TODO: implement this method to return the 'Interface End' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<ActionUsage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getInterfaceDefinition_InterfaceEnd(), data.size(), data.toArray());
     }
 
     /**

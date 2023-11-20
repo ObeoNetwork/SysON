@@ -12,7 +12,9 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,8 +24,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.syson.sysml.ActionUsage;
 import org.eclipse.syson.sysml.Association;
 import org.eclipse.syson.sysml.AssociationStructure;
 import org.eclipse.syson.sysml.ConnectionDefinition;
@@ -213,11 +217,8 @@ public class ConnectionDefinitionImpl extends PartDefinitionImpl implements Conn
      */
     @Override
     public EList<Element> getRelatedElement() {
-        // TODO: implement this method to return the 'Related Element' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<ActionUsage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRelationship_RelatedElement(), data.size(), data.toArray());
     }
 
     /**
@@ -253,11 +254,8 @@ public class ConnectionDefinitionImpl extends PartDefinitionImpl implements Conn
      */
     @Override
     public EList<Feature> getAssociationEnd() {
-        // TODO: implement this method to return the 'Association End' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<ActionUsage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getAssociation_AssociationEnd(), data.size(), data.toArray());
     }
 
     /**
@@ -267,11 +265,9 @@ public class ConnectionDefinitionImpl extends PartDefinitionImpl implements Conn
      */
     @Override
     public EList<Type> getRelatedType() {
-        // TODO: implement this method to return the 'Related Type' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<ActionUsage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getAssociation_RelatedType(), data.size(), data.toArray());
+    
     }
 
     /**
@@ -304,11 +300,8 @@ public class ConnectionDefinitionImpl extends PartDefinitionImpl implements Conn
      */
     @Override
     public EList<Type> getTargetType() {
-        // TODO: implement this method to return the 'Target Type' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<ActionUsage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getAssociation_TargetType(), data.size(), data.toArray());
     }
 
     /**
@@ -318,11 +311,8 @@ public class ConnectionDefinitionImpl extends PartDefinitionImpl implements Conn
      */
     @Override
     public EList<Usage> getConnectionEnd() {
-        // TODO: implement this method to return the 'Connection End' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<ActionUsage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getConnectionDefinition_ConnectionEnd(), data.size(), data.toArray());
     }
 
     /**

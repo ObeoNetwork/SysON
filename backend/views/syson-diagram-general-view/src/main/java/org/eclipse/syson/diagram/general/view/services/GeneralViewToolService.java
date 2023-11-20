@@ -208,9 +208,7 @@ public class GeneralViewToolService {
             Map<org.eclipse.sirius.components.view.diagram.NodeDescription, NodeDescription> convertedNodes) {
         if (droppedElement.eContainer() instanceof Membership membership) {
             targetElement.getOwnedRelationship().add(membership);
-            // After being added to its new container, the Membership loses its content (i.e. the droppedElement).
-            // So, we need to add it again in the Membership
-            membership.getOwnedRelatedElement().add(droppedElement);
+            // membership.setOwningRelatedElement(targetElement);
         } else {
             return;
         }

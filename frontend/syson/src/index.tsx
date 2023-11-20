@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019, 2023 Obeo.
+ * Copyright (c) 2023 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -28,8 +28,9 @@ import {
 import { SiriusWebApplication, Views } from '@eclipse-sirius/sirius-web-application';
 import LinearScaleOutlinedIcon from '@material-ui/icons/LinearScaleOutlined';
 import ReactDOM from 'react-dom';
+import { SysONIcon } from './core/SysONIcon';
 import { httpOrigin, wsOrigin } from './core/URL';
-import { Main } from './main/Main';
+import { sysonTheme } from './theme/sysonTheme';
 import { GQLSlider } from './widgets/SliderFragment.types';
 import { SliderPreview } from './widgets/SliderPreview';
 import { SliderPropertySection } from './widgets/SliderPropertySection';
@@ -43,13 +44,6 @@ if (process.env.NODE_ENV !== 'production') {
   loadDevMessages();
   loadErrorMessages();
 }
-
-const style = {
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gridTemplateRows: '1fr',
-  minHeight: '100vh',
-};
 
 const isSlider = (widget: GQLWidget): widget is GQLSlider => widget.__typename === 'Slider';
 const isReferenceWidget = (widget: GQLWidget): widget is GQLReferenceWidget => widget.__typename === 'ReferenceWidget';
@@ -116,12 +110,8 @@ const propertySectionRegistryValue: PropertySectionContextValue = {
 
 ReactDOM.render(
   <PropertySectionContext.Provider value={propertySectionRegistryValue}>
-    <SiriusWebApplication httpOrigin={httpOrigin} wsOrigin={wsOrigin}>
-      <Views>
-        <div style={style}>
-          <Main />
-        </div>
-      </Views>
+    <SiriusWebApplication httpOrigin={httpOrigin} wsOrigin={wsOrigin} theme={sysonTheme}>
+      <Views applicationIcon={<SysONIcon />} />
     </SiriusWebApplication>
   </PropertySectionContext.Provider>,
   document.getElementById('root')
