@@ -12,7 +12,6 @@
  *******************************************************************************/
 package org.eclipse.syson;
 
-import org.eclipse.sirius.components.compatibility.emf.properties.PropertiesDefaultDescriptionProvider;
 import org.eclipse.sirius.web.services.documents.UploadDocumentEventHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,8 +36,7 @@ import org.springframework.context.annotation.FilterType;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = { "org.eclipse.syson", "org.eclipse.sirius.web", "org.eclipse.sirius.components" },
-        excludeFilters = { @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = PropertiesDefaultDescriptionProvider.class),
-                           @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = UploadDocumentEventHandler.class) })
+        excludeFilters = { @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = UploadDocumentEventHandler.class) })
 public class SysONApplication {
 
     /**

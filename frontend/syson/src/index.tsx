@@ -26,14 +26,11 @@ import {
   ReferencePropertySection,
 } from '@eclipse-sirius/sirius-components-widget-reference';
 import { SiriusWebApplication, Views } from '@eclipse-sirius/sirius-web-application';
-import LinearScaleOutlinedIcon from '@material-ui/icons/LinearScaleOutlined';
 import ReactDOM from 'react-dom';
+import { Help } from './core/Help';
 import { SysONIcon } from './core/SysONIcon';
 import { httpOrigin, wsOrigin } from './core/URL';
 import { sysonTheme } from './theme/sysonTheme';
-import { GQLSlider } from './widgets/SliderFragment.types';
-import { SliderPreview } from './widgets/SliderPreview';
-import { SliderPropertySection } from './widgets/SliderPropertySection';
 
 import './Sprotty.css';
 import './fonts.css';
@@ -45,32 +42,22 @@ if (process.env.NODE_ENV !== 'production') {
   loadErrorMessages();
 }
 
-const isSlider = (widget: GQLWidget): widget is GQLSlider => widget.__typename === 'Slider';
 const isReferenceWidget = (widget: GQLWidget): widget is GQLReferenceWidget => widget.__typename === 'ReferenceWidget';
 
 const propertySectionsRegistry: PropertySectionComponentRegistry = {
   getComponent: (widget: GQLWidget): PropertySectionComponent<GQLWidget> | null => {
-    if (isSlider(widget)) {
-      return SliderPropertySection;
-    } else if (isReferenceWidget(widget)) {
+    if (isReferenceWidget(widget)) {
       return ReferencePropertySection;
     }
     return null;
   },
   getPreviewComponent: (widget: GQLWidget) => {
-    if (widget.__typename === 'Slider') {
-      return SliderPreview;
-    } else if (widget.__typename === 'ReferenceWidget') {
+    if (widget.__typename === 'ReferenceWidget') {
       return ReferencePreview;
     }
     return null;
   },
   getWidgetContributions: () => {
-    const sliderWidgetContribution: WidgetContribution = {
-      name: 'Slider',
-      fields: `label iconURL minValue maxValue currentValue`,
-      icon: <LinearScaleOutlinedIcon />,
-    };
     const referenceWidget: WidgetContribution = {
       name: 'ReferenceWidget',
       fields: `label
@@ -100,7 +87,7 @@ const propertySectionsRegistry: PropertySectionComponentRegistry = {
                }`,
       icon: <ReferenceIcon />,
     };
-    return [sliderWidgetContribution, referenceWidget];
+    return [referenceWidget];
   },
 };
 
@@ -111,7 +98,7 @@ const propertySectionRegistryValue: PropertySectionContextValue = {
 ReactDOM.render(
   <PropertySectionContext.Provider value={propertySectionRegistryValue}>
     <SiriusWebApplication httpOrigin={httpOrigin} wsOrigin={wsOrigin} theme={sysonTheme}>
-      <Views applicationIcon={<SysONIcon />} />
+      <Views applicationIcon={<SysONIcon />} applicationBarMenu={<Help />} />
     </SiriusWebApplication>
   </PropertySectionContext.Provider>,
   document.getElementById('root')

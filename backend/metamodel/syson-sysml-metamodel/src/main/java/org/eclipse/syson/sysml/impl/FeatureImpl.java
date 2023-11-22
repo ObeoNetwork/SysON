@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreEList;
+import org.eclipse.syson.sysml.AttributeUsage;
 import org.eclipse.syson.sysml.Feature;
 import org.eclipse.syson.sysml.FeatureChaining;
 import org.eclipse.syson.sysml.FeatureDirectionKind;
@@ -527,8 +528,12 @@ public class FeatureImpl extends TypeImpl implements Feature {
      */
     @Override
     public EList<Redefinition> getOwnedRedefinition() {
-        List<Redefinition> data = new ArrayList<>();
-        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getFeature_OwnedRedefinition(), data.size(), data.toArray());
+        List<Redefinition> ownedRedefinitions = new ArrayList<>();
+        this.getOwnedRelationship().stream()
+            .filter(Redefinition.class::isInstance)
+            .map(Redefinition.class::cast)
+            .forEach(ownedRedefinitions::add);
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getFeature_OwnedRedefinition(), ownedRedefinitions.size(), ownedRedefinitions.toArray());
     }
 
     /**
