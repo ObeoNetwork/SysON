@@ -12,11 +12,16 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.RequirementUsage;
 import org.eclipse.syson.sysml.SysmlPackage;
+import org.eclipse.syson.sysml.Usage;
 import org.eclipse.syson.sysml.VerificationCaseDefinition;
 import org.eclipse.syson.sysml.VerificationCaseUsage;
 
@@ -84,11 +89,8 @@ public class VerificationCaseUsageImpl extends CaseUsageImpl implements Verifica
      */
     @Override
     public EList<RequirementUsage> getVerifiedRequirement() {
-        // TODO: implement this method to return the 'Verified Requirement' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getVerificationCaseUsage_VerifiedRequirement(), data.size(), data.toArray());
     }
 
     /**

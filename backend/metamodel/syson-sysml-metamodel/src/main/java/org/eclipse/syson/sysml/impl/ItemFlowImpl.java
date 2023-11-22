@@ -12,9 +12,13 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.Behavior;
 import org.eclipse.syson.sysml.Classifier;
 import org.eclipse.syson.sysml.Feature;
@@ -24,6 +28,7 @@ import org.eclipse.syson.sysml.ItemFlow;
 import org.eclipse.syson.sysml.ItemFlowEnd;
 import org.eclipse.syson.sysml.Step;
 import org.eclipse.syson.sysml.SysmlPackage;
+import org.eclipse.syson.sysml.Usage;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,11 +77,8 @@ public class ItemFlowImpl extends ConnectorImpl implements ItemFlow {
      */
     @Override
     public EList<Behavior> getBehavior() {
-        // TODO: implement this method to return the 'Behavior' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getStep_Behavior(), data.size(), data.toArray());
     }
 
     /**
@@ -86,11 +88,8 @@ public class ItemFlowImpl extends ConnectorImpl implements ItemFlow {
      */
     @Override
     public EList<Feature> getParameter() {
-        // TODO: implement this method to return the 'Parameter' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getStep_Parameter(), data.size(), data.toArray());
     }
 
     /**
@@ -100,11 +99,8 @@ public class ItemFlowImpl extends ConnectorImpl implements ItemFlow {
      */
     @Override
     public EList<Interaction> getInteraction() {
-        // TODO: implement this method to return the 'Interaction' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getItemFlow_Interaction(), data.size(), data.toArray());
     }
 
     /**
@@ -137,11 +133,8 @@ public class ItemFlowImpl extends ConnectorImpl implements ItemFlow {
      */
     @Override
     public EList<ItemFlowEnd> getItemFlowEnd() {
-        // TODO: implement this method to return the 'Item Flow End' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getItemFlow_ItemFlowEnd(), data.size(), data.toArray());
     }
 
     /**
@@ -151,11 +144,8 @@ public class ItemFlowImpl extends ConnectorImpl implements ItemFlow {
      */
     @Override
     public EList<Classifier> getItemType() {
-        // TODO: implement this method to return the 'Item Type' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getItemFlow_ItemType(), data.size(), data.toArray());
     }
 
     /**

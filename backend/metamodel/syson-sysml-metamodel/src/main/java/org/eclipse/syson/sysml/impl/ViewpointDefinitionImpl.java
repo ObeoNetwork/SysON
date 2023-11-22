@@ -12,12 +12,16 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.PartUsage;
 import org.eclipse.syson.sysml.SysmlPackage;
+import org.eclipse.syson.sysml.Usage;
 import org.eclipse.syson.sysml.ViewpointDefinition;
 
 /**
@@ -60,11 +64,8 @@ public class ViewpointDefinitionImpl extends RequirementDefinitionImpl implement
      */
     @Override
     public EList<PartUsage> getViewpointStakeholder() {
-        // TODO: implement this method to return the 'Viewpoint Stakeholder' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getViewpointDefinition_ViewpointStakeholder(), data.size(), data.toArray());
     }
 
     /**

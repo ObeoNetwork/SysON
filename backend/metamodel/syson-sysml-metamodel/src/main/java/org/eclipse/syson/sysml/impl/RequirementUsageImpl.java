@@ -12,11 +12,15 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.ConcernUsage;
 import org.eclipse.syson.sysml.ConstraintUsage;
 import org.eclipse.syson.sysml.PartUsage;
@@ -93,11 +97,8 @@ public class RequirementUsageImpl extends ConstraintUsageImpl implements Require
      */
     @Override
     public EList<PartUsage> getActorParameter() {
-        // TODO: implement this method to return the 'Actor Parameter' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRequirementUsage_ActorParameter(), data.size(), data.toArray());
     }
 
     /**
@@ -107,11 +108,8 @@ public class RequirementUsageImpl extends ConstraintUsageImpl implements Require
      */
     @Override
     public EList<ConstraintUsage> getAssumedConstraint() {
-        // TODO: implement this method to return the 'Assumed Constraint' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRequirementUsage_AssumedConstraint(), data.size(), data.toArray());
     }
 
     /**
@@ -121,11 +119,8 @@ public class RequirementUsageImpl extends ConstraintUsageImpl implements Require
      */
     @Override
     public EList<ConcernUsage> getFramedConcern() {
-        // TODO: implement this method to return the 'Framed Concern' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRequirementUsage_FramedConcern(), data.size(), data.toArray());
     }
 
     /**
@@ -158,11 +153,8 @@ public class RequirementUsageImpl extends ConstraintUsageImpl implements Require
      */
     @Override
     public EList<ConstraintUsage> getRequiredConstraint() {
-        // TODO: implement this method to return the 'Required Constraint' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRequirementUsage_RequiredConstraint(), data.size(), data.toArray());
     }
 
     /**
@@ -195,11 +187,8 @@ public class RequirementUsageImpl extends ConstraintUsageImpl implements Require
      */
     @Override
     public EList<PartUsage> getStakeholderParameter() {
-        // TODO: implement this method to return the 'Stakeholder Parameter' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRequirementUsage_StakeholderParameter(), data.size(), data.toArray());
     }
 
     /**
@@ -232,11 +221,8 @@ public class RequirementUsageImpl extends ConstraintUsageImpl implements Require
      */
     @Override
     public EList<String> getText() {
-        // TODO: implement this method to return the 'Text' attribute list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getRequirementUsage_Text(), data.size(), data.toArray());
     }
 
     /**

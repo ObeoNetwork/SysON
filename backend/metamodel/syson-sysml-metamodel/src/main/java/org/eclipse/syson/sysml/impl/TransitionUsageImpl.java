@@ -13,9 +13,13 @@
 package org.eclipse.syson.sysml.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.AcceptActionUsage;
 import org.eclipse.syson.sysml.ActionUsage;
 import org.eclipse.syson.sysml.Expression;
@@ -23,6 +27,7 @@ import org.eclipse.syson.sysml.ReferenceUsage;
 import org.eclipse.syson.sysml.Succession;
 import org.eclipse.syson.sysml.SysmlPackage;
 import org.eclipse.syson.sysml.TransitionUsage;
+import org.eclipse.syson.sysml.Usage;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,11 +74,8 @@ public class TransitionUsageImpl extends ActionUsageImpl implements TransitionUs
      */
     @Override
     public EList<ActionUsage> getEffectAction() {
-        // TODO: implement this method to return the 'Effect Action' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getTransitionUsage_EffectAction(), data.size(), data.toArray());
     }
 
     /**
@@ -83,11 +85,8 @@ public class TransitionUsageImpl extends ActionUsageImpl implements TransitionUs
      */
     @Override
     public EList<Expression> getGuardExpression() {
-        // TODO: implement this method to return the 'Guard Expression' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getTransitionUsage_GuardExpression(), data.size(), data.toArray());
     }
 
     /**
@@ -166,11 +165,8 @@ public class TransitionUsageImpl extends ActionUsageImpl implements TransitionUs
      */
     @Override
     public EList<AcceptActionUsage> getTriggerAction() {
-        // TODO: implement this method to return the 'Trigger Action' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getTransitionUsage_TriggerAction(), data.size(), data.toArray());
     }
 
     /**

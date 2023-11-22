@@ -12,12 +12,17 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.Expression;
 import org.eclipse.syson.sysml.RenderingUsage;
 import org.eclipse.syson.sysml.SysmlPackage;
+import org.eclipse.syson.sysml.Usage;
 import org.eclipse.syson.sysml.ViewDefinition;
 import org.eclipse.syson.sysml.ViewUsage;
 import org.eclipse.syson.sysml.ViewpointUsage;
@@ -65,11 +70,8 @@ public class ViewDefinitionImpl extends PartDefinitionImpl implements ViewDefini
      */
     @Override
     public EList<ViewpointUsage> getSatisfiedViewpoint() {
-        // TODO: implement this method to return the 'Satisfied Viewpoint' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getViewDefinition_SatisfiedViewpoint(), data.size(), data.toArray());
     }
 
     /**
@@ -79,11 +81,8 @@ public class ViewDefinitionImpl extends PartDefinitionImpl implements ViewDefini
      */
     @Override
     public EList<ViewUsage> getView() {
-        // TODO: implement this method to return the 'View' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getViewDefinition_View(), data.size(), data.toArray());
     }
 
     /**
@@ -93,11 +92,8 @@ public class ViewDefinitionImpl extends PartDefinitionImpl implements ViewDefini
      */
     @Override
     public EList<Expression> getViewCondition() {
-        // TODO: implement this method to return the 'View Condition' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getViewDefinition_ViewCondition(), data.size(), data.toArray());
     }
 
     /**

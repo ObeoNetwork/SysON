@@ -19,6 +19,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.components.collaborative.diagrams.api.IDiagramContext;
 import org.eclipse.sirius.components.core.api.IEditingContext;
 import org.eclipse.sirius.components.core.api.IObjectService;
@@ -33,8 +34,12 @@ import org.eclipse.sirius.components.view.diagram.DiagramDescription;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.Element;
+import org.eclipse.syson.sysml.FeatureMembership;
 import org.eclipse.syson.sysml.Membership;
+import org.eclipse.syson.sysml.OwningMembership;
 import org.eclipse.syson.sysml.Package;
+import org.eclipse.syson.sysml.PartUsage;
+import org.eclipse.syson.sysml.SysmlFactory;
 
 /**
  * Tool-related Java services used by the {@link GeneralViewDiagramDescriptionProvider}.
@@ -136,6 +141,19 @@ public class GeneralViewToolService {
             Map<org.eclipse.sirius.components.view.diagram.NodeDescription, NodeDescription> convertedNodes) {
         this.moveElement(droppedElement, droppedNode, targetElement, targetNode, editingContext, diagramContext, convertedNodes);
         return droppedElement;
+    }
+
+    public PartUsage becomeNestedPart(PartUsage partUsage, PartUsage newContainer) {
+        var eContainer = partUsage.eContainer();
+        if (eContainer instanceof FeatureMembership featureMembership) {
+            newContainer.getOwnedRelationship().add(featureMembership);
+        } else if (eContainer instanceof OwningMembership owningMembership) {
+            var newFeatureMembership = SysmlFactory.eINSTANCE.createFeatureMembership();
+            newFeatureMembership.getOwnedRelatedElement().add(partUsage);
+            newContainer.getOwnedRelationship().add(newFeatureMembership);
+            EcoreUtil.delete(owningMembership);
+        }
+        return partUsage;
     }
 
     private List<Node> getChildNodes(IDiagramContext diagramContext, Node selectedNode) {

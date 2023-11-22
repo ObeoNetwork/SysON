@@ -15,15 +15,18 @@ package org.eclipse.syson.diagram.general.view.nodes;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.sirius.components.diagrams.description.EdgeDescription;
 import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.generated.ListLayoutStrategyDescriptionBuilder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
+import org.eclipse.sirius.components.view.diagram.EdgeTool;
 import org.eclipse.sirius.components.view.diagram.NodeContainmentKind;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodePalette;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.syson.diagram.general.view.AQLConstants;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.SysmlPackage;
@@ -111,7 +114,8 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
                 .deleteTool(deleteTool.build())
                 .nodeTools(nodeTool)
                 .edgeTools(this.createDependencyEdgeTool(allNodeDescriptions),
-                        this.createRedefinitionEdgeTool(allNodeDescriptions.stream().filter(nodeDesc -> NAME.equals(nodeDesc.getName())).toList()))
+                        this.createRedefinitionEdgeTool(allNodeDescriptions.stream().filter(nodeDesc -> NAME.equals(nodeDesc.getName())).toList()),
+                        this.createBecomeNestedPartEdgeTool(allNodeDescriptions.stream().filter(nodeDesc -> NAME.equals(nodeDesc.getName())).toList()))
                 .build();
     }
 
@@ -150,6 +154,19 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
         return this.diagramBuilderHelper.newNodeTool()
                 .name("PartUsage")
                 .body(createMembership.build())
+                .build();
+    }
+
+    private EdgeTool createBecomeNestedPartEdgeTool(List<NodeDescription> targetElementDescriptions) {
+        var builder = this.diagramBuilderHelper.newEdgeTool();
+
+        var callService = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL + EdgeDescription.SEMANTIC_EDGE_SOURCE + ".becomeNestedPart(" + EdgeDescription.SEMANTIC_EDGE_TARGET + ")");
+
+        return builder
+                .name("Become nested" + SysmlPackage.eINSTANCE.getPartUsage().getName())
+                .body(callService.build())
+                .targetElementDescriptions(targetElementDescriptions.toArray(new NodeDescription[targetElementDescriptions.size()]))
                 .build();
     }
 }

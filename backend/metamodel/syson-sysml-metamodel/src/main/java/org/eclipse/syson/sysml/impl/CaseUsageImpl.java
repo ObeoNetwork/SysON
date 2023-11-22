@@ -12,9 +12,13 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.CaseDefinition;
 import org.eclipse.syson.sysml.CaseUsage;
 import org.eclipse.syson.sysml.PartUsage;
@@ -65,11 +69,8 @@ public class CaseUsageImpl extends CalculationUsageImpl implements CaseUsage {
      */
     @Override
     public EList<PartUsage> getActorParameter() {
-        // TODO: implement this method to return the 'Actor Parameter' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getCaseUsage_ActorParameter(), data.size(), data.toArray());
     }
 
     /**

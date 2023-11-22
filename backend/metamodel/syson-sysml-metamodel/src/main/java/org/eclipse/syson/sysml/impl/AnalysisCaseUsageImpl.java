@@ -12,14 +12,19 @@
  */
 package org.eclipse.syson.sysml.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.ActionUsage;
 import org.eclipse.syson.sysml.AnalysisCaseDefinition;
 import org.eclipse.syson.sysml.AnalysisCaseUsage;
 import org.eclipse.syson.sysml.Expression;
 import org.eclipse.syson.sysml.SysmlPackage;
+import org.eclipse.syson.sysml.Usage;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,11 +68,8 @@ public class AnalysisCaseUsageImpl extends CaseUsageImpl implements AnalysisCase
      */
     @Override
     public EList<ActionUsage> getAnalysisAction() {
-        // TODO: implement this method to return the 'Analysis Action' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getAnalysisCaseUsage_AnalysisAction(), data.size(), data.toArray());
     }
 
     /**

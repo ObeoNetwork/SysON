@@ -13,13 +13,16 @@
 package org.eclipse.syson.sysml.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.syson.sysml.AnnotatingElement;
 import org.eclipse.syson.sysml.Annotation;
@@ -28,6 +31,7 @@ import org.eclipse.syson.sysml.Feature;
 import org.eclipse.syson.sysml.Metaclass;
 import org.eclipse.syson.sysml.MetadataFeature;
 import org.eclipse.syson.sysml.SysmlPackage;
+import org.eclipse.syson.sysml.Usage;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,11 +85,8 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
      */
     @Override
     public EList<Element> getAnnotatedElement() {
-        // TODO: implement this method to return the 'Annotated Element' reference list
-        // Ensure that you remove @generated or mark it @generated NOT
-        // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-        // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-        return null;
+        List<Usage> data = new ArrayList<>();
+        return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getAnnotatingElement_AnnotatedElement(), data.size(), data.toArray());
     }
 
     /**
