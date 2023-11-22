@@ -20,6 +20,7 @@ import org.eclipse.sirius.components.view.builder.IViewDiagramElementFinder;
 import org.eclipse.sirius.components.view.builder.generated.FreeFormLayoutStrategyDescriptionBuilder;
 import org.eclipse.sirius.components.view.builder.providers.IColorProvider;
 import org.eclipse.sirius.components.view.diagram.DiagramDescription;
+import org.eclipse.sirius.components.view.diagram.DropNodeTool;
 import org.eclipse.sirius.components.view.diagram.NodeContainmentKind;
 import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.diagram.NodePalette;
@@ -132,9 +133,48 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
 
         return this.diagramBuilderHelper.newNodePalette()
                 .deleteTool(deleteTool.build())
+                .dropNodeTool(this.createDropFromDiagramTool(cache))
                 .toolSections(this.createNodeToolSection(cache), this.addElementsToolSection(cache))
                 .edgeTools(this.createDependencyEdgeTool(allNodeDescriptions))
                 .build();
+    }
+
+    private DropNodeTool createDropFromDiagramTool(IViewDiagramElementFinder cache) {
+        var acceptedNodeTypes = new ArrayList<NodeDescription>();
+
+        var optAttributeDefinitionNodeDescription = cache.getNodeDescription(AttributeDefinitionNodeDescriptionProvider.NAME);
+        var optAttributeUsageNodeDescription = cache.getNodeDescription(AttributeUsageNodeDescriptionProvider.NAME);
+        var optEnumerationDefinitionNodeDescription = cache.getNodeDescription(EnumerationDefinitionNodeDescriptionProvider.NAME);
+        var optInterfaceDefinitionNodeDescription = cache.getNodeDescription(InterfaceDefinitionNodeDescriptionProvider.NAME);
+        var optInterfaceUsageNodeDescription = cache.getNodeDescription(InterfaceUsageNodeDescriptionProvider.NAME);
+        var optItemDefinitionNodeDescription = cache.getNodeDescription(ItemDefinitionNodeDescriptionProvider.NAME);
+        var optItemUsageNodeDescription = cache.getNodeDescription(ItemUsageNodeDescriptionProvider.NAME);
+        var optPackageNodeDescription = cache.getNodeDescription(PackageNodeDescriptionProvider.NAME);
+        var optPartDefinitionNodeDescription = cache.getNodeDescription(PartDefinitionNodeDescriptionProvider.NAME);
+        var optPartUsageNodeDescription = cache.getNodeDescription(PartUsageNodeDescriptionProvider.NAME);
+        var optPortDefinitionNodeDescription = cache.getNodeDescription(PortDefinitionNodeDescriptionProvider.NAME);
+        var optPortUsageNodeDescription = cache.getNodeDescription(PortUsageNodeDescriptionProvider.NAME);
+
+        acceptedNodeTypes.add(optAttributeDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optAttributeUsageNodeDescription.get());
+        acceptedNodeTypes.add(optEnumerationDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optInterfaceDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optInterfaceUsageNodeDescription.get());
+        acceptedNodeTypes.add(optItemDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optItemUsageNodeDescription.get());
+        acceptedNodeTypes.add(optPackageNodeDescription.get());
+        acceptedNodeTypes.add(optPartDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optPartUsageNodeDescription.get());
+        acceptedNodeTypes.add(optPortDefinitionNodeDescription.get());
+        acceptedNodeTypes.add(optPortUsageNodeDescription.get());
+
+        var dropElementFromDiagram = this.viewBuilderHelper.newChangeContext()
+                .expression("aql:droppedElement.dropElementFromDiagram(droppedNode, targetElement, targetNode, editingContext, diagramContext, convertedNodes)");
+
+        return this.diagramBuilderHelper.newDropNodeTool()
+                .name("Drop from Diagram")
+                .acceptedNodeTypes(acceptedNodeTypes.toArray(new NodeDescription[acceptedNodeTypes.size()]))
+                .body(dropElementFromDiagram.build()).build();
     }
 
     private NodeToolSection createNodeToolSection(IViewDiagramElementFinder cache) {

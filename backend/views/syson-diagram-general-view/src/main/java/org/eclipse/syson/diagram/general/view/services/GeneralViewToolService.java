@@ -208,7 +208,6 @@ public class GeneralViewToolService {
             Map<org.eclipse.sirius.components.view.diagram.NodeDescription, NodeDescription> convertedNodes) {
         if (droppedElement.eContainer() instanceof Membership membership) {
             targetElement.getOwnedRelationship().add(membership);
-            // membership.setOwningRelatedElement(targetElement);
         } else {
             return;
         }
