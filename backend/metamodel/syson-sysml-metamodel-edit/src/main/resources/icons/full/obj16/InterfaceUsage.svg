@@ -21,7 +21,7 @@
        inkscape:collect="always"
        id="linearGradient872">
       <stop
-         style="stop-color:#ffecb3;stop-opacity:1;"
+         style="stop-color:#e8e9f0;stop-opacity:1;"
          offset="0"
          id="stop868" />
       <stop
@@ -135,14 +135,14 @@
        id="g882">
       <path
          id="rect881"
-         style="fill:url(#linearGradient874);fill-opacity:1;stroke:#ffa000;stroke-width:0.21166667;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:url(#linearGradient874);fill-opacity:1;stroke:#7667a3;stroke-width:0.21166667;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          d="M 0.7199168,0.18612462 H 4.0425832 V 4.0472087 H 0.7199168 Z" />
       <path
-         style="fill:none;stroke:#ffa000;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;stroke:#7667a3;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M 0.75931004,3.2307897 H 4.0001094"
          id="path883" />
       <path
-         style="fill:none;stroke:#ffa000;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;stroke:#7667a3;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M 0.76383798,2.4261953 H 4.0065784"
          id="path883-3" />
       <rect
@@ -154,13 +154,13 @@
          y="0.18612462" />
       <text
          xml:space="preserve"
-         style="font-size:2.11667px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#ff6f00;fill-opacity:1;stroke-width:0.264583"
+         style="font-size:2.11667px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#7667a3;fill-opacity:1;stroke-width:0.264583"
          x="0.84840888"
          y="2.0618148"
          id="text955"><tspan
            sodipodi:role="line"
            id="tspan953"
-           style="fill:#ff6f00;fill-opacity:1;stroke-width:0.264583"
+           style="fill:#7667a3;fill-opacity:1;stroke-width:0.264583"
            x="0.84840888"
            y="2.0618148">&lt;I&gt;</tspan></text>
     </g>

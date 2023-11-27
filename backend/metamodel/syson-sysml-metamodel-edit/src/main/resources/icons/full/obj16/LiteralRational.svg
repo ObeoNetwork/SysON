@@ -21,7 +21,7 @@
        inkscape:collect="always"
        id="linearGradient872">
       <stop
-         style="stop-color:#ffecb3;stop-opacity:1;"
+         style="stop-color:#e8e9f0;stop-opacity:1;"
          offset="0"
          id="stop868" />
       <stop
@@ -89,14 +89,14 @@
          x="0"
          y="0.81811953" />
       <rect
-         style="fill:#4d81b4;fill-opacity:1;stroke:#ffa000;stroke-width:0.211667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#4d81b4;fill-opacity:1;stroke:#7667a3;stroke-width:0.211667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect840-2"
          width="4.6154552"
          height="0.1175378"
          x="0.073523"
          y="0.63103175" />
       <rect
-         style="fill:#4d81b4;fill-opacity:1;stroke:#ffa000;stroke-width:0.211667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#4d81b4;fill-opacity:1;stroke:#7667a3;stroke-width:0.211667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect840-2-9"
          width="4.6154552"
          height="0.1175378"
@@ -104,7 +104,7 @@
          y="3.4548981" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.15713px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0.105161px;word-spacing:0px;fill:#ffa000;fill-opacity:1;stroke:none;stroke-width:0.269641"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.15713px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0.105161px;word-spacing:0px;fill:#7667a3;fill-opacity:1;stroke:none;stroke-width:0.269641"
          x="0.042213757"
          y="2.8787191"
          id="text857"><tspan
@@ -112,7 +112,7 @@
            id="tspan855"
            x="0.042213757"
            y="2.8787191"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.15713px;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffa000;fill-opacity:1;stroke-width:0.269641">1.10</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.15713px;font-family:Arial;-inkscape-font-specification:Arial;fill:#7667a3;fill-opacity:1;stroke-width:0.269641">1.10</tspan></text>
     </g>
   </g>
 </svg>
