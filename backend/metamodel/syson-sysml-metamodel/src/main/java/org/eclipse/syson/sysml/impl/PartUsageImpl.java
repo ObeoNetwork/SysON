@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.syson.sysml.FeatureTyping;
 import org.eclipse.syson.sysml.PartDefinition;
 import org.eclipse.syson.sysml.PartUsage;
-import org.eclipse.syson.sysml.PortDefinition;
 import org.eclipse.syson.sysml.SysmlPackage;
 
 /**

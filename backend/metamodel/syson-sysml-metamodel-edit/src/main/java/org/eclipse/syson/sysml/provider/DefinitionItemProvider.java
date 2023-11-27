@@ -55,8 +55,8 @@ public class DefinitionItemProvider extends ClassifierItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addDirectedUsagePropertyDescriptor(object);
             addIsVariationPropertyDescriptor(object);
+            addDirectedUsagePropertyDescriptor(object);
             addOwnedActionPropertyDescriptor(object);
             addOwnedAllocationPropertyDescriptor(object);
             addOwnedAnalysisCasePropertyDescriptor(object);

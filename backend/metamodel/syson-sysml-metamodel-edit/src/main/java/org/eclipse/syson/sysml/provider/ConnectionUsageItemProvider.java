@@ -55,10 +55,10 @@ public class ConnectionUsageItemProvider extends ConnectorAsUsageItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addIndividualDefinitionPropertyDescriptor(object);
             addIsIndividualPropertyDescriptor(object);
-            addOccurrenceDefinitionPropertyDescriptor(object);
             addPortionKindPropertyDescriptor(object);
+            addIndividualDefinitionPropertyDescriptor(object);
+            addOccurrenceDefinitionPropertyDescriptor(object);
             addItemDefinitionPropertyDescriptor(object);
             addPartDefinitionPropertyDescriptor(object);
             addConnectionDefinitionPropertyDescriptor(object);

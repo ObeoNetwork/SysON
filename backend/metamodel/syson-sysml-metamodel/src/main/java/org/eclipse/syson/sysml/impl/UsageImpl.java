@@ -191,7 +191,7 @@ public class UsageImpl extends FeatureImpl implements Usage {
      */
     @Override
     public boolean isIsVariation() {
-        return this.isVariation;
+        return isVariation;
     }
 
     /**
@@ -201,10 +201,10 @@ public class UsageImpl extends FeatureImpl implements Usage {
      */
     @Override
     public void setIsVariation(boolean newIsVariation) {
-        boolean oldIsVariation = this.isVariation;
-        this.isVariation = newIsVariation;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.USAGE__IS_VARIATION, oldIsVariation, this.isVariation));
+        boolean oldIsVariation = isVariation;
+        isVariation = newIsVariation;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.USAGE__IS_VARIATION, oldIsVariation, isVariation));
     }
 
     /**
@@ -539,8 +539,8 @@ public class UsageImpl extends FeatureImpl implements Usage {
      */
     @Override
     public Definition getOwningDefinition() {
-        Definition owningDefinition = this.basicGetOwningDefinition();
-        return owningDefinition != null && owningDefinition.eIsProxy() ? (Definition)this.eResolveProxy((InternalEObject)owningDefinition) : owningDefinition;
+        Definition owningDefinition = basicGetOwningDefinition();
+        return owningDefinition != null && owningDefinition.eIsProxy() ? (Definition)eResolveProxy((InternalEObject)owningDefinition) : owningDefinition;
     }
 
     /**
@@ -562,8 +562,8 @@ public class UsageImpl extends FeatureImpl implements Usage {
      */
     @Override
     public Usage getOwningUsage() {
-        Usage owningUsage = this.basicGetOwningUsage();
-        return owningUsage != null && owningUsage.eIsProxy() ? (Usage)this.eResolveProxy((InternalEObject)owningUsage) : owningUsage;
+        Usage owningUsage = basicGetOwningUsage();
+        return owningUsage != null && owningUsage.eIsProxy() ? (Usage)eResolveProxy((InternalEObject)owningUsage) : owningUsage;
     }
 
     /**
@@ -620,79 +620,79 @@ public class UsageImpl extends FeatureImpl implements Usage {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.USAGE__IS_REFERENCE:
-                return this.isIsReference();
+                return isIsReference();
             case SysmlPackage.USAGE__IS_VARIATION:
-                return this.isIsVariation();
+                return isIsVariation();
             case SysmlPackage.USAGE__DEFINITION:
-                return this.getDefinition();
+                return getDefinition();
             case SysmlPackage.USAGE__DIRECTED_USAGE:
-                return this.getDirectedUsage();
+                return getDirectedUsage();
             case SysmlPackage.USAGE__NESTED_ACTION:
-                return this.getNestedAction();
+                return getNestedAction();
             case SysmlPackage.USAGE__NESTED_ALLOCATION:
-                return this.getNestedAllocation();
+                return getNestedAllocation();
             case SysmlPackage.USAGE__NESTED_ANALYSIS_CASE:
-                return this.getNestedAnalysisCase();
+                return getNestedAnalysisCase();
             case SysmlPackage.USAGE__NESTED_ATTRIBUTE:
-                return this.getNestedAttribute();
+                return getNestedAttribute();
             case SysmlPackage.USAGE__NESTED_CALCULATION:
-                return this.getNestedCalculation();
+                return getNestedCalculation();
             case SysmlPackage.USAGE__NESTED_CASE:
-                return this.getNestedCase();
+                return getNestedCase();
             case SysmlPackage.USAGE__NESTED_CONCERN:
-                return this.getNestedConcern();
+                return getNestedConcern();
             case SysmlPackage.USAGE__NESTED_CONNECTION:
-                return this.getNestedConnection();
+                return getNestedConnection();
             case SysmlPackage.USAGE__NESTED_CONSTRAINT:
-                return this.getNestedConstraint();
+                return getNestedConstraint();
             case SysmlPackage.USAGE__NESTED_ENUMERATION:
-                return this.getNestedEnumeration();
+                return getNestedEnumeration();
             case SysmlPackage.USAGE__NESTED_FLOW:
-                return this.getNestedFlow();
+                return getNestedFlow();
             case SysmlPackage.USAGE__NESTED_INTERFACE:
-                return this.getNestedInterface();
+                return getNestedInterface();
             case SysmlPackage.USAGE__NESTED_ITEM:
-                return this.getNestedItem();
+                return getNestedItem();
             case SysmlPackage.USAGE__NESTED_METADATA:
-                return this.getNestedMetadata();
+                return getNestedMetadata();
             case SysmlPackage.USAGE__NESTED_OCCURRENCE:
-                return this.getNestedOccurrence();
+                return getNestedOccurrence();
             case SysmlPackage.USAGE__NESTED_PART:
-                return this.getNestedPart();
+                return getNestedPart();
             case SysmlPackage.USAGE__NESTED_PORT:
-                return this.getNestedPort();
+                return getNestedPort();
             case SysmlPackage.USAGE__NESTED_REFERENCE:
-                return this.getNestedReference();
+                return getNestedReference();
             case SysmlPackage.USAGE__NESTED_RENDERING:
-                return this.getNestedRendering();
+                return getNestedRendering();
             case SysmlPackage.USAGE__NESTED_REQUIREMENT:
-                return this.getNestedRequirement();
+                return getNestedRequirement();
             case SysmlPackage.USAGE__NESTED_STATE:
-                return this.getNestedState();
+                return getNestedState();
             case SysmlPackage.USAGE__NESTED_TRANSITION:
-                return this.getNestedTransition();
+                return getNestedTransition();
             case SysmlPackage.USAGE__NESTED_USAGE:
-                return this.getNestedUsage();
+                return getNestedUsage();
             case SysmlPackage.USAGE__NESTED_USE_CASE:
-                return this.getNestedUseCase();
+                return getNestedUseCase();
             case SysmlPackage.USAGE__NESTED_VERIFICATION_CASE:
-                return this.getNestedVerificationCase();
+                return getNestedVerificationCase();
             case SysmlPackage.USAGE__NESTED_VIEW:
-                return this.getNestedView();
+                return getNestedView();
             case SysmlPackage.USAGE__NESTED_VIEWPOINT:
-                return this.getNestedViewpoint();
+                return getNestedViewpoint();
             case SysmlPackage.USAGE__OWNING_DEFINITION:
-                if (resolve) return this.getOwningDefinition();
-                return this.basicGetOwningDefinition();
+                if (resolve) return getOwningDefinition();
+                return basicGetOwningDefinition();
             case SysmlPackage.USAGE__OWNING_USAGE:
-                if (resolve) return this.getOwningUsage();
-                return this.basicGetOwningUsage();
+                if (resolve) return getOwningUsage();
+                return basicGetOwningUsage();
             case SysmlPackage.USAGE__USAGE:
-                return this.getUsage();
+                return getUsage();
             case SysmlPackage.USAGE__VARIANT:
-                return this.getVariant();
+                return getVariant();
             case SysmlPackage.USAGE__VARIANT_MEMBERSHIP:
-                return this.getVariantMembership();
+                return getVariantMembership();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -707,7 +707,7 @@ public class UsageImpl extends FeatureImpl implements Usage {
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.USAGE__IS_VARIATION:
-                this.setIsVariation((Boolean)newValue);
+                setIsVariation((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -722,7 +722,7 @@ public class UsageImpl extends FeatureImpl implements Usage {
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.USAGE__IS_VARIATION:
-                this.setIsVariation(IS_VARIATION_EDEFAULT);
+                setIsVariation(IS_VARIATION_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -737,77 +737,77 @@ public class UsageImpl extends FeatureImpl implements Usage {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.USAGE__IS_REFERENCE:
-                return this.isIsReference() != IS_REFERENCE_EDEFAULT;
+                return isIsReference() != IS_REFERENCE_EDEFAULT;
             case SysmlPackage.USAGE__IS_VARIATION:
-                return this.isVariation != IS_VARIATION_EDEFAULT;
+                return isVariation != IS_VARIATION_EDEFAULT;
             case SysmlPackage.USAGE__DEFINITION:
-                return !this.getDefinition().isEmpty();
+                return !getDefinition().isEmpty();
             case SysmlPackage.USAGE__DIRECTED_USAGE:
-                return !this.getDirectedUsage().isEmpty();
+                return !getDirectedUsage().isEmpty();
             case SysmlPackage.USAGE__NESTED_ACTION:
-                return !this.getNestedAction().isEmpty();
+                return !getNestedAction().isEmpty();
             case SysmlPackage.USAGE__NESTED_ALLOCATION:
-                return !this.getNestedAllocation().isEmpty();
+                return !getNestedAllocation().isEmpty();
             case SysmlPackage.USAGE__NESTED_ANALYSIS_CASE:
-                return !this.getNestedAnalysisCase().isEmpty();
+                return !getNestedAnalysisCase().isEmpty();
             case SysmlPackage.USAGE__NESTED_ATTRIBUTE:
-                return !this.getNestedAttribute().isEmpty();
+                return !getNestedAttribute().isEmpty();
             case SysmlPackage.USAGE__NESTED_CALCULATION:
-                return !this.getNestedCalculation().isEmpty();
+                return !getNestedCalculation().isEmpty();
             case SysmlPackage.USAGE__NESTED_CASE:
-                return !this.getNestedCase().isEmpty();
+                return !getNestedCase().isEmpty();
             case SysmlPackage.USAGE__NESTED_CONCERN:
-                return !this.getNestedConcern().isEmpty();
+                return !getNestedConcern().isEmpty();
             case SysmlPackage.USAGE__NESTED_CONNECTION:
-                return !this.getNestedConnection().isEmpty();
+                return !getNestedConnection().isEmpty();
             case SysmlPackage.USAGE__NESTED_CONSTRAINT:
-                return !this.getNestedConstraint().isEmpty();
+                return !getNestedConstraint().isEmpty();
             case SysmlPackage.USAGE__NESTED_ENUMERATION:
-                return !this.getNestedEnumeration().isEmpty();
+                return !getNestedEnumeration().isEmpty();
             case SysmlPackage.USAGE__NESTED_FLOW:
-                return !this.getNestedFlow().isEmpty();
+                return !getNestedFlow().isEmpty();
             case SysmlPackage.USAGE__NESTED_INTERFACE:
-                return !this.getNestedInterface().isEmpty();
+                return !getNestedInterface().isEmpty();
             case SysmlPackage.USAGE__NESTED_ITEM:
-                return !this.getNestedItem().isEmpty();
+                return !getNestedItem().isEmpty();
             case SysmlPackage.USAGE__NESTED_METADATA:
-                return !this.getNestedMetadata().isEmpty();
+                return !getNestedMetadata().isEmpty();
             case SysmlPackage.USAGE__NESTED_OCCURRENCE:
-                return !this.getNestedOccurrence().isEmpty();
+                return !getNestedOccurrence().isEmpty();
             case SysmlPackage.USAGE__NESTED_PART:
-                return !this.getNestedPart().isEmpty();
+                return !getNestedPart().isEmpty();
             case SysmlPackage.USAGE__NESTED_PORT:
-                return !this.getNestedPort().isEmpty();
+                return !getNestedPort().isEmpty();
             case SysmlPackage.USAGE__NESTED_REFERENCE:
-                return !this.getNestedReference().isEmpty();
+                return !getNestedReference().isEmpty();
             case SysmlPackage.USAGE__NESTED_RENDERING:
-                return !this.getNestedRendering().isEmpty();
+                return !getNestedRendering().isEmpty();
             case SysmlPackage.USAGE__NESTED_REQUIREMENT:
-                return !this.getNestedRequirement().isEmpty();
+                return !getNestedRequirement().isEmpty();
             case SysmlPackage.USAGE__NESTED_STATE:
-                return !this.getNestedState().isEmpty();
+                return !getNestedState().isEmpty();
             case SysmlPackage.USAGE__NESTED_TRANSITION:
-                return !this.getNestedTransition().isEmpty();
+                return !getNestedTransition().isEmpty();
             case SysmlPackage.USAGE__NESTED_USAGE:
-                return !this.getNestedUsage().isEmpty();
+                return !getNestedUsage().isEmpty();
             case SysmlPackage.USAGE__NESTED_USE_CASE:
-                return !this.getNestedUseCase().isEmpty();
+                return !getNestedUseCase().isEmpty();
             case SysmlPackage.USAGE__NESTED_VERIFICATION_CASE:
-                return !this.getNestedVerificationCase().isEmpty();
+                return !getNestedVerificationCase().isEmpty();
             case SysmlPackage.USAGE__NESTED_VIEW:
-                return !this.getNestedView().isEmpty();
+                return !getNestedView().isEmpty();
             case SysmlPackage.USAGE__NESTED_VIEWPOINT:
-                return !this.getNestedViewpoint().isEmpty();
+                return !getNestedViewpoint().isEmpty();
             case SysmlPackage.USAGE__OWNING_DEFINITION:
-                return this.basicGetOwningDefinition() != null;
+                return basicGetOwningDefinition() != null;
             case SysmlPackage.USAGE__OWNING_USAGE:
-                return this.basicGetOwningUsage() != null;
+                return basicGetOwningUsage() != null;
             case SysmlPackage.USAGE__USAGE:
-                return !this.getUsage().isEmpty();
+                return !getUsage().isEmpty();
             case SysmlPackage.USAGE__VARIANT:
-                return !this.getVariant().isEmpty();
+                return !getVariant().isEmpty();
             case SysmlPackage.USAGE__VARIANT_MEMBERSHIP:
-                return !this.getVariantMembership().isEmpty();
+                return !getVariantMembership().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -819,11 +819,11 @@ public class UsageImpl extends FeatureImpl implements Usage {
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (isVariation: ");
-        result.append(this.isVariation);
+        result.append(isVariation);
         result.append(')');
         return result.toString();
     }

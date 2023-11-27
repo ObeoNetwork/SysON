@@ -282,15 +282,24 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
     }
 
     protected NodePalette createDefaultNodePalette() {
-        var changeContext = this.viewBuilderHelper.newChangeContext()
+        var callDeleteService = this.viewBuilderHelper.newChangeContext()
                 .expression(AQLConstants.AQL_SELF + ".deleteFromModel()");
 
         var deleteTool = this.diagramBuilderHelper.newDeleteTool()
                 .name("Delete from Model")
-                .body(changeContext.build());
+                .body(callDeleteService.build());
+
+        var callEditService = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL_SELF + ".directEdit(newLabel)");
+
+        var editTool = this.diagramBuilderHelper.newLabelEditTool()
+                .name("Edit")
+                .initialDirectEditLabelExpression(AQLConstants.AQL_SELF + ".getInitialDirectEditLabel()")
+                .body(callEditService.build());
 
         return this.diagramBuilderHelper.newNodePalette()
                 .deleteTool(deleteTool.build())
+                .labelEditTool(editTool.build())
                 .build();
     }
 

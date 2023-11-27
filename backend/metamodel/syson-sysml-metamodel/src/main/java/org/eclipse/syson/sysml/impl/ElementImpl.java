@@ -236,10 +236,10 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public EList<String> getAliasIds() {
-        if (this.aliasIds == null) {
-            this.aliasIds = new EDataTypeUniqueEList<>(String.class, this, SysmlPackage.ELEMENT__ALIAS_IDS);
+        if (aliasIds == null) {
+            aliasIds = new EDataTypeUniqueEList<String>(String.class, this, SysmlPackage.ELEMENT__ALIAS_IDS);
         }
-        return this.aliasIds;
+        return aliasIds;
     }
 
     /**
@@ -249,7 +249,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public String getDeclaredName() {
-        return this.declaredName;
+        return declaredName;
     }
 
     /**
@@ -259,10 +259,10 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public void setDeclaredName(String newDeclaredName) {
-        String oldDeclaredName = this.declaredName;
-        this.declaredName = newDeclaredName;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__DECLARED_NAME, oldDeclaredName, this.declaredName));
+        String oldDeclaredName = declaredName;
+        declaredName = newDeclaredName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__DECLARED_NAME, oldDeclaredName, declaredName));
     }
 
     /**
@@ -272,7 +272,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public String getDeclaredShortName() {
-        return this.declaredShortName;
+        return declaredShortName;
     }
 
     /**
@@ -282,10 +282,10 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public void setDeclaredShortName(String newDeclaredShortName) {
-        String oldDeclaredShortName = this.declaredShortName;
-        this.declaredShortName = newDeclaredShortName;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__DECLARED_SHORT_NAME, oldDeclaredShortName, this.declaredShortName));
+        String oldDeclaredShortName = declaredShortName;
+        declaredShortName = newDeclaredShortName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__DECLARED_SHORT_NAME, oldDeclaredShortName, declaredShortName));
     }
 
     /**
@@ -306,7 +306,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public String getElementId() {
-        return this.elementId;
+        return elementId;
     }
 
     /**
@@ -316,10 +316,10 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public void setElementId(String newElementId) {
-        String oldElementId = this.elementId;
-        this.elementId = newElementId;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__ELEMENT_ID, oldElementId, this.elementId));
+        String oldElementId = elementId;
+        elementId = newElementId;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__ELEMENT_ID, oldElementId, elementId));
     }
 
     /**
@@ -329,7 +329,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public boolean isIsImpliedIncluded() {
-        return this.isImpliedIncluded;
+        return isImpliedIncluded;
     }
 
     /**
@@ -339,10 +339,10 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public void setIsImpliedIncluded(boolean newIsImpliedIncluded) {
-        boolean oldIsImpliedIncluded = this.isImpliedIncluded;
-        this.isImpliedIncluded = newIsImpliedIncluded;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__IS_IMPLIED_INCLUDED, oldIsImpliedIncluded, this.isImpliedIncluded));
+        boolean oldIsImpliedIncluded = isImpliedIncluded;
+        isImpliedIncluded = newIsImpliedIncluded;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__IS_IMPLIED_INCLUDED, oldIsImpliedIncluded, isImpliedIncluded));
     }
 
     /**
@@ -394,10 +394,10 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public EList<Relationship> getOwnedRelationship() {
-        if (this.ownedRelationship == null) {
-            this.ownedRelationship = new EObjectContainmentWithInverseEList<>(Relationship.class, this, SysmlPackage.ELEMENT__OWNED_RELATIONSHIP, SysmlPackage.RELATIONSHIP__OWNING_RELATED_ELEMENT);
+        if (ownedRelationship == null) {
+            ownedRelationship = new EObjectContainmentWithInverseEList<Relationship>(Relationship.class, this, SysmlPackage.ELEMENT__OWNED_RELATIONSHIP, SysmlPackage.RELATIONSHIP__OWNING_RELATED_ELEMENT);
         }
-        return this.ownedRelationship;
+        return ownedRelationship;
     }
 
     /**
@@ -407,8 +407,8 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public Element getOwner() {
-        Element owner = this.basicGetOwner();
-        return owner != null && owner.eIsProxy() ? (Element)this.eResolveProxy((InternalEObject)owner) : owner;
+        Element owner = basicGetOwner();
+        return owner != null && owner.eIsProxy() ? (Element)eResolveProxy((InternalEObject)owner) : owner;
     }
 
     /**
@@ -430,8 +430,8 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public OwningMembership getOwningMembership() {
-        OwningMembership owningMembership = this.basicGetOwningMembership();
-        return owningMembership != null && owningMembership.eIsProxy() ? (OwningMembership)this.eResolveProxy((InternalEObject)owningMembership) : owningMembership;
+        OwningMembership owningMembership = basicGetOwningMembership();
+        return owningMembership != null && owningMembership.eIsProxy() ? (OwningMembership)eResolveProxy((InternalEObject)owningMembership) : owningMembership;
     }
 
     /**
@@ -453,8 +453,8 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public Namespace getOwningNamespace() {
-        Namespace owningNamespace = this.basicGetOwningNamespace();
-        return owningNamespace != null && owningNamespace.eIsProxy() ? (Namespace)this.eResolveProxy((InternalEObject)owningNamespace) : owningNamespace;
+        Namespace owningNamespace = basicGetOwningNamespace();
+        return owningNamespace != null && owningNamespace.eIsProxy() ? (Namespace)eResolveProxy((InternalEObject)owningNamespace) : owningNamespace;
     }
 
     /**
@@ -476,8 +476,8 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public Relationship getOwningRelationship() {
-        if (this.eContainerFeatureID() != SysmlPackage.ELEMENT__OWNING_RELATIONSHIP) return null;
-        return (Relationship)this.eInternalContainer();
+        if (eContainerFeatureID() != SysmlPackage.ELEMENT__OWNING_RELATIONSHIP) return null;
+        return (Relationship)eInternalContainer();
     }
 
     /**
@@ -486,7 +486,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      * @generated
      */
     public NotificationChain basicSetOwningRelationship(Relationship newOwningRelationship, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject)newOwningRelationship, SysmlPackage.ELEMENT__OWNING_RELATIONSHIP, msgs);
+        msgs = eBasicSetContainer((InternalEObject)newOwningRelationship, SysmlPackage.ELEMENT__OWNING_RELATIONSHIP, msgs);
         return msgs;
     }
 
@@ -497,19 +497,19 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public void setOwningRelationship(Relationship newOwningRelationship) {
-        if (newOwningRelationship != this.eInternalContainer() || (this.eContainerFeatureID() != SysmlPackage.ELEMENT__OWNING_RELATIONSHIP && newOwningRelationship != null)) {
+        if (newOwningRelationship != eInternalContainer() || (eContainerFeatureID() != SysmlPackage.ELEMENT__OWNING_RELATIONSHIP && newOwningRelationship != null)) {
             if (EcoreUtil.isAncestor(this, newOwningRelationship))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null)
-                msgs = this.eBasicRemoveFromContainer(msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
             if (newOwningRelationship != null)
                 msgs = ((InternalEObject)newOwningRelationship).eInverseAdd(this, SysmlPackage.RELATIONSHIP__OWNED_RELATED_ELEMENT, Relationship.class, msgs);
-            msgs = this.basicSetOwningRelationship(newOwningRelationship, msgs);
+            msgs = basicSetOwningRelationship(newOwningRelationship, msgs);
             if (msgs != null) msgs.dispatch();
         }
-        else if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__OWNING_RELATIONSHIP, newOwningRelationship, newOwningRelationship));
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.ELEMENT__OWNING_RELATIONSHIP, newOwningRelationship, newOwningRelationship));
     }
 
     /**
@@ -537,7 +537,6 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     @Override
     public String getShortName() {
         return this.getDeclaredShortName();
-
     }
 
     /**
@@ -609,11 +608,11 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.ELEMENT__OWNED_RELATIONSHIP:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)this.getOwnedRelationship()).basicAdd(otherEnd, msgs);
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedRelationship()).basicAdd(otherEnd, msgs);
             case SysmlPackage.ELEMENT__OWNING_RELATIONSHIP:
-                if (this.eInternalContainer() != null)
-                    msgs = this.eBasicRemoveFromContainer(msgs);
-                return this.basicSetOwningRelationship((Relationship)otherEnd, msgs);
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetOwningRelationship((Relationship)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -627,9 +626,9 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.ELEMENT__OWNED_RELATIONSHIP:
-                return ((InternalEList<?>)this.getOwnedRelationship()).basicRemove(otherEnd, msgs);
+                return ((InternalEList<?>)getOwnedRelationship()).basicRemove(otherEnd, msgs);
             case SysmlPackage.ELEMENT__OWNING_RELATIONSHIP:
-                return this.basicSetOwningRelationship(null, msgs);
+                return basicSetOwningRelationship(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -641,9 +640,9 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (eContainerFeatureID()) {
             case SysmlPackage.ELEMENT__OWNING_RELATIONSHIP:
-                return this.eInternalContainer().eInverseRemove(this, SysmlPackage.RELATIONSHIP__OWNED_RELATED_ELEMENT, Relationship.class, msgs);
+                return eInternalContainer().eInverseRemove(this, SysmlPackage.RELATIONSHIP__OWNED_RELATED_ELEMENT, Relationship.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -657,44 +656,44 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.ELEMENT__ALIAS_IDS:
-                return this.getAliasIds();
+                return getAliasIds();
             case SysmlPackage.ELEMENT__DECLARED_NAME:
-                return this.getDeclaredName();
+                return getDeclaredName();
             case SysmlPackage.ELEMENT__DECLARED_SHORT_NAME:
-                return this.getDeclaredShortName();
+                return getDeclaredShortName();
             case SysmlPackage.ELEMENT__ELEMENT_ID:
-                return this.getElementId();
+                return getElementId();
             case SysmlPackage.ELEMENT__IS_IMPLIED_INCLUDED:
-                return this.isIsImpliedIncluded();
+                return isIsImpliedIncluded();
             case SysmlPackage.ELEMENT__IS_LIBRARY_ELEMENT:
-                return this.isIsLibraryElement();
+                return isIsLibraryElement();
             case SysmlPackage.ELEMENT__NAME:
-                return this.getName();
+                return getName();
             case SysmlPackage.ELEMENT__QUALIFIED_NAME:
-                return this.getQualifiedName();
+                return getQualifiedName();
             case SysmlPackage.ELEMENT__SHORT_NAME:
-                return this.getShortName();
+                return getShortName();
             case SysmlPackage.ELEMENT__DOCUMENTATION:
-                return this.getDocumentation();
+                return getDocumentation();
             case SysmlPackage.ELEMENT__OWNED_ANNOTATION:
-                return this.getOwnedAnnotation();
+                return getOwnedAnnotation();
             case SysmlPackage.ELEMENT__OWNED_ELEMENT:
-                return this.getOwnedElement();
+                return getOwnedElement();
             case SysmlPackage.ELEMENT__OWNED_RELATIONSHIP:
-                return this.getOwnedRelationship();
+                return getOwnedRelationship();
             case SysmlPackage.ELEMENT__OWNER:
-                if (resolve) return this.getOwner();
-                return this.basicGetOwner();
+                if (resolve) return getOwner();
+                return basicGetOwner();
             case SysmlPackage.ELEMENT__OWNING_MEMBERSHIP:
-                if (resolve) return this.getOwningMembership();
-                return this.basicGetOwningMembership();
+                if (resolve) return getOwningMembership();
+                return basicGetOwningMembership();
             case SysmlPackage.ELEMENT__OWNING_NAMESPACE:
-                if (resolve) return this.getOwningNamespace();
-                return this.basicGetOwningNamespace();
+                if (resolve) return getOwningNamespace();
+                return basicGetOwningNamespace();
             case SysmlPackage.ELEMENT__OWNING_RELATIONSHIP:
-                return this.getOwningRelationship();
+                return getOwningRelationship();
             case SysmlPackage.ELEMENT__TEXTUAL_REPRESENTATION:
-                return this.getTextualRepresentation();
+                return getTextualRepresentation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -709,27 +708,27 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.ELEMENT__ALIAS_IDS:
-                this.getAliasIds().clear();
-                this.getAliasIds().addAll((Collection<? extends String>)newValue);
+                getAliasIds().clear();
+                getAliasIds().addAll((Collection<? extends String>)newValue);
                 return;
             case SysmlPackage.ELEMENT__DECLARED_NAME:
-                this.setDeclaredName((String)newValue);
+                setDeclaredName((String)newValue);
                 return;
             case SysmlPackage.ELEMENT__DECLARED_SHORT_NAME:
-                this.setDeclaredShortName((String)newValue);
+                setDeclaredShortName((String)newValue);
                 return;
             case SysmlPackage.ELEMENT__ELEMENT_ID:
-                this.setElementId((String)newValue);
+                setElementId((String)newValue);
                 return;
             case SysmlPackage.ELEMENT__IS_IMPLIED_INCLUDED:
-                this.setIsImpliedIncluded((Boolean)newValue);
+                setIsImpliedIncluded((Boolean)newValue);
                 return;
             case SysmlPackage.ELEMENT__OWNED_RELATIONSHIP:
-                this.getOwnedRelationship().clear();
-                this.getOwnedRelationship().addAll((Collection<? extends Relationship>)newValue);
+                getOwnedRelationship().clear();
+                getOwnedRelationship().addAll((Collection<? extends Relationship>)newValue);
                 return;
             case SysmlPackage.ELEMENT__OWNING_RELATIONSHIP:
-                this.setOwningRelationship((Relationship)newValue);
+                setOwningRelationship((Relationship)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -744,25 +743,25 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.ELEMENT__ALIAS_IDS:
-                this.getAliasIds().clear();
+                getAliasIds().clear();
                 return;
             case SysmlPackage.ELEMENT__DECLARED_NAME:
-                this.setDeclaredName(DECLARED_NAME_EDEFAULT);
+                setDeclaredName(DECLARED_NAME_EDEFAULT);
                 return;
             case SysmlPackage.ELEMENT__DECLARED_SHORT_NAME:
-                this.setDeclaredShortName(DECLARED_SHORT_NAME_EDEFAULT);
+                setDeclaredShortName(DECLARED_SHORT_NAME_EDEFAULT);
                 return;
             case SysmlPackage.ELEMENT__ELEMENT_ID:
-                this.setElementId(ELEMENT_ID_EDEFAULT);
+                setElementId(ELEMENT_ID_EDEFAULT);
                 return;
             case SysmlPackage.ELEMENT__IS_IMPLIED_INCLUDED:
-                this.setIsImpliedIncluded(IS_IMPLIED_INCLUDED_EDEFAULT);
+                setIsImpliedIncluded(IS_IMPLIED_INCLUDED_EDEFAULT);
                 return;
             case SysmlPackage.ELEMENT__OWNED_RELATIONSHIP:
-                this.getOwnedRelationship().clear();
+                getOwnedRelationship().clear();
                 return;
             case SysmlPackage.ELEMENT__OWNING_RELATIONSHIP:
-                this.setOwningRelationship((Relationship)null);
+                setOwningRelationship((Relationship)null);
                 return;
         }
         super.eUnset(featureID);
@@ -777,41 +776,41 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.ELEMENT__ALIAS_IDS:
-                return this.aliasIds != null && !this.aliasIds.isEmpty();
+                return aliasIds != null && !aliasIds.isEmpty();
             case SysmlPackage.ELEMENT__DECLARED_NAME:
-                return DECLARED_NAME_EDEFAULT == null ? this.declaredName != null : !DECLARED_NAME_EDEFAULT.equals(this.declaredName);
+                return DECLARED_NAME_EDEFAULT == null ? declaredName != null : !DECLARED_NAME_EDEFAULT.equals(declaredName);
             case SysmlPackage.ELEMENT__DECLARED_SHORT_NAME:
-                return DECLARED_SHORT_NAME_EDEFAULT == null ? this.declaredShortName != null : !DECLARED_SHORT_NAME_EDEFAULT.equals(this.declaredShortName);
+                return DECLARED_SHORT_NAME_EDEFAULT == null ? declaredShortName != null : !DECLARED_SHORT_NAME_EDEFAULT.equals(declaredShortName);
             case SysmlPackage.ELEMENT__ELEMENT_ID:
-                return ELEMENT_ID_EDEFAULT == null ? this.elementId != null : !ELEMENT_ID_EDEFAULT.equals(this.elementId);
+                return ELEMENT_ID_EDEFAULT == null ? elementId != null : !ELEMENT_ID_EDEFAULT.equals(elementId);
             case SysmlPackage.ELEMENT__IS_IMPLIED_INCLUDED:
-                return this.isImpliedIncluded != IS_IMPLIED_INCLUDED_EDEFAULT;
+                return isImpliedIncluded != IS_IMPLIED_INCLUDED_EDEFAULT;
             case SysmlPackage.ELEMENT__IS_LIBRARY_ELEMENT:
-                return this.isIsLibraryElement() != IS_LIBRARY_ELEMENT_EDEFAULT;
+                return isIsLibraryElement() != IS_LIBRARY_ELEMENT_EDEFAULT;
             case SysmlPackage.ELEMENT__NAME:
-                return NAME_EDEFAULT == null ? this.getName() != null : !NAME_EDEFAULT.equals(this.getName());
+                return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
             case SysmlPackage.ELEMENT__QUALIFIED_NAME:
-                return QUALIFIED_NAME_EDEFAULT == null ? this.getQualifiedName() != null : !QUALIFIED_NAME_EDEFAULT.equals(this.getQualifiedName());
+                return QUALIFIED_NAME_EDEFAULT == null ? getQualifiedName() != null : !QUALIFIED_NAME_EDEFAULT.equals(getQualifiedName());
             case SysmlPackage.ELEMENT__SHORT_NAME:
-                return SHORT_NAME_EDEFAULT == null ? this.getShortName() != null : !SHORT_NAME_EDEFAULT.equals(this.getShortName());
+                return SHORT_NAME_EDEFAULT == null ? getShortName() != null : !SHORT_NAME_EDEFAULT.equals(getShortName());
             case SysmlPackage.ELEMENT__DOCUMENTATION:
-                return !this.getDocumentation().isEmpty();
+                return !getDocumentation().isEmpty();
             case SysmlPackage.ELEMENT__OWNED_ANNOTATION:
-                return !this.getOwnedAnnotation().isEmpty();
+                return !getOwnedAnnotation().isEmpty();
             case SysmlPackage.ELEMENT__OWNED_ELEMENT:
-                return !this.getOwnedElement().isEmpty();
+                return !getOwnedElement().isEmpty();
             case SysmlPackage.ELEMENT__OWNED_RELATIONSHIP:
-                return this.ownedRelationship != null && !this.ownedRelationship.isEmpty();
+                return ownedRelationship != null && !ownedRelationship.isEmpty();
             case SysmlPackage.ELEMENT__OWNER:
-                return this.basicGetOwner() != null;
+                return basicGetOwner() != null;
             case SysmlPackage.ELEMENT__OWNING_MEMBERSHIP:
-                return this.basicGetOwningMembership() != null;
+                return basicGetOwningMembership() != null;
             case SysmlPackage.ELEMENT__OWNING_NAMESPACE:
-                return this.basicGetOwningNamespace() != null;
+                return basicGetOwningNamespace() != null;
             case SysmlPackage.ELEMENT__OWNING_RELATIONSHIP:
-                return this.getOwningRelationship() != null;
+                return getOwningRelationship() != null;
             case SysmlPackage.ELEMENT__TEXTUAL_REPRESENTATION:
-                return !this.getTextualRepresentation().isEmpty();
+                return !getTextualRepresentation().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -825,13 +824,13 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.ELEMENT___EFFECTIVE_NAME:
-                return this.effectiveName();
+                return effectiveName();
             case SysmlPackage.ELEMENT___EFFECTIVE_SHORT_NAME:
-                return this.effectiveShortName();
+                return effectiveShortName();
             case SysmlPackage.ELEMENT___ESCAPED_NAME:
-                return this.escapedName();
+                return escapedName();
             case SysmlPackage.ELEMENT___LIBRARY_NAMESPACE:
-                return this.libraryNamespace();
+                return libraryNamespace();
         }
         return super.eInvoke(operationID, arguments);
     }
@@ -843,19 +842,19 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (aliasIds: ");
-        result.append(this.aliasIds);
+        result.append(aliasIds);
         result.append(", declaredName: ");
-        result.append(this.declaredName);
+        result.append(declaredName);
         result.append(", declaredShortName: ");
-        result.append(this.declaredShortName);
+        result.append(declaredShortName);
         result.append(", elementId: ");
-        result.append(this.elementId);
+        result.append(elementId);
         result.append(", isImpliedIncluded: ");
-        result.append(this.isImpliedIncluded);
+        result.append(isImpliedIncluded);
         result.append(')');
         return result.toString();
     }

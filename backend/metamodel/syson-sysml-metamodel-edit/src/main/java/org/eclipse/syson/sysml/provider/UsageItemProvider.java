@@ -55,10 +55,10 @@ public class UsageItemProvider extends FeatureItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addDefinitionPropertyDescriptor(object);
-            addDirectedUsagePropertyDescriptor(object);
             addIsReferencePropertyDescriptor(object);
             addIsVariationPropertyDescriptor(object);
+            addDefinitionPropertyDescriptor(object);
+            addDirectedUsagePropertyDescriptor(object);
             addNestedActionPropertyDescriptor(object);
             addNestedAllocationPropertyDescriptor(object);
             addNestedAnalysisCasePropertyDescriptor(object);

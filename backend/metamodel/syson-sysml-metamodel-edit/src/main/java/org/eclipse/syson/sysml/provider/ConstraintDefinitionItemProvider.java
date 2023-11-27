@@ -57,8 +57,8 @@ public class ConstraintDefinitionItemProvider extends OccurrenceDefinitionItemPr
 
             addParameterPropertyDescriptor(object);
             addStepPropertyDescriptor(object);
-            addExpressionPropertyDescriptor(object);
             addIsModelLevelEvaluablePropertyDescriptor(object);
+            addExpressionPropertyDescriptor(object);
             addResultPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;

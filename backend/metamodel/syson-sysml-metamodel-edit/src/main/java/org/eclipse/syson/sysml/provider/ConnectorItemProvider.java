@@ -62,9 +62,9 @@ public class ConnectorItemProvider extends FeatureItemProvider {
             addRelatedElementPropertyDescriptor(object);
             addSourcePropertyDescriptor(object);
             addTargetPropertyDescriptor(object);
+            addIsDirectedPropertyDescriptor(object);
             addAssociationPropertyDescriptor(object);
             addConnectorEndPropertyDescriptor(object);
-            addIsDirectedPropertyDescriptor(object);
             addRelatedFeaturePropertyDescriptor(object);
             addSourceFeaturePropertyDescriptor(object);
             addTargetFeaturePropertyDescriptor(object);

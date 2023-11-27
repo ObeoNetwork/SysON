@@ -55,10 +55,10 @@ public class StateDefinitionItemProvider extends ActionDefinitionItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            addIsParallelPropertyDescriptor(object);
             addDoActionPropertyDescriptor(object);
             addEntryActionPropertyDescriptor(object);
             addExitActionPropertyDescriptor(object);
-            addIsParallelPropertyDescriptor(object);
             addStatePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;

@@ -127,8 +127,8 @@ public class FlowConnectionUsageImpl extends ConnectionUsageImpl implements Flow
      */
     @Override
     public ItemFeature getItemFeature() {
-        ItemFeature itemFeature = this.basicGetItemFeature();
-        return itemFeature != null && itemFeature.eIsProxy() ? (ItemFeature)this.eResolveProxy((InternalEObject)itemFeature) : itemFeature;
+        ItemFeature itemFeature = basicGetItemFeature();
+        return itemFeature != null && itemFeature.eIsProxy() ? (ItemFeature)eResolveProxy((InternalEObject)itemFeature) : itemFeature;
     }
 
     /**
@@ -172,8 +172,8 @@ public class FlowConnectionUsageImpl extends ConnectionUsageImpl implements Flow
      */
     @Override
     public Feature getSourceOutputFeature() {
-        Feature sourceOutputFeature = this.basicGetSourceOutputFeature();
-        return sourceOutputFeature != null && sourceOutputFeature.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)sourceOutputFeature) : sourceOutputFeature;
+        Feature sourceOutputFeature = basicGetSourceOutputFeature();
+        return sourceOutputFeature != null && sourceOutputFeature.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)sourceOutputFeature) : sourceOutputFeature;
     }
 
     /**
@@ -195,8 +195,8 @@ public class FlowConnectionUsageImpl extends ConnectionUsageImpl implements Flow
      */
     @Override
     public Feature getTargetInputFeature() {
-        Feature targetInputFeature = this.basicGetTargetInputFeature();
-        return targetInputFeature != null && targetInputFeature.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)targetInputFeature) : targetInputFeature;
+        Feature targetInputFeature = basicGetTargetInputFeature();
+        return targetInputFeature != null && targetInputFeature.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)targetInputFeature) : targetInputFeature;
     }
 
     /**
@@ -277,28 +277,28 @@ public class FlowConnectionUsageImpl extends ConnectionUsageImpl implements Flow
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.FLOW_CONNECTION_USAGE__BEHAVIOR:
-                return this.getBehavior();
+                return getBehavior();
             case SysmlPackage.FLOW_CONNECTION_USAGE__PARAMETER:
-                return this.getParameter();
+                return getParameter();
             case SysmlPackage.FLOW_CONNECTION_USAGE__ACTION_DEFINITION:
-                return this.getActionDefinition();
+                return getActionDefinition();
             case SysmlPackage.FLOW_CONNECTION_USAGE__INTERACTION:
-                return this.getInteraction();
+                return getInteraction();
             case SysmlPackage.FLOW_CONNECTION_USAGE__ITEM_FEATURE:
-                if (resolve) return this.getItemFeature();
-                return this.basicGetItemFeature();
+                if (resolve) return getItemFeature();
+                return basicGetItemFeature();
             case SysmlPackage.FLOW_CONNECTION_USAGE__ITEM_FLOW_END:
-                return this.getItemFlowEnd();
+                return getItemFlowEnd();
             case SysmlPackage.FLOW_CONNECTION_USAGE__ITEM_TYPE:
-                return this.getItemType();
+                return getItemType();
             case SysmlPackage.FLOW_CONNECTION_USAGE__SOURCE_OUTPUT_FEATURE:
-                if (resolve) return this.getSourceOutputFeature();
-                return this.basicGetSourceOutputFeature();
+                if (resolve) return getSourceOutputFeature();
+                return basicGetSourceOutputFeature();
             case SysmlPackage.FLOW_CONNECTION_USAGE__TARGET_INPUT_FEATURE:
-                if (resolve) return this.getTargetInputFeature();
-                return this.basicGetTargetInputFeature();
+                if (resolve) return getTargetInputFeature();
+                return basicGetTargetInputFeature();
             case SysmlPackage.FLOW_CONNECTION_USAGE__FLOW_CONNECTION_DEFINITION:
-                return this.getFlowConnectionDefinition();
+                return getFlowConnectionDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -312,25 +312,25 @@ public class FlowConnectionUsageImpl extends ConnectionUsageImpl implements Flow
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.FLOW_CONNECTION_USAGE__BEHAVIOR:
-                return !this.getBehavior().isEmpty();
+                return !getBehavior().isEmpty();
             case SysmlPackage.FLOW_CONNECTION_USAGE__PARAMETER:
-                return !this.getParameter().isEmpty();
+                return !getParameter().isEmpty();
             case SysmlPackage.FLOW_CONNECTION_USAGE__ACTION_DEFINITION:
-                return !this.getActionDefinition().isEmpty();
+                return !getActionDefinition().isEmpty();
             case SysmlPackage.FLOW_CONNECTION_USAGE__INTERACTION:
-                return !this.getInteraction().isEmpty();
+                return !getInteraction().isEmpty();
             case SysmlPackage.FLOW_CONNECTION_USAGE__ITEM_FEATURE:
-                return this.basicGetItemFeature() != null;
+                return basicGetItemFeature() != null;
             case SysmlPackage.FLOW_CONNECTION_USAGE__ITEM_FLOW_END:
-                return !this.getItemFlowEnd().isEmpty();
+                return !getItemFlowEnd().isEmpty();
             case SysmlPackage.FLOW_CONNECTION_USAGE__ITEM_TYPE:
-                return !this.getItemType().isEmpty();
+                return !getItemType().isEmpty();
             case SysmlPackage.FLOW_CONNECTION_USAGE__SOURCE_OUTPUT_FEATURE:
-                return this.basicGetSourceOutputFeature() != null;
+                return basicGetSourceOutputFeature() != null;
             case SysmlPackage.FLOW_CONNECTION_USAGE__TARGET_INPUT_FEATURE:
-                return this.basicGetTargetInputFeature() != null;
+                return basicGetTargetInputFeature() != null;
             case SysmlPackage.FLOW_CONNECTION_USAGE__FLOW_CONNECTION_DEFINITION:
-                return !this.getFlowConnectionDefinition().isEmpty();
+                return !getFlowConnectionDefinition().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -441,13 +441,13 @@ public class FlowConnectionUsageImpl extends ConnectionUsageImpl implements Flow
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.FLOW_CONNECTION_USAGE___ARGUMENT__INT:
-                return this.argument((Integer)arguments.get(0));
+                return argument((Integer)arguments.get(0));
             case SysmlPackage.FLOW_CONNECTION_USAGE___INPUT_PARAMETER__INT:
-                return this.inputParameter((Integer)arguments.get(0));
+                return inputParameter((Integer)arguments.get(0));
             case SysmlPackage.FLOW_CONNECTION_USAGE___INPUT_PARAMETERS:
-                return this.inputParameters();
+                return inputParameters();
             case SysmlPackage.FLOW_CONNECTION_USAGE___IS_SUBACTION_USAGE:
-                return this.isSubactionUsage();
+                return isSubactionUsage();
         }
         return super.eInvoke(operationID, arguments);
     }

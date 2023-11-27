@@ -6,5 +6,6 @@
   </fileset>
   <filter name="FilesFromPackage" enabled="true">
     <filter-data value="src/main/resources"/>
+    <filter-data value="src/main/java/org/eclipse/syson/diagram/general/view/directedit/grammars/generated"/>
   </filter>
 </fileset-config>

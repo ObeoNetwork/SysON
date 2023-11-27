@@ -75,7 +75,7 @@ public class EnumerationDefinitionImpl extends AttributeDefinitionImpl implement
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.ENUMERATION_DEFINITION__ENUMERATED_VALUE:
-                return this.getEnumeratedValue();
+                return getEnumeratedValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -89,7 +89,7 @@ public class EnumerationDefinitionImpl extends AttributeDefinitionImpl implement
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.ENUMERATION_DEFINITION__ENUMERATED_VALUE:
-                return !this.getEnumeratedValue().isEmpty();
+                return !getEnumeratedValue().isEmpty();
         }
         return super.eIsSet(featureID);
     }

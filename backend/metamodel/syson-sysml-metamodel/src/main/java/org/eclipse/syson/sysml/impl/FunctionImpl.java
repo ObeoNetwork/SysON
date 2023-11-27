@@ -98,8 +98,8 @@ public class FunctionImpl extends BehaviorImpl implements Function {
      */
     @Override
     public Feature getResult() {
-        Feature result = this.basicGetResult();
-        return result != null && result.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)result) : result;
+        Feature result = basicGetResult();
+        return result != null && result.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)result) : result;
     }
 
     /**
@@ -123,12 +123,12 @@ public class FunctionImpl extends BehaviorImpl implements Function {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.FUNCTION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable();
+                return isIsModelLevelEvaluable();
             case SysmlPackage.FUNCTION__EXPRESSION:
-                return this.getExpression();
+                return getExpression();
             case SysmlPackage.FUNCTION__RESULT:
-                if (resolve) return this.getResult();
-                return this.basicGetResult();
+                if (resolve) return getResult();
+                return basicGetResult();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -142,11 +142,11 @@ public class FunctionImpl extends BehaviorImpl implements Function {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.FUNCTION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
+                return isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
             case SysmlPackage.FUNCTION__EXPRESSION:
-                return !this.getExpression().isEmpty();
+                return !getExpression().isEmpty();
             case SysmlPackage.FUNCTION__RESULT:
-                return this.basicGetResult() != null;
+                return basicGetResult() != null;
         }
         return super.eIsSet(featureID);
     }

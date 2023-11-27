@@ -75,8 +75,8 @@ public class ExpressionImpl extends StepImpl implements Expression {
      */
     @Override
     public Function getFunction() {
-        Function function = this.basicGetFunction();
-        return function != null && function.eIsProxy() ? (Function)this.eResolveProxy((InternalEObject)function) : function;
+        Function function = basicGetFunction();
+        return function != null && function.eIsProxy() ? (Function)eResolveProxy((InternalEObject)function) : function;
     }
 
     /**
@@ -108,8 +108,8 @@ public class ExpressionImpl extends StepImpl implements Expression {
      */
     @Override
     public Feature getResult() {
-        Feature result = this.basicGetResult();
-        return result != null && result.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)result) : result;
+        Feature result = basicGetResult();
+        return result != null && result.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)result) : result;
     }
 
     /**
@@ -165,13 +165,13 @@ public class ExpressionImpl extends StepImpl implements Expression {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.EXPRESSION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable();
+                return isIsModelLevelEvaluable();
             case SysmlPackage.EXPRESSION__FUNCTION:
-                if (resolve) return this.getFunction();
-                return this.basicGetFunction();
+                if (resolve) return getFunction();
+                return basicGetFunction();
             case SysmlPackage.EXPRESSION__RESULT:
-                if (resolve) return this.getResult();
-                return this.basicGetResult();
+                if (resolve) return getResult();
+                return basicGetResult();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -185,11 +185,11 @@ public class ExpressionImpl extends StepImpl implements Expression {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.EXPRESSION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
+                return isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
             case SysmlPackage.EXPRESSION__FUNCTION:
-                return this.basicGetFunction() != null;
+                return basicGetFunction() != null;
             case SysmlPackage.EXPRESSION__RESULT:
-                return this.basicGetResult() != null;
+                return basicGetResult() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -204,11 +204,11 @@ public class ExpressionImpl extends StepImpl implements Expression {
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.EXPRESSION___CHECK_CONDITION__ELEMENT:
-                return this.checkCondition((Element)arguments.get(0));
+                return checkCondition((Element)arguments.get(0));
             case SysmlPackage.EXPRESSION___EVALUATE__ELEMENT:
-                return this.evaluate((Element)arguments.get(0));
+                return evaluate((Element)arguments.get(0));
             case SysmlPackage.EXPRESSION___MODEL_LEVEL_EVALUABLE__ELIST:
-                return this.modelLevelEvaluable((EList<Feature>)arguments.get(0));
+                return modelLevelEvaluable((EList<Feature>)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

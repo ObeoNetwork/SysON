@@ -55,8 +55,8 @@ public class ExpressionItemProvider extends StepItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addFunctionPropertyDescriptor(object);
             addIsModelLevelEvaluablePropertyDescriptor(object);
+            addFunctionPropertyDescriptor(object);
             addResultPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;

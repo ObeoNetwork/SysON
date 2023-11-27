@@ -96,10 +96,10 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
      */
     @Override
     public EList<Annotation> getAnnotation() {
-        if (this.annotation == null) {
-            this.annotation = new EObjectWithInverseResolvingEList<>(Annotation.class, this, SysmlPackage.METADATA_FEATURE__ANNOTATION, SysmlPackage.ANNOTATION__ANNOTATING_ELEMENT);
+        if (annotation == null) {
+            annotation = new EObjectWithInverseResolvingEList<Annotation>(Annotation.class, this, SysmlPackage.METADATA_FEATURE__ANNOTATION, SysmlPackage.ANNOTATION__ANNOTATING_ELEMENT);
         }
-        return this.annotation;
+        return annotation;
     }
 
     /**
@@ -109,8 +109,8 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
      */
     @Override
     public Metaclass getMetaclass() {
-        Metaclass metaclass = this.basicGetMetaclass();
-        return metaclass != null && metaclass.eIsProxy() ? (Metaclass)this.eResolveProxy((InternalEObject)metaclass) : metaclass;
+        Metaclass metaclass = basicGetMetaclass();
+        return metaclass != null && metaclass.eIsProxy() ? (Metaclass)eResolveProxy((InternalEObject)metaclass) : metaclass;
     }
 
     /**
@@ -179,7 +179,7 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.METADATA_FEATURE__ANNOTATION:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)this.getAnnotation()).basicAdd(otherEnd, msgs);
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getAnnotation()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -193,7 +193,7 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.METADATA_FEATURE__ANNOTATION:
-                return ((InternalEList<?>)this.getAnnotation()).basicRemove(otherEnd, msgs);
+                return ((InternalEList<?>)getAnnotation()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -207,12 +207,12 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.METADATA_FEATURE__ANNOTATED_ELEMENT:
-                return this.getAnnotatedElement();
+                return getAnnotatedElement();
             case SysmlPackage.METADATA_FEATURE__ANNOTATION:
-                return this.getAnnotation();
+                return getAnnotation();
             case SysmlPackage.METADATA_FEATURE__METACLASS:
-                if (resolve) return this.getMetaclass();
-                return this.basicGetMetaclass();
+                if (resolve) return getMetaclass();
+                return basicGetMetaclass();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -227,8 +227,8 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.METADATA_FEATURE__ANNOTATION:
-                this.getAnnotation().clear();
-                this.getAnnotation().addAll((Collection<? extends Annotation>)newValue);
+                getAnnotation().clear();
+                getAnnotation().addAll((Collection<? extends Annotation>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -243,7 +243,7 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.METADATA_FEATURE__ANNOTATION:
-                this.getAnnotation().clear();
+                getAnnotation().clear();
                 return;
         }
         super.eUnset(featureID);
@@ -258,11 +258,11 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.METADATA_FEATURE__ANNOTATED_ELEMENT:
-                return !this.getAnnotatedElement().isEmpty();
+                return !getAnnotatedElement().isEmpty();
             case SysmlPackage.METADATA_FEATURE__ANNOTATION:
-                return this.annotation != null && !this.annotation.isEmpty();
+                return annotation != null && !annotation.isEmpty();
             case SysmlPackage.METADATA_FEATURE__METACLASS:
-                return this.basicGetMetaclass() != null;
+                return basicGetMetaclass() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -310,13 +310,13 @@ public class MetadataFeatureImpl extends FeatureImpl implements MetadataFeature 
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.METADATA_FEATURE___EVALUATE_FEATURE__FEATURE:
-                return this.evaluateFeature((Feature)arguments.get(0));
+                return evaluateFeature((Feature)arguments.get(0));
             case SysmlPackage.METADATA_FEATURE___IS_SEMANTIC:
-                return this.isSemantic();
+                return isSemantic();
             case SysmlPackage.METADATA_FEATURE___IS_SYNTACTIC:
-                return this.isSyntactic();
+                return isSyntactic();
             case SysmlPackage.METADATA_FEATURE___SYNTAX_ELEMENT:
-                return this.syntaxElement();
+                return syntaxElement();
         }
         return super.eInvoke(operationID, arguments);
     }

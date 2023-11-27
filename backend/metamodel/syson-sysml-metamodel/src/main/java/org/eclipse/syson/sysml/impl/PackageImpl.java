@@ -86,7 +86,7 @@ public class PackageImpl extends NamespaceImpl implements org.eclipse.syson.sysm
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.PACKAGE__FILTER_CONDITION:
-                return this.getFilterCondition();
+                return getFilterCondition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -100,7 +100,7 @@ public class PackageImpl extends NamespaceImpl implements org.eclipse.syson.sysm
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.PACKAGE__FILTER_CONDITION:
-                return !this.getFilterCondition().isEmpty();
+                return !getFilterCondition().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -114,7 +114,7 @@ public class PackageImpl extends NamespaceImpl implements org.eclipse.syson.sysm
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.PACKAGE___INCLUDE_AS_MEMBER__ELEMENT:
-                return this.includeAsMember((Element)arguments.get(0));
+                return includeAsMember((Element)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

@@ -110,8 +110,8 @@ public class ConstraintUsageImpl extends OccurrenceUsageImpl implements Constrai
      */
     @Override
     public Function getFunction() {
-        Function function = this.basicGetFunction();
-        return function != null && function.eIsProxy() ? (Function)this.eResolveProxy((InternalEObject)function) : function;
+        Function function = basicGetFunction();
+        return function != null && function.eIsProxy() ? (Function)eResolveProxy((InternalEObject)function) : function;
     }
 
     /**
@@ -143,8 +143,8 @@ public class ConstraintUsageImpl extends OccurrenceUsageImpl implements Constrai
      */
     @Override
     public Feature getResult() {
-        Feature result = this.basicGetResult();
-        return result != null && result.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)result) : result;
+        Feature result = basicGetResult();
+        return result != null && result.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)result) : result;
     }
 
     /**
@@ -166,8 +166,8 @@ public class ConstraintUsageImpl extends OccurrenceUsageImpl implements Constrai
      */
     @Override
     public Predicate getPredicate() {
-        Predicate predicate = this.basicGetPredicate();
-        return predicate != null && predicate.eIsProxy() ? (Predicate)this.eResolveProxy((InternalEObject)predicate) : predicate;
+        Predicate predicate = basicGetPredicate();
+        return predicate != null && predicate.eIsProxy() ? (Predicate)eResolveProxy((InternalEObject)predicate) : predicate;
     }
 
     /**
@@ -189,8 +189,8 @@ public class ConstraintUsageImpl extends OccurrenceUsageImpl implements Constrai
      */
     @Override
     public Predicate getConstraintDefinition() {
-        Predicate constraintDefinition = this.basicGetConstraintDefinition();
-        return constraintDefinition != null && constraintDefinition.eIsProxy() ? (Predicate)this.eResolveProxy((InternalEObject)constraintDefinition) : constraintDefinition;
+        Predicate constraintDefinition = basicGetConstraintDefinition();
+        return constraintDefinition != null && constraintDefinition.eIsProxy() ? (Predicate)eResolveProxy((InternalEObject)constraintDefinition) : constraintDefinition;
     }
 
     /**
@@ -246,23 +246,23 @@ public class ConstraintUsageImpl extends OccurrenceUsageImpl implements Constrai
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.CONSTRAINT_USAGE__BEHAVIOR:
-                return this.getBehavior();
+                return getBehavior();
             case SysmlPackage.CONSTRAINT_USAGE__PARAMETER:
-                return this.getParameter();
+                return getParameter();
             case SysmlPackage.CONSTRAINT_USAGE__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable();
+                return isIsModelLevelEvaluable();
             case SysmlPackage.CONSTRAINT_USAGE__FUNCTION:
-                if (resolve) return this.getFunction();
-                return this.basicGetFunction();
+                if (resolve) return getFunction();
+                return basicGetFunction();
             case SysmlPackage.CONSTRAINT_USAGE__RESULT:
-                if (resolve) return this.getResult();
-                return this.basicGetResult();
+                if (resolve) return getResult();
+                return basicGetResult();
             case SysmlPackage.CONSTRAINT_USAGE__PREDICATE:
-                if (resolve) return this.getPredicate();
-                return this.basicGetPredicate();
+                if (resolve) return getPredicate();
+                return basicGetPredicate();
             case SysmlPackage.CONSTRAINT_USAGE__CONSTRAINT_DEFINITION:
-                if (resolve) return this.getConstraintDefinition();
-                return this.basicGetConstraintDefinition();
+                if (resolve) return getConstraintDefinition();
+                return basicGetConstraintDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -276,19 +276,19 @@ public class ConstraintUsageImpl extends OccurrenceUsageImpl implements Constrai
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONSTRAINT_USAGE__BEHAVIOR:
-                return !this.getBehavior().isEmpty();
+                return !getBehavior().isEmpty();
             case SysmlPackage.CONSTRAINT_USAGE__PARAMETER:
-                return !this.getParameter().isEmpty();
+                return !getParameter().isEmpty();
             case SysmlPackage.CONSTRAINT_USAGE__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
+                return isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
             case SysmlPackage.CONSTRAINT_USAGE__FUNCTION:
-                return this.basicGetFunction() != null;
+                return basicGetFunction() != null;
             case SysmlPackage.CONSTRAINT_USAGE__RESULT:
-                return this.basicGetResult() != null;
+                return basicGetResult() != null;
             case SysmlPackage.CONSTRAINT_USAGE__PREDICATE:
-                return this.basicGetPredicate() != null;
+                return basicGetPredicate() != null;
             case SysmlPackage.CONSTRAINT_USAGE__CONSTRAINT_DEFINITION:
-                return this.basicGetConstraintDefinition() != null;
+                return basicGetConstraintDefinition() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -393,11 +393,11 @@ public class ConstraintUsageImpl extends OccurrenceUsageImpl implements Constrai
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.CONSTRAINT_USAGE___CHECK_CONDITION__ELEMENT:
-                return this.checkCondition((Element)arguments.get(0));
+                return checkCondition((Element)arguments.get(0));
             case SysmlPackage.CONSTRAINT_USAGE___EVALUATE__ELEMENT:
-                return this.evaluate((Element)arguments.get(0));
+                return evaluate((Element)arguments.get(0));
             case SysmlPackage.CONSTRAINT_USAGE___MODEL_LEVEL_EVALUABLE__ELIST:
-                return this.modelLevelEvaluable((EList<Feature>)arguments.get(0));
+                return modelLevelEvaluable((EList<Feature>)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

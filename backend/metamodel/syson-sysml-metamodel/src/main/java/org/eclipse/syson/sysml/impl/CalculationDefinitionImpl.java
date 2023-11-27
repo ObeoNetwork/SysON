@@ -101,8 +101,8 @@ public class CalculationDefinitionImpl extends ActionDefinitionImpl implements C
      */
     @Override
     public Feature getResult() {
-        Feature result = this.basicGetResult();
-        return result != null && result.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)result) : result;
+        Feature result = basicGetResult();
+        return result != null && result.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)result) : result;
     }
 
     /**
@@ -137,14 +137,14 @@ public class CalculationDefinitionImpl extends ActionDefinitionImpl implements C
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.CALCULATION_DEFINITION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable();
+                return isIsModelLevelEvaluable();
             case SysmlPackage.CALCULATION_DEFINITION__EXPRESSION:
-                return this.getExpression();
+                return getExpression();
             case SysmlPackage.CALCULATION_DEFINITION__RESULT:
-                if (resolve) return this.getResult();
-                return this.basicGetResult();
+                if (resolve) return getResult();
+                return basicGetResult();
             case SysmlPackage.CALCULATION_DEFINITION__CALCULATION:
-                return this.getCalculation();
+                return getCalculation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -158,13 +158,13 @@ public class CalculationDefinitionImpl extends ActionDefinitionImpl implements C
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.CALCULATION_DEFINITION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
+                return isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
             case SysmlPackage.CALCULATION_DEFINITION__EXPRESSION:
-                return !this.getExpression().isEmpty();
+                return !getExpression().isEmpty();
             case SysmlPackage.CALCULATION_DEFINITION__RESULT:
-                return this.basicGetResult() != null;
+                return basicGetResult() != null;
             case SysmlPackage.CALCULATION_DEFINITION__CALCULATION:
-                return !this.getCalculation().isEmpty();
+                return !getCalculation().isEmpty();
         }
         return super.eIsSet(featureID);
     }

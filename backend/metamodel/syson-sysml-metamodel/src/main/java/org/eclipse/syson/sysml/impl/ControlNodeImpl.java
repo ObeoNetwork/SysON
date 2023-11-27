@@ -66,7 +66,7 @@ public abstract class ControlNodeImpl extends ActionUsageImpl implements Control
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.CONTROL_NODE___MULTIPLICITY_HAS_BOUNDS__MULTIPLICITY_INT_INT:
-                return this.multiplicityHasBounds((Multiplicity)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2));
+                return multiplicityHasBounds((Multiplicity)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2));
         }
         return super.eInvoke(operationID, arguments);
     }

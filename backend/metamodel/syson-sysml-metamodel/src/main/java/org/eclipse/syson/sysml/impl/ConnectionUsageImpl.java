@@ -118,8 +118,8 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public OccurrenceDefinition getIndividualDefinition() {
-        OccurrenceDefinition individualDefinition = this.basicGetIndividualDefinition();
-        return individualDefinition != null && individualDefinition.eIsProxy() ? (OccurrenceDefinition)this.eResolveProxy((InternalEObject)individualDefinition) : individualDefinition;
+        OccurrenceDefinition individualDefinition = basicGetIndividualDefinition();
+        return individualDefinition != null && individualDefinition.eIsProxy() ? (OccurrenceDefinition)eResolveProxy((InternalEObject)individualDefinition) : individualDefinition;
     }
 
     /**
@@ -141,7 +141,7 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public boolean isIsIndividual() {
-        return this.isIndividual;
+        return isIndividual;
     }
 
     /**
@@ -151,10 +151,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public void setIsIndividual(boolean newIsIndividual) {
-        boolean oldIsIndividual = this.isIndividual;
-        this.isIndividual = newIsIndividual;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL, oldIsIndividual, this.isIndividual));
+        boolean oldIsIndividual = isIndividual;
+        isIndividual = newIsIndividual;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL, oldIsIndividual, isIndividual));
     }
 
     /**
@@ -175,7 +175,7 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public PortionKind getPortionKind() {
-        return this.portionKind;
+        return portionKind;
     }
 
     /**
@@ -185,10 +185,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public void setPortionKind(PortionKind newPortionKind) {
-        PortionKind oldPortionKind = this.portionKind;
-        this.portionKind = newPortionKind == null ? PORTION_KIND_EDEFAULT : newPortionKind;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__PORTION_KIND, oldPortionKind, this.portionKind));
+        PortionKind oldPortionKind = portionKind;
+        portionKind = newPortionKind == null ? PORTION_KIND_EDEFAULT : newPortionKind;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.CONNECTION_USAGE__PORTION_KIND, oldPortionKind, portionKind));
     }
 
     /**
@@ -233,20 +233,20 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                return this.isIsIndividual();
+                return isIsIndividual();
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                return this.getPortionKind();
+                return getPortionKind();
             case SysmlPackage.CONNECTION_USAGE__INDIVIDUAL_DEFINITION:
-                if (resolve) return this.getIndividualDefinition();
-                return this.basicGetIndividualDefinition();
+                if (resolve) return getIndividualDefinition();
+                return basicGetIndividualDefinition();
             case SysmlPackage.CONNECTION_USAGE__OCCURRENCE_DEFINITION:
-                return this.getOccurrenceDefinition();
+                return getOccurrenceDefinition();
             case SysmlPackage.CONNECTION_USAGE__ITEM_DEFINITION:
-                return this.getItemDefinition();
+                return getItemDefinition();
             case SysmlPackage.CONNECTION_USAGE__PART_DEFINITION:
-                return this.getPartDefinition();
+                return getPartDefinition();
             case SysmlPackage.CONNECTION_USAGE__CONNECTION_DEFINITION:
-                return this.getConnectionDefinition();
+                return getConnectionDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -261,10 +261,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                this.setIsIndividual((Boolean)newValue);
+                setIsIndividual((Boolean)newValue);
                 return;
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                this.setPortionKind((PortionKind)newValue);
+                setPortionKind((PortionKind)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -279,10 +279,10 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                this.setIsIndividual(IS_INDIVIDUAL_EDEFAULT);
+                setIsIndividual(IS_INDIVIDUAL_EDEFAULT);
                 return;
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                this.setPortionKind(PORTION_KIND_EDEFAULT);
+                setPortionKind(PORTION_KIND_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -297,19 +297,19 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONNECTION_USAGE__IS_INDIVIDUAL:
-                return this.isIndividual != IS_INDIVIDUAL_EDEFAULT;
+                return isIndividual != IS_INDIVIDUAL_EDEFAULT;
             case SysmlPackage.CONNECTION_USAGE__PORTION_KIND:
-                return this.portionKind != PORTION_KIND_EDEFAULT;
+                return portionKind != PORTION_KIND_EDEFAULT;
             case SysmlPackage.CONNECTION_USAGE__INDIVIDUAL_DEFINITION:
-                return this.basicGetIndividualDefinition() != null;
+                return basicGetIndividualDefinition() != null;
             case SysmlPackage.CONNECTION_USAGE__OCCURRENCE_DEFINITION:
-                return !this.getOccurrenceDefinition().isEmpty();
+                return !getOccurrenceDefinition().isEmpty();
             case SysmlPackage.CONNECTION_USAGE__ITEM_DEFINITION:
-                return !this.getItemDefinition().isEmpty();
+                return !getItemDefinition().isEmpty();
             case SysmlPackage.CONNECTION_USAGE__PART_DEFINITION:
-                return !this.getPartDefinition().isEmpty();
+                return !getPartDefinition().isEmpty();
             case SysmlPackage.CONNECTION_USAGE__CONNECTION_DEFINITION:
-                return !this.getConnectionDefinition().isEmpty();
+                return !getConnectionDefinition().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -383,13 +383,13 @@ public class ConnectionUsageImpl extends ConnectorAsUsageImpl implements Connect
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (isIndividual: ");
-        result.append(this.isIndividual);
+        result.append(isIndividual);
         result.append(", portionKind: ");
-        result.append(this.portionKind);
+        result.append(portionKind);
         result.append(')');
         return result.toString();
     }

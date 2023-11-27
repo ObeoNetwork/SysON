@@ -55,10 +55,7 @@ public class FeatureItemProvider extends TypeItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addChainingFeaturePropertyDescriptor(object);
             addDirectionPropertyDescriptor(object);
-            addEndOwningTypePropertyDescriptor(object);
-            addFeaturingTypePropertyDescriptor(object);
             addIsCompositePropertyDescriptor(object);
             addIsDerivedPropertyDescriptor(object);
             addIsEndPropertyDescriptor(object);
@@ -67,6 +64,9 @@ public class FeatureItemProvider extends TypeItemProvider {
             addIsPortionPropertyDescriptor(object);
             addIsReadOnlyPropertyDescriptor(object);
             addIsUniquePropertyDescriptor(object);
+            addChainingFeaturePropertyDescriptor(object);
+            addEndOwningTypePropertyDescriptor(object);
+            addFeaturingTypePropertyDescriptor(object);
             addOwnedFeatureChainingPropertyDescriptor(object);
             addOwnedFeatureInvertingPropertyDescriptor(object);
             addOwnedRedefinitionPropertyDescriptor(object);

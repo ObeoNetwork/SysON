@@ -294,8 +294,12 @@ public class SysMLv2PropertiesConfigurer implements IPropertiesDescriptionRegist
         ReferenceWidgetDescription refWidget = ReferenceFactory.eINSTANCE.createReferenceWidgetDescription();
         refWidget.setName("ReferenceWidget");
         refWidget.setLabelExpression("aql:self.getDetailsViewLabel(eStructuralFeature)");
-        refWidget.setReferenceNameExpression("aql:eStructuralFeature");
+        refWidget.setReferenceNameExpression("aql:eStructuralFeature.name");
+        refWidget.setReferenceOwnerExpression("aql:self");
         refWidget.setIsEnabledExpression("aql:not(eStructuralFeature.isReadOnly())");
+        ChangeContext setNewValueOperation = ViewFactory.eINSTANCE.createChangeContext();
+        setNewValueOperation.setExpression("aql:self.setNewValue(eStructuralFeature, " + ViewFormDescriptionConverter.NEW_VALUE + ")");
+        refWidget.getBody().add(setNewValueOperation);
         return refWidget;
     }
 }

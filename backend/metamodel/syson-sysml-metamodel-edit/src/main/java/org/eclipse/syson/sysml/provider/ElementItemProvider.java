@@ -77,18 +77,18 @@ public class ElementItemProvider
             addAliasIdsPropertyDescriptor(object);
             addDeclaredNamePropertyDescriptor(object);
             addDeclaredShortNamePropertyDescriptor(object);
-            addDocumentationPropertyDescriptor(object);
             addElementIdPropertyDescriptor(object);
             addIsImpliedIncludedPropertyDescriptor(object);
             addIsLibraryElementPropertyDescriptor(object);
             addNamePropertyDescriptor(object);
+            addQualifiedNamePropertyDescriptor(object);
+            addShortNamePropertyDescriptor(object);
+            addDocumentationPropertyDescriptor(object);
             addOwnedAnnotationPropertyDescriptor(object);
             addOwnedElementPropertyDescriptor(object);
             addOwnerPropertyDescriptor(object);
             addOwningMembershipPropertyDescriptor(object);
             addOwningNamespacePropertyDescriptor(object);
-            addQualifiedNamePropertyDescriptor(object);
-            addShortNamePropertyDescriptor(object);
             addTextualRepresentationPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;

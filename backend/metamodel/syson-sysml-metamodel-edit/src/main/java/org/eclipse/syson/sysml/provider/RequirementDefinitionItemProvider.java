@@ -55,14 +55,14 @@ public class RequirementDefinitionItemProvider extends ConstraintDefinitionItemP
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            addReqIdPropertyDescriptor(object);
+            addTextPropertyDescriptor(object);
             addActorParameterPropertyDescriptor(object);
             addAssumedConstraintPropertyDescriptor(object);
             addFramedConcernPropertyDescriptor(object);
-            addReqIdPropertyDescriptor(object);
             addRequiredConstraintPropertyDescriptor(object);
             addStakeholderParameterPropertyDescriptor(object);
             addSubjectParameterPropertyDescriptor(object);
-            addTextPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }

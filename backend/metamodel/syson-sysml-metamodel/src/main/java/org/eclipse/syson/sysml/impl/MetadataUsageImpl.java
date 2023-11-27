@@ -98,10 +98,10 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
      */
     @Override
     public EList<Annotation> getAnnotation() {
-        if (this.annotation == null) {
-            this.annotation = new EObjectWithInverseResolvingEList<>(Annotation.class, this, SysmlPackage.METADATA_USAGE__ANNOTATION, SysmlPackage.ANNOTATION__ANNOTATING_ELEMENT);
+        if (annotation == null) {
+            annotation = new EObjectWithInverseResolvingEList<Annotation>(Annotation.class, this, SysmlPackage.METADATA_USAGE__ANNOTATION, SysmlPackage.ANNOTATION__ANNOTATING_ELEMENT);
         }
-        return this.annotation;
+        return annotation;
     }
 
     /**
@@ -111,8 +111,8 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
      */
     @Override
     public Metaclass getMetaclass() {
-        Metaclass metaclass = this.basicGetMetaclass();
-        return metaclass != null && metaclass.eIsProxy() ? (Metaclass)this.eResolveProxy((InternalEObject)metaclass) : metaclass;
+        Metaclass metaclass = basicGetMetaclass();
+        return metaclass != null && metaclass.eIsProxy() ? (Metaclass)eResolveProxy((InternalEObject)metaclass) : metaclass;
     }
 
     /**
@@ -134,8 +134,8 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
      */
     @Override
     public Metaclass getMetadataDefinition() {
-        Metaclass metadataDefinition = this.basicGetMetadataDefinition();
-        return metadataDefinition != null && metadataDefinition.eIsProxy() ? (Metaclass)this.eResolveProxy((InternalEObject)metadataDefinition) : metadataDefinition;
+        Metaclass metadataDefinition = basicGetMetadataDefinition();
+        return metadataDefinition != null && metadataDefinition.eIsProxy() ? (Metaclass)eResolveProxy((InternalEObject)metadataDefinition) : metadataDefinition;
     }
 
     /**
@@ -204,7 +204,7 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.METADATA_USAGE__ANNOTATION:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)this.getAnnotation()).basicAdd(otherEnd, msgs);
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getAnnotation()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -218,7 +218,7 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SysmlPackage.METADATA_USAGE__ANNOTATION:
-                return ((InternalEList<?>)this.getAnnotation()).basicRemove(otherEnd, msgs);
+                return ((InternalEList<?>)getAnnotation()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -232,15 +232,15 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.METADATA_USAGE__ANNOTATED_ELEMENT:
-                return this.getAnnotatedElement();
+                return getAnnotatedElement();
             case SysmlPackage.METADATA_USAGE__ANNOTATION:
-                return this.getAnnotation();
+                return getAnnotation();
             case SysmlPackage.METADATA_USAGE__METACLASS:
-                if (resolve) return this.getMetaclass();
-                return this.basicGetMetaclass();
+                if (resolve) return getMetaclass();
+                return basicGetMetaclass();
             case SysmlPackage.METADATA_USAGE__METADATA_DEFINITION:
-                if (resolve) return this.getMetadataDefinition();
-                return this.basicGetMetadataDefinition();
+                if (resolve) return getMetadataDefinition();
+                return basicGetMetadataDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -255,8 +255,8 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.METADATA_USAGE__ANNOTATION:
-                this.getAnnotation().clear();
-                this.getAnnotation().addAll((Collection<? extends Annotation>)newValue);
+                getAnnotation().clear();
+                getAnnotation().addAll((Collection<? extends Annotation>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -271,7 +271,7 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.METADATA_USAGE__ANNOTATION:
-                this.getAnnotation().clear();
+                getAnnotation().clear();
                 return;
         }
         super.eUnset(featureID);
@@ -286,13 +286,13 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.METADATA_USAGE__ANNOTATED_ELEMENT:
-                return !this.getAnnotatedElement().isEmpty();
+                return !getAnnotatedElement().isEmpty();
             case SysmlPackage.METADATA_USAGE__ANNOTATION:
-                return this.annotation != null && !this.annotation.isEmpty();
+                return annotation != null && !annotation.isEmpty();
             case SysmlPackage.METADATA_USAGE__METACLASS:
-                return this.basicGetMetaclass() != null;
+                return basicGetMetaclass() != null;
             case SysmlPackage.METADATA_USAGE__METADATA_DEFINITION:
-                return this.basicGetMetadataDefinition() != null;
+                return basicGetMetadataDefinition() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -376,13 +376,13 @@ public class MetadataUsageImpl extends ItemUsageImpl implements MetadataUsage {
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.METADATA_USAGE___EVALUATE_FEATURE__FEATURE:
-                return this.evaluateFeature((Feature)arguments.get(0));
+                return evaluateFeature((Feature)arguments.get(0));
             case SysmlPackage.METADATA_USAGE___IS_SEMANTIC:
-                return this.isSemantic();
+                return isSemantic();
             case SysmlPackage.METADATA_USAGE___IS_SYNTACTIC:
-                return this.isSyntactic();
+                return isSyntactic();
             case SysmlPackage.METADATA_USAGE___SYNTAX_ELEMENT:
-                return this.syntaxElement();
+                return syntaxElement();
         }
         return super.eInvoke(operationID, arguments);
     }

@@ -55,6 +55,9 @@ public class TypeItemProvider extends NamespaceItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            addIsAbstractPropertyDescriptor(object);
+            addIsConjugatedPropertyDescriptor(object);
+            addIsSufficientPropertyDescriptor(object);
             addDifferencingTypePropertyDescriptor(object);
             addDirectedFeaturePropertyDescriptor(object);
             addEndFeaturePropertyDescriptor(object);
@@ -64,9 +67,6 @@ public class TypeItemProvider extends NamespaceItemProvider {
             addInheritedMembershipPropertyDescriptor(object);
             addInputPropertyDescriptor(object);
             addIntersectingTypePropertyDescriptor(object);
-            addIsAbstractPropertyDescriptor(object);
-            addIsConjugatedPropertyDescriptor(object);
-            addIsSufficientPropertyDescriptor(object);
             addMultiplicityPropertyDescriptor(object);
             addOutputPropertyDescriptor(object);
             addOwnedConjugatorPropertyDescriptor(object);

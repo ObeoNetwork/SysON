@@ -146,6 +146,6 @@ public class DetailsViewService {
     }
 
     public boolean isReference(EStructuralFeature eStructuralFeature) {
-        return eStructuralFeature instanceof EReference eReference && !eReference.isContainment() && eReference.isChangeable();
+        return eStructuralFeature instanceof EReference eReference && !eReference.isContainment() && !eReference.isContainer() && eReference.isChangeable();
     }
 }

@@ -55,9 +55,9 @@ public class FeatureValueItemProvider extends OwningMembershipItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addFeatureWithValuePropertyDescriptor(object);
             addIsDefaultPropertyDescriptor(object);
             addIsInitialPropertyDescriptor(object);
+            addFeatureWithValuePropertyDescriptor(object);
             addValuePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;

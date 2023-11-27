@@ -92,8 +92,8 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
      */
     @Override
     public ActionUsage getDoAction() {
-        ActionUsage doAction = this.basicGetDoAction();
-        return doAction != null && doAction.eIsProxy() ? (ActionUsage)this.eResolveProxy((InternalEObject)doAction) : doAction;
+        ActionUsage doAction = basicGetDoAction();
+        return doAction != null && doAction.eIsProxy() ? (ActionUsage)eResolveProxy((InternalEObject)doAction) : doAction;
     }
 
     /**
@@ -115,8 +115,8 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
      */
     @Override
     public ActionUsage getEntryAction() {
-        ActionUsage entryAction = this.basicGetEntryAction();
-        return entryAction != null && entryAction.eIsProxy() ? (ActionUsage)this.eResolveProxy((InternalEObject)entryAction) : entryAction;
+        ActionUsage entryAction = basicGetEntryAction();
+        return entryAction != null && entryAction.eIsProxy() ? (ActionUsage)eResolveProxy((InternalEObject)entryAction) : entryAction;
     }
 
     /**
@@ -138,8 +138,8 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
      */
     @Override
     public ActionUsage getExitAction() {
-        ActionUsage exitAction = this.basicGetExitAction();
-        return exitAction != null && exitAction.eIsProxy() ? (ActionUsage)this.eResolveProxy((InternalEObject)exitAction) : exitAction;
+        ActionUsage exitAction = basicGetExitAction();
+        return exitAction != null && exitAction.eIsProxy() ? (ActionUsage)eResolveProxy((InternalEObject)exitAction) : exitAction;
     }
 
     /**
@@ -161,7 +161,7 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
      */
     @Override
     public boolean isIsParallel() {
-        return this.isParallel;
+        return isParallel;
     }
 
     /**
@@ -171,10 +171,10 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
      */
     @Override
     public void setIsParallel(boolean newIsParallel) {
-        boolean oldIsParallel = this.isParallel;
-        this.isParallel = newIsParallel;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.STATE_USAGE__IS_PARALLEL, oldIsParallel, this.isParallel));
+        boolean oldIsParallel = isParallel;
+        isParallel = newIsParallel;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.STATE_USAGE__IS_PARALLEL, oldIsParallel, isParallel));
     }
 
     /**
@@ -207,18 +207,18 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.STATE_USAGE__IS_PARALLEL:
-                return this.isIsParallel();
+                return isIsParallel();
             case SysmlPackage.STATE_USAGE__DO_ACTION:
-                if (resolve) return this.getDoAction();
-                return this.basicGetDoAction();
+                if (resolve) return getDoAction();
+                return basicGetDoAction();
             case SysmlPackage.STATE_USAGE__ENTRY_ACTION:
-                if (resolve) return this.getEntryAction();
-                return this.basicGetEntryAction();
+                if (resolve) return getEntryAction();
+                return basicGetEntryAction();
             case SysmlPackage.STATE_USAGE__EXIT_ACTION:
-                if (resolve) return this.getExitAction();
-                return this.basicGetExitAction();
+                if (resolve) return getExitAction();
+                return basicGetExitAction();
             case SysmlPackage.STATE_USAGE__STATE_DEFINITION:
-                return this.getStateDefinition();
+                return getStateDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -233,7 +233,7 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.STATE_USAGE__IS_PARALLEL:
-                this.setIsParallel((Boolean)newValue);
+                setIsParallel((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -248,7 +248,7 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.STATE_USAGE__IS_PARALLEL:
-                this.setIsParallel(IS_PARALLEL_EDEFAULT);
+                setIsParallel(IS_PARALLEL_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -263,15 +263,15 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.STATE_USAGE__IS_PARALLEL:
-                return this.isParallel != IS_PARALLEL_EDEFAULT;
+                return isParallel != IS_PARALLEL_EDEFAULT;
             case SysmlPackage.STATE_USAGE__DO_ACTION:
-                return this.basicGetDoAction() != null;
+                return basicGetDoAction() != null;
             case SysmlPackage.STATE_USAGE__ENTRY_ACTION:
-                return this.basicGetEntryAction() != null;
+                return basicGetEntryAction() != null;
             case SysmlPackage.STATE_USAGE__EXIT_ACTION:
-                return this.basicGetExitAction() != null;
+                return basicGetExitAction() != null;
             case SysmlPackage.STATE_USAGE__STATE_DEFINITION:
-                return !this.getStateDefinition().isEmpty();
+                return !getStateDefinition().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -285,7 +285,7 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.STATE_USAGE___IS_SUBSTATE_USAGE__BOOLEAN:
-                return this.isSubstateUsage((Boolean)arguments.get(0));
+                return isSubstateUsage((Boolean)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }
@@ -297,11 +297,11 @@ public class StateUsageImpl extends ActionUsageImpl implements StateUsage {
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (isParallel: ");
-        result.append(this.isParallel);
+        result.append(isParallel);
         result.append(')');
         return result.toString();
     }

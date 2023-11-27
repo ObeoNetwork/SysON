@@ -12,8 +12,16 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.services;
 
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.LabelConstants;
+import org.eclipse.syson.diagram.general.view.directedit.GeneralViewDirectEditListener;
+import org.eclipse.syson.diagram.general.view.directedit.grammars.generated.DirectEditLexer;
+import org.eclipse.syson.diagram.general.view.directedit.grammars.generated.DirectEditListener;
+import org.eclipse.syson.diagram.general.view.directedit.grammars.generated.DirectEditParser;
 import org.eclipse.syson.sysml.Dependency;
 import org.eclipse.syson.sysml.Element;
 
@@ -46,4 +54,35 @@ public class GeneralViewLabelService {
         return LabelConstants.OPEN_QUOTE + "dependency" + LabelConstants.CLOSE_QUOTE + LabelConstants.CR + dependency.getDeclaredName();
     }
 
+    /**
+     * Apply the direct edit result (i.e. the newLabel) to the given {@link Element}.
+     *
+     * @param element
+     *            the given {@link Element}.
+     * @param newLabel
+     *            the new value to apply.
+     * @return the given {@link Element}.
+     */
+    public Element directEdit(Element element, String newLabel) {
+        DirectEditLexer lexer = new DirectEditLexer(CharStreams.fromString(newLabel));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        DirectEditParser parser = new DirectEditParser(tokens);
+        ParseTree tree = parser.expression();
+
+        ParseTreeWalker walker = new ParseTreeWalker();
+        DirectEditListener listener = new GeneralViewDirectEditListener(element);
+        walker.walk(listener, tree);
+        return element;
+    }
+
+    /**
+     * Get the value to display when a direct edit has been called on the given {@link Element}.
+     *
+     * @param element
+     *            the given {@link Element}.
+     * @return the value to display.
+     */
+    public String getInitialDirectEditLabel(Element element) {
+        return element.getDeclaredName();
+    }
 }

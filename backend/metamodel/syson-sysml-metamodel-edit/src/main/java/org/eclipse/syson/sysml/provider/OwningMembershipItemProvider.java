@@ -55,10 +55,10 @@ public class OwningMembershipItemProvider extends MembershipItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addOwnedMemberElementPropertyDescriptor(object);
             addOwnedMemberElementIdPropertyDescriptor(object);
             addOwnedMemberNamePropertyDescriptor(object);
             addOwnedMemberShortNamePropertyDescriptor(object);
+            addOwnedMemberElementPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }

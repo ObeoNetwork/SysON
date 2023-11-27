@@ -57,8 +57,8 @@ public class ConstraintUsageItemProvider extends OccurrenceUsageItemProvider {
 
             addBehaviorPropertyDescriptor(object);
             addParameterPropertyDescriptor(object);
-            addFunctionPropertyDescriptor(object);
             addIsModelLevelEvaluablePropertyDescriptor(object);
+            addFunctionPropertyDescriptor(object);
             addResultPropertyDescriptor(object);
             addPredicatePropertyDescriptor(object);
             addConstraintDefinitionPropertyDescriptor(object);

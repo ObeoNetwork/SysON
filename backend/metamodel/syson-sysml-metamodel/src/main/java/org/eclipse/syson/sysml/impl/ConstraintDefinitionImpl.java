@@ -126,8 +126,8 @@ public class ConstraintDefinitionImpl extends OccurrenceDefinitionImpl implement
      */
     @Override
     public Feature getResult() {
-        Feature result = this.basicGetResult();
-        return result != null && result.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)result) : result;
+        Feature result = basicGetResult();
+        return result != null && result.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)result) : result;
     }
 
     /**
@@ -151,16 +151,16 @@ public class ConstraintDefinitionImpl extends OccurrenceDefinitionImpl implement
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.CONSTRAINT_DEFINITION__PARAMETER:
-                return this.getParameter();
+                return getParameter();
             case SysmlPackage.CONSTRAINT_DEFINITION__STEP:
-                return this.getStep();
+                return getStep();
             case SysmlPackage.CONSTRAINT_DEFINITION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable();
+                return isIsModelLevelEvaluable();
             case SysmlPackage.CONSTRAINT_DEFINITION__EXPRESSION:
-                return this.getExpression();
+                return getExpression();
             case SysmlPackage.CONSTRAINT_DEFINITION__RESULT:
-                if (resolve) return this.getResult();
-                return this.basicGetResult();
+                if (resolve) return getResult();
+                return basicGetResult();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -174,15 +174,15 @@ public class ConstraintDefinitionImpl extends OccurrenceDefinitionImpl implement
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.CONSTRAINT_DEFINITION__PARAMETER:
-                return !this.getParameter().isEmpty();
+                return !getParameter().isEmpty();
             case SysmlPackage.CONSTRAINT_DEFINITION__STEP:
-                return !this.getStep().isEmpty();
+                return !getStep().isEmpty();
             case SysmlPackage.CONSTRAINT_DEFINITION__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
+                return isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
             case SysmlPackage.CONSTRAINT_DEFINITION__EXPRESSION:
-                return !this.getExpression().isEmpty();
+                return !getExpression().isEmpty();
             case SysmlPackage.CONSTRAINT_DEFINITION__RESULT:
-                return this.basicGetResult() != null;
+                return basicGetResult() != null;
         }
         return super.eIsSet(featureID);
     }

@@ -77,8 +77,8 @@ public class CalculationUsageImpl extends ActionUsageImpl implements Calculation
      */
     @Override
     public Function getFunction() {
-        Function function = this.basicGetFunction();
-        return function != null && function.eIsProxy() ? (Function)this.eResolveProxy((InternalEObject)function) : function;
+        Function function = basicGetFunction();
+        return function != null && function.eIsProxy() ? (Function)eResolveProxy((InternalEObject)function) : function;
     }
 
     /**
@@ -110,8 +110,8 @@ public class CalculationUsageImpl extends ActionUsageImpl implements Calculation
      */
     @Override
     public Feature getResult() {
-        Feature result = this.basicGetResult();
-        return result != null && result.eIsProxy() ? (Feature)this.eResolveProxy((InternalEObject)result) : result;
+        Feature result = basicGetResult();
+        return result != null && result.eIsProxy() ? (Feature)eResolveProxy((InternalEObject)result) : result;
     }
 
     /**
@@ -133,8 +133,8 @@ public class CalculationUsageImpl extends ActionUsageImpl implements Calculation
      */
     @Override
     public Function getCalculationDefinition() {
-        Function calculationDefinition = this.basicGetCalculationDefinition();
-        return calculationDefinition != null && calculationDefinition.eIsProxy() ? (Function)this.eResolveProxy((InternalEObject)calculationDefinition) : calculationDefinition;
+        Function calculationDefinition = basicGetCalculationDefinition();
+        return calculationDefinition != null && calculationDefinition.eIsProxy() ? (Function)eResolveProxy((InternalEObject)calculationDefinition) : calculationDefinition;
     }
 
     /**
@@ -190,16 +190,16 @@ public class CalculationUsageImpl extends ActionUsageImpl implements Calculation
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.CALCULATION_USAGE__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable();
+                return isIsModelLevelEvaluable();
             case SysmlPackage.CALCULATION_USAGE__FUNCTION:
-                if (resolve) return this.getFunction();
-                return this.basicGetFunction();
+                if (resolve) return getFunction();
+                return basicGetFunction();
             case SysmlPackage.CALCULATION_USAGE__RESULT:
-                if (resolve) return this.getResult();
-                return this.basicGetResult();
+                if (resolve) return getResult();
+                return basicGetResult();
             case SysmlPackage.CALCULATION_USAGE__CALCULATION_DEFINITION:
-                if (resolve) return this.getCalculationDefinition();
-                return this.basicGetCalculationDefinition();
+                if (resolve) return getCalculationDefinition();
+                return basicGetCalculationDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -213,13 +213,13 @@ public class CalculationUsageImpl extends ActionUsageImpl implements Calculation
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.CALCULATION_USAGE__IS_MODEL_LEVEL_EVALUABLE:
-                return this.isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
+                return isIsModelLevelEvaluable() != IS_MODEL_LEVEL_EVALUABLE_EDEFAULT;
             case SysmlPackage.CALCULATION_USAGE__FUNCTION:
-                return this.basicGetFunction() != null;
+                return basicGetFunction() != null;
             case SysmlPackage.CALCULATION_USAGE__RESULT:
-                return this.basicGetResult() != null;
+                return basicGetResult() != null;
             case SysmlPackage.CALCULATION_USAGE__CALCULATION_DEFINITION:
-                return this.basicGetCalculationDefinition() != null;
+                return basicGetCalculationDefinition() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -288,11 +288,11 @@ public class CalculationUsageImpl extends ActionUsageImpl implements Calculation
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.CALCULATION_USAGE___CHECK_CONDITION__ELEMENT:
-                return this.checkCondition((Element)arguments.get(0));
+                return checkCondition((Element)arguments.get(0));
             case SysmlPackage.CALCULATION_USAGE___EVALUATE__ELEMENT:
-                return this.evaluate((Element)arguments.get(0));
+                return evaluate((Element)arguments.get(0));
             case SysmlPackage.CALCULATION_USAGE___MODEL_LEVEL_EVALUABLE__ELIST:
-                return this.modelLevelEvaluable((EList<Feature>)arguments.get(0));
+                return modelLevelEvaluable((EList<Feature>)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

@@ -55,10 +55,10 @@ public class OccurrenceUsageItemProvider extends UsageItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addIndividualDefinitionPropertyDescriptor(object);
             addIsIndividualPropertyDescriptor(object);
-            addOccurrenceDefinitionPropertyDescriptor(object);
             addPortionKindPropertyDescriptor(object);
+            addIndividualDefinitionPropertyDescriptor(object);
+            addOccurrenceDefinitionPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }

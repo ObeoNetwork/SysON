@@ -75,7 +75,7 @@ public class InterfaceUsageImpl extends ConnectionUsageImpl implements Interface
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.INTERFACE_USAGE__INTERFACE_DEFINITION:
-                return this.getInterfaceDefinition();
+                return getInterfaceDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -89,7 +89,7 @@ public class InterfaceUsageImpl extends ConnectionUsageImpl implements Interface
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.INTERFACE_USAGE__INTERFACE_DEFINITION:
-                return !this.getInterfaceDefinition().isEmpty();
+                return !getInterfaceDefinition().isEmpty();
         }
         return super.eIsSet(featureID);
     }

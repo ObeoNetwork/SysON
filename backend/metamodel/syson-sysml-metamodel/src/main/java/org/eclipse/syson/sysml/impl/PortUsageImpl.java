@@ -18,15 +18,10 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreEList;
-import org.eclipse.syson.sysml.FeatureMembership;
 import org.eclipse.syson.sysml.FeatureTyping;
-import org.eclipse.syson.sysml.ItemUsage;
-import org.eclipse.syson.sysml.PartDefinition;
 import org.eclipse.syson.sysml.PortDefinition;
 import org.eclipse.syson.sysml.PortUsage;
-import org.eclipse.syson.sysml.Relationship;
 import org.eclipse.syson.sysml.SysmlPackage;
-import org.eclipse.syson.sysml.Type;
 
 /**
  * <!-- begin-user-doc -->

@@ -55,8 +55,8 @@ public class StateSubactionMembershipItemProvider extends FeatureMembershipItemP
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addActionPropertyDescriptor(object);
             addKindPropertyDescriptor(object);
+            addActionPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }

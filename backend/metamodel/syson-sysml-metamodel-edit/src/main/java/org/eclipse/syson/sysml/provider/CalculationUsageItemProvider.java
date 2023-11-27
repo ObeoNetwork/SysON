@@ -55,8 +55,8 @@ public class CalculationUsageItemProvider extends ActionUsageItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addFunctionPropertyDescriptor(object);
             addIsModelLevelEvaluablePropertyDescriptor(object);
+            addFunctionPropertyDescriptor(object);
             addResultPropertyDescriptor(object);
             addCalculationDefinitionPropertyDescriptor(object);
         }

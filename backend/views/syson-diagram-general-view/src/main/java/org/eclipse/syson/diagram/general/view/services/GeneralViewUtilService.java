@@ -12,6 +12,9 @@
  *******************************************************************************/
 package org.eclipse.syson.diagram.general.view.services;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Spliterator;
 import java.util.Spliterators;
@@ -21,12 +24,14 @@ import java.util.stream.StreamSupport;
 
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
+import org.eclipse.syson.sysml.Definition;
 import org.eclipse.syson.sysml.Element;
 import org.eclipse.syson.sysml.Package;
 
@@ -125,6 +130,102 @@ public class GeneralViewUtilService {
         } else {
             return List.of();
         }
+    }
+
+    /**
+     * Find a {@link Definition} element that match the given name in the ResourceSet of the given element.
+     *
+     * @param object
+     *            the object for which to find a corresponding type.
+     * @param typeName
+     *            the type name to match.
+     * @return the found {@link Definition} element or <code>null</code>
+     */
+    public Definition findDefinitionByName(EObject object, String typeName) {
+        final Definition result = this.findDefinitionByName(this.getAllRootsInResourceSet(object), typeName);
+        return result;
+    }
+
+    /**
+     * Iterate over the given {@link Collection} of root elements to find a {@link Definition} element with the given
+     * name.
+     *
+     * @param roots
+     *            the elements to inspect
+     * @param typeName
+     *            the name to match
+     * @return the found {@link Definition} or <code>null</code>
+     */
+    public Definition findDefinitionByName(Collection<EObject> roots, String typeName) {
+        for (final EObject root : roots) {
+            final Definition result = this.findDefinitionByNameFrom(root, typeName);
+            if (result != null) {
+                return result;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Iterate over the root children to find a {@link Definition} element with the given name.
+     *
+     * @param root
+     *            the root object to iterate.
+     * @param typeName
+     *            the name to match
+     * @return the found {@link Definition} or <code>null</code>
+     */
+    private Definition findDefinitionByNameFrom(EObject root, String typeName) {
+        Definition definition = null;
+
+        if (root instanceof Definition && this.nameMatches((Definition) root, typeName)) {
+            return (Definition) root;
+        }
+
+        TreeIterator<EObject> eAllContents = root.eAllContents();
+        while (eAllContents.hasNext()) {
+            EObject obj = eAllContents.next();
+            if (obj instanceof Definition && this.nameMatches((Definition) obj, typeName)) {
+                definition = (Definition) obj;
+            }
+        }
+
+        return definition;
+    }
+
+    /**
+     * Retrieves all the root elements of the resource in the resource set of the given context object.
+     *
+     * @param context
+     *            the context object on which to execute this service.
+     * @return a {@link Collection} of all the root element of the current resource set.
+     */
+    private Collection<EObject> getAllRootsInResourceSet(EObject context) {
+        final Resource res = context.eResource();
+        if (res != null && res.getResourceSet() != null) {
+            final Collection<EObject> roots = new ArrayList<>();
+            for (final Resource childRes : res.getResourceSet().getResources()) {
+                roots.addAll(childRes.getContents());
+            }
+            return roots;
+        }
+        return Collections.emptyList();
+    }
+
+    /**
+     * Check if the given element's name match the given String.
+     *
+     * @param element
+     *            the {@link Element} to check.
+     * @param name
+     *            the name to match.
+     * @return <code>true</code> if the name match, <code>false</code> otherwise.
+     */
+    private boolean nameMatches(Element element, String name) {
+        if (element != null && element.getName() != null && name != null) {
+            return element.getName().trim().equalsIgnoreCase(name.trim());
+        }
+        return false;
     }
 
     private Stream<Resource> getSysMLv2Resources(EList<Resource> resources) {

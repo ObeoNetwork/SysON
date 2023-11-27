@@ -55,8 +55,8 @@ public class FunctionItemProvider extends BehaviorItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addExpressionPropertyDescriptor(object);
             addIsModelLevelEvaluablePropertyDescriptor(object);
+            addExpressionPropertyDescriptor(object);
             addResultPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;

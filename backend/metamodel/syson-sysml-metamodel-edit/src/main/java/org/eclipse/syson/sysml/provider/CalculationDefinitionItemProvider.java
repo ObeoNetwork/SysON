@@ -55,8 +55,8 @@ public class CalculationDefinitionItemProvider extends ActionDefinitionItemProvi
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addExpressionPropertyDescriptor(object);
             addIsModelLevelEvaluablePropertyDescriptor(object);
+            addExpressionPropertyDescriptor(object);
             addResultPropertyDescriptor(object);
             addCalculationPropertyDescriptor(object);
         }

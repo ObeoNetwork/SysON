@@ -106,8 +106,8 @@ public class ViewUsageImpl extends PartUsageImpl implements ViewUsage {
      */
     @Override
     public ViewDefinition getViewDefinition() {
-        ViewDefinition viewDefinition = this.basicGetViewDefinition();
-        return viewDefinition != null && viewDefinition.eIsProxy() ? (ViewDefinition)this.eResolveProxy((InternalEObject)viewDefinition) : viewDefinition;
+        ViewDefinition viewDefinition = basicGetViewDefinition();
+        return viewDefinition != null && viewDefinition.eIsProxy() ? (ViewDefinition)eResolveProxy((InternalEObject)viewDefinition) : viewDefinition;
     }
 
     /**
@@ -129,8 +129,8 @@ public class ViewUsageImpl extends PartUsageImpl implements ViewUsage {
      */
     @Override
     public RenderingUsage getViewRendering() {
-        RenderingUsage viewRendering = this.basicGetViewRendering();
-        return viewRendering != null && viewRendering.eIsProxy() ? (RenderingUsage)this.eResolveProxy((InternalEObject)viewRendering) : viewRendering;
+        RenderingUsage viewRendering = basicGetViewRendering();
+        return viewRendering != null && viewRendering.eIsProxy() ? (RenderingUsage)eResolveProxy((InternalEObject)viewRendering) : viewRendering;
     }
 
     /**
@@ -164,17 +164,17 @@ public class ViewUsageImpl extends PartUsageImpl implements ViewUsage {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.VIEW_USAGE__EXPOSED_ELEMENT:
-                return this.getExposedElement();
+                return getExposedElement();
             case SysmlPackage.VIEW_USAGE__SATISFIED_VIEWPOINT:
-                return this.getSatisfiedViewpoint();
+                return getSatisfiedViewpoint();
             case SysmlPackage.VIEW_USAGE__VIEW_CONDITION:
-                return this.getViewCondition();
+                return getViewCondition();
             case SysmlPackage.VIEW_USAGE__VIEW_DEFINITION:
-                if (resolve) return this.getViewDefinition();
-                return this.basicGetViewDefinition();
+                if (resolve) return getViewDefinition();
+                return basicGetViewDefinition();
             case SysmlPackage.VIEW_USAGE__VIEW_RENDERING:
-                if (resolve) return this.getViewRendering();
-                return this.basicGetViewRendering();
+                if (resolve) return getViewRendering();
+                return basicGetViewRendering();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -188,15 +188,15 @@ public class ViewUsageImpl extends PartUsageImpl implements ViewUsage {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.VIEW_USAGE__EXPOSED_ELEMENT:
-                return !this.getExposedElement().isEmpty();
+                return !getExposedElement().isEmpty();
             case SysmlPackage.VIEW_USAGE__SATISFIED_VIEWPOINT:
-                return !this.getSatisfiedViewpoint().isEmpty();
+                return !getSatisfiedViewpoint().isEmpty();
             case SysmlPackage.VIEW_USAGE__VIEW_CONDITION:
-                return !this.getViewCondition().isEmpty();
+                return !getViewCondition().isEmpty();
             case SysmlPackage.VIEW_USAGE__VIEW_DEFINITION:
-                return this.basicGetViewDefinition() != null;
+                return basicGetViewDefinition() != null;
             case SysmlPackage.VIEW_USAGE__VIEW_RENDERING:
-                return this.basicGetViewRendering() != null;
+                return basicGetViewRendering() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -210,7 +210,7 @@ public class ViewUsageImpl extends PartUsageImpl implements ViewUsage {
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.VIEW_USAGE___INCLUDE_AS_EXPOSED__ELEMENT:
-                return this.includeAsExposed((Element)arguments.get(0));
+                return includeAsExposed((Element)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

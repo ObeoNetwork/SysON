@@ -78,8 +78,8 @@ public class MultiplicityRangeImpl extends MultiplicityImpl implements Multiplic
      */
     @Override
     public Expression getLowerBound() {
-        Expression lowerBound = this.basicGetLowerBound();
-        return lowerBound != null && lowerBound.eIsProxy() ? (Expression)this.eResolveProxy((InternalEObject)lowerBound) : lowerBound;
+        Expression lowerBound = basicGetLowerBound();
+        return lowerBound != null && lowerBound.eIsProxy() ? (Expression)eResolveProxy((InternalEObject)lowerBound) : lowerBound;
     }
 
     /**
@@ -101,8 +101,8 @@ public class MultiplicityRangeImpl extends MultiplicityImpl implements Multiplic
      */
     @Override
     public Expression getUpperBound() {
-        Expression upperBound = this.basicGetUpperBound();
-        return upperBound != null && upperBound.eIsProxy() ? (Expression)this.eResolveProxy((InternalEObject)upperBound) : upperBound;
+        Expression upperBound = basicGetUpperBound();
+        return upperBound != null && upperBound.eIsProxy() ? (Expression)eResolveProxy((InternalEObject)upperBound) : upperBound;
     }
 
     /**
@@ -146,13 +146,13 @@ public class MultiplicityRangeImpl extends MultiplicityImpl implements Multiplic
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.MULTIPLICITY_RANGE__BOUND:
-                return this.getBound();
+                return getBound();
             case SysmlPackage.MULTIPLICITY_RANGE__LOWER_BOUND:
-                if (resolve) return this.getLowerBound();
-                return this.basicGetLowerBound();
+                if (resolve) return getLowerBound();
+                return basicGetLowerBound();
             case SysmlPackage.MULTIPLICITY_RANGE__UPPER_BOUND:
-                if (resolve) return this.getUpperBound();
-                return this.basicGetUpperBound();
+                if (resolve) return getUpperBound();
+                return basicGetUpperBound();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -166,11 +166,11 @@ public class MultiplicityRangeImpl extends MultiplicityImpl implements Multiplic
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.MULTIPLICITY_RANGE__BOUND:
-                return !this.getBound().isEmpty();
+                return !getBound().isEmpty();
             case SysmlPackage.MULTIPLICITY_RANGE__LOWER_BOUND:
-                return this.basicGetLowerBound() != null;
+                return basicGetLowerBound() != null;
             case SysmlPackage.MULTIPLICITY_RANGE__UPPER_BOUND:
-                return this.basicGetUpperBound() != null;
+                return basicGetUpperBound() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -184,9 +184,9 @@ public class MultiplicityRangeImpl extends MultiplicityImpl implements Multiplic
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.MULTIPLICITY_RANGE___HAS_BOUNDS__INT_INT:
-                return this.hasBounds((Integer)arguments.get(0), (Integer)arguments.get(1));
+                return hasBounds((Integer)arguments.get(0), (Integer)arguments.get(1));
             case SysmlPackage.MULTIPLICITY_RANGE___VALUE_OF__EXPRESSION:
-                return this.valueOf((Expression)arguments.get(0));
+                return valueOf((Expression)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

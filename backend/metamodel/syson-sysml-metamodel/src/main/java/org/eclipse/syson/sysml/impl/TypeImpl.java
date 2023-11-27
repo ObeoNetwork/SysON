@@ -248,7 +248,7 @@ public class TypeImpl extends NamespaceImpl implements Type {
      */
     @Override
     public boolean isIsAbstract() {
-        return this.isAbstract;
+        return isAbstract;
     }
 
     /**
@@ -258,10 +258,10 @@ public class TypeImpl extends NamespaceImpl implements Type {
      */
     @Override
     public void setIsAbstract(boolean newIsAbstract) {
-        boolean oldIsAbstract = this.isAbstract;
-        this.isAbstract = newIsAbstract;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.TYPE__IS_ABSTRACT, oldIsAbstract, this.isAbstract));
+        boolean oldIsAbstract = isAbstract;
+        isAbstract = newIsAbstract;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.TYPE__IS_ABSTRACT, oldIsAbstract, isAbstract));
     }
 
     /**
@@ -281,7 +281,7 @@ public class TypeImpl extends NamespaceImpl implements Type {
      */
     @Override
     public boolean isIsSufficient() {
-        return this.isSufficient;
+        return isSufficient;
     }
 
     /**
@@ -291,10 +291,10 @@ public class TypeImpl extends NamespaceImpl implements Type {
      */
     @Override
     public void setIsSufficient(boolean newIsSufficient) {
-        boolean oldIsSufficient = this.isSufficient;
-        this.isSufficient = newIsSufficient;
-        if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.TYPE__IS_SUFFICIENT, oldIsSufficient, this.isSufficient));
+        boolean oldIsSufficient = isSufficient;
+        isSufficient = newIsSufficient;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SysmlPackage.TYPE__IS_SUFFICIENT, oldIsSufficient, isSufficient));
     }
 
     /**
@@ -304,8 +304,8 @@ public class TypeImpl extends NamespaceImpl implements Type {
      */
     @Override
     public Multiplicity getMultiplicity() {
-        Multiplicity multiplicity = this.basicGetMultiplicity();
-        return multiplicity != null && multiplicity.eIsProxy() ? (Multiplicity)this.eResolveProxy((InternalEObject)multiplicity) : multiplicity;
+        Multiplicity multiplicity = basicGetMultiplicity();
+        return multiplicity != null && multiplicity.eIsProxy() ? (Multiplicity)eResolveProxy((InternalEObject)multiplicity) : multiplicity;
     }
 
     /**
@@ -338,8 +338,8 @@ public class TypeImpl extends NamespaceImpl implements Type {
      */
     @Override
     public Conjugation getOwnedConjugator() {
-        Conjugation ownedConjugator = this.basicGetOwnedConjugator();
-        return ownedConjugator != null && ownedConjugator.eIsProxy() ? (Conjugation)this.eResolveProxy((InternalEObject)ownedConjugator) : ownedConjugator;
+        Conjugation ownedConjugator = basicGetOwnedConjugator();
+        return ownedConjugator != null && ownedConjugator.eIsProxy() ? (Conjugation)eResolveProxy((InternalEObject)ownedConjugator) : ownedConjugator;
     }
 
     /**
@@ -518,55 +518,55 @@ public class TypeImpl extends NamespaceImpl implements Type {
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.TYPE__IS_ABSTRACT:
-                return this.isIsAbstract();
+                return isIsAbstract();
             case SysmlPackage.TYPE__IS_CONJUGATED:
-                return this.isIsConjugated();
+                return isIsConjugated();
             case SysmlPackage.TYPE__IS_SUFFICIENT:
-                return this.isIsSufficient();
+                return isIsSufficient();
             case SysmlPackage.TYPE__DIFFERENCING_TYPE:
-                return this.getDifferencingType();
+                return getDifferencingType();
             case SysmlPackage.TYPE__DIRECTED_FEATURE:
-                return this.getDirectedFeature();
+                return getDirectedFeature();
             case SysmlPackage.TYPE__END_FEATURE:
-                return this.getEndFeature();
+                return getEndFeature();
             case SysmlPackage.TYPE__FEATURE:
-                return this.getFeature();
+                return getFeature();
             case SysmlPackage.TYPE__FEATURE_MEMBERSHIP:
-                return this.getFeatureMembership();
+                return getFeatureMembership();
             case SysmlPackage.TYPE__INHERITED_FEATURE:
-                return this.getInheritedFeature();
+                return getInheritedFeature();
             case SysmlPackage.TYPE__INHERITED_MEMBERSHIP:
-                return this.getInheritedMembership();
+                return getInheritedMembership();
             case SysmlPackage.TYPE__INPUT:
-                return this.getInput();
+                return getInput();
             case SysmlPackage.TYPE__INTERSECTING_TYPE:
-                return this.getIntersectingType();
+                return getIntersectingType();
             case SysmlPackage.TYPE__MULTIPLICITY:
-                if (resolve) return this.getMultiplicity();
-                return this.basicGetMultiplicity();
+                if (resolve) return getMultiplicity();
+                return basicGetMultiplicity();
             case SysmlPackage.TYPE__OUTPUT:
-                return this.getOutput();
+                return getOutput();
             case SysmlPackage.TYPE__OWNED_CONJUGATOR:
-                if (resolve) return this.getOwnedConjugator();
-                return this.basicGetOwnedConjugator();
+                if (resolve) return getOwnedConjugator();
+                return basicGetOwnedConjugator();
             case SysmlPackage.TYPE__OWNED_DIFFERENCING:
-                return this.getOwnedDifferencing();
+                return getOwnedDifferencing();
             case SysmlPackage.TYPE__OWNED_DISJOINING:
-                return this.getOwnedDisjoining();
+                return getOwnedDisjoining();
             case SysmlPackage.TYPE__OWNED_END_FEATURE:
-                return this.getOwnedEndFeature();
+                return getOwnedEndFeature();
             case SysmlPackage.TYPE__OWNED_FEATURE:
-                return this.getOwnedFeature();
+                return getOwnedFeature();
             case SysmlPackage.TYPE__OWNED_FEATURE_MEMBERSHIP:
-                return this.getOwnedFeatureMembership();
+                return getOwnedFeatureMembership();
             case SysmlPackage.TYPE__OWNED_INTERSECTING:
-                return this.getOwnedIntersecting();
+                return getOwnedIntersecting();
             case SysmlPackage.TYPE__OWNED_SPECIALIZATION:
-                return this.getOwnedSpecialization();
+                return getOwnedSpecialization();
             case SysmlPackage.TYPE__OWNED_UNIONING:
-                return this.getOwnedUnioning();
+                return getOwnedUnioning();
             case SysmlPackage.TYPE__UNIONING_TYPE:
-                return this.getUnioningType();
+                return getUnioningType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -581,10 +581,10 @@ public class TypeImpl extends NamespaceImpl implements Type {
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SysmlPackage.TYPE__IS_ABSTRACT:
-                this.setIsAbstract((Boolean)newValue);
+                setIsAbstract((Boolean)newValue);
                 return;
             case SysmlPackage.TYPE__IS_SUFFICIENT:
-                this.setIsSufficient((Boolean)newValue);
+                setIsSufficient((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -599,10 +599,10 @@ public class TypeImpl extends NamespaceImpl implements Type {
     public void eUnset(int featureID) {
         switch (featureID) {
             case SysmlPackage.TYPE__IS_ABSTRACT:
-                this.setIsAbstract(IS_ABSTRACT_EDEFAULT);
+                setIsAbstract(IS_ABSTRACT_EDEFAULT);
                 return;
             case SysmlPackage.TYPE__IS_SUFFICIENT:
-                this.setIsSufficient(IS_SUFFICIENT_EDEFAULT);
+                setIsSufficient(IS_SUFFICIENT_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -617,53 +617,53 @@ public class TypeImpl extends NamespaceImpl implements Type {
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.TYPE__IS_ABSTRACT:
-                return this.isAbstract != IS_ABSTRACT_EDEFAULT;
+                return isAbstract != IS_ABSTRACT_EDEFAULT;
             case SysmlPackage.TYPE__IS_CONJUGATED:
-                return this.isIsConjugated() != IS_CONJUGATED_EDEFAULT;
+                return isIsConjugated() != IS_CONJUGATED_EDEFAULT;
             case SysmlPackage.TYPE__IS_SUFFICIENT:
-                return this.isSufficient != IS_SUFFICIENT_EDEFAULT;
+                return isSufficient != IS_SUFFICIENT_EDEFAULT;
             case SysmlPackage.TYPE__DIFFERENCING_TYPE:
-                return !this.getDifferencingType().isEmpty();
+                return !getDifferencingType().isEmpty();
             case SysmlPackage.TYPE__DIRECTED_FEATURE:
-                return !this.getDirectedFeature().isEmpty();
+                return !getDirectedFeature().isEmpty();
             case SysmlPackage.TYPE__END_FEATURE:
-                return !this.getEndFeature().isEmpty();
+                return !getEndFeature().isEmpty();
             case SysmlPackage.TYPE__FEATURE:
-                return !this.getFeature().isEmpty();
+                return !getFeature().isEmpty();
             case SysmlPackage.TYPE__FEATURE_MEMBERSHIP:
-                return !this.getFeatureMembership().isEmpty();
+                return !getFeatureMembership().isEmpty();
             case SysmlPackage.TYPE__INHERITED_FEATURE:
-                return !this.getInheritedFeature().isEmpty();
+                return !getInheritedFeature().isEmpty();
             case SysmlPackage.TYPE__INHERITED_MEMBERSHIP:
-                return !this.getInheritedMembership().isEmpty();
+                return !getInheritedMembership().isEmpty();
             case SysmlPackage.TYPE__INPUT:
-                return !this.getInput().isEmpty();
+                return !getInput().isEmpty();
             case SysmlPackage.TYPE__INTERSECTING_TYPE:
-                return !this.getIntersectingType().isEmpty();
+                return !getIntersectingType().isEmpty();
             case SysmlPackage.TYPE__MULTIPLICITY:
-                return this.basicGetMultiplicity() != null;
+                return basicGetMultiplicity() != null;
             case SysmlPackage.TYPE__OUTPUT:
-                return !this.getOutput().isEmpty();
+                return !getOutput().isEmpty();
             case SysmlPackage.TYPE__OWNED_CONJUGATOR:
-                return this.basicGetOwnedConjugator() != null;
+                return basicGetOwnedConjugator() != null;
             case SysmlPackage.TYPE__OWNED_DIFFERENCING:
-                return !this.getOwnedDifferencing().isEmpty();
+                return !getOwnedDifferencing().isEmpty();
             case SysmlPackage.TYPE__OWNED_DISJOINING:
-                return !this.getOwnedDisjoining().isEmpty();
+                return !getOwnedDisjoining().isEmpty();
             case SysmlPackage.TYPE__OWNED_END_FEATURE:
-                return !this.getOwnedEndFeature().isEmpty();
+                return !getOwnedEndFeature().isEmpty();
             case SysmlPackage.TYPE__OWNED_FEATURE:
-                return !this.getOwnedFeature().isEmpty();
+                return !getOwnedFeature().isEmpty();
             case SysmlPackage.TYPE__OWNED_FEATURE_MEMBERSHIP:
-                return !this.getOwnedFeatureMembership().isEmpty();
+                return !getOwnedFeatureMembership().isEmpty();
             case SysmlPackage.TYPE__OWNED_INTERSECTING:
-                return !this.getOwnedIntersecting().isEmpty();
+                return !getOwnedIntersecting().isEmpty();
             case SysmlPackage.TYPE__OWNED_SPECIALIZATION:
-                return !this.getOwnedSpecialization().isEmpty();
+                return !getOwnedSpecialization().isEmpty();
             case SysmlPackage.TYPE__OWNED_UNIONING:
-                return !this.getOwnedUnioning().isEmpty();
+                return !getOwnedUnioning().isEmpty();
             case SysmlPackage.TYPE__UNIONING_TYPE:
-                return !this.getUnioningType().isEmpty();
+                return !getUnioningType().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -678,15 +678,15 @@ public class TypeImpl extends NamespaceImpl implements Type {
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.TYPE___ALL_SUPERTYPES:
-                return this.allSupertypes();
+                return allSupertypes();
             case SysmlPackage.TYPE___DIRECTION_OF__FEATURE:
-                return this.directionOf((Feature)arguments.get(0));
+                return directionOf((Feature)arguments.get(0));
             case SysmlPackage.TYPE___INHERITED_MEMBERSHIPS__ELIST:
-                return this.inheritedMemberships((EList<Type>)arguments.get(0));
+                return inheritedMemberships((EList<Type>)arguments.get(0));
             case SysmlPackage.TYPE___SPECIALIZES__TYPE:
-                return this.specializes((Type)arguments.get(0));
+                return specializes((Type)arguments.get(0));
             case SysmlPackage.TYPE___SPECIALIZES_FROM_LIBRARY__STRING:
-                return this.specializesFromLibrary((String)arguments.get(0));
+                return specializesFromLibrary((String)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }
@@ -698,13 +698,13 @@ public class TypeImpl extends NamespaceImpl implements Type {
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (isAbstract: ");
-        result.append(this.isAbstract);
+        result.append(isAbstract);
         result.append(", isSufficient: ");
-        result.append(this.isSufficient);
+        result.append(isSufficient);
         result.append(')');
         return result.toString();
     }

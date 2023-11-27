@@ -64,8 +64,8 @@ public class AcceptActionUsageImpl extends ActionUsageImpl implements AcceptActi
      */
     @Override
     public Expression getPayloadArgument() {
-        Expression payloadArgument = this.basicGetPayloadArgument();
-        return payloadArgument != null && payloadArgument.eIsProxy() ? (Expression)this.eResolveProxy((InternalEObject)payloadArgument) : payloadArgument;
+        Expression payloadArgument = basicGetPayloadArgument();
+        return payloadArgument != null && payloadArgument.eIsProxy() ? (Expression)eResolveProxy((InternalEObject)payloadArgument) : payloadArgument;
     }
 
     /**
@@ -87,8 +87,8 @@ public class AcceptActionUsageImpl extends ActionUsageImpl implements AcceptActi
      */
     @Override
     public ReferenceUsage getPayloadParameter() {
-        ReferenceUsage payloadParameter = this.basicGetPayloadParameter();
-        return payloadParameter != null && payloadParameter.eIsProxy() ? (ReferenceUsage)this.eResolveProxy((InternalEObject)payloadParameter) : payloadParameter;
+        ReferenceUsage payloadParameter = basicGetPayloadParameter();
+        return payloadParameter != null && payloadParameter.eIsProxy() ? (ReferenceUsage)eResolveProxy((InternalEObject)payloadParameter) : payloadParameter;
     }
 
     /**
@@ -110,8 +110,8 @@ public class AcceptActionUsageImpl extends ActionUsageImpl implements AcceptActi
      */
     @Override
     public Expression getReceiverArgument() {
-        Expression receiverArgument = this.basicGetReceiverArgument();
-        return receiverArgument != null && receiverArgument.eIsProxy() ? (Expression)this.eResolveProxy((InternalEObject)receiverArgument) : receiverArgument;
+        Expression receiverArgument = basicGetReceiverArgument();
+        return receiverArgument != null && receiverArgument.eIsProxy() ? (Expression)eResolveProxy((InternalEObject)receiverArgument) : receiverArgument;
     }
 
     /**
@@ -145,14 +145,14 @@ public class AcceptActionUsageImpl extends ActionUsageImpl implements AcceptActi
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.ACCEPT_ACTION_USAGE__PAYLOAD_ARGUMENT:
-                if (resolve) return this.getPayloadArgument();
-                return this.basicGetPayloadArgument();
+                if (resolve) return getPayloadArgument();
+                return basicGetPayloadArgument();
             case SysmlPackage.ACCEPT_ACTION_USAGE__PAYLOAD_PARAMETER:
-                if (resolve) return this.getPayloadParameter();
-                return this.basicGetPayloadParameter();
+                if (resolve) return getPayloadParameter();
+                return basicGetPayloadParameter();
             case SysmlPackage.ACCEPT_ACTION_USAGE__RECEIVER_ARGUMENT:
-                if (resolve) return this.getReceiverArgument();
-                return this.basicGetReceiverArgument();
+                if (resolve) return getReceiverArgument();
+                return basicGetReceiverArgument();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -166,11 +166,11 @@ public class AcceptActionUsageImpl extends ActionUsageImpl implements AcceptActi
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.ACCEPT_ACTION_USAGE__PAYLOAD_ARGUMENT:
-                return this.basicGetPayloadArgument() != null;
+                return basicGetPayloadArgument() != null;
             case SysmlPackage.ACCEPT_ACTION_USAGE__PAYLOAD_PARAMETER:
-                return this.basicGetPayloadParameter() != null;
+                return basicGetPayloadParameter() != null;
             case SysmlPackage.ACCEPT_ACTION_USAGE__RECEIVER_ARGUMENT:
-                return this.basicGetReceiverArgument() != null;
+                return basicGetReceiverArgument() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -184,7 +184,7 @@ public class AcceptActionUsageImpl extends ActionUsageImpl implements AcceptActi
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.ACCEPT_ACTION_USAGE___IS_TRIGGER_ACTION:
-                return this.isTriggerAction();
+                return isTriggerAction();
         }
         return super.eInvoke(operationID, arguments);
     }

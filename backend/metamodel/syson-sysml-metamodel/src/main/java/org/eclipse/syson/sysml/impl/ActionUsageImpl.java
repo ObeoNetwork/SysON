@@ -150,11 +150,11 @@ public class ActionUsageImpl extends OccurrenceUsageImpl implements ActionUsage 
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SysmlPackage.ACTION_USAGE__BEHAVIOR:
-                return this.getBehavior();
+                return getBehavior();
             case SysmlPackage.ACTION_USAGE__PARAMETER:
-                return this.getParameter();
+                return getParameter();
             case SysmlPackage.ACTION_USAGE__ACTION_DEFINITION:
-                return this.getActionDefinition();
+                return getActionDefinition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -168,11 +168,11 @@ public class ActionUsageImpl extends OccurrenceUsageImpl implements ActionUsage 
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SysmlPackage.ACTION_USAGE__BEHAVIOR:
-                return !this.getBehavior().isEmpty();
+                return !getBehavior().isEmpty();
             case SysmlPackage.ACTION_USAGE__PARAMETER:
-                return !this.getParameter().isEmpty();
+                return !getParameter().isEmpty();
             case SysmlPackage.ACTION_USAGE__ACTION_DEFINITION:
-                return !this.getActionDefinition().isEmpty();
+                return !getActionDefinition().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -220,13 +220,13 @@ public class ActionUsageImpl extends OccurrenceUsageImpl implements ActionUsage 
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
             case SysmlPackage.ACTION_USAGE___ARGUMENT__INT:
-                return this.argument((Integer)arguments.get(0));
+                return argument((Integer)arguments.get(0));
             case SysmlPackage.ACTION_USAGE___INPUT_PARAMETER__INT:
-                return this.inputParameter((Integer)arguments.get(0));
+                return inputParameter((Integer)arguments.get(0));
             case SysmlPackage.ACTION_USAGE___INPUT_PARAMETERS:
-                return this.inputParameters();
+                return inputParameters();
             case SysmlPackage.ACTION_USAGE___IS_SUBACTION_USAGE:
-                return this.isSubactionUsage();
+                return isSubactionUsage();
         }
         return super.eInvoke(operationID, arguments);
     }

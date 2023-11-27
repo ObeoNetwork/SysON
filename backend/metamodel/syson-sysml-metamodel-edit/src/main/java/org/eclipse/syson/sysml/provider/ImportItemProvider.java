@@ -55,11 +55,11 @@ public class ImportItemProvider extends RelationshipItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addImportedElementPropertyDescriptor(object);
-            addImportOwningNamespacePropertyDescriptor(object);
             addIsImportAllPropertyDescriptor(object);
             addIsRecursivePropertyDescriptor(object);
             addVisibilityPropertyDescriptor(object);
+            addImportedElementPropertyDescriptor(object);
+            addImportOwningNamespacePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
