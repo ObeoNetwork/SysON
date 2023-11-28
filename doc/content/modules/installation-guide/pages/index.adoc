@@ -6,4 +6,7 @@ include::executables.adoc[leveloffset=+1]
 == Installation procedure
 [.small .gray]#_Details how to install the product. Details if the software comes with an installer or with a kind of assistant for the configuration or the steps to do the installation by hand._#
 
+
+include::troubelshooting.adoc[leveloffset=+1]
+
 include::migration-process.adoc[leveloffset=+1]

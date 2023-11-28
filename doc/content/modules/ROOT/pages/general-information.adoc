@@ -1,8 +1,11 @@
 = Overview
-* Name: {product-name}
+{product-name} project provides an open-source and interoperable tool for editing SysMLv2 models conforming to the OMG Standard, for the MBSE community.
+This software will prominently showcase structured editors: graphical, form-based and tables, effectively utilizing the capabilities of the Sirius Web modeling platform.
+Additionally, the project will ensure seamless integration with Open-Source solutions like [Papyrus](https://eclipse.dev/papyrus/) and [Capella](https://mbse-capella.org/), further enhancing the usability and versatility of the tool.
 
 == Source code
-* License: xref:product-legal:index.adoc[Obeo]
+* License: xref:product-legal:index.adoc[EPL v2]
+* Maintainers: https://projects.eclipse.org/projects/modeling.syson/who
 
 == Tracker
 
