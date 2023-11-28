@@ -19,33 +19,33 @@ export const baseTheme: Theme = createTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#FAA200',
-      dark: '#AD7100',
-      light: '#F2C572',
+      main: '#FBBF52',
+      dark: '#AF8539',
+      light: '#FBCB74',
     },
     secondary: {
-      main: '#012340',
-      dark: '#012340',
-      light: '#012340',
+      main: '#292253',
+      dark: '#64669B',
+      light: '#E8E9F0',
     },
     text: {
-      primary: '#261E58',
-      disabled: '#B3BFC5',
-      hint: '#B3BFC5',
+      primary: '#292253',
+      disabled: '#29225354',
+      hint: '#29225312',
     },
     error: {
       main: '#DE1000',
       dark: '#9B0B00',
       light: '#E43F33',
     },
-    divider: '#B3BFC5',
+    divider: '#E0E0E0',
     navigation: {
-      leftBackground: '#01234080',
-      rightBackground: '#02396080',
+      leftBackground: '#E8E9F0',
+      rightBackground: '#E8E9F0',
     },
     action: {
-      hover: '#01234026',
-      selected: '#01234042',
+      hover: '#A1A4C412',
+      selected: '#A1A4C426',
     },
   },
   props: {
@@ -56,7 +56,7 @@ export const baseTheme: Theme = createTheme({
   overrides: {
     MuiSnackbarContent: {
       root: {
-        backgroundColor: '#7269A4',
+        backgroundColor: '#E8E9F0',
       },
     },
   },
