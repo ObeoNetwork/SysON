@@ -71,7 +71,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .defaultHeightExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_COMPARTMENT_NODE_ITEM_HEIGHT)
                 .defaultWidthExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_NODE_WIDTH)
                 .domainType(SysMLMetamodelHelper.buildQualifiedName(SysmlPackage.eINSTANCE.getAttributeUsage()))
-                .labelExpression(GeneralViewDiagramDescriptionProvider.DEFAULT_LABEL_EXPRESSION)
+                .labelExpression("aql:self.getCompartmentItemLabel()")
                 .name(name + " AttributesCompartmentItem")
                 .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getDefinition_OwnedAttribute().getName())
                 .style(this.createDefinitionCompartmentItemNodeStyle())

@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.syson.sysml.Annotation;
 import org.eclipse.syson.sysml.Documentation;
 import org.eclipse.syson.sysml.Element;
+import org.eclipse.syson.sysml.Membership;
 import org.eclipse.syson.sysml.Namespace;
 import org.eclipse.syson.sysml.OwningMembership;
 import org.eclipse.syson.sysml.Relationship;
@@ -521,7 +522,13 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     public String getQualifiedName() {
         StringBuilder qualifiedName = new StringBuilder();
         EObject container = this.eContainer();
-        if (container instanceof Element element) {
+        if (container instanceof Membership membership) {
+            EObject membershipContainer = membership.eContainer();
+            if (membershipContainer instanceof Element element) {
+                qualifiedName.append(element.getQualifiedName());
+                qualifiedName.append("::");
+            }
+        } else if (container instanceof Element element) {
             qualifiedName.append(element.getQualifiedName());
             qualifiedName.append("::");
         }

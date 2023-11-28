@@ -60,23 +60,26 @@ public class GeneralViewDirectEditListener extends DirectEditBaseListener {
             if (definition == null) {
                 var containerPackage = this.generalViewUtilService.getContainerPackage(this.element);
                 var newMembership = SysmlFactory.eINSTANCE.createOwningMembership();
-                containerPackage.getOwnedMembership().add(newMembership);
-                EClassifier eClassifier = SysmlPackage.eINSTANCE.getEClassifier(this.element.eClass().getInstanceTypeName().replace("Usage", "Definition"));
+                containerPackage.getOwnedRelationship().add(newMembership);
+                EClassifier eClassifier = SysmlPackage.eINSTANCE.getEClassifier(this.element.eClass().getName().replace("Usage", "Definition"));
                 if (eClassifier instanceof EClass eClass) {
                     definition = (Definition) SysmlFactory.eINSTANCE.create(eClass);
                     definition.setDeclaredName(typeAsString);
+                    newMembership.getOwnedRelatedElement().add(definition);
                 }
             }
-            var featureTyping = this.element.getOwnedRelationship().stream()
-                    .filter(FeatureTyping.class::isInstance)
-                    .map(FeatureTyping.class::cast)
-                    .findFirst();
-            if (featureTyping.isPresent()) {
-                featureTyping.get().setType(definition);
-            } else {
-                var newFeatureTyping = SysmlFactory.eINSTANCE.createFeatureTyping();
-                this.element.getOwnedRelationship().add(newFeatureTyping);
-                featureTyping.get().setType(definition);
+            if (definition != null) {
+                var featureTyping = this.element.getOwnedRelationship().stream()
+                        .filter(FeatureTyping.class::isInstance)
+                        .map(FeatureTyping.class::cast)
+                        .findFirst();
+                if (featureTyping.isPresent()) {
+                    featureTyping.get().setType(definition);
+                } else {
+                    var newFeatureTyping = SysmlFactory.eINSTANCE.createFeatureTyping();
+                    this.element.getOwnedRelationship().add(newFeatureTyping);
+                    featureTyping.get().setType(definition);
+                }
             }
         }
     }

@@ -24,6 +24,8 @@ import org.eclipse.syson.diagram.general.view.directedit.grammars.generated.Dire
 import org.eclipse.syson.diagram.general.view.directedit.grammars.generated.DirectEditParser;
 import org.eclipse.syson.sysml.Dependency;
 import org.eclipse.syson.sysml.Element;
+import org.eclipse.syson.sysml.FeatureTyping;
+import org.eclipse.syson.sysml.Usage;
 
 /**
  * Label-related Java services used by the {@link GeneralViewDiagramDescriptionProvider}.
@@ -41,6 +43,56 @@ public class GeneralViewLabelService {
      */
     public String getContainerLabel(Element element) {
         return new ContainerLabelSwitch().doSwitch(element);
+    }
+
+    /**
+     * Return the compartment item label for the given {@link Usage}.
+     *
+     * @param usage
+     *            the given {@link Usage}.
+     * @return the compartment item label for the given {@link Usage}.
+     */
+    public String getCompartmentItemLabel(Usage usage) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(usage.getDeclaredName());
+        builder.append(this.getTypingLabel(usage));
+        builder.append(this.getValueLabel(usage));
+        return builder.toString();
+    }
+
+    /**
+     * Return the label of the value part of the given {@link Usage}.
+     *
+     * @param usage
+     *            the given {@link Usage}.
+     * @return the label of the value part of the given {@link Usage} if there is one, an empty string otherwise.
+     */
+    private String getValueLabel(Usage usage) {
+        return "";
+    }
+
+    /**
+     * Return the label of the typing part of the given {@link Usage}.
+     *
+     * @param usage
+     *            the given {@link Usage}.
+     * @return the label of the typing part of the given {@link Usage} if there is one, an empty string otherwise.
+     */
+    private String getTypingLabel(Usage usage) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("");
+        var featureTyping = usage.getOwnedRelationship().stream()
+                .filter(FeatureTyping.class::isInstance)
+                .map(FeatureTyping.class::cast)
+                .findFirst();
+        if (featureTyping.isPresent()) {
+            var type = featureTyping.get().getType();
+            if (type != null) {
+                builder.append(" : ");
+                builder.append(type.getDeclaredName());
+            }
+        }
+        return builder.toString();
     }
 
     /**
@@ -68,7 +120,6 @@ public class GeneralViewLabelService {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         DirectEditParser parser = new DirectEditParser(tokens);
         ParseTree tree = parser.expression();
-
         ParseTreeWalker walker = new ParseTreeWalker();
         DirectEditListener listener = new GeneralViewDirectEditListener(element);
         walker.walk(listener, tree);
@@ -83,6 +134,9 @@ public class GeneralViewLabelService {
      * @return the value to display.
      */
     public String getInitialDirectEditLabel(Element element) {
+        if (element instanceof Usage usage) {
+            return this.getCompartmentItemLabel(usage);
+        }
         return element.getDeclaredName();
     }
 }
