@@ -12,14 +12,10 @@
  *******************************************************************************/
 package org.eclipse.syson.services.upload;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +24,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.StreamSupport;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -37,6 +34,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.sirius.components.collaborative.api.ChangeDescription;
 import org.eclipse.sirius.components.collaborative.api.ChangeKind;
 import org.eclipse.sirius.components.collaborative.api.IEditingContextEventHandler;
@@ -48,7 +46,6 @@ import org.eclipse.sirius.components.core.api.IPayload;
 import org.eclipse.sirius.components.emf.ResourceMetadataAdapter;
 import org.eclipse.sirius.components.emf.services.EditingContext;
 import org.eclipse.sirius.components.emf.services.JSONResourceFactory;
-import org.eclipse.sirius.components.emf.utils.EMFResourceUtils;
 import org.eclipse.sirius.components.graphql.api.UploadFile;
 import org.eclipse.sirius.emfjson.resource.JsonResource;
 import org.eclipse.sirius.emfjson.resource.JsonResourceImpl;
@@ -69,6 +66,8 @@ import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import reactor.core.publisher.Sinks.Many;
 import reactor.core.publisher.Sinks.One;
+import specific.ASTTransformer;
+import specific.SysmlToAst;
 
 /**
  * Event handler used to create a new document from a file upload.
@@ -109,6 +108,7 @@ public class UploadDocumentEventHandler implements IEditingContextEventHandler {
     public void handle(One<IPayload> payloadSink, Many<ChangeDescription> changeDescriptionSink, IEditingContext editingContext, IInput input) {
         this.counter.increment();
 
+
         IPayload payload = new ErrorPayload(input.id(), this.messageService.unexpectedError());
         ChangeDescription changeDescription = new ChangeDescription(ChangeKind.NOTHING, editingContext.getId(), input);
 
@@ -126,7 +126,7 @@ public class UploadDocumentEventHandler implements IEditingContextEventHandler {
             if (optionalEditingDomain.isPresent()) {
                 AdapterFactoryEditingDomain adapterFactoryEditingDomain = optionalEditingDomain.get();
 
-                Optional<String> contentOpt = this.getContent(adapterFactoryEditingDomain.getResourceSet().getPackageRegistry(), file, uploadDocumentInput.checkProxies(), projectId);
+                Optional<String> contentOpt = this.getContent(adapterFactoryEditingDomain.getResourceSet().getPackageRegistry(), file, uploadDocumentInput.checkProxies(), editingContext);
                 var optionalDocument = contentOpt.flatMap(content -> this.documentService.createDocument(projectId, name, content));
 
                 if (optionalDocument.isPresent()) {
@@ -161,9 +161,10 @@ public class UploadDocumentEventHandler implements IEditingContextEventHandler {
         changeDescriptionSink.tryEmitNext(changeDescription);
     }
 
-    private Optional<String> getContent(EPackage.Registry registry, UploadFile file, boolean checkProxies, String editingContextId) {
-        var isStudioProjectNature = this.editingContextMetadataProvider.getMetadata(editingContextId).natures().stream().map(Nature::natureId)
+    private Optional<String> getContent(EPackage.Registry registry, UploadFile file, boolean checkProxies, IEditingContext editingContext) {
+        var isStudioProjectNature = this.editingContextMetadataProvider.getMetadata(editingContext.getId()).natures().stream().map(Nature::natureId)
                 .anyMatch("siriusComponents://nature?kind=studio"::equals);
+        
         String fileName = file.getName();
         Optional<String> content = Optional.empty();
         ResourceSet resourceSet = new ResourceSetImpl();
@@ -173,10 +174,9 @@ public class UploadDocumentEventHandler implements IEditingContextEventHandler {
         }
         try (var inputStream = file.getInputStream()) {
             URI resourceURI = new JSONResourceFactory().createResourceURI(fileName);
-            Optional<Resource> optionalInputResource = this.getResource(inputStream, resourceURI, resourceSet);
+            Optional<Resource> optionalInputResource = this.getResource(inputStream, resourceURI, resourceSet, editingContext);
             if (optionalInputResource.isPresent()) {
                 Resource inputResource = optionalInputResource.get();
-
                 if (checkProxies && this.containsProxies(inputResource)) {
                     this.logger.warn("The resource {} contains unresolvable proxies and will not be uploaded.", fileName);
                 } else {
@@ -240,29 +240,18 @@ public class UploadDocumentEventHandler implements IEditingContextEventHandler {
      *            The {@link ResourceSet} used to store the loaded resource
      * @return a {@link JsonResourceImpl}, a {@link XMIResourceImpl} or {@link Optional#empty()}
      */
-    private Optional<Resource> getResource(InputStream inputStream, URI resourceURI, ResourceSet resourceSet) {
+    private Optional<Resource> getResource(InputStream inputStream, URI resourceURI, ResourceSet resourceSet, IEditingContext editingContext) {
         Resource resource = null;
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-        bufferedInputStream.mark(Integer.MAX_VALUE);
-        try (var reader = new BufferedReader(new InputStreamReader(bufferedInputStream, StandardCharsets.UTF_8))) {
-            String line = reader.readLine();
-            Map<String, Object> options = new HashMap<>();
-            if (line != null) {
-                if (line.contains("{")) {
-                    resource = new JSONResourceFactory().createResource(resourceURI);
-                } else if (line.contains("<")) {
-                    resource = new XMIResourceImpl(resourceURI);
-                    options = new EMFResourceUtils().getXMILoadOptions();
-                }
-            }
-            bufferedInputStream.reset();
-            if (resource != null) {
-                resourceSet.getResources().add(resource);
-                resource.load(bufferedInputStream, options);
-            }
-        } catch (IOException exception) {
-            this.logger.warn(exception.getMessage(), exception);
-        }
+
+        SysmlToAst converter = new SysmlToAst();
+
+        InputStream astStream = converter.convert(inputStream, resourceURI.fileExtension());
+
+        ASTTransformer tranformer = new ASTTransformer();
+
+
+        resource = tranformer.convertResource(astStream, previousObjectList(editingContext));
+        resourceSet.getResources().add(resource);
         return Optional.ofNullable(resource);
     }
 
@@ -278,6 +267,23 @@ public class UploadDocumentEventHandler implements IEditingContextEventHandler {
             this.logger.warn("An error occured while loading document studioColorPalettes.json: {}.", exception.getMessage());
             resourceSet.getResources().remove(resource);
         }
+    }
+
+    private Map<String, EObject> previousObjectList(IEditingContext editingContext) {
+
+        Map<String, EObject> objectList = new HashMap<>();
+
+        EditingDomain domain = ((EditingContext) editingContext).getDomain();
+        EList<Resource> resources = domain.getResourceSet().getResources();
+        for (Resource resource: resources) {
+            resource.getAllContents().forEachRemaining(t -> {
+                var feature = t.eClass().getEStructuralFeature("qualifiedName");
+                if (feature != null) {
+                    objectList.put(t.eGet(feature).toString(), t);
+                }
+            });    
+        }
+        return objectList;
     }
 
 }
