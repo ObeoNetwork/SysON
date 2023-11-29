@@ -1,0 +1,21 @@
+= Environment
+
+[Environment]
+|===
+| |Client |Server |Comment
+
+|Operating Systems
+|Windows, Linux, macOS
+|n/a
+|
+
+|Java
+|Java 8
+|n/a
+|
+
+|Eclipse Platform
+|Photon
+|n/a
+|
+|===

@@ -1,0 +1,3 @@
+= Using {product-name}
+
+[.small .gray]#_Details the end user features._#

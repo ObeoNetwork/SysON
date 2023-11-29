@@ -1,0 +1,3 @@
+= Release notes
+
+[.small .gray]#_Details all the changes which occurred in the product._#

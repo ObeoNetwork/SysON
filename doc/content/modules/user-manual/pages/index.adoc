@@ -1,0 +1,3 @@
+= User Manual
+
+[.small .gray]#_Details FAQs, howtos, tutorials, videos,... for the end user._#

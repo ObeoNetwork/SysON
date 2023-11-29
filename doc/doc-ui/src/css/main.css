@@ -1,0 +1,40 @@
+@media screen and (max-width: 1023.5px) {
+  aside.sidebar {
+    display: none;
+  }
+
+  main > .content {
+    overflow-x: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    flex: auto;
+    min-width: 0; /* min-width: 0 required for flexbox to constrain overflowing elements */
+  }
+
+  main > .content {
+    display: flex;
+  }
+
+  .content .spacer {
+    flex: 1 0 auto;
+    order: 1;
+  }
+
+  aside.embedded {
+    display: none;
+  }
+
+  aside.sidebar {
+    flex: 0 0 var(--sidebar-width);
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  aside.sidebar {
+    flex-basis: var(--sidebar-width--widescreen);
+  }
+}
