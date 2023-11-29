@@ -3,9 +3,9 @@
 <fileset-config file-format-version="1.2.0" simple-config="false" sync-formatter="false">
   <fileset name="all" enabled="true" check-config-name="SysON" local="false">
     <file-match-pattern match-pattern="." include-pattern="true"/>
-  </fileset>
+  </fileset>s
   <filter name="FilesFromPackage" enabled="true">
     <filter-data value="src/main/resources"/>
-    <filter-data value="src/main/java/org/eclipse/syson/diagram/general/view/directedit/grammars/generated"/>
+    <filter-data value="src/main/generated"/>
   </filter>
 </fileset-config>
