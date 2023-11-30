@@ -560,48 +560,54 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
     public String effectiveName() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        return null;
+        return this.getDeclaredName();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
     public String effectiveShortName() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        return null;
+        return this.getDeclaredShortName();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
     public String escapedName() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        return null;
+        String escapedName = null;
+        String name = this.getName();
+        if (name == null) {
+            escapedName = this.getShortName();
+        } else {
+            escapedName = this.getName();
+        }
+        if (escapedName != null && escapedName.contains("\\S+")) {
+            escapedName = "'" + escapedName + "'";
+        }
+        return escapedName;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
     public Namespace libraryNamespace() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
+        Relationship owningRelationship = this.getOwningRelationship();
+        if (owningRelationship != null) {
+            return owningRelationship.libraryNamespace();
+        }
         return null;
     }
 
