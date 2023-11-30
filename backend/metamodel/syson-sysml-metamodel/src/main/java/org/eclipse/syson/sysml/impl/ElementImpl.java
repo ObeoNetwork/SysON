@@ -31,8 +31,10 @@ import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.syson.sysml.Annotation;
+import org.eclipse.syson.sysml.AttributeUsage;
 import org.eclipse.syson.sysml.Documentation;
 import org.eclipse.syson.sysml.Element;
+import org.eclipse.syson.sysml.FeatureMembership;
 import org.eclipse.syson.sysml.Membership;
 import org.eclipse.syson.sysml.Namespace;
 import org.eclipse.syson.sysml.OwningMembership;
@@ -374,6 +376,11 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     @Override
     public EList<Annotation> getOwnedAnnotation() {
         List<Annotation> ownedAnnotation = new ArrayList<>();
+        this.getOwnedRelationship().stream()
+            .filter(Annotation.class::isInstance)
+            .map(Annotation.class::cast)
+            .filter(annotation -> this.equals(annotation.getAnnotatedElement()))
+            .forEach(ownedAnnotation::add);
         return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getElement_OwnedAnnotation(), ownedAnnotation.size(), ownedAnnotation.toArray());
     }
 
@@ -385,6 +392,9 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     @Override
     public EList<Element> getOwnedElement() {
         List<Element> ownedElement = new ArrayList<>();
+        this.getOwnedRelationship().stream()
+            .flatMap(fm -> fm.getOwnedRelatedElement().stream())
+            .forEach(ownedElement::add);
         return new EcoreEList.UnmodifiableEList<>(this, SysmlPackage.eINSTANCE.getElement_OwnedElement(), ownedElement.size(), ownedElement.toArray());
     }
 
@@ -415,13 +425,15 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     public Element basicGetOwner() {
-        // TODO: implement this method to return the 'Owner' reference
-        // -> do not perform proxy resolution
-        // Ensure that you remove @generated or mark it @generated NOT
-        return null;
+        Element basicGetOwner = null;
+        Relationship owningRelationship = getOwningRelationship();
+        if (owningRelationship != null) {
+            basicGetOwner = owningRelationship.getOwningRelatedElement();
+        }
+        return basicGetOwner;
     }
 
     /**
@@ -438,13 +450,15 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     public OwningMembership basicGetOwningMembership() {
-        // TODO: implement this method to return the 'Owning Membership' reference
-        // -> do not perform proxy resolution
-        // Ensure that you remove @generated or mark it @generated NOT
-        return null;
+        OwningMembership basicGetOwningMembership = null;
+        Relationship owningRelationship = getOwningRelationship();
+        if (owningRelationship instanceof OwningMembership membership) {
+            basicGetOwningMembership = membership;
+        }
+        return basicGetOwningMembership;
     }
 
     /**
@@ -461,13 +475,15 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     public Namespace basicGetOwningNamespace() {
-        // TODO: implement this method to return the 'Owning Namespace' reference
-        // -> do not perform proxy resolution
-        // Ensure that you remove @generated or mark it @generated NOT
-        return null;
+        Namespace basicGetOwningNamespace = null;
+        OwningMembership owningMembership = this.getOwningMembership();
+        if (owningMembership != null) {
+            basicGetOwningNamespace = owningMembership.getMembershipOwningNamespace();
+        }
+        return basicGetOwningNamespace;
     }
 
     /**
