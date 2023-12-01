@@ -1,0 +1,12 @@
+= Download a Model
+
+You can download a model from the {explorer}:
+
+. Click on the {explorer-menu} next to the model in the {explorer}.
+. Select the `Download` option.
+
+[NOTE]
+====
+The model will be downloaded in JSON format.
+The JSON format used by {product} is specific to the tool.
+====

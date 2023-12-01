@@ -1,3 +1,0 @@
-= Administrating {product-name}
-
-[.small .gray]#_Details the administrator features._#

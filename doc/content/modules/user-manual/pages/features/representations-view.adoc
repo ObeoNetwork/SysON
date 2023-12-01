@@ -1,0 +1,7 @@
+= {representations-view}
+
+Explore the {representations-view} view to gain insights into the available representations associated with the currently selected element.
+
+image::editor-right-sidebar-representations.svg[{representations-view} view]
+
+This view provides a comprehensive list of all existing representations, offering a convenient overview of the various ways the element is visually represented within the project.

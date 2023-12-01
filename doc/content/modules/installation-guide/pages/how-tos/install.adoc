@@ -1,0 +1,55 @@
+= Installing {product} application
+
+This section delves into the detailed step-by-step instructions for installing {product}.
+Each step is clearly explained to guide you through the process.
+
+[INFO]
+====
+Before you proceed with the installation, please ensure you have the following xref:requirements.adoc[prerequisites]:
+
+* xref:requirements.adoc[Java supported version]
+* https://www.docker.com/[Docker] installed, or an existing xref:requirements.adoc[supported database] installation with a user that has administrator privileges.
+====
+
+*1. Start the database instance*
+
+{product} uses PostgreSQL as its database.
+
+TIP: For development or local testing, the simplest approach is to initiate a PostgreSQL instance using Docker.
+
+[source, bash]
+----
+docker run -p 5434:5432 --name syson-postgres \
+                            -e POSTGRES_USER=dbuser \
+                            -e POSTGRES_PASSWORD=dbpwd \
+                            -e POSTGRES_DB=syson-db \
+                            -d postgres
+----
+
+NOTE: This may take a while the first time you run this as Docker will first pull the PostgreSQL image.
+
+If you don't have Docker or prefer to utilize an existing PostgreSQL installation, modify the following command-line parameters and ensure the `POSTGRES_USER` possesses administrative rights on the database.
+These rights are necessary for the automatic creation of the database schema.
+
+*2. Start the application*
+
+To run the application, you'll need to use the Java Runtime Environment (JRE) to execute the pre-build JAR ({product-jar}) you xref:how-tos/executables.adoc[downloaded] earlier.
+
+[source, bash]
+----
+java -jar syson-application.jar \
+          --spring.datasource.url=jdbc:postgresql://localhost:5434/syson-db \
+          --spring.datasource.username=dbuser \
+          --spring.datasource.password=dbpwd \
+          --spring.liquibase.change-log=classpath:db/changelog/syson.db.changelog.xml
+----
+
+*3. Open your web browser and navigate to http://localhost:8080 to experience {product}*
+
+[TIP]
+====
+To end your local testing session, ensure you stop the running PostgreSQL Docker container using the command `docker kill syson-postgres`.
+Please note that this will erase all the data you have generated during testing.
+====
+
+If you encounter any issues during the installation process, please refer to the xref:troubleshooting.adoc[troubleshooting guide] for detailed solutions.

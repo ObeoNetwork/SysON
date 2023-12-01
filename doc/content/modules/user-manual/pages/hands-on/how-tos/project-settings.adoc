@@ -1,0 +1,6 @@
+= Manage Project Settings
+
+The purpose of this page is to present the various settings manageable by the administrator of a project.
+Currently, there are limited capabilities, such as uploading images, but additional features for project management will be introduced in future updates.
+This page will be revisited in future updates, bringing new features and enhanced capabilities for project management.
+Stay tuned for the next version to explore additional functionalities and improvements.

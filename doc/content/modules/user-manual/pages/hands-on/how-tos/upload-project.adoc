@@ -1,0 +1,17 @@
+= Upload a Project
+
+[NOTE]
+====
+Only projects exported in the specific JSON format recognized by {product} can be re-uploaded using the upload action.
+Ensure that your projects are exported using the xref:hands-on/how-tos/download-project.adoc[Download Project] action to enable successful re-uploading to {product}.
+====
+
+To upload a project from an archive previously exported, follow these steps:
+
+. Go to the {homepage}.
+. Click on the _Upload Project_ card.
+. It will open the _Upload Project_ page.
+. Select a zip from your file system.
+. The uploaded project will be automatically created and opened.
+
+Refer to the xref:features/editor.adoc[{editor} page] to understand how to use it for xref:hands-on/how-tos/create-model.adoc[creating your own models] and xref:hands-on/how-tos/create-representation.adoc[representations].

@@ -1,0 +1,14 @@
+= Create a Project based on a Template
+
+To create a new project from a `Template`:
+
+. Simply click on the corresponding template card at the top of the page.
+. The new project will be automatically created and opened.
+Depending on the template, an initial representation (e.g., a diagram) may also be automatically opened.
+
+NOTE: The newly created project will have the same name as the template, so it is a good practice to xref:hands-on/how-tos/rename-project.adoc[rename] it to avoid confusion.
+
+Only the first three templates are directly visible in the {homepage} top region.
+If more templates are available, you can click on the `Show all templates` card to open a dialog displaying all the available templates (possibly on multiple pages).
+
+Refer to the xref:features/editor.adoc[{editor} page] to understand how to use it for xref:hands-on/how-tos/create-model.adoc[creating your own models] and xref:hands-on/how-tos/create-representation.adoc[representations].

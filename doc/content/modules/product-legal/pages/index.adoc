@@ -1,7 +1,7 @@
 =  Legal Information
 
 == License
-{product-name} is under the EPL v2 license.
+{product} is under the EPL v2 license.
 
 [,java]
 ----

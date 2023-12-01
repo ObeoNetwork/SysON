@@ -1,0 +1,17 @@
+= Delete a Model
+
+[WARNING]
+====
+There is no confirmation dialog to delete a model.
+Deleting a model and its content is a significant action, and it's important to note that the entire model, along with its contents, will be permanently removed.
+This includes all associated semantic elements, representations, and any other data within the model.
+Exercise caution when performing this operation, as it cannot be reversed.
+====
+
+NOTE: The deletion will affect everyone.
+
+To delete a model, follow these steps:
+
+. Select the model in the {explorer}.
+. Open the {explorer-menu} next to the model.
+. Click on `Delete`.

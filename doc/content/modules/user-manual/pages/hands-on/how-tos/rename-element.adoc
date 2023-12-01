@@ -1,0 +1,32 @@
+= Rename an Element
+
+It is possible to rename an element either from the {explorer}, the {details} view or a representation.
+
+== From the {explorer}
+
+You can update the element name from the {explorer}:
+
+. Click on the {explorer-menu} next to the element in the {explorer}.
+. Select the `Rename` option.
+. Update the name in the editable field.
+. Click on `Rename`.
+
+== From the {details} view
+
+You can update the element properties from the {details} view:
+
+. Select the property in the {details} view.
+. Update the value in the editable field.
+. Validate the changes by pressing the `RETURN` key or clicking anywhere.
+.. Alternatively, cancel the operation by pressing the `ESC` key.
+
+== From a representation
+
+You can update the element name from a representation (diagram...):
+
+. Select the element in the representation.
+. Select the `Edit` tool in the {diag-toolbar}.
+. Validate the changes by pressing the `RETURN` key or clicking anywhere.
+.. Alternatively, cancel the operation by pressing the `ESC` key.
+
+NOTE: Instead of using the tool in the toolbar, you can press `F2` key or start typing the new value directly to efficiently update the element name.

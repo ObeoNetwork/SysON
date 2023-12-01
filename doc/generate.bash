@@ -11,6 +11,6 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 echo "Antora build"
 
 
-docker build ${SCRIPTPATH} --no-cache -t syson_doc_generator:local
+docker build ${SCRIPTPATH} -t syson_doc_generator:local
 
-docker run -v $SCRIPTPATH/..:/usr/app syson_doc_generator:local
+docker run -v $SCRIPTPATH/..:/usr/app:z --security-opt label=disable syson_doc_generator:local

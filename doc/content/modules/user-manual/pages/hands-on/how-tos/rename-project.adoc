@@ -1,0 +1,24 @@
+= Rename a Project
+
+It is possible to rename a project either from the {homepage} or the {editor}.
+
+NOTE: Project names don't need to be unique, although unique names do facilitate finding the correct project more easily.
+NOTE: The name must contain between 3 and 1024 characters.
+
+== From the {homepage}
+
+You can update the project name from the {homepage}:
+
+. Click on the {projects-list-menu} next to the project in the {projects-list}.
+. Select the `Rename` option.
+. Update the name in the editable field.
+. Click on `Rename`.
+
+== From the {editor}
+
+You can update the project name from the {editor}:
+
+. Click on the {projects-list-menu} next to the project name in the toolbar.
+. Select the `Rename` option.
+. Update the name in the editable field.
+. Click on `Rename`.

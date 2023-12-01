@@ -1,0 +1,2 @@
+icon:fire[] This feature is considered experimental at the moment.
+We encourage users to try it out and give us feedback by reporting bugs and feature requests/ideas, but this should not be used in production.

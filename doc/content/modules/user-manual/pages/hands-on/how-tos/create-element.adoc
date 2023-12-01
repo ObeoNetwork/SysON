@@ -1,0 +1,10 @@
+= Create a New Element
+
+The process to create a new element in a model involves the following steps:
+
+. Open the {explorer-menu} next to the parent element.
+. Click on `New object`.
+. Select the desired type of object to create.
+. Click on `Create`.
+
+Upon completion, the newly created element is automatically selected in the {explorer}.

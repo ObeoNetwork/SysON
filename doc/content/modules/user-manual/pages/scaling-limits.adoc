@@ -1,3 +1,3 @@
 = Scaling limits
 
-[.small .gray]#_Defines the scaling limits of the product usage._#
+//TODO

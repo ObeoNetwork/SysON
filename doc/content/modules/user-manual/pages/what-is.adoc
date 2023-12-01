@@ -1,0 +1,6 @@
+= What is {product}?
+
+{product} represents an open-source, web-based tool expressly crafted for the purpose of facilitating the editing of {sysmlv2} models in accordance with the established OMG Standard.
+This platform has been developed with a focus on providing the Model-Based Systems Engineering (MBSE) community with a sophisticated set of features, addressing the nuanced requirements of system engineers.
+This section serves to elucidate the foundational elements of {product}, elucidating its core functionalities, its overarching objective of fostering collaboration within the MBSE domain, and its dedication to seamless interoperability with other open-source solutions.
+Navigate through this section to gain a comprehensive understanding of {product}, its intricacies, and its role in advancing the discipline of {sysmlv2} modeling.

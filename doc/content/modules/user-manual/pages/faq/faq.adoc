@@ -1,0 +1,88 @@
+= Frequently Asked Questions
+
+Here are answers to questions we are frequently asked.
+If you have a question not addressed here, please xref:user-manual:help.adoc[contact us].
+
+== General Questions
+
+.What is {product}?
+[%collapsible]
+====
+To understand the intent of {product}, refer to the xref:user-manual:what-is.adoc[What is?] section in the user manual.
+====
+
+.What are the key features of {product}?
+[%collapsible]
+====
+To discover the {product} features, refer to the xref:user-manual:key-features.adoc[Key features] section in the user manual.
+====
+
+.What are the supported {sysmlv2} modeling elements?
+[%collapsible]
+====
+To explore the supported {sysmlv2} elements, refer to the xref:user-manual:features/features.adoc[Features] section in the user manual.
+====
+
+.What are the supported diagram types?
+[%collapsible]
+====
+To explore the supported {sysmlv2} views, refer to the xref:user-manual:features/features.adoc[Features] section in the user manual.
+====
+
+.How do I create a new model?
+[%collapsible]
+====
+To create a new model, refer to the xref:user-manual:hands-on/how-tos/create-model.adoc[[Create a new model] section in the user manual.
+====
+
+.How do I import and export models?
+[%collapsible]
+====
+To import /export models, refer to the xref:user-manual:features/interoperability.adoc[Interoperability] section in the user manual.
+====
+
+* xref:user-manual:features/collaboration.adoc[How do I collaborate with others on models?]
+* xref:user-manual:what-is.adoc[What is the difference between {product} and other SysML modeling tools?]
+
+== Troubleshooting
+
+* xref:installation-guide:requirements.adoc[What are the recommended system requirements for {product}?]
+* xref:user-manual:contribute.adoc#reporting-issues[How do I report bugs or submit feature requests?]
+
+== Advanced Questions
+
+.How do I customize the user interface of {product}?
+[%collapsible]
+====
+{product} is an open-source product, providing users with the flexibility to customize the user interface based on their specific needs. Users can directly modify the source code by forking the project and following the instructions in the developer guide to build their customized version. For users seeking professional assistance or customization services, Obeo offers support and can provide tailored solutions. Feel free to contact Obeo for personalized assistance with your customization requirements.
+====
+
+
+How do I extend {product} with custom add-ons or extensions?
+How do I integrate {product} with other tools or systems?
+What are the best practices for modeling complex systems with {product}?
+How do I learn more about {sysmlv2} modeling and best practices?
+Is there a mobile version of {product} available?
+How does version control work in {product}?
+How do I access professional support for {product}?
+Is there a limit to the number of projects or models I can create in {product}?
+How do I import/export models in {product}?
+What collaboration features are available in {product}?
+
+Does {product} provides a method?
+
+Model 2 Doc ?
+
+== Additional Resources
+
+* xref:ROOT:index.adoc[{product} documentation]
+* xref:ROOT:help.adoc[Community forums and support channels]
+* xref:user-manual:hands-on/hands-on.adoc[Tutorials and training resources]
+
+
+* xref:faq/ocp.adoc[What is {ocp} vs {product}?]
+* xref:user-manual:features/capella.adoc[How to integrate {product} with Capella?]
+* xref:faq/support.adoc[]
+* xref:faq/install.adoc[]
+
+//TODO

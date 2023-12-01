@@ -1,0 +1,62 @@
+:homepage: Projects Browser
+= {homepage}
+
+.Before you Start
+[caption=]
+====
+// Edition
+include::user-manual:partial$feature-edition-os.adoc[]
+
+// Status
+include::user-manual:partial$feature-status-experimental.adoc[]
+
+// Usage
+include::user-manual:partial$feature-usage-all.adoc[]
+====
+
+== What is the {homepage} ?
+
+The **{homepage}** page serves as the pivotal starting point for your modeling endeavors and is the homepage of the {product} application, offering a central hub where users can seamlessly initiate new projects or manage existing ones.
+
+== Find your way around
+
+For newcomers to {product}, the initial experience of opening the application may seem a bit overwhelming.
+To assist you in navigating effectively and initiating collaboration with your team, we offer a guided tour to help you acclimate to the platform.
+
+The homepage features three distinct regions: a <<Toolbar>>, a <<Create a New Project>> section, and an <<Existing Projects>> section.
+We've streamlined the layout to provide a clear understanding of the content housed in each location.
+
+image::homepage.svg[{homepage}]
+
+=== Toolbar
+
+The toolbar consists of two groups, each featuring a single action: _Homepage_ and _Help_.
+
+image::homepage-toolbar.svg[{homepage} Toolbar]
+
+include:partials$homepage-action.adoc[leveloffset=+2]
+include:partials$help-action.adoc[leveloffset=+2]
+
+=== Create a New Project
+
+The _Create New Project_ section is designed to allow users to easily initiate the creation of a new project.
+
+image::homepage-new-project.svg[Create a New Project]
+
+Within the platform, initiating a new project is a user-friendly process that accommodates various preferences:
+
+* **Create a Blank Project**: Users can start their modeling journey with a clean slate, building a project from the ground up.
+* **Create a Project from Existing Templates**: For efficiency and consistency, users can select from predefined templates that streamline project initiation, aligning with common modeling scenarios.
+* **Upload a Previously Exported Project**: Facilitating collaboration and workflow continuity, users can effortlessly upload a project previously exported, ensuring seamless transitions and flexibility in collaboration.
+
+NOTE: Every project you create will have its own xref:features/editor.adoc[Project Editor].
+
+Explore further by referring to the following how-tos for xref:hands-on/how-tos/create-blank-project.adoc[creating blank projects], generating xref:hands-on/how-tos/create-template-project.adoc[projects from templates], or xref:hands-on/how-tos/upload-project.adoc[uploading] existing ones.
+
+=== Existing Projects
+
+The _Existing Projects_ section streamlines project navigation, allowing users to effortlessly browse through their available projects.
+
+image::homepage-existing-projects.svg[Existing Projects]
+
+It facilitates the opening of pre-existing projects and provides essential actions for project management, including options to _xref:hands-on/how-tos/rename-project.adoc[rename]_, _xref:hands-on/how-tos/download-project.adoc[download]_, and _xref:hands-on/how-tos/delete-project.adoc[delete]_ projects.

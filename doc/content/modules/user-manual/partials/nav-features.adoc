@@ -1,0 +1,19 @@
+// Reference all the files defined in the features folder
+* Projects Management
+** xref:user-manual:features/homepage.adoc[]
+* Editor
+** xref:user-manual:features/editor.adoc[]
+** xref:user-manual:features/details.adoc[]
+** xref:user-manual:features/related-elements.adoc[]
+** xref:user-manual:features/representations-view.adoc[]
+** xref:user-manual:features/validation.adoc[]
+** xref:user-manual:features/keyboard-shortcuts.adoc[]
+* {sysmlv2} Views
+** xref:user-manual:features/general-view.adoc[]
+** xref:user-manual:features/interconnection-view.adoc[]
+* Collaboration & Interoperability
+** xref:user-manual:features/collaboration.adoc[]
+** xref:user-manual:features/interoperability.adoc[]
+** xref:user-manual:features/capella.adoc[]
+* Advanced
+** xref:user-manual:features/admin.adoc[]

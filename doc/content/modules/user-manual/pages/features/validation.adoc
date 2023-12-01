@@ -1,0 +1,4 @@
+= {validation}
+
+The {validation} view displays diagnostics for the entire project, organized by their kind (such as `ERROR`, `WARNING`, or `INFO`).
+Users can conveniently toggle the visibility of diagnostics using an accordion widget.

@@ -1,0 +1,7 @@
+# Documentation best practices
+
+One sentence per line.
+Use asciidoc attributes to reference elements of the application UI.
+Use asciidoc attributes to reference URL.
+For reference to menus, key on the keyboard... use `backticks`.
+Use + on new line in table to force a new line

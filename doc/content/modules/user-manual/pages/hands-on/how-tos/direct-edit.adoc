@@ -1,0 +1,21 @@
+= Direct Edit Tool and Shortcuts
+
+The {product} supports a subset of the {sysmlv2} textual syntax, which allows you to update multiple elements simultaneously. This makes it more efficient to edit models.
+
+In general, you can edit the label of a shape in a diagram, and the diagram editor will try to interpret your input and update the corresponding element properties.
+
+WARNING: If an element has a complex name like `someElementName[x]:someTypeName:>someElement`, when editing, you must retain all the written parts; otherwise, you risk unsetting some values.
+
+Here are some shortcuts for efficiently editing {product} models:
+
+* Typing `someName` will update the name of the selected element.
+* Typing `:SomeTypeName`, will set the type of the selected element to _SomeTypeName_.
+If _SomeTypeName_ does not exist, it will be created as an appropriate type element (e.g., Item Definition, Part Definition, etc.) within the same parent container as the selected element.
+* Typing `[x]` on an element or a relationship will set its cardinality to _x_.
+* Typing `[1..x]` on an element or a relationship will set its cardinality to _1..x_.
+* Typing `[x..*]` on an element or a relationship will set its cardinality to _x..*_.
+* Typing `someElement:>otherElement` on a element will set _someElement_ as a `subsetting` of the _otherElement_ if both element are of the same type.
+Otherwise, it will create a `specialization` relationship between _someElement_ and _otherElement_.
+* Typing `someElement:>>otherElement` on a element will set _someElement_ as a `redefinition` of _otherElement_.
+
+These shortcuts provide a convenient way to update model elements quickly and efficiently.

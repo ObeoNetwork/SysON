@@ -1,0 +1,55 @@
+= Contribute
+
+== Make a Difference!
+
+{product} is an open source project and, we encourage everyone to participate and contribute to its development!
+There are numerous ways to contribute, including:
+
+* Joining our active community forum,
+* Identifying and reporting bugs,
+* Proposing new features,
+* Enhancing the documentation,
+* Writing comprehensive tests,
+* Fixing existing issues.
+
+== Get involved
+
+=== Joining the Forum
+
+For any questions or inquiries, don't hesitate to participate in our xref:user-manual:forum.adoc[forum] on GitHub.
+
+=== Sharing your Feedback
+
+Your feedback is crucial to the continuous improvement of {product}.
+If you believe something is missing, encounter strange behavior, or simply want to express your satisfaction with the current state, feel free to share your thoughts.
+
+[#reporting-issues]
+=== Reporting issues
+
+Bug reports are essential, so please report any issues you encounter.
+When reporting bugs, provide detailed descriptions, reproducible tests, example code, or any other relevant information that can aid in resolving the issue.
+
+Our issue tracker is hosted on GitHub: {bug-url}.
+
+To submit a new issue, you'll need a GitHub account.
+For guidance on searching for issues, refer to GitHub's help page.
+
+=== Enriching the Documentation
+
+Have you found errors or inconsistencies in our documentation?
+We welcome your contributions!
+
+{product}’s documentation resides on GitHub: {source-code-url}/tree/main/doc.
+
+Clone our repository, update the documentation, and trigger a pull request.
+Our documentation is written in Asciidoc syntax, making it straightforward to contribute.
+Refer to the developer guide's Documentation section for insights into our documentation building process.
+
+== Contributing to the Code
+
+{product}'s code is hosted on GitHub, making it simple to retrieve and build from source.
+Simply clone our repository, make your modifications, align them with our requirements, and initiate a pull request.
+
+Follow the xref:developer-guide:index.adoc[developer guide] to gain insights into setting up your development environment and get started with contributing to the {product} codebase.
+
+Embark on your {product} contribution journey today!

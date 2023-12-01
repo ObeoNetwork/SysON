@@ -1,0 +1,140 @@
+= Key features in {product}
+
+{product} encompasses a set of key features aimed at enhancing the modeling experience within the {sysmlv2} framework.
+The primary functionalities of {product} are currently centered around project management and model creation, aligning with the classical views recommended by the {sysmlv2} standard.
+
+[NOTE]
+====
+In {product}, features are categorized into two distinct levels of maturity:
+
+* **Experimental**: Features in the early stages of development or testing, subject to potential changes and improvements based on user feedback.
+* **Stable**: Features that have completed rigorous testing, are deemed reliable, and are ready for production use with a high level of confidence in their stability and functionality.
+
+This dual categorization allows users to choose features based on their comfort level with the maturity of each, providing flexibility and transparency in the utilization of our product.
+====
+
+== Features Overview
+
+[cols="4*^",width="100%"]
+|===
+| Feature| {sysmlv2} Standard| Open source ({product})|Enterprise Add-ons ({ocp})
+
+4+h|Projects Management
+
+|xref:features/homepage.adoc[Projects Browser]
+a|icon:times[role=red]
+a|icon:check[role=green]
+a|
+
+|xref:features/editor.adoc[Project Editor]
+a|icon:times[role=red]
+a|icon:check[role=green]
+a|
+
+|xref:features/editor.adoc#project-actions[Manage Project]
+a|icon:times[role=red]
+a|icon:check[role=green]
+a|
+
+|xref:user-manual:support.adoc[Teams]
+a|icon:times[role=red]
+a|icon:times[role=red]
+a|icon:check[role=green]
+
+4+h|{sysmlv2} Views
+|xref:user-manual:features/general-view.adoc[{gv}]
+a|icon:check[role=green]
+a|icon:check[role=gray] partial
+a|
+
+|xref:user-manual:features/interconnection-view.adoc[Interconnection View]
+a|icon:check[role=green]
+a|icon:check[role=gray] partial
+a|
+
+|xref:user-manual:sysmlv2-overview.adoc[Action Flow View]
+a|icon:check[role=green]
+a|icon:times[role=red]
+a|
+
+|xref:user-manual:sysmlv2-overview.adoc[State Transition View]
+a|icon:check[role=green]
+a|icon:times[role=red]
+a|
+
+|xref:user-manual:sysmlv2-overview.adoc[Sequence View]
+a|icon:check[role=green]
+a|icon:times[role=red]
+a|
+
+|xref:user-manual:sysmlv2-overview.adoc[Geometry View]
+a|icon:check[role=green]
+a|icon:times[role=red]
+a|
+
+|xref:user-manual:sysmlv2-overview.adoc[Grid View]
+a|icon:check[role=green]
+a|icon:times[role=red]
+a|
+
+|xref:user-manual:sysmlv2-overview.adoc[Browser View]
+a|icon:check[role=green]
+a|icon:times[role=red]
+a|
+
+4+h|Collaboration & Interoperability
+
+|xref:features/collaboration.adoc[Share Projects]
+a|icon:times[role=red]
+a|icon:times[role=gray] (All the projects are Public)
+a|
+
+|xref:features/collaboration.adoc[Share Diagram]
+a|icon:times[role=red]
+a|icon:check[role=green]
+a|
+
+|xref:features/interoperability.adoc[Download / Upload JSON format]
+a|icon:times[role=red]
+a|icon:check[role=green]
+a|
+
+|xref:features/interoperability.adoc[Download / Upload Standard {sysmlv2} JSON format]
+a|icon:times[role=green]
+a|icon:times[role=red]
+a|
+
+|xref:features/interoperability.adoc[Download / Upload {sysmlv2} textual format]
+a|icon:times[role=green]
+a|icon:check[role=gray] Experimental
+a|
+
+|xref:user-manual:support.adoc[Live Collaboration]
+a|icon:times[role=red]
+a|icon:times[role=red]
+a|icon:check[role=green]
+
+4+h|Advanced
+
+|xref:user-manual:support.adoc[Authentication (SSO, LDAP, AD)]
+a|icon:times[role=red]
+a|icon:times[role=red]
+a|icon:check[role=green]
+
+|xref:user-manual:support.adoc[Accounts Administration]
+a|icon:times[role=red]
+a|icon:times[role=red]
+a|icon:check[role=green]
+
+|===
+
+A comprehensive list of all {product} features is available in the xref:features/features.adoc[Features] section.
+
+== Ongoing Development
+
+{product} is continually evolving, with a commitment to expanding its repertoire of views in alignment with the {sysmlv2} standard.
+Future releases will introduce additional features, ensuring {product} remains a comprehensive and adaptable tool for system engineering.
+
+== Enterprise Add-ons
+
+For enterprise-specific add-ons and tailored solutions, please reach out to Obeo and explore the options available for xref:user-manual:support.adoc[professional support].

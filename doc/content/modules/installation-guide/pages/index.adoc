@@ -1,12 +1,6 @@
 = Installation guide
 
-include::environment.adoc[leveloffset=+1]
-include::executables.adoc[leveloffset=+1]
+This installation guide provides step-by-step instructions on how to install, configure, and manage {product} on your system.
+Whether you are a new user or an experienced administrator, this guide will walk you through the process of setting up {product} for optimal performance and compatibility.
 
-== Installation procedure
-[.small .gray]#_Details how to install the product. Details if the software comes with an installer or with a kind of assistant for the configuration or the steps to do the installation by hand._#
-
-
-include::troubelshooting.adoc[leveloffset=+1]
-
-include::migration-process.adoc[leveloffset=+1]
+include::installation-guide:partial$nav.adoc[]

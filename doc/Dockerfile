@@ -6,7 +6,7 @@ WORKDIR /usr/app
 
 COPY doc-ui /usr/app
 
-RUN npm install 
+RUN npm install
 RUN ./node_modules/gulp/bin/gulp.js bundle
 
 FROM alpine:latest AS UI
@@ -27,7 +27,7 @@ WORKDIR  /home/antora
 COPY docs-site/package.json .
 COPY docs-site/package-lock.json .
 
-RUN npm install 
+RUN npm install
 RUN gem install asciidoctor
 RUN gem install asciidoctor-pdf
 RUN gem install rouge
@@ -39,4 +39,4 @@ COPY --from=UI /usr/app/ui-bundle.zip .
 
 WORKDIR /usr/app
 
-CMD ["antora", "--clean", "--stacktrace", "/usr/app/doc/docs-site/antora-playbook.yml"]
+CMD ["antora", "--clean", "--stacktrace", "--log-level=all", "/usr/app/doc/docs-site/antora-playbook.yml"]

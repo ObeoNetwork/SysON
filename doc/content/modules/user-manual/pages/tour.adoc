@@ -1,0 +1,25 @@
+= Tour the interface
+
+Embark on a comprehensive exploration of {product}'s interface as we guide you through the key features and functionalities.
+
+//TODO Navigate the models in the left sidebar
+//TODO Explore the details view in the right side bar
+//TODO Explore the diagram
+//TODO Access modeling tools from the toolbar
+
+[cols="2*^", %noheader, frame=none, grid=none]
+|===
+a|image::homepage.svg[xref=user-manual:features/homepage.adoc]
+
+**{homepage}**
+
+Manage projects.
+
+xref:user-manual:features/homepage.adoc[Explore the {homepage}...] a|image::editor.svg[xref=user-manual:features/editor.adoc]
+
+**{editor}**
+
+Edit models.
+
+xref:user-manual:features/editor.adoc[Explore the {editor}...]
+|===

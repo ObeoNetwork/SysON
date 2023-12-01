@@ -1,4 +1,0 @@
-= Get {product-name}
-
-[.small .gray]#_Details how the software is distributed: update-site? standalone software?and where the executables are available, link to nightly/released update sites or any page explaining where to find it._#
-

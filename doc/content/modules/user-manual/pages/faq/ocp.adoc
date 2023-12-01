@@ -1,0 +1,27 @@
+= What is {ocp} vs {product}?
+
+== {product}: An Open Source Project
+
+{product} stands proudly as an open-source project, embodying a commitment to transparency, collaboration, and community-driven development.
+As an open-source initiative, {product} invites contributions, feedback, and participation from a diverse community of users and developers, fostering an environment of shared innovation and continuous improvement.
+
+== {ocp}: An Enterprise Ready Product
+
+The https://www.obeosoft.com/en/products/obeo-cloud-platform[{ocp}] product follows an open-core product model, where the core of the product is available as open source (under the {product} project), inviting collaboration and community engagement.
+Beyond the open-source foundation, Obeo offers an extended version enriched with Enterprise features.
+This extended build product encompasses a spectrum of Enterprise features, catering to the advanced needs of organizations operating in dynamic and diverse IT landscapes.
+These features are curated to enhance the platform's capabilities, providing robust solutions for deployment scenarios ranging from public and private clouds to on-premise environments.
+
+== Support and Upgrade Guarantees
+
+Recognizing the importance of reliability and continuous improvement, {ocp} includes comprehensive support and upgrade guarantees.
+This ensures that organizations leveraging {ocp} can benefit from a secure, well-supported, and evolving platform.
+The commitment to support and upgrades underscores {ocp}'s dedication to providing a stable and dependable solution for its users.
+
+xref:user-manual:support.adoc[Contact us!]
+
+== Early Adopter Program
+
+Become part of the https://www.obeosoft.com/en/early-adopters-program[Early Adopter Program].
+Joining the program provides you with the opportunity to explore new features, provide feedback, and actively contribute to the development of {product}.
+Your insights and engagement are valued as we shape the future of {product} together.

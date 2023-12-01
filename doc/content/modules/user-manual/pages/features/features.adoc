@@ -1,0 +1,3 @@
+= {product} Features
+
+include::user-manual:partial$nav-features.adoc[]

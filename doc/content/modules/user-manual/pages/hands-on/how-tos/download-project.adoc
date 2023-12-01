@@ -1,0 +1,23 @@
+= Download a Project
+
+It is possible to download a project either from the {homepage} or the {editor}.
+
+[NOTE]
+====
+The project will be downloaded as an archive containing models and representations in JSON format.
+The JSON format used by {product} is specific to the tool.
+====
+
+== From the {homepage}
+
+You can download a project from the {homepage}:
+
+. Click on the {projects-list-menu} next to the project in the {projects-list}.
+. Select the `Download` option.
+
+== From the {editor}
+
+You can download a project from the {editor}:
+
+. Click on the {projects-list-menu} next to the project name in the project toolbar.
+. Select the `Download` option.

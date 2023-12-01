@@ -1,0 +1,37 @@
+// Reference all the files defined in the how-tos folder
+* How-Tos
+** Project Management
+*** xref:user-manual:hands-on/how-tos/create-blank-project.adoc[]
+*** xref:user-manual:hands-on/how-tos/create-template-project.adoc[]
+*** xref:user-manual:hands-on/how-tos/upload-project.adoc[]
+*** xref:user-manual:hands-on/how-tos/delete-project.adoc[]
+*** xref:user-manual:hands-on/how-tos/rename-project.adoc[]
+*** xref:user-manual:hands-on/how-tos/download-project.adoc[]
+*** xref:user-manual:hands-on/how-tos/share-project.adoc[]
+*** xref:user-manual:hands-on/how-tos/project-settings.adoc[]
+** Model Management
+*** xref:user-manual:hands-on/how-tos/create-model.adoc[]
+*** xref:user-manual:hands-on/how-tos/upload-model.adoc[]
+*** xref:user-manual:hands-on/how-tos/rename-model.adoc[]
+*** xref:user-manual:hands-on/how-tos/delete-model.adoc[]
+*** xref:user-manual:hands-on/how-tos/download-model.adoc[]
+*** xref:user-manual:hands-on/how-tos/create-element.adoc[]
+*** xref:user-manual:hands-on/how-tos/read-element.adoc[]
+*** xref:user-manual:hands-on/how-tos/rename-element.adoc[]
+*** xref:user-manual:hands-on/how-tos/update-element.adoc[]
+*** xref:user-manual:hands-on/how-tos/delete-element.adoc[]
+*** xref:user-manual:hands-on/how-tos/direct-edit.adoc[]
+** Representation Operations
+*** xref:user-manual:hands-on/how-tos/create-representation.adoc[]
+*** xref:user-manual:hands-on/how-tos/delete-representation.adoc[]
+*** xref:user-manual:hands-on/how-tos/rename-representation.adoc[]
+*** xref:user-manual:hands-on/how-tos/share-representation.adoc[]
+** User Interface Navigation
+*** xref:user-manual:hands-on/how-tos/switch-left-sidebar.adoc[]
+*** xref:user-manual:hands-on/how-tos/switch-right-sidebar.adoc[]
+** {explorer}
+*** xref:user-manual:hands-on/how-tos/sync-editor.adoc[]
+*** xref:user-manual:hands-on/how-tos/expand-all.adoc[]
+*** xref:user-manual:hands-on/how-tos/filter-explorer.adoc[]
+** {representations-view}
+*** xref:user-manual:hands-on/how-tos/navigate-representations.adoc[]

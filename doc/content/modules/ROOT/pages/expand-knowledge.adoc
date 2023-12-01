@@ -1,0 +1,14 @@
+= Expand your knowledge
+
+[cols="1*^", %noheader, frame=none, grid=none]
+|===
+a|image::travel_explore.svg[xref=user-manual:features/features.adoc]
+
+*{product} features*
+
+Explore the {product} features in details.
+
+xref:user-manual:features/features.adoc[Explore ...]
+|===
+
+Or dive in all our xref:user-manual:hands-on/hands-on.adoc[step-by-step guides] and get some hands-on experience thanks to our xref:user-manual:hands-on/tutorials/tutorials.adoc[tutorials].

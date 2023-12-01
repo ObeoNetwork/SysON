@@ -1,0 +1,22 @@
+= Create a New Model
+
+To create a model, follow these steps:
+
+== From the project toolbar
+
+. Open the Project Editor.
+. Open the {explorer-menu} next to the project name in the toolbar.
+. Select the `New model` action.
+. Fill in the model name.
+. Choose the model type.
+. Click the `Create` button.
+
+== From the explorer toolbar
+
+. Open the Project Editor.
+. Click on the `New model` action in the explorer toolbar.
+. Fill in the model name.
+. Choose the model type.
+. Click the `Create` button.
+
+Once completed, the newly created model will be listed in the {explorer}.

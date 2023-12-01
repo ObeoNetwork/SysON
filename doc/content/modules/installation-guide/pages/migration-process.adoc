@@ -1,3 +1,8 @@
 = Migration process
 
-[.small .gray]#_Details the migration process_#
+If you're upgrading from an older version of {product} to the latest release, this section provides step-by-step guidance on migrating your existing data and settings to the new version.
+
+== 2023.12.0
+
+As this marks the first release of our product, there is no migration process required at this time.
+Users can confidently adopt this release without any specific steps for migrating from previous versions

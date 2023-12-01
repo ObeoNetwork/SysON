@@ -1,8 +1,11 @@
-= Welcome
+= Welcome to {product}
 
-Welcome to the {product-name} Help Center!
-From here, you can access the different documentations.
+Start your learning journey with {product}.
 
-Use the menu on the left to navigate or the menu bar at the top of the page.
+include::overview.adoc[leveloffset=+1]
 
-include::general-information.adoc[leveloffset=+1]
+include::user-manual:get-started.adoc[leveloffset=+1]
+
+include::expand-knowledge.adoc[leveloffset=+1]
+
+include::ROOT:help.adoc[leveloffset=+1]
