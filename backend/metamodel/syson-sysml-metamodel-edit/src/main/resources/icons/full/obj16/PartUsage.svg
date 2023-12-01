@@ -119,14 +119,14 @@
          transform="matrix(0.0264847,0,0,0.02648147,0.16057558,0.13287083)" />
       <path
          id="rect881"
-         style="fill:url(#linearGradient874);fill-opacity:1;stroke:#7667a3;stroke-width:0.21166667;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:url(#linearGradient874);fill-opacity:1;stroke:#4e4184;stroke-width:0.21166667;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          d="M 0.78190068,0.23563515 H 3.9819479 V 3.9537779 H 0.78190068 Z" />
       <path
-         style="fill:none;stroke:#7667a3;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;stroke:#4e4184;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M 0.81984016,3.1675835 H 3.9410415"
          id="path883" />
       <path
-         style="fill:none;stroke:#7667a3;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;stroke:#4e4184;stroke-width:0.10583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M 0.824201,2.3927761 H 3.9472718"
          id="path883-3" />
       <rect
