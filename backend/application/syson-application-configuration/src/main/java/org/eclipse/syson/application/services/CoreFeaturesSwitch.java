@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.syson.sysml.Dependency;
 import org.eclipse.syson.sysml.Element;
 import org.eclipse.syson.sysml.FeatureTyping;
 import org.eclipse.syson.sysml.Redefinition;
@@ -41,9 +42,17 @@ public class CoreFeaturesSwitch extends SysmlSwitch<List<EStructuralFeature>> {
     @Override
     public List<EStructuralFeature> caseElement(Element object) {
         var features = new ArrayList<EStructuralFeature>();
-        features.add(SysmlPackage.eINSTANCE.getElement_ElementId());
         features.add(SysmlPackage.eINSTANCE.getElement_DeclaredName());
         features.add(SysmlPackage.eINSTANCE.getElement_QualifiedName());
+        return features;
+    }
+
+    @Override
+    public List<EStructuralFeature> caseDependency(Dependency object) {
+        var features = new ArrayList<EStructuralFeature>();
+        features.addAll(this.caseElement(object));
+        features.add(SysmlPackage.eINSTANCE.getDependency_Client());
+        features.add(SysmlPackage.eINSTANCE.getDependency_Supplier());
         return features;
     }
 

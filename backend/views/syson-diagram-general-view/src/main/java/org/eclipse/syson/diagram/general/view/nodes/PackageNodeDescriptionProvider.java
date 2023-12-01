@@ -28,6 +28,7 @@ import org.eclipse.sirius.components.view.diagram.NodeStyleDescription;
 import org.eclipse.sirius.components.view.diagram.NodeTool;
 import org.eclipse.sirius.components.view.diagram.NodeToolSection;
 import org.eclipse.sirius.components.view.diagram.SynchronizationPolicy;
+import org.eclipse.syson.diagram.general.view.AQLConstants;
 import org.eclipse.syson.diagram.general.view.GeneralViewDiagramDescriptionProvider;
 import org.eclipse.syson.diagram.general.view.SysMLMetamodelHelper;
 import org.eclipse.syson.sysml.SysmlPackage;
@@ -131,8 +132,17 @@ public class PackageNodeDescriptionProvider extends AbstractNodeDescriptionProvi
                 .name("Delete from Model")
                 .body(changeContext.build());
 
+        var callEditService = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL_SELF + ".directEdit(newLabel)");
+
+        var editTool = this.diagramBuilderHelper.newLabelEditTool()
+                .name("Edit")
+                .initialDirectEditLabelExpression(AQLConstants.AQL_SELF + ".getDefaultInitialDirectEditLabel()")
+                .body(callEditService.build());
+
         return this.diagramBuilderHelper.newNodePalette()
                 .deleteTool(deleteTool.build())
+                .labelEditTool(editTool.build())
                 .dropNodeTool(this.createDropFromDiagramTool(cache))
                 .toolSections(this.createNodeToolSection(cache), this.addElementsToolSection(cache))
                 .edgeTools(this.createDependencyEdgeTool(allNodeDescriptions))

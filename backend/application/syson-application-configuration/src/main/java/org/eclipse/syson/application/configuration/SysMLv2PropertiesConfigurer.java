@@ -121,8 +121,8 @@ public class SysMLv2PropertiesConfigurer implements IPropertiesDescriptionRegist
         pageCore.setPreconditionExpression("");
         pageCore.setLabelExpression("Core");
         pageCore.getGroups().add(this.createCorePropertiesGroup());
-        pageCore.getGroups().add(this.createRedefinitionPropertiesGroup());
-        pageCore.getGroups().add(this.createSubclassificationPropertiesGroup());
+        pageCore.getGroups().add(this.createExtraRedefinitionPropertiesGroup());
+        pageCore.getGroups().add(this.createExtraSubclassificationPropertiesGroup());
 
         PageDescription pageAdvanced = FormFactory.eINSTANCE.createPageDescription();
         pageAdvanced.setDomainType("sysml::Element");
@@ -140,7 +140,7 @@ public class SysMLv2PropertiesConfigurer implements IPropertiesDescriptionRegist
         GroupDescription group = FormFactory.eINSTANCE.createGroupDescription();
         group.setDisplayMode(GroupDisplayMode.LIST);
         group.setName(CORE_PROPERTIES);
-        group.setLabelExpression(CORE_PROPERTIES);
+        group.setLabelExpression("aql:self.eClass().name + ' Properties'");
         group.setSemanticCandidatesExpression("aql:self");
 
         group.getChildren().add(this.createCoreWidgets());
@@ -152,7 +152,7 @@ public class SysMLv2PropertiesConfigurer implements IPropertiesDescriptionRegist
         GroupDescription group = FormFactory.eINSTANCE.createGroupDescription();
         group.setDisplayMode(GroupDisplayMode.LIST);
         group.setName(ADVANCED_PROPERTIES);
-        group.setLabelExpression(ADVANCED_PROPERTIES);
+        group.setLabelExpression("aql:self.eClass().name + ' Properties'");
         group.setSemanticCandidatesExpression("aql:self");
 
         group.getChildren().add(this.createAdvancedWidgets());
@@ -160,26 +160,46 @@ public class SysMLv2PropertiesConfigurer implements IPropertiesDescriptionRegist
         return group;
     }
 
-    private GroupDescription createRedefinitionPropertiesGroup() {
+    private GroupDescription createExtraRedefinitionPropertiesGroup() {
         GroupDescription group = FormFactory.eINSTANCE.createGroupDescription();
         group.setDisplayMode(GroupDisplayMode.LIST);
         group.setName(REDEFINITION_PROPERTIES);
         group.setLabelExpression(REDEFINITION_PROPERTIES);
         group.setSemanticCandidatesExpression("aql:self.ownedRelationship->filter(sysml::Redefinition)");
 
-        group.getChildren().add(this.createCoreWidgets());
+        ReferenceWidgetDescription refWidget = ReferenceFactory.eINSTANCE.createReferenceWidgetDescription();
+        refWidget.setName("ExtraReferenceWidget");
+        refWidget.setLabelExpression("Redefines");
+        refWidget.setReferenceNameExpression("redefinedFeature");
+        refWidget.setReferenceOwnerExpression("aql:self");
+        refWidget.setIsEnabledExpression("aql:true");
+        ChangeContext setNewValueOperation = ViewFactory.eINSTANCE.createChangeContext();
+        setNewValueOperation.setExpression("aql:self.setNewValue(self.eClass().getEStructuralFeature(redefinedFeature), " + ViewFormDescriptionConverter.NEW_VALUE + ")");
+        refWidget.getBody().add(setNewValueOperation);
+
+        group.getChildren().add(refWidget);
 
         return group;
     }
 
-    private GroupDescription createSubclassificationPropertiesGroup() {
+    private GroupDescription createExtraSubclassificationPropertiesGroup() {
         GroupDescription group = FormFactory.eINSTANCE.createGroupDescription();
         group.setDisplayMode(GroupDisplayMode.LIST);
         group.setName(SUBCLASSIFICATION_PROPERTIES);
         group.setLabelExpression(SUBCLASSIFICATION_PROPERTIES);
         group.setSemanticCandidatesExpression("aql:self.ownedRelationship->filter(sysml::Subclassification)");
 
-        group.getChildren().add(this.createCoreWidgets());
+        ReferenceWidgetDescription refWidget = ReferenceFactory.eINSTANCE.createReferenceWidgetDescription();
+        refWidget.setName("ExtraReferenceWidget");
+        refWidget.setLabelExpression("Specializes");
+        refWidget.setReferenceNameExpression("superclassifier");
+        refWidget.setReferenceOwnerExpression("aql:self");
+        refWidget.setIsEnabledExpression("aql:true");
+        ChangeContext setNewValueOperation = ViewFactory.eINSTANCE.createChangeContext();
+        setNewValueOperation.setExpression("aql:self.setNewValue(self.eClass().getEStructuralFeature(superclassifier), " + ViewFormDescriptionConverter.NEW_VALUE + ")");
+        refWidget.getBody().add(setNewValueOperation);
+
+        group.getChildren().add(refWidget);
 
         return group;
     }

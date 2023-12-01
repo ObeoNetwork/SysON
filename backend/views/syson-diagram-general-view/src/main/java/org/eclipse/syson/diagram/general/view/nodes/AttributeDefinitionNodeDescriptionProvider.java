@@ -119,7 +119,7 @@ public class AttributeDefinitionNodeDescriptionProvider extends AbstractNodeDesc
 
         var editTool = this.diagramBuilderHelper.newLabelEditTool()
                 .name("Edit")
-                .initialDirectEditLabelExpression(AQLConstants.AQL_SELF + ".getInitialDirectEditLabel()")
+                .initialDirectEditLabelExpression(AQLConstants.AQL_SELF + ".getDefaultInitialDirectEditLabel()")
                 .body(callEditService.build());
 
         return this.diagramBuilderHelper.newNodePalette()

@@ -110,8 +110,17 @@ public class PartUsageNodeDescriptionProvider extends AbstractNodeDescriptionPro
                 .name("Delete from Model")
                 .body(changeContext.build());
 
+        var callEditService = this.viewBuilderHelper.newChangeContext()
+                .expression(AQLConstants.AQL_SELF + ".directEdit(newLabel)");
+
+        var editTool = this.diagramBuilderHelper.newLabelEditTool()
+                .name("Edit")
+                .initialDirectEditLabelExpression(AQLConstants.AQL_SELF + ".getDefaultInitialDirectEditLabel()")
+                .body(callEditService.build());
+
         return this.diagramBuilderHelper.newNodePalette()
                 .deleteTool(deleteTool.build())
+                .labelEditTool(editTool.build())
                 .nodeTools(nodeTool)
                 .edgeTools(this.createDependencyEdgeTool(allNodeDescriptions),
                         this.createRedefinitionEdgeTool(allNodeDescriptions.stream().filter(nodeDesc -> NAME.equals(nodeDesc.getName())).toList()),

@@ -76,7 +76,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getDefinition_OwnedAttribute().getName())
                 .style(this.createDefinitionCompartmentItemNodeStyle())
                 .userResizable(false)
-                .palette(this.createDefaultNodePalette())
+                .palette(this.createCompartmentItemNodePalette())
                 .synchronizationPolicy(SynchronizationPolicy.SYNCHRONIZED)
                 .build();
     }
@@ -108,7 +108,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getDefinition_OwnedPort().getName())
                 .style(this.createDefinitionCompartmentItemNodeStyle())
                 .userResizable(false)
-                .palette(this.createDefaultNodePalette())
+                .palette(this.createCompartmentItemNodePalette())
                 .synchronizationPolicy(SynchronizationPolicy.SYNCHRONIZED)
                 .build();
     }
@@ -140,7 +140,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getDefinition_OwnedItem().getName())
                 .style(this.createDefinitionCompartmentItemNodeStyle())
                 .userResizable(false)
-                .palette(this.createDefaultNodePalette())
+                .palette(this.createCompartmentItemNodePalette())
                 .synchronizationPolicy(SynchronizationPolicy.SYNCHRONIZED)
                 .build();
     }
@@ -208,7 +208,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getUsage_NestedAttribute().getName())
                 .style(this.createUsageCompartmentItemNodeStyle())
                 .userResizable(false)
-                .palette(this.createDefaultNodePalette())
+                .palette(this.createCompartmentItemNodePalette())
                 .synchronizationPolicy(SynchronizationPolicy.SYNCHRONIZED)
                 .build();
     }
@@ -240,7 +240,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .semanticCandidatesExpression(AQLConstants.AQL_SELF + "." + SysmlPackage.eINSTANCE.getUsage_NestedPort().getName())
                 .style(this.createUsageCompartmentItemNodeStyle())
                 .userResizable(false)
-                .palette(this.createDefaultNodePalette())
+                .palette(this.createCompartmentItemNodePalette())
                 .synchronizationPolicy(SynchronizationPolicy.SYNCHRONIZED)
                 .build();
     }
@@ -281,7 +281,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
                 .build();
     }
 
-    protected NodePalette createDefaultNodePalette() {
+    protected NodePalette createCompartmentItemNodePalette() {
         var callDeleteService = this.viewBuilderHelper.newChangeContext()
                 .expression(AQLConstants.AQL_SELF + ".deleteFromModel()");
 
@@ -294,7 +294,7 @@ public abstract class AbstractNodeDescriptionProvider implements INodeDescriptio
 
         var editTool = this.diagramBuilderHelper.newLabelEditTool()
                 .name("Edit")
-                .initialDirectEditLabelExpression(AQLConstants.AQL_SELF + ".getInitialDirectEditLabel()")
+                .initialDirectEditLabelExpression(AQLConstants.AQL_SELF + ".getCompartmentItemInitialDirectEditLabel()")
                 .body(callEditService.build());
 
         return this.diagramBuilderHelper.newNodePalette()

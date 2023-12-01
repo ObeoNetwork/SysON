@@ -26,7 +26,7 @@ export const baseTheme: Theme = createTheme({
     secondary: {
       main: '#292253',
       dark: '#64669B',
-      light: '#E8E9F0',
+      light: '#D2D3D9',
     },
     text: {
       primary: '#292253',
@@ -44,8 +44,8 @@ export const baseTheme: Theme = createTheme({
       rightBackground: '#E8E9F0',
     },
     action: {
-      hover: '#A1A4C412',
-      selected: '#A1A4C426',
+      hover: '#A1A4C436',
+      selected: '#A1A4C460',
     },
   },
   props: {

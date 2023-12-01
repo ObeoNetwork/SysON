@@ -133,7 +133,18 @@ public class GeneralViewLabelService {
      *            the given {@link Element}.
      * @return the value to display.
      */
-    public String getInitialDirectEditLabel(Element element) {
+    public String getDefaultInitialDirectEditLabel(Element element) {
+        return element.getDeclaredName();
+    }
+
+    /**
+     * Get the value to display when a direct edit has been called on the given {@link Element} compartment item node.
+     *
+     * @param element
+     *            the given {@link Element}.
+     * @return the value to display.
+     */
+    public String getCompartmentItemInitialDirectEditLabel(Element element) {
         if (element instanceof Usage usage) {
             return this.getCompartmentItemLabel(usage);
         }
