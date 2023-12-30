@@ -1,0 +1,13 @@
+= {product} Best Practices
+
+Explore in depth or quickly grasp best Practices and tips.
+
+== Best practices
+
+A compilation of in-depth guides to help you make the most of {product}.
+
+// TODO contribute best practices
+
+== Tips and tricks
+
+// TODO contribute tips and tricks

@@ -1,0 +1,16 @@
+= Upload a Model
+
+[NOTE]
+====
+Only models exported in the specific JSON format recognized by {product} can be re-uploaded using the upload action.
+Ensure that your models are exported using the xref:hands-on/how-tos/download-model.adoc[Download Model] action to enable successful re-uploading to {product}.
+====
+
+To upload a model from a file previously exported, follow these steps:
+
+. Go to the {editor}.
+. Open the {explorer} view.
+. Click on the `Upload` button at the top of the {explorer} in the toolbar.
+. It will open the `Upload Model` modal.
+. Select a model from your file system.
+. The uploaded model will be automatically created and opened.

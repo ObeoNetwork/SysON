@@ -1,0 +1,27 @@
+= Update an Element
+
+It is possible to update element properties either from the {details} view or a representation.
+
+[#details]
+== From the {details} view
+
+You can update the element properties from the {details} view:
+
+. Select the property in the {details} view.
+. Update the value in the editable field.
+. Validate the changes by pressing the `RETURN` key or clicking anywhere.
+.. Alternatively, cancel the operation by pressing the `ESC` key.
+
+[#representation]
+== From a representation
+
+You can update the element name from a representation (diagram...):
+
+. Select the element in the representation.
+. Select the `Edit` tool in the {diag-toolbar}.
+. Validate the changes by pressing the `RETURN` key or clicking anywhere.
+.. Alternatively, cancel the operation by pressing the `ESC` key.
+
+TIP: Instead of using the tool in the toolbar, you can press `F2` key or start typing the new value directly to efficiently update the element name.
+
+TIP: A powerful syntax exists for editing element properties directly through the direct edit tool; refer to xref:hands-on/how-tos/direct-edit.adoc[Direct Edit Tool and Shortcuts] for details.

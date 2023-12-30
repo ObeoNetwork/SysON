@@ -1,0 +1,8 @@
+= User Manual
+
+Welcome to the user manual for {product}.
+
+This guide is meticulously crafted to provide users, regardless of expertise levels, with detailed instructions and valuable insights to maximize the capabilities of {product}.
+Whether you are a novice exploring the functionalities or an advanced user seeking in-depth knowledge, this manual serves as an authoritative resource for enhancing your proficiency with {product}.
+
+include::user-manual:partial$nav.adoc[]

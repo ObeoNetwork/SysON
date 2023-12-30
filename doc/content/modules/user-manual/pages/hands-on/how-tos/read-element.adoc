@@ -1,0 +1,6 @@
+= Read an Element
+
+. To navigate through the details of a semantic element, utilize the {explorer} to navigate through the model and locate the desired element.
+. Select the element in the {explorer}.
+. On the left sidebar, access the {details} view.
+This view presents all the available properties for the selected element, providing a comprehensive overview of its characteristics.

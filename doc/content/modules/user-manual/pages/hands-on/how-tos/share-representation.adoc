@@ -1,0 +1,16 @@
+= Share a Representation
+
+Facilitating collaboration through representation sharing within {product} is a straightforward process.
+Users can effortlessly share a representation by providing its URL to collaborators.
+Given that everything within {product} is inherently public, recipients can seamlessly access and view the representation once the URL is shared.
+This simplicity in sharing promotes efficient collaboration and simplifies the communication of representation details, eliminating the need for complex sharing procedures.
+
+== From the {editor}
+
+To share a representation in {product}, follow these steps:
+
+. Open the a representation from the explorer.
+. Click the `Share` button in the general toolbar at the top of the representation area.
+. Copy the link to your clipboard.
+
+Anyone can use the shared link to directly access this specific representation.

@@ -1,0 +1,27 @@
+= Developer guide
+
+This developer guide provides step-by-step instructions on how to set up your developer environment, contribute to the codebase, and enhance the functionality of {product}.
+
+== Retrieving the Source Code
+
+{product} is built upon the https://eclipse.dev/sirius/sirius-web.html[Eclipse Sirius Web] project.
+{product} is licensed under the xref:product-legal:index.adoc[(EPL v2)] Open Source license
+The source code is openly accessible on GitHub:{source-code-url}
+
+To get the source code, clone the repository using either SSH:
+
+[source, bash]
+----
+git clone git@github.com:eclipse-syson/syson.git
+----
+
+or HTTPS:
+
+[source, bash]
+----
+git clone https://github.com/eclipse-syson/syson.git
+----
+
+== Setting Up your Development Environment
+
+//TODO

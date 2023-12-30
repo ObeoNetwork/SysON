@@ -1,0 +1,121 @@
+= Prerequisites
+
+To ensure a smooth and successful installation, your system must meet the minimum hardware and software requirements specified in this section.
+This section outlines the recommended hardware specifications, operating systems, and other essential prerequisites for running {product} effectively.
+
+Before installing {product}, make sure you have the right software and infrastructure to run it.
+These system prerequisites lay the foundation for optimal performance and functionality, guaranteeing that {product} operates efficiently on your environment.
+Take a moment to review and align your system with the recommended specifications outlined below to ensure a smooth installation and a robust user experience.
+
+NOTE: If a platform and version is not listed on this page, it means we don't test it, fix bugs or provide assistance for it.
+
+[#server-req]
+== Server-side installation requirements
+
+To set up the {product} Server, it's crucial to meet the specific prerequisites that lay the groundwork for a stable and reliable server environment.
+
+[%noheader]
+|===
+|*Hardware*
+a|* For a small number of projects (less or equal to 10) and about 10-30 users, 100k semantic elements and 1000 representations in total: a recent server featuring a multicore CPU clocked at 2 GHz and equipped with 4 GB of available RAM, along with a reasonably fast hard drive (7200 rpm or faster) should cater for your needs.
+** Minimum RAM: 4 GB
+** Recommended RAM *8 GB* or more
+** Minimum CPU: Dual-core processor
+** Recommended CPU: *Quad-core* processor or higher
+** Disk space: *10 GB* for installation
+** *Additional disk* space for application data
+
+* To enhance performance further, it is advisable to monitor {product} memory usage and allocate additional memory as needed.
+In scenarios where your system anticipates a substantial volume of concurrent requests, deploying {product} applications on a multicore CPU machine becomes advantageous.
+This strategy increases the concurrency of processing requests, ultimately leading to improved response times for your users.
+Adjusting memory allocation and leveraging multicore capabilities contribute to optimizing the overall system responsiveness.
+For more information, you can also refer to xref:user-manual:scaling-limits.adoc[Scaling {product}].
+
+|*Operating System*
+a|{product} is a pure Java-based application and should run on any supported operating system, provided that the JDK / JRE requirements are satisfied.
+
+* Linux (64-bit), preferable distributions include Ubuntu, CentOS, or Red Hat Enterprise Linux.
+* Windows Server (64-bit), recommended versions include Windows Server 2016 or later : xref:anti-virus.adoc[Read Anti-Virus] in {product} applications.
+|*Database*
+a|To connect your {product} instance to an enterprise database, you must install and configure one of the following supported databases:
+
+* *PostgreSQL 15*
+
+Ensure that the server has a dedicated PostgreSQL database with admin rights.
+|*Java Runtime Environment (JRE)*
+a|You need to install and configure a separate JRE to run {product}, you have to install a supported version of the Java runtime:
+
+* *Java 17* is essential for running the {product} Server.
+
+We recommend utilizing the Java runtime provided by the https://adoptium.net/fr/temurin/releases/[Eclipse Temurin] project.
+
+|*Network Connectivity*
+|Stable internet connection for updates and communication with {product} Clients.
+|===
+
+[#client-req]
+== Client-side installation requirements
+
+{product} is browser-based software, which means it can be run on all full desktop operating systems (MacOS, Windows, Linux, etc), as well as Chrome OS.
+
+=== Supported Browsers
+
+[%noheader]
+|===
+|*Browsers*
+a|*Desktop browsers:*
+
+* *Chrome* (latest stable version)
+* *Mozilla Firefox* (latest stable version)
+a|*Mobile browsers:*
+
+Please note that {product} is currently not supported on mobile devices.
+|===
+
+WARNING: {product} does not support Internet Explorer.
+
+NOTE: We support a minimum screen resolution of 1024 x 768 (when browsers are maximized).
+
+=== Supported operating system
+
+The minimum operating system (OS) requirements are:
+
+* Windows 10 or later
+* Apple macOS 13.x (Ventura) and later
+* Any Linux OS that supports the browsers mentioned above
+* Any Chrome OS that supports the browsers mentioned above
+
+NOTE: You can find out what browser and operating system version you’re using via https://www.whatsmybrowser.org/[What’s my Browser].
+
+[CAUTION]
+====
+If you are encountering speed, upload, download, or various interface problem with {product} it could be caused by a plugin, add-on, or extension that you have installed in your browser.
+To see if this is the case you can try disabling all plugins, add-ons, or extensions within your browser.
+====
+
+== Deployment recommendations
+
+=== Latency: Client and Server
+
+It is recommended to provide a network with the lowest possible latency between the client and the server.
+
+=== Latency: Server and Database
+
+To ensure optimal performance, we strongly recommend hosting both the server and database on the same physical server to minimize latency between the two components.
+
+=== Network stability
+
+VPN are not recommended (it is a latency factor) as well as other network elements that could drop connections which are more or less inactive.
+As such wireless connection are also not recommended as any loss of connectivity might lead to instability in the product and loss of data.
+However, if a network element of this kind is mandatory, an SSH tunnel could be used as a workaround to avoid client/server disconnections.
+
+=== Server isolation
+
+{product} should be the only way to edit the information stored in the database.
+
+== Disclaimer
+
+Notwithstanding what was stated previously, {product} is not warranted to run without any error or interruption.
+Obeo does not make any warranty regarding the statements that are under the section <<Deployment recommendations>>, this section is provided for information purposes.
+
+You acknowledge and accept the risks involved in using these products which could include without limitation, down time, loss of connectivity or data, system crashes, bad performances or performance degradation.

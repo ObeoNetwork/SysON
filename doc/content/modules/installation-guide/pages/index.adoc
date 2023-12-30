@@ -1,0 +1,6 @@
+= Installation guide
+
+This installation guide provides step-by-step instructions on how to install, configure, and manage {product} on your system.
+Whether you are a new user or an experienced administrator, this guide will walk you through the process of setting up {product} for optimal performance and compatibility.
+
+include::installation-guide:partial$nav.adoc[]

@@ -1,0 +1,5 @@
+= Share a Project
+
+Sharing a project is as straightforward as providing the project URL to someone because everything within {product} is public.
+Once the project URL is shared, the recipient can access and view the project directly.
+This simplicity in sharing allows for seamless collaboration and easy communication of project details without the need for complex sharing processes.

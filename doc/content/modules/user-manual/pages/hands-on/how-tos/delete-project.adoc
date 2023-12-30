@@ -1,0 +1,27 @@
+= Delete a Project
+
+It is possible to delete a project either from the {homepage} or the {editor}.
+
+[WARNING]
+====
+When you delete a project, you will lose all the data.
+Deleting a project and its content is a significant action, and it's important to note that the entire project, along with its contents, will be permanently removed.
+This includes all associated models, representations, and any other data within the project.
+Exercise caution when performing this operation, as it cannot be reversed.
+====
+
+== From the {homepage}
+
+You can delete a project from the {homepage}:
+
+. Click on the {projects-list-menu} next to the project in the {projects-list}.
+. Select the `Delete` option.
+. Confirm the deletion by clicking on the `Delete` button in the modal.
+
+== From the {editor}
+
+You can delete a project from the {editor}:
+
+. Click on the {projects-list-menu} next to the project name in the project toolbar.
+. Select the `Delete` option.
+. Confirm the deletion by clicking on the `Delete` button in the modal.

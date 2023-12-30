@@ -1,0 +1,8 @@
+= Rename a Model
+
+You can update the model name from the {explorer}:
+
+. Click on the {explorer-menu} next to the model in the {explorer}.
+. Select the `Rename` option.
+. Update the name in the editable field.
+. Click on `Rename`.

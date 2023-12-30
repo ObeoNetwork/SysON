@@ -1,0 +1,12 @@
+= Create a New Representation
+
+To create a representation, follow these steps:
+
+. Open the Project Editor.
+. Open the {explorer-menu} next to an element in the explorer.
+. Select the `New representation` action.
+. Fill in the representation name.
+. Choose the representation type.
+. Click the `Create` button.
+
+Once completed, the newly created representation will be open automatically and listed in the {explorer} under the element.

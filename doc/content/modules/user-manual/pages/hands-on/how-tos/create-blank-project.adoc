@@ -1,0 +1,4 @@
+= Create a Blank Project
+
+You will be redirected to the newly created project, which will be initially empty.
+Refer to the xref:features/editor.adoc[{editor} page] to understand how to use it for xref:hands-on/how-tos/create-model.adoc[creating your own models] and xref:hands-on/how-tos/create-representation.adoc[representations].

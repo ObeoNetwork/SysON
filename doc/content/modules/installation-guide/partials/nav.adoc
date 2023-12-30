@@ -1,0 +1,11 @@
+// Optional; Reserved
+//
+// A navigation file contains one or more AsciiDoc lists.
+// Each navigation file must be declared in the component descriptor if you want it to be displayed in the component’s navigation menu.
+* xref:installation-guide:index.adoc[]
+** xref:installation-guide:architecture.adoc[]
+** xref:installation-guide:requirements.adoc[]
+** xref:installation-guide:how-tos/executables.adoc[]
+** xref:installation-guide:how-tos/install.adoc[]
+** xref:installation-guide:troubleshooting.adoc[]
+** xref:installation-guide:migration-process.adoc[]

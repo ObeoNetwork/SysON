@@ -1,0 +1,33 @@
+= Interoperability and Standard API
+
+== Import / Export
+
+=== JSON format
+
+{product} extends its utility by introducing the capability to import and export projects in JSON format.
+This feature enhances interoperability, allowing users to seamlessly exchange project data and collaborate with external tools or platforms.
+
+WARNING: {product} does not currently support the {sysmlv2} Standard JSON format for import/export.
+
+For detailed instructions on xref:hands-on/how-tos/download-project.adoc[downloading projects], xref:hands-on/how-tos/download-model.adoc[downloading models], xref:hands-on/how-tos/upload-project.adoc[uploading projects], and xref:hands-on/how-tos/upload-model.adoc[uploading models], please refer to the respective sections in the documentation.
+These sections provide step-by-step guidance on how to perform these actions within the {product} environment.
+
+=== {sysmlv2} textual format
+
+Additionally, {product} envisions forthcoming support for {sysmlv2} textual specifications as an exchange format, anticipating a future where smooth transitions between tools will be facilitated.
+This intent reflects {product}'s dedication to staying aligned with evolving industry standards.
+
+An experimental add-on is under development to enable import/export functionality to and from {sysmlv2} textual syntax.
+This feature will provide users with additional flexibility in their modeling workflows.
+Stay tuned for updates on its availability in the project.
+
+== {sysmlv2} Standard API
+
+NOTE: Currently, the SysML v2 API is unavailable. For interoperability with SysON, utilize the provided file exchange format.
+
+{product}'s vision includes a dedicated commitment to interoperability, with a future-oriented perspective on supporting standard APIs for seamless connections with a diverse array of modeling resources.
+While the implementation of standard APIs is an aspect under consideration for future development, {product} aims to provide a foundation for fluid collaboration between different tools within the Model-Based Systems Engineering (MBSE) landscape.
+
+As {product} progresses, these future developments in interoperability will further solidify its role as a collaborative platform, fostering an interconnected environment for MBSE practitioners.
+
+The ongoing commitment to incorporating standard APIs and {sysmlv2} textual specifications underscores {product}'s dedication to providing users with a versatile and interoperable modeling solution.

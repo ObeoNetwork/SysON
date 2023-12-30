@@ -1,0 +1,32 @@
+= Connect, Learn and Get Assistance
+
+[cols="2*^", %noheader, frame=none, grid=none]
+|===
+a|image::forum.svg[xref=user-manual:forum.adoc]
+
+**Forum**
+
+Meet the {product} community.
+
+xref:user-manual:forum.adoc[Join the forum...] a|image::volunteer_activism.svg[xref=user-manual:contribute.adoc]
+
+**Contribute**
+
+Report bugs or submit feature requests?
+
+xref:user-manual:contribute.adoc[Contribute to {product}...]
+
+a|image::editor_choice.svg[xref=user-manual:best-practices.adoc]
+
+**Best practices guides**
+
+Make the most out of {sysmlv2}.
+
+xref:user-manual:best-practices.adoc[Learn more...] a|image::support_agent.svg[xref=user-manual:support.adoc]
+
+**Contact support**
+
+Our support team is ready to assist.
+
+xref:user-manual:support.adoc[Read the guide...]
+|===

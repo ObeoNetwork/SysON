@@ -1,0 +1,1 @@
+icon:circle-info[] This feature is included in the Open Source Edition.

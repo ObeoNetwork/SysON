@@ -1,0 +1,17 @@
+= Security policy
+
+== Supported versions
+
+The versions of the project that are currently supported with security updates.
+
+[]
+|===
+|Version | Supported
+
+|2023.12
+| icon:check
+|===
+
+== Reporting a vulnerability
+
+You can report a vulnerability by contacting us via our xref:user-manual:support.adoc[support] page.

@@ -1,0 +1,35 @@
+* xref:user-manual:index.adoc[]
+** xref:user-manual:what-is.adoc[]
+** xref:user-manual:sysmlv2-overview.adoc[]
+** xref:user-manual:key-features.adoc[]
+** Get Started
+*** xref:user-manual:get-started.adoc[]
+*** xref:user-manual:tour.adoc[]
+** xref:user-manual:concepts.adoc[]
+** xref:user-manual:features/features.adoc[]
++
+--
+include::user-manual:partial$nav-features.adoc[]
+--
++
+** xref:user-manual:scaling-limits.adoc[]
+** xref:user-manual:hands-on/hands-on.adoc[]
++
+--
+include::user-manual:partial$nav-howtos.adoc[]
+--
++
+
++
+--
+include::user-manual:partial$nav-tuto.adoc[]
+--
++
+** Help and Support
+*** xref:user-manual:help.adoc[]
+**** xref:user-manual:forum.adoc[]
+**** xref:user-manual:contribute.adoc[]
+**** xref:user-manual:best-practices.adoc[]
+**** xref:user-manual:support.adoc[]
+*** xref:user-manual:faq/faq.adoc[]
+** xref:user-manual:release-notes.adoc[]

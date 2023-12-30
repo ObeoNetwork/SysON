@@ -1,0 +1,26 @@
+= Delete a Representation
+
+It is possible to delete a representation either from the {explorer} or the {representations-view}.
+
+[WARNING]
+====
+There is no confirmation dialog to delete a representation.
+This operation is irreversible, once done there is no mean to get the representation back.
+====
+
+NOTE: The semantic elements visible in a representation will not be deleted.
+
+== From the {explorer}
+
+You can delete a representation from the {explorer}:
+
+. Open the {explorer-menu} next to the representation.
+. Click on `Delete`.
+
+== From the {representations-view}
+
+You can delete a representation from the {representations-view}:
+
+. Open the {representations-view}.
+. Select the representation you want to delete.
+. Click on the `Delete` button.

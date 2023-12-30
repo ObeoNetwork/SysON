@@ -1,0 +1,11 @@
+= {related-elements}
+
+For a more focused exploration, delve into the {related-elements} view.
+
+image::editor-right-sidebar-related-elements.svg[{related-elements}]
+
+This feature offers a contextual perspective on the currently selected element.
+
+* The view showcases elements that reference (point to) the selection in the `Incoming` category.
+* Conversely, it reveals elements to which the selection refers in the `Outgoing` category.
+* Additionally, the `Current` category provides insights into the selection's position within the model hierarchy, highlighting its parents and children.

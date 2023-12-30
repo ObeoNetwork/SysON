@@ -1,0 +1,3 @@
+icon:circle-info[] This feature is included in the Enterprise Edition.
+
+icon:times[] test

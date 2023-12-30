@@ -1,0 +1,50 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">{{site.title}}</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+        <a class="navbar-item" href="{{{relativize (resolvePageURL 'home::index.adoc')}}}">Home</a>
+
+        {{#with site.components.home.latest.navigation.[0] as |navigation|}}
+          {{#each navigation.items as |main_item|}}
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="#">{{{main_item.content}}}</a>
+                <div class="navbar-dropdown">
+                  {{#each main_item.items as |item|}}
+                      <a class="navbar-item" href="
+                        {{~#if (eq item.urlType 'internal')}}{{{relativize item.url}}}
+                        {{~else}}{{{item.url}}}{{~/if}}">{{{item.content}}}</a>
+                  {{/each}}
+                </div>
+              </div>
+          {{/each}}
+        {{/with}}
+
+        {{#if env.SITE_SEARCH_PROVIDER}}
+        <div class="navbar-item search hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
+          </div>
+        </div>
+        {{/if}}
+
+
+        {{#if (not (eq page.layout '404'))}}
+        <div class="navbar-item">
+          <span class="control">
+            <button class="button is-primary" id="download" >Download</button>
+          </span>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
+</header>

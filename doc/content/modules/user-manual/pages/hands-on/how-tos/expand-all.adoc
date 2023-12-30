@@ -1,0 +1,14 @@
+= Expand all
+
+[WARNING]
+====
+This operation may take a considerable amount of time for projects with a massive hierarchy and a high number of children.
+Exercise caution when performing this action in such scenarios.
+====
+
+Explore the hierarchy of children for any element in the {explorer}:
+
+. Open the {explorer-menu} of any element with children.
+. Click on `Expand all`.
+
+This action expands the selected element and all its children recursively, offering a detailed view of the hierarchical structure.

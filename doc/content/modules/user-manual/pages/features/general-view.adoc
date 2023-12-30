@@ -1,0 +1,62 @@
+= {gv}
+
+The {gv} is employed to display any members of exposed model elements.
+It is the most general view, enabling presentation of any model element.
+
+// Unsynchronized
+include::user-manual:partial$view-unsynchronized.adoc[]
+
+The following elements can be displayed in the {gv}:
+
+* Attribute Definition
+* Attribute Usage
+* Enumeration Definition
+* Interface Definition
+* Interface Usage
+* Item Definition
+* Item Usage
+* Metadata Definition
+* Package
+* Part Definition
+* Part Usage
+* Port Definition
+* Port Usage
+
+Compartments
+* Definition
+** Attributes
+** Items
+** Ports
+* Usage
+** Attributes
+** Ports
+* Enumeration
+** Items
+
+Relationship
+*
+
+
+== Manage elements
+
+=== Create element
+
+=== Delete element
+
+== Manage features
+
+== Manage relationships
+
+=== Create relationship
+
+=== Reconnect relationship
+
+=== Delete relationship
+
+== Manage existing elements
+
+== Add related elements
+
+== Edit labels
+
+

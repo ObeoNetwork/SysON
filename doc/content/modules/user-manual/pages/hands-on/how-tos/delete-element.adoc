@@ -1,0 +1,24 @@
+= Delete an Element
+
+[WARNING]
+====
+There is no confirmation dialog to delete an element.
+This operation is irreversible, once done there is no mean to get the element back.
+The element and its children - semantic element and representations - will be deleted.
+====
+
+NOTE: The deletion will affect everyone.
+
+To delete an element, follow these steps:
+
+== From the {explorer}
+
+. Open the {explorer-menu} next to the element.
+. Click on `Delete`.
+
+== From a representation
+
+. Select the element in the representation.
+. Click on the `Delete` tool in the {diag-toolbar} or press the `DEL` key on your keyboard.
+
+CAUTION: Use the `DEL` key cautiously, as it is a direct shortcut for the delete operation.

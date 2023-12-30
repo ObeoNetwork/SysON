@@ -1,0 +1,42 @@
+= Getting started with {product}
+
+In this section, you will discover essential entry points for installation procedures, providing a seamless onboarding experience.
+Additionally, find a quick tour designed to swiftly familiarize you with the core functionalities of the product, ensuring a smooth and efficient introduction to its capabilities.
+
+== How to install {product} ?
+
+The installation guide covers installation of {product}, a modeling tool to edit {sysmlv2} graphical models : xref:installation-guide:index.adoc[Install {product} now!]
+
+== Discover {product}
+
+Uncover the capabilities of {product} through an exploration of its key features, foundational concepts, and practical how-tos:
+
+[cols="2*^", %noheader, frame=none, grid=none]
+|===
+a|image::explore.svg[xref:user-manual:tour.adoc]
+
+*Tour the interface*
+
+Embark on a comprehensive exploration of {product}'s interface as we guide you through the key features and functionalities
+
+xref:user-manual:tour.adoc[Explore now...] a|image::footprint.svg[xref:user-manual:hands-on/hands-on.adoc]
+
+*How-Tos and Tutorials*
+
+Step-by-step guides, ensuring users can adeptly navigate essential tasks and leverage the potential of {product}
+
+xref:user-manual:hands-on/hands-on.adoc[Dive in...]
+a|image::developer_guide.svg[xref:user-manual:key-features.adoc]
+
+*Key Features*
+
+An in-depth showcase of functionalities.
+
+xref:user-manual:key-features.adoc[Discover more...] a|image::settings_heart.svg[xref:user-manual:concepts.adoc]
+
+*Key Concepts*
+
+Addressing pivotal inquiries and offering a comprehensive understanding of the platform's fundamentals
+
+xref:user-manual:concepts.adoc[Learn essentials...]
+|===

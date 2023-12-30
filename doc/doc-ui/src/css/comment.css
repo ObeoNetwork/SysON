@@ -1,0 +1,6 @@
+.sidebar .comment {
+  border-left: 2px solid var(--toc-border-color);
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-top: 1rem;
+}
