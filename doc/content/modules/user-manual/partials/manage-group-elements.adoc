@@ -1,0 +1,42 @@
+== Manage multi-elements
+
+When user select multiple elements, many actions are available to manage all selected element.
+
+=== From tool bar
+
+After user selected some elements, a simplified tool bar is displayed.
+
+image::manage-group-element-toolbar.png[Group element tool bar]
+
+User can still used basic tools such as :
+
+* Hide elements,
+* Fade elements,
+* Pin elements.
+
+A new tool section appears in this tool bar. Many tools acting on selected elements layout can be found in this tool section :
+
+* Align left,
+* Align center,
+* Align right,
+* Align top,
+* Align middle,
+* Align bottom,
+* Arrange in row,
+* Arrange in column,
+* Arrange in grid,
+* Distribute horizontal spacing,
+* Distribute vertical spacing,
+* Justify horizontally,
+* Justify vertically,
+* Make same size.
+
+=== From mouse and shortcuts
+
+In addition to tool bar actions, some actions can be execute with shortcuts.
+
+Indeed, after user selected some elements, user can press the key "Del" to remove all selected elements.
+
+User can also move all selected element on the diagram without changing its graphical or semantic parent. 
+
+

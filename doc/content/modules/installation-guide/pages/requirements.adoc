@@ -7,7 +7,10 @@ Before installing {product}, make sure you have the right software and infrastru
 These system prerequisites lay the foundation for optimal performance and functionality, guaranteeing that {product} operates efficiently on your environment.
 Take a moment to review and align your system with the recommended specifications outlined below to ensure a smooth installation and a robust user experience.
 
-NOTE: If a platform and version is not listed on this page, it means we don't test it, fix bugs or provide assistance for it.
+[NOTE]
+====
+If a platform and version is not listed on this page, it means we don't test it, fix bugs or provide assistance for it.
+====
 
 [#server-req]
 == Server-side installation requirements
@@ -74,7 +77,10 @@ Please note that {product} is currently not supported on mobile devices.
 
 WARNING: {product} does not support Internet Explorer.
 
-NOTE: We support a minimum screen resolution of 1024 x 768 (when browsers are maximized).
+[NOTE]
+====
+We support a minimum screen resolution of 1024 x 768 (when browsers are maximized).
+====
 
 === Supported operating system
 
@@ -85,7 +91,10 @@ The minimum operating system (OS) requirements are:
 * Any Linux OS that supports the browsers mentioned above
 * Any Chrome OS that supports the browsers mentioned above
 
-NOTE: You can find out what browser and operating system version you’re using via https://www.whatsmybrowser.org/[What’s my Browser].
+[NOTE]
+====
+You can find out what browser and operating system version you’re using via https://www.whatsmybrowser.org/[What’s my Browser].
+====
 
 [CAUTION]
 ====

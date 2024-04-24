@@ -2,10 +2,29 @@
 
 == General
 
+To delete a given element, user can select the element and the press the `Del` key from representation editor.
+
 == Basic editing
 
-== Selection
+User can press `F2` key or start typing the new value directly to efficiently update an element name from representation editor.
+
+Explore further by referring to the following how-tos for xref:user-manual:features/general-view.adoc#edit-label[Edit Label action].
+
+== Multi-selection
+
+There are two way to select many elements.
+
+=== CTRL key
+
+User can select on element by clicking on it and then select an other one by pressing `Ctrl` key and clicking on this other element.
+This keyboard shortcut is available  from representation editor but also from the {explorer} view.
+
+=== Shift key
+
+To select many element in one action from representation editor, user can press `Shift` key and draw a rectangular area around elements that he wants to select. After releasing the click, all element in the area are selected. 
 
 == Search
 
-//TODO
+User can display the filter bar by pressing `Ctrl+f` (Windows/Linux) or `Cmd+f` (MacOS) from the {explorer} view.
+
+Explore further by referring to the following how-tos for xref:hands-on/how-tos/explorer.adoc#explorer-filter[Filter elements].

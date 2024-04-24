@@ -30,12 +30,16 @@ It provides a high-level perspective, laying the groundwork for more detailed an
 
 xref:user-manual:features/general-view.adoc[Explore the {product} {gv}...]
 
+image::gv-overview.png[{gv} Overview]
+
 === Interconnection View
 
 The Interconnection view focuses on articulating the relationships and connections between system components.
 It provides a visual representation of how different elements within the system interact, fostering clarity in understanding the intricate dependencies within a complex system.
 
 xref:user-manual:features/interconnection-view.adoc[Explore the {product} Interconnection View...]
+
+image::interconnection-view-overview.png[{Interconnection view Overview]
 
 === Action Flow View
 

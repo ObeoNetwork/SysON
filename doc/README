@@ -5,3 +5,12 @@ Use asciidoc attributes to reference elements of the application UI.
 Use asciidoc attributes to reference URL.
 For reference to menus, key on the keyboard... use `backticks`.
 Use + on new line in table to force a new line
+
+# Antora use
+* Ensure that docker is launch 
+## on linux
+* Launch the script SysON\doc\generate.bash in a terminal
+## on Windows
+* Lunch the script SysON\doc\local-generation.ps1 in a Windows Power shell console
+## Result
+* Generation result is available in SysON\doc\docs-site\build\site

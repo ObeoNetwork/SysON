@@ -9,13 +9,13 @@ Embark on a comprehensive exploration of {product}'s interface as we guide you t
 
 [cols="2*^", %noheader, frame=none, grid=none]
 |===
-a|image::homepage.svg[xref=user-manual:features/homepage.adoc]
+a|image::homepage.png[xref=user-manual:features/homepage.adoc]
 
 **{homepage}**
 
 Manage projects.
 
-xref:user-manual:features/homepage.adoc[Explore the {homepage}...] a|image::editor.svg[xref=user-manual:features/editor.adoc]
+xref:user-manual:features/homepage.adoc[Explore the {homepage}...] a|image::editor.png[xref=user-manual:features/editor.adoc]
 
 **{editor}**
 

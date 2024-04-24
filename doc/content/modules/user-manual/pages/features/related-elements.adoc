@@ -2,7 +2,7 @@
 
 For a more focused exploration, delve into the {related-elements} view.
 
-image::editor-right-sidebar-related-elements.svg[{related-elements}]
+image::relatedElements-right-sidebar-related-elements.png[{related-elements}]
 
 This feature offers a contextual perspective on the currently selected element.
 

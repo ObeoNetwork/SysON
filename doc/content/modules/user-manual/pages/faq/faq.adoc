@@ -32,7 +32,7 @@ To explore the supported {sysmlv2} views, refer to the xref:user-manual:features
 .How do I create a new model?
 [%collapsible]
 ====
-To create a new model, refer to the xref:user-manual:hands-on/how-tos/create-model.adoc[[Create a new model] section in the user manual.
+To create a new model, refer to the xref:user-manual:hands-on/how-tos/model-management.adoc#create-model[[Create a new model] section in the user manual.
 ====
 
 .How do I import and export models?

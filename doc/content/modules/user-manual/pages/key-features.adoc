@@ -22,19 +22,19 @@ This dual categorization allows users to choose features based on their comfort 
 4+h|Projects Management
 
 |xref:features/homepage.adoc[Projects Browser]
-a|icon:times[role=red]
-a|icon:check[role=green]
-a|
+a|icon:times[role=Red]
+a|icon:check[role=Green]
+a|icon:check[role=Green]
 
 |xref:features/editor.adoc[Project Editor]
 a|icon:times[role=red]
 a|icon:check[role=green]
-a|
+a|icon:check[role=green]
 
 |xref:features/editor.adoc#project-actions[Manage Project]
 a|icon:times[role=red]
 a|icon:check[role=green]
-a|
+a|icon:check[role=green]
 
 |xref:user-manual:support.adoc[Teams]
 a|icon:times[role=red]
@@ -45,69 +45,69 @@ a|icon:check[role=green]
 |xref:user-manual:features/general-view.adoc[{gv}]
 a|icon:check[role=green]
 a|icon:check[role=gray] partial
-a|
+a|icon:check[role=gray] partial
 
 |xref:user-manual:features/interconnection-view.adoc[Interconnection View]
 a|icon:check[role=green]
 a|icon:check[role=gray] partial
-a|
+a|icon:check[role=gray] partial
 
 |xref:user-manual:sysmlv2-overview.adoc[Action Flow View]
 a|icon:check[role=green]
 a|icon:times[role=red]
-a|
+a|icon:times[role=red]
 
 |xref:user-manual:sysmlv2-overview.adoc[State Transition View]
 a|icon:check[role=green]
 a|icon:times[role=red]
-a|
+a|icon:times[role=red]
 
 |xref:user-manual:sysmlv2-overview.adoc[Sequence View]
 a|icon:check[role=green]
 a|icon:times[role=red]
-a|
+a|icon:times[role=red]
 
 |xref:user-manual:sysmlv2-overview.adoc[Geometry View]
 a|icon:check[role=green]
 a|icon:times[role=red]
-a|
+a|icon:times[role=red]
 
 |xref:user-manual:sysmlv2-overview.adoc[Grid View]
 a|icon:check[role=green]
 a|icon:times[role=red]
-a|
+a|icon:times[role=red]
 
 |xref:user-manual:sysmlv2-overview.adoc[Browser View]
 a|icon:check[role=green]
 a|icon:times[role=red]
-a|
+a|icon:times[role=red]
 
 4+h|Collaboration & Interoperability
 
 |xref:features/collaboration.adoc[Share Projects]
 a|icon:times[role=red]
 a|icon:times[role=gray] (All the projects are Public)
-a|
+a|icon:times[role=gray] (All the projects are Public)
 
 |xref:features/collaboration.adoc[Share Diagram]
 a|icon:times[role=red]
 a|icon:check[role=green]
-a|
+a|icon:check[role=green]
 
 |xref:features/interoperability.adoc[Download / Upload JSON format]
 a|icon:times[role=red]
 a|icon:check[role=green]
-a|
+a|icon:check[role=green]
 
 |xref:features/interoperability.adoc[Download / Upload Standard {sysmlv2} JSON format]
-a|icon:times[role=green]
 a|icon:times[role=red]
-a|
+a|icon:times[role=red]
+a|icon:times[role=red]
 
 |xref:features/interoperability.adoc[Download / Upload {sysmlv2} textual format]
 a|icon:times[role=green]
 a|icon:check[role=gray] Experimental
-a|
+a|icon:check[role=gray] Experimental
 
 |xref:user-manual:support.adoc[Live Collaboration]
 a|icon:times[role=red]

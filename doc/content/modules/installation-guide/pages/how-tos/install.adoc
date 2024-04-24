@@ -15,7 +15,10 @@ Before you proceed with the installation, please ensure you have the following x
 
 {product} uses PostgreSQL as its database.
 
-TIP: For development or local testing, the simplest approach is to initiate a PostgreSQL instance using Docker.
+[TIP]
+====
+For development or local testing, the simplest approach is to initiate a PostgreSQL instance using Docker.
+====
 
 [source, bash]
 ----
@@ -26,7 +29,10 @@ docker run -p 5434:5432 --name syson-postgres \
                             -d postgres
 ----
 
-NOTE: This may take a while the first time you run this as Docker will first pull the PostgreSQL image.
+[NOTE]
+====
+This may take a while the first time you run this as Docker will first pull the PostgreSQL image.
+====
 
 If you don't have Docker or prefer to utilize an existing PostgreSQL installation, modify the following command-line parameters and ensure the `POSTGRES_USER` possesses administrative rights on the database.
 These rights are necessary for the automatic creation of the database schema.

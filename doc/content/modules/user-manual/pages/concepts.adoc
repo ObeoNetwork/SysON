@@ -7,9 +7,15 @@ This section provides a comprehensive exploration of the fundamental principles 
 In {product}, a *Project* serves as a high-level container that organizes <<Model,models>>.
 You can utilize projects to group models, providing a structured and efficient way to manage your content.
 
-NOTE: It is important to note that creating sub-projects within a project is not supported.
+[NOTE]
+====
+It is important to note that creating sub-projects within a project is not supported.
+====
 
-NOTE: All models exist at the same level within a project.
+[NOTE]
+====
+All models exist at the same level within a project.
+====
 
 This design ensures simplicity and clarity in organizing and accessing your models, fostering a straightforward and intuitive project management experience.
 
