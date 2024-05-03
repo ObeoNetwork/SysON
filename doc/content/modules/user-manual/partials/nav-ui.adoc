@@ -1,0 +1,2 @@
+* xref:user-manual:tour.adoc[]
+* xref:user-manual:hands-on/hands-on.adoc[]

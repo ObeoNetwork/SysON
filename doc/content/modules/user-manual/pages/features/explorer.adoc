@@ -34,7 +34,7 @@ At the top of the {explorer}, a toolbar provides quick access to essential actio
 Users can select any item in the {explorer}:
 
 * Selecting a *Semantic Element*: Displays its properties in the xref:features/details.adoc[Details] view.
-If the element is represented on an open representation, the corresponding element (node or edge if it is a diagram) is also selected, and the chosen element is selected in the editor.
+If the element is represented on an open representation, the corresponding element (node or edge if it's a diagram) is also selected, and the chosen element is selected in the editor.
 * Selecting a *Representation*: Opens it in a new tab or focuses on an existing tab where it was already open.
 
 == {explorer-menu}

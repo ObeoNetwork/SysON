@@ -2,7 +2,7 @@
 
 == Supported versions
 
-The versions of the project that are currently supported with security updates.
+The versions of the project that are  supported with security updates.
 
 []
 |===

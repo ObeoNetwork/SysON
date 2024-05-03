@@ -14,7 +14,8 @@ User can still used basic tools such as :
 * Fade elements,
 * Pin elements.
 
-A new tool section appears in this tool bar. Many tools acting on selected elements layout can be found in this tool section :
+A new tool section appears in this tool bar.
+Many tools acting on selected elements layout can be found in this tool section :
 
 * Align left,
 * Align center,
@@ -37,6 +38,6 @@ In addition to tool bar actions, some actions can be execute with shortcuts.
 
 Indeed, after user selected some elements, user can press the key "Del" to remove all selected elements.
 
-User can also move all selected element on the diagram without changing its graphical or semantic parent. 
+User can also move all selected element on the diagram without changing its graphical or semantic parent.
 
 

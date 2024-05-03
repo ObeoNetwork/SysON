@@ -1,3 +1,0 @@
-= Authors
-
-Discover the individuals who contribute to the {product} project: https://projects.eclipse.org/projects/modeling.syson/who

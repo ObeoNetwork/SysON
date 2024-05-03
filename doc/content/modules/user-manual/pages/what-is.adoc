@@ -1,6 +1,31 @@
-= What is {product}?
+= {product} Overview
 
-{product} represents an open-source, web-based tool expressly crafted for the purpose of facilitating the editing of {sysmlv2} models in accordance with the established OMG Standard.
-This platform has been developed with a focus on providing the Model-Based Systems Engineering (MBSE) community with a sophisticated set of features, addressing the nuanced requirements of system engineers.
-This section serves to elucidate the foundational elements of {product}, elucidating its core functionalities, its overarching objective of fostering collaboration within the MBSE domain, and its dedication to seamless interoperability with other open-source solutions.
-Navigate through this section to gain a comprehensive understanding of {product}, its intricacies, and its role in advancing the discipline of {sysmlv2} modeling.
+== Overview
+
+include::user-manual:partial$intro.adoc[]
+
+Developed with a focus on addressing the system engineers' requirements in the {mbse} - `MBSE` community, {product} offers a sophisticated features' set.
+
+Supporting both graphical and textual notation, {product} includes capability for a textual syntax' subset within its direct editing capabilities for diagrams, with support for importing textual syntax.
+
+== At a glance
+
+{product} project provides an open source and interoperable tool for editing {sysmlv2} models conforming to the Object Management Group `OMG` Standard, for the `MBSE` community.
+{product} showcases structured editors: graphical, form-based and tables, using the capabilities of the https://eclipse.dev/sirius/sirius-web.html[Eclipse {sw}] modeling platform.
+The project ensures seamless integration with open source solutions such as https://eclipse.dev/papyrus/[Papyrus] and https://mbse-capella.org/[Capella], further enhancing the usability and versatility of the tool.
+
+== Source code
+
+* License: Eclipse Public License v2 - xref:product-legal:index.adoc[EPL v2]
+* GitHub: {source-code-url}
+* Authors: https://www.obeosoft.com/en/[Obeo] and the https://list.cea.fr/en/[French Atomic Energy - CEA List] are co-leading the {product} project.
+Visit the https://projects.eclipse.org/projects/modeling.syson/who[{product} project page] to discover the individuals who contribute to the {product} project.
+
+== Tracker
+
+* Issue tracker: {bug-url}
+
+== Communication
+
+* Website: {website-url}
+* Forum: {forum-url}

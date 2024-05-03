@@ -1,6 +1,6 @@
 = {representations-view}
 
-Explore the {representations-view} view to gain insights into the available representations associated with the currently selected element.
+Explore the {representations-view} view to gain insights into the available representations associated with the  selected element.
 
 image::representations-right-sidebar-representations.png[{representations-view} view]
 

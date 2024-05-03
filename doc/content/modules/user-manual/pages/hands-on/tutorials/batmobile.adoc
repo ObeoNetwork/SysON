@@ -48,7 +48,7 @@ The new elements created from the {diag-toolbar} are visible either from the {ex
 . Select the `Vehicle` part definition and click on the `New Attribute` tool in the {diag-toolbar}.
 . A new attribute usage is created.
 . Select the attribute and use the direct-edit tool to rename it to `actualSpeed : SpeedUnit`
-. A new import element appears in model which refers to the library `ISQSpaceTime` that contains `SpeedUnit` 
+. A new import element appears in model which refers to the library `ISQSpaceTime` that contains `SpeedUnit`
 . The attribute usage `actualSpeed` is typed with the new attribute definition.
 
 === Creating Specialization
@@ -80,26 +80,26 @@ The new elements created from the {diag-toolbar} are visible either from the {ex
 . Click on the diagram background and click on the `New Part Definition` tool.
 . A new part definition is created.
 . Rename it `BatmobileNG`
-. Click on node `BatmobileNG`. 
+. Click on node `BatmobileNG`.
 . Click on arrow border and hold down until `Batmobile:> Vehicle` node.
 . Select the `Subclassification` tool.
 
 
 === Creating containment relationships
 
-. Click on node `frontRightWheel :> wheels`. 
+. Click on node `frontRightWheel :> wheels`.
 . Click on arrow border and hold down until `Batmobile:> Vehicle` node.
 . Select the `Become nested part` tool.
 . A new containment edge is created and element `frontRightWheel` is moved under `Batmobile` in model
 . Redo same actions with `frontLeftWheel :> wheels`.
-. Click on node `bulletProofWheels[4] :>> wheels`. 
+. Click on node `bulletProofWheels[4] :>> wheels`.
 . Click on arrow border and hold down until `BatmobileNG:> Batmobile` node.
 . Select the `Become nested part` tool.
 . A new containment edge is created and element `bulletProofWheels` is moved under `BatmobileNG` in model
 
 [NOTE]
 ====
-To explore a more complete Batmobile example, use the Batmobile template available on the {homepage}.
+To explore a larger Batmobile example, use the Batmobile template available on the {homepage}.
 ====
 
 image::tutorial-result.png[Tutorial result]

@@ -3,7 +3,7 @@
 [#sync-editor]
 == Synchronize {explorer} / {editor}
 
-It is possible to disable (and of course re-enable) the synchronization between the {explorer} and the current selection in the {editor}.
+It's possible to disable (and of course re-enable) the synchronization between the {explorer} and the current selection in the {editor}.
 
 When synchronization is enabled, if you selects an element inside a representation, the {explorer} view will ensure that the corresponding semantic element is visible and selected.
 This can require expanding new tree items which were previously not visible or scrolling the {explorer}’s view.
@@ -52,11 +52,12 @@ image::hands-on-filter-name-shortcut.png[Filter name shortcut]
 . All visible tree items containing the typed value will be highlighted.
 . Use the filter button inside the filter bar to hide all visible tree items that do not contain the entered value.
 
-This functionality allows for precise filtering and highlighting of elements based on specified criteria.
+This capability allows for precise filtering and highlighting of elements based on specified criteria.
 
 [NOTE]
 ====
-The filter bar can only highlight items in the expanded state; it does not search within unexpanded children. Ensure the desired tree items are expanded to effectively use the filter and highlight functionality.
+The filter bar can only highlight items in the expanded state; it does not search within unexpanded children.
+Ensure the desired tree items are expanded to effectively use the filter and highlight capability.
 ====
 
 [#filter-explorer]
@@ -68,7 +69,8 @@ Three filters are available in the {explorer} to filter element by kind:
 * Hide KerML Standard Libraries,
 * Hide SysML Standard Libraries.
 
-These filters allow to clear the {explorer} view. By hiding the very technical elements, only the data directly exploited by the user are displayed which make the model more readable in the {explorer} view 
+These filters allow to clear the {explorer} view.
+By hiding the very technical elements, only the data directly exploited by the user are displayed which make the model more readable in the {explorer} view
 
 To filter elements in the {explorer} by their kind using the filter tool:
 

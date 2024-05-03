@@ -1,7 +1,7 @@
 = Frequently Asked Questions
 
 Here are answers to questions we are frequently asked.
-If you have a question not addressed here, please xref:user-manual:help.adoc[contact us].
+If you have a question not addressed here, please xref:ROOT:help.adoc[contact us].
 
 == General Questions
 
@@ -20,25 +20,25 @@ To discover the {product} features, refer to the xref:user-manual:key-features.a
 .What are the supported {sysmlv2} modeling elements?
 [%collapsible]
 ====
-To explore the supported {sysmlv2} elements, refer to the xref:user-manual:features/features.adoc[Features] section in the user manual.
+To explore the supported {sysmlv2} elements, read the xref:user-manual:features/features.adoc[Features] section in the user manual.
 ====
 
 .What are the supported diagram types?
 [%collapsible]
 ====
-To explore the supported {sysmlv2} views, refer to the xref:user-manual:features/features.adoc[Features] section in the user manual.
+To explore the supported {sysmlv2} views, read the xref:user-manual:features/features.adoc[Features] section in the user manual.
 ====
 
 .How do I create a new model?
 [%collapsible]
 ====
-To create a new model, refer to the xref:user-manual:hands-on/how-tos/model-management.adoc#create-model[[Create a new model] section in the user manual.
+To create a new model, read the xref:user-manual:hands-on/how-tos/model-management.adoc#create-model[[Create a new model] section in the user manual.
 ====
 
 .How do I import and export models?
 [%collapsible]
 ====
-To import /export models, refer to the xref:user-manual:features/interoperability.adoc[Interoperability] section in the user manual.
+To import /export models, read the xref:user-manual:integration/interoperability.adoc[Interoperability] section in the user manual.
 ====
 
 * xref:user-manual:features/collaboration.adoc[How do I collaborate with others on models?]
@@ -54,7 +54,10 @@ To import /export models, refer to the xref:user-manual:features/interoperabilit
 .How do I customize the user interface of {product}?
 [%collapsible]
 ====
-{product} is an open-source product, providing users with the flexibility to customize the user interface based on their specific needs. Users can directly modify the source code by forking the project and following the instructions in the developer guide to build their customized version. For users seeking professional assistance or customization services, Obeo offers support and can provide tailored solutions. Feel free to contact Obeo for personalized assistance with your customization requirements.
+{product} is an open source product, providing users with the flexibility to customize the user interface based on their specific needs.
+Users can directly change the source code by forking the project and following the instructions in the developer guide to build their customized version.
+For users seeking professional help or customization services, Obeo offers support and can offer tailored solutions.
+Feel free to contact Obeo for personalized help with your customization requirements.
 ====
 
 
@@ -76,13 +79,13 @@ Model 2 Doc ?
 == Additional Resources
 
 * xref:ROOT:index.adoc[{product} documentation]
-* xref:ROOT:help.adoc[Community forums and support channels]
+// * xref:ROOT:help.adoc[Community forums and support channels]
 * xref:user-manual:hands-on/hands-on.adoc[Tutorials and training resources]
 
 
 * xref:faq/ocp.adoc[What is {ocp} vs {product}?]
-* xref:user-manual:features/capella.adoc[How to integrate {product} with Capella?]
-* xref:faq/support.adoc[]
-* xref:faq/install.adoc[]
+* xref:user-manual:integration/capella.adoc[How to integrate {product} with Capella?]
+// * xref:faq/support.adoc[]
+// * xref:faq/install.adoc[]
 
 //TODO

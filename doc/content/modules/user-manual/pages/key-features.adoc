@@ -1,14 +1,14 @@
 = Key features in {product}
 
 {product} encompasses a set of key features aimed at enhancing the modeling experience within the {sysmlv2} framework.
-The primary functionalities of {product} are currently centered around project management and model creation, aligning with the classical views recommended by the {sysmlv2} standard.
+The primary functionalities of {product} are  centered around project management and model creation, aligning with the classical views recommended by the {sysmlv2} standard.
 
 [NOTE]
 ====
 In {product}, features are categorized into two distinct levels of maturity:
 
 * **Experimental**: Features in the early stages of development or testing, subject to potential changes and improvements based on user feedback.
-* **Stable**: Features that have completed rigorous testing, are deemed reliable, and are ready for production use with a high level of confidence in their stability and functionality.
+* **Stable**: Features that have completed rigorous testing, are deemed reliable, and are ready for production use with a high level of confidence in their stability and capability.
 
 This dual categorization allows users to choose features based on their comfort level with the maturity of each, providing flexibility and transparency in the utilization of our product.
 ====
@@ -47,37 +47,37 @@ a|icon:check[role=green]
 a|icon:check[role=gray] partial
 a|icon:check[role=gray] partial
 
-|xref:user-manual:features/interconnection-view.adoc[Interconnection View]
+|xref:user-manual:features/interconnection-view.adoc[{iv}]
 a|icon:check[role=green]
 a|icon:check[role=gray] partial
 a|icon:check[role=gray] partial
 
-|xref:user-manual:sysmlv2-overview.adoc[Action Flow View]
+|xref:user-manual:features/sysmlv2-overview.adoc[{afv}]
 a|icon:check[role=green]
 a|icon:times[role=red]
 a|icon:times[role=red]
 
-|xref:user-manual:sysmlv2-overview.adoc[State Transition View]
+|xref:user-manual:features/sysmlv2-overview.adoc[{stv}]
 a|icon:check[role=green]
 a|icon:times[role=red]
 a|icon:times[role=red]
 
-|xref:user-manual:sysmlv2-overview.adoc[Sequence View]
+|xref:user-manual:features/sysmlv2-overview.adoc[Sequence View]
 a|icon:check[role=green]
 a|icon:times[role=red]
 a|icon:times[role=red]
 
-|xref:user-manual:sysmlv2-overview.adoc[Geometry View]
+|xref:user-manual:features/sysmlv2-overview.adoc[Geometry View]
 a|icon:check[role=green]
 a|icon:times[role=red]
 a|icon:times[role=red]
 
-|xref:user-manual:sysmlv2-overview.adoc[Grid View]
+|xref:user-manual:features/sysmlv2-overview.adoc[Grid View]
 a|icon:check[role=green]
 a|icon:times[role=red]
 a|icon:times[role=red]
 
-|xref:user-manual:sysmlv2-overview.adoc[Browser View]
+|xref:user-manual:features/sysmlv2-overview.adoc[Browser View]
 a|icon:check[role=green]
 a|icon:times[role=red]
 a|icon:times[role=red]
@@ -94,17 +94,17 @@ a|icon:times[role=red]
 a|icon:check[role=green]
 a|icon:check[role=green]
 
-|xref:features/interoperability.adoc[Download / Upload JSON format]
+|xref:integration/interoperability.adoc[Download / Upload JSON format]
 a|icon:times[role=red]
 a|icon:check[role=green]
 a|icon:check[role=green]
 
-|xref:features/interoperability.adoc[Download / Upload Standard {sysmlv2} JSON format]
+|xref:integration/interoperability.adoc[Download / Upload Standard {sysmlv2} JSON format]
 a|icon:times[role=red]
 a|icon:times[role=red]
 a|icon:times[role=red]
 
-|xref:features/interoperability.adoc[Download / Upload {sysmlv2} textual format]
+|xref:integration/interoperability.adoc[Download / Upload {sysmlv2} textual format]
 a|icon:times[role=green]
 a|icon:check[role=gray] Experimental
 a|icon:check[role=gray] Experimental

@@ -21,7 +21,7 @@ This keyboard shortcut is available  from representation editor but also from th
 
 === Shift key
 
-To select many element in one action from representation editor, user can press `Shift` key and draw a rectangular area around elements that he wants to select. After releasing the click, all element in the area are selected. 
+To select many element in one action from representation editor, user can press `Shift` key and draw a rectangular area around elements that he wants to select.After releasing the click, all element in the area are selected.
 
 == Search
 

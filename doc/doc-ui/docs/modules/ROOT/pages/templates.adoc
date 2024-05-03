@@ -187,11 +187,11 @@ s| siteRootPath
 | The relative path to the root of the published site.
 If a site start page is defined, the visitor will be redirected from this location to the start page.
 Can be used as a fallback when a site URL is not set.
-This value is _root-relative_ in the 404 page template, which is required for the 404 page to work correctly when served by the web server. 
+This value is _root-relative_ in the 404 page template, which is required for the 404 page to work correctly when served by the web server.
 
 s| uiRootPath
 | The relative path to the root directory of the UI.
-This value is _root-relative_ in the 404 page template, which is required for the 404 page to work correctly when served by the web server. 
+This value is _root-relative_ in the 404 page template, which is required for the 404 page to work correctly when served by the web server.
 
 s| antoraVersion
 | The version of Antora used to build the site (specifically the version of the @antora/page-composer package).
@@ -217,6 +217,6 @@ Next, open the file [.path]_templates/partials/head.hbs_ and add your tag.
 ----
 
 Each template file has access to the template model, which exposes information about the current page through variable names.
-The variables currently available are listed in <<template-variables-ref>>.
+The variables  available are listed in <<template-variables-ref>>.
 
 Save the file, commit it to git, push the branch, and allow the approval workflow to play out.

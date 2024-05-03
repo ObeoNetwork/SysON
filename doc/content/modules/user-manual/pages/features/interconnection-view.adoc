@@ -1,17 +1,17 @@
-= Interconnection View
+= {iv}
 
-The {Interconnection View} is employed to show encapsulated structural contents of _Usage- element: Parts, Properties, Connectors, Ports, and Interfaces.
+The {iv} is employed to show encapsulated structural contents of _Usage- element: Parts, Properties, Connectors, Ports, and Interfaces.
 
 // Unsynchronized
 include::user-manual:partial$view-unsynchronized.adoc[]
 
-image::interconnection-view-overview.png[{Interconnection view} Overview]
+image::interconnection-view-overview.png[{iv} Overview]
 
-== Create New Interconnection View Diagram
+== Create New {iv} Diagram
 
-User can create Interconnection view diagram on _Usage_ element_.
+User can create {iv} diagram on _Usage_ element_.
 
-image::interconnection-view-diagram-creation.png[Interconnection view Diagram Creation]
+image::interconnection-view-diagram-creation.png[{iv} Diagram Creation]
 
 include::user-manual:partial$manage-toolbar-diagram.adoc[]
 
@@ -19,23 +19,23 @@ include::user-manual:partial$manage-toolbar-diagram.adoc[]
 
 === _Usage_ elements
 
-From the root _Usage_, two elements can be displayed in the Interconnection view diagram:
+From the root _Usage_, two elements can be displayed in the {iv} diagram:
 
 * _Usage_ part,
 
-image::interconnection-view-part-node.png[Interconnection view Part]
+image::interconnection-view-part-node.png[{iv} Part]
 
 * port.
 
-image::interconnection-view-port-node.png[Interconnection view Port]
+image::interconnection-view-port-node.png[{iv} Port]
 
-From compartment of _Usage_ part, three elements can be displayed in the Interconnection view diagram:
+From compartment of _Usage_ part, three elements can be displayed in the {iv} diagram:
 
 * attribute
 * part
-* port 
+* port
 
-image::interconnection-view-part-compartment-node.png[Interconnection view Compartment part]
+image::interconnection-view-part-compartment-node.png[{iv} Compartment part]
 
 === Relationship
 
@@ -43,11 +43,11 @@ The following Relationship can be displayed in the {gv} diagram:
 
 * Binding connector as _Usage_,
 
-image::interconnection-view-bind-edge.png[Interconnection view Bind Edge]
+image::interconnection-view-bind-edge.png[{iv} Bind Edge]
 
 * Allocation,
 
-image::interconnection-view-allocation-edge.png[Interconnection view Allocation Edge]
+image::interconnection-view-allocation-edge.png[{iv} Allocation Edge]
 
 include::user-manual:partial$manage-elements-diagram.adoc[]
 

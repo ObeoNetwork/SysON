@@ -1,13 +1,19 @@
 = Welcome to {product}
 
-SysON represents an open-source web-based tooling to edit SysML v2 models. It includes a set of editors (graphical, textual, form-based, etc.) enabling users to build the various parts of system models. 
+include::user-manual:partial$intro.adoc[]
 
 Start your learning journey with {product}.
 
-include::overview.adoc[leveloffset=+1]
+include::ROOT:introduction.adoc[leveloffset=+1]
 
-include::user-manual:get-started.adoc[leveloffset=+1]
+include::ROOT:get-started.adoc[leveloffset=+1]
 
-include::expand-knowledge.adoc[leveloffset=+1]
+include::ROOT:user-interface-overview.adoc[leveloffset=+1]
+
+include::ROOT:features.adoc[leveloffset=+1]
+
+include::ROOT:integration.adoc[leveloffset=+1]
 
 include::ROOT:help.adoc[leveloffset=+1]
+
+include::ROOT:release-notes.adoc[leveloffset=+1]

@@ -19,7 +19,7 @@ Once completed, the newly created representation will be open automatically and 
 [#delete-representation]
 == Delete a Representation
 
-It is possible to delete a representation either from the {explorer} or the {representations-view}.
+It's possible to delete a representation either from the {explorer} or the {representations-view}.
 
 [WARNING]
 ====
@@ -51,14 +51,16 @@ You can delete a representation from the {representations-view}:
 image::hands-on-delete-representation-from-representation-view.png[Delete representation from the {representations-view}]
 
 
-A confirmation dialog appears when a representation is deleted. This behavior can be disabled by checking the "Disable this confirmation dialog" check box in the dialog.
+A confirmation dialog appears when a representation is deleted.
+This behavior can be disabled by checking the "Disable this confirmation dialog" check box in the dialog.
 
 image::manage-elements-semantic-deletion.png[Semantic Deletion]
-	
+
 [TIP]
 ====
-This preference is stored in the local storage of the browser. You can reset it by deleting the SysON data in cache of your browser.
-====   
+This preference is stored in the local storage of the browser.
+You can reset it by deleting the SysON data in cache of your browser.
+====
 
 [#rename-representation]
 == Rename a Representation

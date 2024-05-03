@@ -1,0 +1,82 @@
+= 2024.5.0
+
+== Breaking changes
+
+- The `requirement-view` diagram has been introduced by error in the last release.
+This diagram is not defined in the SysMLv2 specification.
+It has been deleted in this release.
+
+== Dependencies update
+
+- Switch to https://github.com/eclipse-sirius/sirius-web/releases/tag/v2024.3.3[Sirius Web v2024.3.3]
+- Switch to @ObeoNetwork/gantt-task-react 0.4.9
+
+== Bug fixes
+
+- The "Add existing elements (recursive)" has been modified to work on `PartUsage`.
+- From {iv} diagram, attributes compartment has been added in children `PartUsage` nodes.
+
+image::release-notes-attribut-compartmen-interconnection-view.png[Attribute compartment from {iv}]
+
+- No error is raised anymore when setting a valid new value (with primitive type) in the Details view.
+- The body feature of a `Comment` remove now the "/*" and "*/" characters while importing a model from Sysml textual format.
+- All `Memberships` are now contained in their parent through `ownedRelatedElement` instead of `ownedRelationship` reference.
+- Rename action from explorer is now renaming tree items as expected.
+- `EnumerationDefinition` is now created with a default name.
+
+image::release-notes-enumeration-definition.png[Enumeration definition node]
+
+== Improvements
+
+- "Become nested" edge creation tools has been added for `AttributeUsage`, `ItemUsage`, `PartUsage` and `PortUsage` nodes.
+
+image::release-notes-become-nested-attribute.png[Become nested attribute edge tool]
+
+- Composite usages are now forbidden inside `PortDefinition`/`PortUsage`.
+- Composite usages are now forbidden inside `AttributeDefinition`/`AttributeUsage`.
+- TODO https://github.com/eclipse-syson/syson/issues/154[#154] [diagrams] Add missing node tools inside existing usage elements.
+- Composite edges between `Usage` and compartment content have been added to link nested `Actions` with its `Action`, nested `Constraints` with its `Constraints` and nested `Constraints` with its `Requirement`.
+
+image::release-notes-nested-composite-edge.png[Nested composite edge]
+
+- `OccurrenceDefinition` and `OccurrenceUsage` elements are now handled in General View diagram.
+
+image::release-notes-handle-occurence.png[Handle occurrence elements]
+
+- Explicit usage of node to call syside javascript file has been added.
+
+- `Membership`#visibility attribute has been added to Core properties in the Details view.
+
+image::release-notes-membership-visibility.png[Membership visibility in Details view]
+
+- `PortUsage`#direction attribute has been added to Core properties in the Details view.
+
+image::release-notes-port-direction.png[Port direction in Details view]
+
+- `UseCaseDefinition` and `UseCaseUsage` elements are now handled in General View diagram.
+
+image::release-notes-handle-usecase.png[Handle usecase elements]
+
+- Reconnection tools have been added for composition edges.
+- `Definition`/`Usage` node are now collapsed by default in general-view & actionflow-view diagrams.
+- `Definition`/`Usage` nodes are expanded in all diagrams when a compartment item is created.
+- `AllocationDefinition` and `AllocationUsage` elements are now handled in General View diagram.
+
+image::release-notes-handle-allocation.png[Handle allocation elements]
+
+- All elements are now represented with their icon.
+- Label is now positioned from inside to outside for `Ports` (Border Nodes).
+
+image::release-notes-port-label.png[Port label]
+
+- General-view diagrams can now be created on any `Namespace` element.
+
+== New features
+
+- Compartments of `RequirementDefinition` and `RequirementUsage` have been redesigned to better fit the specification and examples.
+
+image::release-notes-requirements.png[Requirements]
+
+- A service that serializes a SysML element to its textual representation defined by the OMG Standard is now available and used in export capability.
+
+- `ConjugatedPortDefinition` is now handled in diagrams, Explorer and Details View.

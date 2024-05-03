@@ -83,14 +83,16 @@ To delete a model, follow these steps:
 
 image::hands-on-delete-model.png[Delete model]
 
-A confirmation dialog appears when the model is deleted via the Model Explorer. This behavior can be disabled by checking the "Disable this confirmation dialog" check box in the dialog.
+A confirmation dialog appears when the model is deleted via the Model Explorer.
+This behavior can be disabled by checking the "Disable this confirmation dialog" check box in the dialog.
 
 image::manage-elements-semantic-deletion.png[Semantic Deletion]
-	
+
 [TIP]
 ====
-This preference is stored in the local storage of the browser. You can reset it by deleting the SysON data in cache of your browser.
-====   
+This preference is stored in the local storage of the browser.
+You can reset it by deleting the SysON data in cache of your browser.
+====
 
 [#download-model]
 == Download a Model
@@ -146,7 +148,7 @@ image::hands-on-read-element.png[Read element]
 [#rename-element]
 == Rename an Element
 
-It is possible to rename an element either from the {explorer}, the {details} view or a representation.
+It's possible to rename an element either from the {explorer}, the {details} view or a representation.
 
 === From the {explorer}
 
@@ -191,7 +193,7 @@ Instead of using the tool in the tool bar, you can press `F2` key or start typin
 [#update-element]
 == Update an Element
 
-It is possible to update element properties either from the {details} view or a representation.
+It's possible to update element properties either from the {details} view or a representation.
 
 [#details]
 === From the {details} view
@@ -214,12 +216,12 @@ You can update the element name from a representation (diagram...):
 [TIP]
 ====
 Instead of using the tool in the tool bar, you can press `F2` key or start typing the new value directly to efficiently update the element name.
-====   
+====
 
 [TIP]
 ====
 A powerful syntax exists for editing element properties directly through the direct edit tool; refer to xref:hands-on/how-tos/model-management.adoc#direct-edit[Direct Edit Tool and Shortcuts] for details.
-====   
+====
 
 [#delete-element]
 == Delete an Element
@@ -253,19 +255,22 @@ image::hands-on-delete-element-from-representation.png[Delete element from repre
 
 CAUTION: Use the `DEL` key cautiously, as it is a direct shortcut for the delete operation.
 
-A confirmation dialog appears when an element is deleted via the _Delete from model_ tool in the palette or via the {explorer-menu}. This behavior can be disabled by checking the "Disable this confirmation dialog" check box in the dialog.
+A confirmation dialog appears when an element is deleted via the _Delete from model_ tool in the palette or via the {explorer-menu}.
+This behavior can be disabled by checking the "Disable this confirmation dialog" check box in the dialog.
 
 image::manage-elements-semantic-deletion.png[Semantic Deletion]
-	
+
 [TIP]
 ====
-This preference is stored in the local storage of the browser. You can reset it by deleting the SysON data in cache of your browser.
-====   
+This preference is stored in the local storage of the browser.
+You can reset it by deleting the SysON data in cache of your browser.
+====
 
 [#direct-edit]
 == Direct Edit Tool and Shortcuts
 
-The {product} supports a subset of the {sysmlv2} textual syntax, which allows you to update multiple elements simultaneously. This makes it more efficient to edit models.
+The {product} supports a subset of the {sysmlv2} textual syntax, which allows you to update multiple elements simultaneously.
+This makes it more efficient to edit models.
 
 In general, you can edit the label of a shape in a diagram, and the diagram editor will try to interpret your input and update the corresponding element properties.
 

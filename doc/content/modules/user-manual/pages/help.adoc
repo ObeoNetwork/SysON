@@ -1,32 +1,5 @@
-= Connect, Learn and Get Assistance
+= Support and resources
 
-[cols="2*^", %noheader, frame=none, grid=none]
-|===
-a|image::forum.svg[xref=user-manual:forum.adoc]
+Discover how to engage with the community, contribute to product development, access best practices, and seek professional support.
 
-**Forum**
-
-Meet the {product} community.
-
-xref:user-manual:forum.adoc[Join the forum...] a|image::volunteer_activism.svg[xref=user-manual:contribute.adoc]
-
-**Contribute**
-
-Report bugs or submit feature requests?
-
-xref:user-manual:contribute.adoc[Contribute to {product}...]
-
-a|image::editor_choice.svg[xref=user-manual:best-practices.adoc]
-
-**Best practices guides**
-
-Make the most out of {sysmlv2}.
-
-xref:user-manual:best-practices.adoc[Learn more...] a|image::support_agent.svg[xref=user-manual:support.adoc]
-
-**Contact support**
-
-Our support team is ready to assist.
-
-xref:user-manual:support.adoc[Read the guide...]
-|===
+include::user-manual:partial$nav-help.adoc[]

@@ -3,7 +3,7 @@
 == License
 {product} is under the EPL v2 license.
 
-[,java]
+[,txt]
 ----
 include::product-legal:example$eplv2-license.txt[]
 ----
