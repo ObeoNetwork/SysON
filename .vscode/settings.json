@@ -3,10 +3,24 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
   },
   "[javascript]": {
     "editor.formatOnSave": true
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "vale.enableSpellcheck": true,
+  "vale.valeCLI.path": "vale",
+  "vale.valeCLI.minAlertLevel": "suggestion",
+  "cSpell.ignoreWords": [
+    "MBSE",
+    "adoc",
+    "batmobile",
+    "noheader",
+    "sysmlv",
+    "syson"
+  ],
+  "cSpell.words": [
+    "metamodel"
+  ]
 }
