@@ -46,17 +46,17 @@ To filter elements in the {explorer} using the filter bar:
 . Choose a tree item in the {explorer}.
 . Press `Ctrl+f` (Windows/Linux) or `Cmd+f` (MacOS) to enable the filter bar.
 . Enter a value in the filter bar.
-
++
 image::hands-on-filter-name-shortcut.png[Filter name shortcut]
-
++
 . All visible tree items containing the typed value will be highlighted.
-. Use the filter button inside the filter bar to hide all visible tree items that do not contain the entered value.
+. Use the filter button inside the filter bar to hide all visible tree items that don't contain the entered value.
 
 This capability allows for precise filtering and highlighting of elements based on specified criteria.
 
 [NOTE]
 ====
-The filter bar can only highlight items in the expanded state; it does not search within unexpanded children.
+The filter bar can only highlight items in the expanded state; it doesn't search within unexpanded children.
 Ensure the desired tree items are expanded to effectively use the filter and highlight capability.
 ====
 

@@ -22,19 +22,26 @@ Refer to the xref:features/editor.adoc[{editor} page] to understand how to use i
 
 To create a new project from a `Template`:
 
-. Click in the corresponding template card at the top of the homepage.
-
+1. Click in the corresponding template card at the top of the homepage.
++
+--
 The first three templates are directly visible in the {homepage} top region.
 If more templates are available, you can click the `Show all templates` card to open a dialog displaying all the available templates, possibly on multiple pages.
 
 image::hands-on-new-template.png[Create New Template]
+--
++
 
-. The new project is automatically created and opened.
-Depending on the template, an initial representation (e.g., a diagram) might also be automatically opened.
+2. The new project is automatically created and opened.
++
+--
+Depending on the template, an initial representation (for example a diagram) might also be automatically opened.
 
 The following example shows the result project _Batmobile_ create from _Batmobile_ template:
 
 image::hands-on-new-template_batmobile.png[Batmobile Template]
+--
++
 
 [NOTE]
 ====
@@ -68,14 +75,14 @@ To upload a project from an archive exported, follow these steps:
 
 . Go to the {homepage}.
 . Click the _Upload Project_ card.
-
-image::hands-on-upload.png[Upload project]
-
++
+image::hands-on-upload.png[Upload project] 
++
 . It opens the _Upload Project_ page.
-. Select a ZIP from your file system.
-
+. Select a ZIP from your file system. 
++
 image::hands-on-upload-select-file.png[Select file to upload]
-
++
 . The uploaded project is automatically created and opened.
 
 Refer to the xref:features/editor.adoc[{editor} page] to understand how to use it for xref:hands-on/how-tos/model-management.adoc#create-model[creating your own models] and xref:hands-on/how-tos/representation-operations.adoc#create-representation[representations].
@@ -99,9 +106,9 @@ You can delete a project from the {homepage}:
 
 . Click the {projects-list-menu} next to the project in the {projects-list}.
 . Select the `Delete` option.
-
++
 image::hands-on-delete-project-homepage.png[Delete Project from Homepage]
-
++
 . Confirm the deletion by clicking on the `Delete` button in the modal.
 
 === From the {editor}
@@ -110,9 +117,9 @@ You can delete a project from the {editor}:
 
 . Click the {projects-list-menu} next to the project name in the project toolbar.
 . Select the `Delete` option.
-
++
 image::hands-on-delete-project-editor.png[Delete Project from editor]
-
++
 . Confirm the deletion by clicking on the `Delete` button in the modal.
 
 [#rename-project]
@@ -136,9 +143,9 @@ You can update the project name from the {homepage}:
 
 . Click the {projects-list-menu} next to the project in the {projects-list}.
 . Select the `Rename` option.
-
++
 image::hands-on-rename-project-homepage.png[Rename Project from Homepage]
-
++
 . Update the name in the editable field.
 . Click on `Rename`.
 
@@ -148,9 +155,9 @@ You can update the project name from the {editor}:
 
 . Click the {projects-list-menu} next to the project name in the toolbar.
 . Select the `Rename` option.
-
++
 image::hands-on-rename-project-editor.png[Rename Project from editor]
-
++
 . Update the name in the editable field.
 . Click on `Rename`.
 

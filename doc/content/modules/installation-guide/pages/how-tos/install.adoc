@@ -54,7 +54,7 @@ docker run -p 5434:5432 --name syson-postgres \
 This may take a while the first time you run this as Docker will first pull the PostgreSQL image.
 ====
 
-If you don't have Docker or prefer to utilize an existing PostgreSQL installation, modify the following command-line parameters and ensure the `POSTGRES_USER` possesses administrative rights on the database.
+If you don't have Docker or prefer to use an existing PostgreSQL installation, modify the following command-line parameters and ensure the `POSTGRES_USER` possesses administrative rights on the database.
 These rights are necessary for the automatic creation of the database schema.
 
 == Start the application

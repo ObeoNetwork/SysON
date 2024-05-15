@@ -47,4 +47,6 @@ include::user-manual:partial$nav-updates.adoc[]
 --
 +
 
+* xref:user-manual:faq/faq.adoc[]
+
 * xref:product-legal:index.adoc[]

@@ -1,1 +1,22 @@
 = Parametric modeling and constraints
+
+In SysML v1, managing block input parameters is an important aspect for modeling complex systems. 
+Blocks in SysML v1 are used to represent the structural elements of a system, and input parameters define the interfaces between these elements. 
+Ports are connection points on a block, allowing you to specify the interfaces through wich blocks interact with each other. 
+Parametric diagrams are used in SysML v1 to define and link input parameters, thus allowing precise modeling of the interactions and behaviors of system components. 
+They capture constraints and relationships between parameters within and between blocks.
+
+We find the whole process of this management with SysML v2 with some differences.
+SysML v2 continues to use ports to define connection points on blocks. 
+However parametric diagrams have been replaced by Interconnexion view diagram.
+
+From the {iv} diagram, user can easily create a new part from a simple click o the root node that displays toolbar.
+Then by displaying toolbar on this new node, user can also create port ont the new part.
+To represent data flux between ports, user can create `InterfaceUsage` or `BindingConnector as usage`.
+These data flux show how parameter values are related, allowing values to propagate through the model.
+
+image::parametric-modeling-connected-port.png[{Connected ports}]
+
+Work around Parametric modeling and constraints are among the topics to be processed soon. 
+
+Feel free to xref:ROOT:help.adoc[contact us] for more details. 

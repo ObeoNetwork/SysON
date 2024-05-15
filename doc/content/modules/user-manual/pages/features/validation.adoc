@@ -4,3 +4,5 @@ The {validation} view displays diagnostics for the entire project, organized by 
 Users can conveniently toggle the visibility of diagnostics using an accordion widget.
 
 Validation view is disable for now and no diagnostic are available.
+
+Feel free to xref:ROOT:help.adoc[contact us] for more details. 

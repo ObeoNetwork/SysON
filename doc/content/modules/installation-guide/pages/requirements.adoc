@@ -65,9 +65,10 @@ It's recommended to use the Java runtime provided by the https://adoptium.net/fr
 
 === Supported browsers
 
+Users can interact with the central server through following web browsers: 
+
 [%noheader]
 |===
-|*Browsers*
 a|*Desktop browsers:*
 
 * *Chrome* latest stable version

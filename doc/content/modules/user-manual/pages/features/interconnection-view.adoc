@@ -9,7 +9,7 @@ image::interconnection-view-overview.png[{iv} Overview]
 
 == Create New {iv} Diagram
 
-User can create {iv} diagram on _Usage_ element_.
+User can create {iv} diagram on any _Usage_ or _Definition_ element.
 
 image::interconnection-view-diagram-creation.png[{iv} Diagram Creation]
 

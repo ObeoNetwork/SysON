@@ -4,4 +4,7 @@ The {details} view provides a comprehensive overview of the selected element, pr
 
 image::details-right-sidebar-details.png[{details}]
 
-CAUTION :  It's important to note that any changes made in the {details} view have a direct and immediate effect on the underlying model, making these modifications instantly available to everyone accessing the model.
+[WARNING]
+====
+It's important to note that any changes made in the {details} view have a direct and immediate effect on the underlying model, making these modifications instantly available to everyone accessing the model.
+====

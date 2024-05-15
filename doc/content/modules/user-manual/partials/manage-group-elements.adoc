@@ -2,11 +2,11 @@
 
 When user select multiple elements, many actions are available to manage all selected element.
 
-=== From tool bar
+=== From toolbar
 
-After user selected some elements, a simplified tool bar is displayed.
+After user selected some elements, a simplified toolbar is displayed.
 
-image::manage-group-element-toolbar.png[Group element tool bar]
+image::manage-group-element-toolbar.png[Group element toolbar]
 
 User can still used basic tools such as :
 
@@ -14,7 +14,7 @@ User can still used basic tools such as :
 * Fade elements,
 * Pin elements.
 
-A new tool section appears in this tool bar.
+A new tool section appears in this toolbar.
 Many tools acting on selected elements layout can be found in this tool section :
 
 * Align left,
@@ -34,7 +34,7 @@ Many tools acting on selected elements layout can be found in this tool section 
 
 === From mouse and shortcuts
 
-In addition to tool bar actions, some actions can be execute with shortcuts.
+In addition to toolbar actions, some actions can be execute with shortcuts.
 
 Indeed, after user selected some elements, user can press the key "Del" to remove all selected elements.
 

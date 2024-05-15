@@ -17,3 +17,5 @@ include::ROOT:integration.adoc[leveloffset=+1]
 include::ROOT:help.adoc[leveloffset=+1]
 
 include::ROOT:release-notes.adoc[leveloffset=+1]
+
+include::ROOT:faq.adoc[leveloffset=+1]

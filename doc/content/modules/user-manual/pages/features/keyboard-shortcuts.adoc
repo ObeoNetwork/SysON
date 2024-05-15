@@ -12,7 +12,7 @@ Explore further by referring to the following how-tos for xref:user-manual:featu
 
 == Multi-selection
 
-There are two way to select many elements.
+Two ways to select many elements exist:
 
 === CTRL key
 
@@ -21,7 +21,8 @@ This keyboard shortcut is available  from representation editor but also from th
 
 === Shift key
 
-To select many element in one action from representation editor, user can press `Shift` key and draw a rectangular area around elements that he wants to select.After releasing the click, all element in the area are selected.
+To select many element in one action from representation editor, user can press `Shift` key and draw a rectangular area around elements that user wants to select.
+After releasing the click, all element in the area are selected.
 
 == Search
 

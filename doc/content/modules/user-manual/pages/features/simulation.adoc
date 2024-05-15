@@ -1,1 +1,10 @@
 = Simulation and validation tools
+
+Validation view is disable for now, more details are explained   on xref:features/validation.adoc[Validation] page.
+
+SysON plans the ability to export data in sysMlv2 to connect to a simulation tools such as Matlab or others.
+
+Work around simulation and validation tools are among the topics to be processed soon. 
+
+Feel free to xref:ROOT:help.adoc[contact us] for more details. 
+

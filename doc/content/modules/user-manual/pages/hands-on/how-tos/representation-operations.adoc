@@ -8,7 +8,7 @@ To create a representation, follow these steps:
 . Open the Project Editor.
 . Open the {explorer-menu} next to an element in the explorer.
 . Select the `New representation` action.
-. Fill in the representation name.
+. Complete the representation name.
 . Choose the representation type.
 . Click the `Create` button.
 
@@ -28,7 +28,7 @@ This operation is irreversible, once done there is no mean to get the representa
 
 [NOTE]
 ====
-The semantic elements visible in a representation will not be deleted.
+The semantic elements visible in a representation won't be deleted.
 ====
 
 === From the {explorer}
@@ -52,7 +52,7 @@ image::hands-on-delete-representation-from-representation-view.png[Delete repres
 
 
 A confirmation dialog appears when a representation is deleted.
-This behavior can be disabled by checking the "Disable this confirmation dialog" check box in the dialog.
+This behavior can be disabled by checking the "Disable this confirmation dialog" checkbox in the dialog.
 
 image::manage-elements-semantic-deletion.png[Semantic Deletion]
 
@@ -87,7 +87,7 @@ This simplicity in sharing promotes efficient collaboration and simplifies the c
 To share a representation in {product}, follow these steps:
 
 . Open the a representation from the explorer.
-. Click the `Share` button in the general tool bar at the top of the representation area.
+. Click the `Share` button in the general toolbar at the top of the representation area.
 . Copy the link to your clipboard.
 
 image::hands-on-share-representation.png[Share representation]

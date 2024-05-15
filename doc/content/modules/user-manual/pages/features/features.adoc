@@ -1,4 +1,3 @@
 = Features and capabilities
 
-* xref:user-manual:key-features.adoc[]
 include::user-manual:partial$nav-features.adoc[]

@@ -14,7 +14,7 @@ include::user-manual:partial$feature-status-stable.adoc[]
 include::user-manual:partial$feature-usage-all.adoc[]
 ====
 
-== What is the {homepage} ?
+== What's the {homepage} ?
 
 The **{homepage}** page serves as the pivotal starting point for your modeling endeavors and is the homepage of the {product} application, offering a central hub where users can seamlessly initiate new projects or manage existing ones.
 
@@ -49,7 +49,7 @@ Within the platform, initiating a new project is a user-friendly process that ac
 * **Create a Blank Project**: Users can start their modeling journey with a clean slate, building a project from the ground up.
 With blank project, there is no model and no representation at creation.
 * **Create a Project from Existing Templates**: For efficiency and consistency, users can select from predefined templates that streamline project initiation, aligning with common modeling scenarios.
-The 3 first possible templates are displayed unitary at the beginning of Project sections and they are also available in "Show all templates" section.
+The 3 first possible templates are displayed unitary at the beginning of Project sections and they're also available in "Show all templates" section.
 For now, there exist two available templates : _Batmobile_ and _SysMLv2_.
 _Batmobile- template is a complete SysML project with many concepts of each SysML type (many kind of _Definitions_ and _Usages_ with relationships).
 _SysMLv2_ is an empty SysML project with only the root model, a _Package_ and a {gv} representation.

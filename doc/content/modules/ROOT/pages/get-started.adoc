@@ -4,14 +4,6 @@ Discover essential entry points for installation procedures and a quick tour des
 
 [cols="3*^", %noheader, frame=none, grid=none]
 |===
-a|image::explore.svg[xref=installation-guide:index.adoc]
-
-*How to install {product} ?*
-
-Covers installation of {product}
-
-xref:installation-guide:index.adoc[Install {product}]
-
 a|image::person_play.svg[xref=installation-guide:requirements.adoc]
 
 *Read the installation's prerequisites ?*
@@ -19,6 +11,14 @@ a|image::person_play.svg[xref=installation-guide:requirements.adoc]
 Installation requirements to run {product}
 
 xref:installation-guide:requirements.adoc[Learn more]
+
+a|image::explore.svg[xref=installation-guide:index.adoc]
+
+*How to install {product} ?*
+
+Covers installation of {product}
+
+xref:installation-guide:index.adoc[Install {product}]
 
 a|image::sprint.svg[xref=user-manual:hands-on/tutorials/batmobile.adoc]
 

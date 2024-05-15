@@ -47,6 +47,7 @@ image::gv-partDef-node.png[{gv} Part Def Node]
 
 The following _Usage_ elements can be displayed in the {gv} diagram:
 
+  * Accept Action usage,
   * Action Usage,
   * Allocation Usage,
   * Attribute Usage,
