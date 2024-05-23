@@ -18,7 +18,7 @@ FROM alpine:latest
 
 RUN apk add git
 RUN apk add npm
-RUN apk add ruby
+RUN apk add ruby ruby-dev gcc g++ make
 
 RUN mkdir /home/antora
 
@@ -32,6 +32,8 @@ RUN gem install asciidoctor
 RUN gem install asciidoctor-pdf
 RUN gem install rouge
 RUN gem install kramdown-asciidoc
+
+RUN apk del ruby-dev gcc g++ make
 
 ENV PATH="$PATH:/home/antora/node_modules/@antora/cli/bin/"
 
