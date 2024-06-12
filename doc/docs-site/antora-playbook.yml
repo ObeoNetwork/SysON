@@ -23,3 +23,9 @@ asciidoc:
     sectlinks:
     sectnums: all
     page-toclevels: 3
+
+
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'
+    languages: [en, fr]

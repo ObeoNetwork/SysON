@@ -1,5 +1,9 @@
+body.-toc aside.toc.sidebar {
+  display: none;
+}
+
 @media screen and (max-width: 1023.5px) {
-  aside.sidebar {
+  aside.toc.sidebar {
     display: none;
   }
 
@@ -18,23 +22,18 @@
     display: flex;
   }
 
-  .content .spacer {
-    flex: 1 0 auto;
-    order: 1;
-  }
-
-  aside.embedded {
+  aside.toc.embedded {
     display: none;
   }
 
-  aside.sidebar {
-    flex: 0 0 var(--sidebar-width);
-    order: 2;
+  aside.toc.sidebar {
+    flex: 0 0 var(--toc-width);
+    order: 1;
   }
 }
 
 @media screen and (min-width: 1216px) {
-  aside.sidebar {
-    flex-basis: var(--sidebar-width--widescreen);
+  aside.toc.sidebar {
+    flex-basis: var(--toc-width--widescreen);
   }
 }

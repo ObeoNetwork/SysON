@@ -1,3 +1,9 @@
+@media screen and (max-width: 1023.5px) {
+  html.is-clipped--nav {
+    overflow-y: hidden;
+  }
+}
+
 .nav-container {
   position: fixed;
   top: var(--navbar-height);
@@ -60,10 +66,6 @@
   height: inherit;
 }
 
-html.is-clipped--nav {
-  overflow-y: hidden;
-}
-
 .nav-panel-menu {
   overflow-y: scroll;
   overscroll-behavior: none;
@@ -90,6 +92,29 @@ html.is-clipped--nav {
   padding: 0.5rem 0.75rem;
   line-height: var(--nav-line-height);
   position: relative;
+}
+
+.nav-menu-toggle {
+  background: transparent url(../img/octicons-16.svg#view-unfold) no-repeat center / 100% 100%;
+  border: none;
+  float: right;
+  height: 1em;
+  margin-right: -0.5rem;
+  opacity: 0.75;
+  outline: none;
+  padding: 0;
+  position: sticky;
+  top: calc((var(--nav-line-height) - 1 + 0.5) * 1rem);
+  visibility: hidden;
+  width: 1em;
+}
+
+.nav-menu-toggle.is-active {
+  background-image: url(../img/octicons-16.svg#view-fold);
+}
+
+.nav-panel-menu.is-active:hover .nav-menu-toggle {
+  visibility: visible;
 }
 
 .nav-menu h3.title {
@@ -197,11 +222,11 @@ html.is-clipped--nav {
 }
 
 .nav-panel-explore .components {
-  line-height: var(--doc-line-height);
+  line-height: var(--nav-line-height);
   flex-grow: 1;
   box-shadow: inset 0 1px 5px var(--nav-panel-divider-color);
   background: var(--nav-secondary-background);
-  padding: 0.5rem 0.75rem 0 0.75rem;
+  padding: 0.75rem 0.75rem 0 0.75rem;
   margin: 0;
   overflow-y: scroll;
   overscroll-behavior: none;
@@ -218,7 +243,7 @@ html.is-clipped--nav {
 }
 
 .nav-panel-explore .component + .component {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .nav-panel-explore .component:last-child {
@@ -227,13 +252,14 @@ html.is-clipped--nav {
 
 .nav-panel-explore .component .title {
   font-weight: var(--body-font-weight-bold);
+  text-indent: 0.375rem hanging;
 }
 
 .nav-panel-explore .versions {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
-  margin-top: -0.25rem;
+  margin: -0.125rem -0.375rem 0 0.375rem;
   line-height: 1;
   list-style: none;
 }
@@ -243,16 +269,17 @@ html.is-clipped--nav {
 }
 
 .nav-panel-explore .component .version a {
-  border: 1px solid var(--nav-border-color);
+  background: var(--nav-border-color);
   border-radius: 0.25rem;
-  opacity: 0.75;
   white-space: nowrap;
-  padding: 0.125em 0.25em;
+  padding: 0.25em 0.5em;
   display: inherit;
+  opacity: 0.75;
 }
 
 .nav-panel-explore .component .is-current a {
-  border-color: currentColor;
-  opacity: 0.9;
+  background: var(--nav-heading-font-color);
+  color: var(--nav-secondary-background);
   font-weight: var(--body-font-weight-bold);
+  opacity: 1;
 }

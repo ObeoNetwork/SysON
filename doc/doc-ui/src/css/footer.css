@@ -4,12 +4,24 @@ footer.footer {
   font-size: calc(15 / var(--rem-base) * 1rem);
   line-height: var(--footer-line-height);
   padding: 1.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
-.footer p {
+.footer-container {
+  display: block;
+  position: relative;
+  flex: 1 1 auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.footer-container p {
   margin: 0.5rem 0;
 }
 
-.footer a {
+.footer-container a {
   color: var(--footer-link-font-color);
 }

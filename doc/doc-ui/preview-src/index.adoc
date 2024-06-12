@@ -4,6 +4,7 @@ Author Name
 :idseparator: -
 :!example-caption:
 :!table-caption:
+//:page-role: -toc
 :page-pagination:
 
 [.float-group]
@@ -28,6 +29,7 @@ Nominavi luptatum eos, an vim hinc philosophia intellegebat.
 Lorem pertinacia `expetenda` et nec, [.underline]#wisi# illud [.line-through]#sonet# qui ea.
 H~2~0.
 E = mc^2^.
+*Alphabet* *алфавит* _алфавит_ *_алфавит_*.
 Eum an doctus <<liber-recusabo,maiestatis efficiantur>>.
 Eu mea inani iriure.footnote:[Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae! Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
 
@@ -200,6 +202,7 @@ sed::
 splendide sed
 
 mea::
+tad::
 agam graeci
 
 Let's look at that another way.
@@ -296,12 +299,18 @@ Eu mea inani iriure.
 [discrete]
 == Voluptua singulis
 
+[discrete]
+=== Nominavi luptatum
+
 Cum dicat putant ne.
 Est in reque homero principes, meis deleniti mediocrem ad has.
 Ex nam suas nemore dignissim, vel apeirian democritum et.
 
 .Antora is a multi-repo documentation site generator
 image::multirepo-ssg.svg[Multirepo SSG,3000,opts=interactive]
+
+.Let's see that again, but a little smaller
+image::multirepo-ssg.svg[Multirepo SSG,300,role=text-left]
 
 Make the switch today!
 

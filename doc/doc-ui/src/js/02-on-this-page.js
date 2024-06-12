@@ -1,28 +1,28 @@
 ;(function () {
   'use strict'
 
-  var sidebar = document.querySelector('aside.sidebar')
-  var toc = sidebar.querySelector('.toc')
+  var sidebar = document.querySelector('aside.toc.sidebar')
   if (!sidebar) return
-  if (document.querySelector('body.-toc')) return sidebar.removeChild(toc)
-  var levels = parseInt(toc.dataset.levels || 2, 10)
+  if (document.querySelector('body.-toc')) return sidebar.parentNode.removeChild(sidebar)
+  var levels = parseInt(sidebar.dataset.levels || 2, 10)
   if (levels < 0) return
 
   var articleSelector = 'article.doc'
   var article = document.querySelector(articleSelector)
+  if (!article) return
   var headingsSelector = []
   for (var level = 0; level <= levels; level++) {
     var headingSelector = [articleSelector]
     if (level) {
       for (var l = 1; l <= level; l++) headingSelector.push((l === 2 ? '.sectionbody>' : '') + '.sect' + l)
-      headingSelector.push('h' + (level + 1) + '[id]')
+      headingSelector.push('h' + (level + 1) + '[id]' + (level > 1 ? ':not(.discrete)' : ''))
     } else {
       headingSelector.push('h1[id].sect0')
     }
     headingsSelector.push(headingSelector.join('>'))
   }
   var headings = find(headingsSelector.join(','), article.parentNode)
-  if (!headings.length) return sidebar.removeChild(toc)
+  if (!headings.length) return sidebar.parentNode.removeChild(sidebar)
 
   var lastActiveFragment
   var links = {}
@@ -37,20 +37,20 @@
     return accum
   }, document.createElement('ul'))
 
-  var tocMenu = toc.querySelector('.toc-menu')
-  if (!tocMenu) (tocMenu = document.createElement('div')).className = 'toc-menu'
+  var menu = sidebar.querySelector('.toc-menu')
+  if (!menu) (menu = document.createElement('div')).className = 'toc-menu'
 
   var title = document.createElement('h3')
-  title.textContent = toc.dataset.title || 'Contents'
-  tocMenu.appendChild(title)
-  tocMenu.appendChild(list)
+  title.textContent = sidebar.dataset.title || 'Contents'
+  menu.appendChild(title)
+  menu.appendChild(list)
 
   var startOfContent = !document.getElementById('toc') && article.querySelector('h1.page ~ :not(.is-before-toc)')
   if (startOfContent) {
-    var embeddedTocAside = document.createElement('aside')
-    embeddedTocAside.className = 'toc embedded'
-    embeddedTocAside.appendChild(tocMenu.cloneNode(true))
-    startOfContent.parentNode.insertBefore(embeddedTocAside, startOfContent)
+    var embeddedToc = document.createElement('aside')
+    embeddedToc.className = 'toc embedded'
+    embeddedToc.appendChild(menu.cloneNode(true))
+    startOfContent.parentNode.insertBefore(embeddedToc, startOfContent)
   }
 
   window.addEventListener('load', function () {
