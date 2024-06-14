@@ -1,1 +1,1 @@
-icon:circle-info[] This feature is accessible to all users.
+icon:users[] This feature is available to all users.

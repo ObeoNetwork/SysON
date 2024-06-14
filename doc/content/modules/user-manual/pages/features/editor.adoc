@@ -1,17 +1,6 @@
 = {editor}
 
-.Before you Start
-[caption=]
-====
-// Edition
-include::user-manual:partial$feature-edition-os.adoc[]
-
-// Status
-include::user-manual:partial$feature-status-stable.adoc[]
-
-// Usage
-include::user-manual:partial$feature-usage-all.adoc[]
-====
+include::user-manual:partial$before-you-start-os-experimental-all.adoc[]
 
 == What's' the {editor} ?
 
@@ -19,7 +8,7 @@ The **{editor}** page serves as the primary workspace for editing project conten
 
 == Find your way around
 
-For those new to {product}, the initial experience with the application may feel a bit challenging.
+For those new to {product}, the initial experience with the application might feel a bit challenging.
 To help you navigate seamlessly and Kickstart collaboration with your team, we provide a guided tour for you to familiarize yourself with the platform.
 
 The {editor} features four distinct regions: a <<Toolbar>>, a <<Left Sidebar>>, a main <<Editor>>, and a <<Right Sidebar>>.
@@ -28,26 +17,26 @@ The layout has been simplified to ensure a clear understanding of the content wi
 image::editor.png[{editor}]
 
 === Toolbar
-The toolbar houses a selection of actions categorized into three groups: ': _Homepage_, _Project Actions_ (with the name of the project) and _Help_.
+The toolbar houses a selection of actions categorized into three groups: _Homepage_, _Project Actions_ (with the name of the project) and _Help_.
 
 image::editor-toolbar.png[{editor} Toolbar]
 
 include::user-manual:partial$homepage-action.adoc[leveloffset=+3]
 
 [#project-actions]
-==== Projects Actions
+==== Projects actions
 
-Access project-level actions like _xref:hands-on/how-tos/project-management.adoc#rename-project[rename]_, _xref:hands-on/how-tos/project-management.adoc#download-project[download]_, access project _xref:hands-on/how-tos/project-management.adoc#project-settings[settings]_, _xref:hands-on/how-tos/project-management.adoc#delete-project[delete]_.
+Access project-level actions such as _xref:hands-on/how-tos/project-management.adoc#rename-project[rename]_, _xref:hands-on/how-tos/project-management.adoc#download-project[download]_, access project _xref:hands-on/how-tos/project-management.adoc#project-settings[settings]_, _xref:hands-on/how-tos/project-management.adoc#delete-project[delete]_.
 
 image::editor-projectActions.png[{editor} Project Actions]
 
-For further actions, refer to: xref:hands-on/hands-on.adoc[]
+For further actions, see: xref:hands-on/hands-on.adoc[]
 
 include::user-manual:partial$help-action.adoc[leveloffset=+3]
 
-=== Left Sidebar
+=== Left sidebar
 
-The left sidebar contains different views like the xref:features/explorer.adoc[{explorer}] and the xref:features/validation.adoc[{validation}] to assist you working on your project.
+The left sidebar has different views such as the xref:features/explorer.adoc[{explorer}] and the xref:features/validation.adoc[{validation}] to assist you working on your project.
 
 [NOTE]
 ====
@@ -65,7 +54,7 @@ xref:hands-on/how-tos/user-interface-navigation.adoc#switch-left-sidebar[Explore
 
 The main area to edit your models and representations.
 You can open as many editors as you like.
-The {editor} area contains one or more editors.
+The {editor} area has one or more editors.
 
 image::editor-editor.png[{editor} Main Editor]
 
@@ -73,9 +62,9 @@ Discover the diverse range of representation options available and find the most
 
 xref:features/features.adoc#sysmlv2-views[Explore various types of representations...]
 
-=== Right Sidebar
+=== Right sidebar
 
-The right sidebar contains different views like the xref:features/details.adoc[{details}], the xref:features/representations-view.adoc[{representations-view}] and the xref:features/related-elements.adoc[{related-elements}] views to ...
+The right sidebar contains different views such as the xref:features/details.adoc[{details}], the xref:features/representations-view.adoc[{representations-view}] and the xref:features/related-elements.adoc[{related-elements}] views to ...
 
 [NOTE]
 ====

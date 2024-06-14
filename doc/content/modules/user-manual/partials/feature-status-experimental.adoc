@@ -1,2 +1,3 @@
-icon:fire[] This feature is considered experimental at the moment.
-We encourage users to try it out and give us feedback by reporting bugs and feature requests/ideas, but this shouldn't be used in production.
+icon:fire[] This feature is currently considered experimental.
+Try it out and provide feedback by reporting bugs and suggesting new features.
+It's not recommended for production use.

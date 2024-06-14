@@ -1,14 +1,14 @@
 = Frequently Asked Questions
 
-Here are answers to questions we are frequently asked.
+Here are answers to questions we're often asked.
 If you have a question not addressed here, please xref:ROOT:help.adoc[contact us].
 
-== General Questions
+== General questions
 
-.What is {product}?
+.What's {product}?
 [%collapsible]
 ====
-To understand the intent of {product}, refer to the xref:user-manual:what-is.adoc[What is?] section in the user manual.
+To understand the intent of {product}, refer to the xref:user-manual:what-is.adoc[What's?] section in the user manual.
 ====
 
 .What are the key features of {product}?
@@ -42,14 +42,14 @@ To import /export models, read the xref:user-manual:integration/interoperability
 ====
 
 * xref:user-manual:features/collaboration.adoc[How do I collaborate with others on models?]
-* xref:user-manual:what-is.adoc[What is the difference between {product} and other SysML modeling tools?]
+* xref:user-manual:what-is.adoc[What is the difference between {product} and other {sysml} modeling tools?]
 
 == Troubleshooting
 
 * xref:installation-guide:requirements.adoc[What are the recommended system requirements for {product}?]
 * xref:user-manual:contribute.adoc#reporting-issues[How do I report bugs or submit feature requests?]
 
-== Advanced Questions
+== Advanced questions
 
 .How do I customize the user interface of {product}?
 [%collapsible]
@@ -76,7 +76,7 @@ Does {product} provides a method?
 
 Model 2 Doc ?
 
-== Additional Resources
+== Additional resources
 
 * xref:ROOT:index.adoc[{product} documentation]
 // * xref:ROOT:help.adoc[Community forums and support channels]

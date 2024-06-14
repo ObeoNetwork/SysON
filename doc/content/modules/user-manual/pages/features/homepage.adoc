@@ -1,30 +1,20 @@
-:homepage: Projects Browser
+:homepage: Projects browser
 = {homepage}
 
-.Before you Start
-[caption=]
-====
-// Edition
-include::user-manual:partial$feature-edition-os.adoc[]
+include::user-manual:partial$before-you-start-os-experimental-all.adoc[]
 
-// Status
-include::user-manual:partial$feature-status-stable.adoc[]
+== What's the {homepage}?
 
-// Usage
-include::user-manual:partial$feature-usage-all.adoc[]
-====
-
-== What's the {homepage} ?
-
-The **{homepage}** page serves as the pivotal starting point for your modeling endeavors and is the homepage of the {product} application, offering a central hub where users can seamlessly initiate new projects or manage existing ones.
+The **{homepage}** page serves as the pivotal starting point for your modeling endeavors and is the homepage of the {product} application.
+It offers a central hub where users can seamlessly create new projects or manage existing ones.
 
 == Find your way around
 
-For newcomers to {product}, the initial experience of opening the application may seem a bit overwhelming.
-To assist you in navigating effectively and initiating collaboration with your team, we offer a guided tour to help you acclimate to the platform.
+For newcomers to {product}, the initial experience of opening the application might seem a bit overwhelming.
+To assist you in navigating and initiating collaboration with your team, we offer a guided tour to help you acclimate to the platform.
 
 The homepage features three distinct regions: a <<Toolbar>>, a <<Create a New Project>> section, and an <<Existing Projects>> section.
-We've streamlined the layout to provide a clear understanding of the content housed in each location.
+We've streamlined the layout to offer a clear understanding of the content housed in each location.
 
 image::homepage.png[{homepage}]
 
@@ -40,24 +30,24 @@ include::user-manual:partial$help-action.adoc[leveloffset=+3]
 
 === Create a New Project
 
-The _Create New Project_ section is designed to allow users to easily initiate the creation of a new project.
+The _Create New Project_ section is designed to allow users to initiate the creation of a new project.
 
 image::homepage-new-project.png[Create a New Project]
 
 Within the platform, initiating a new project is a user-friendly process that accommodates various preferences:
 
-* **Create a Blank Project**: Users can start their modeling journey with a clean slate, building a project from the ground up.
+* **Create a Blank Project**: Users can start their modeling journey with an empty project, building a project from the ground up.
 With blank project, there is no model and no representation at creation.
 * **Create a Project from Existing Templates**: For efficiency and consistency, users can select from predefined templates that streamline project initiation, aligning with common modeling scenarios.
 The 3 first possible templates are displayed unitary at the beginning of Project sections and they're also available in "Show all templates" section.
 For now, there exist two available templates : _Batmobile_ and _SysMLv2_.
-_Batmobile- template is a complete SysML project with many concepts of each SysML type (many kind of _Definitions_ and _Usages_ with relationships).
+_Batmobile- template is a complete SysML project with several concepts of each SysML type (kind of _Definitions_ and _Usages_ with relationships).
 _SysMLv2_ is an empty SysML project with only the root model, a _Package_ and a {gv} representation.
 * **Upload a Previously Exported Project**: Facilitating collaboration and workflow continuity, users can effortlessly upload a project previously exported, ensuring seamless transitions and flexibility in collaboration.
 
 [NOTE]
 ====
-Every project you create will have its own xref:features/editor.adoc[Project Editor].
+Every project you create have its own xref:features/editor.adoc[Project Editor].
 ====
 
 Explore further by referring to the following how-tos for xref:hands-on/how-tos/project-management.adoc#create-blank-project[creating blank projects], generating xref:hands-on/how-tos/project-management.adoc#create-template-project[projects from templates], or xref:hands-on/how-tos/project-management.adoc#upload-project[uploading] existing ones.

@@ -10,8 +10,8 @@ Developed by the OMG, {sysmlv2} builds upon its predecessor, {sysmlv1}, aiming t
 == Key aspects of {sysmlv2}
 
 * **Enhanced Flexibility**: {sysmlv2} offers enhanced flexibility in representing complex systems through refined constructs and improved semantics, accommodating a wide array of system engineering scenarios.
-* **KerML as the Foundation**: {sysmlv2} is uniquely based on the Kernel Modeling Language (KerML), further emphasizing its status as a DSL (Domain Specific Language) tailored for systems engineering.
-KerML serves as the foundational layer, providing core modeling constructs and principles.
+* **{kerml} as the Foundation**: {sysmlv2} is uniquely based on the `Kernel Modeling Language` - {kerml}, further emphasizing its status as a DSL - Domain Specific Language tailored for systems engineering.
+{kerml} serves as the foundational layer, providing core modeling constructs and principles.
 * **Graphical and Textual Syntax**: {sysmlv2} combines both graphical and textual syntax, allowing system engineers to select the representation that best suits their modeling preferences and the intricacies of the system being analyzed.
 * **Extensibility and Modularity**: The language is designed to be extendable, enabling the incorporation of domain-specific modeling elements and the creation of modular representations that align with the structure of complex systems.
 
@@ -51,26 +51,26 @@ This view is instrumental in capturing and visualizing the flow of actions, show
 The {stv} provides a concise representation of the different states a system can occupy and the transitions between these states.
 This view offers a visual depiction of the system's behavioral aspects, illustrating how it evolves and responds to various stimuli.
 
-=== Sequence View
+=== Sequence view
 
 The Sequence View presents the chronological order of event occurrences on lifelines, offering a clear temporal representation of system dynamics.
 
-=== Geometry View
+=== Geometry view
 
 The Geometry View is designed to present a visualization of exposed spatial items in two or three dimensions.
 This view is particularly tailored for system engineers and designers working on systems that involve spatial components, allowing them to gain insights into the spatial relationships, configurations, and layouts of elements within a model.
 
-=== Grid View
+=== Grid view
 
 The Grid View is designed to present exposed model elements and their relationships in a structured and intuitive manner, arranged within a rectangular grid.
-This view acts as the generalization of specialized views : the Tabular View, Data Value Tabular View, and Relationship Matrix View.
+This view acts as the generalization of specialized views: the Tabular View, Data Value Tabular View, and Relationship Matrix View.
 
-=== Browser View
+=== Browser view
 
 The Browser View is designed to present the hierarchical membership structure of model elements, starting from an exposed root element.
 This view provides a systematic and organized representation of the relationships between various model elements, offering a navigational tool for system engineers to explore and understand the composition of their models.
 
-=== Textual Syntax
+=== Textual syntax
 
 Future plans include the integration of a text editor into {product}, leveraging the `SysIDE` project's capabilities.
 SysIDE provides {sysmlv2} language support in Visual Studio Code.

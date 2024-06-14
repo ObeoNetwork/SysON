@@ -1,7 +1,7 @@
 = How to install {product}?
 
 This section delves into the detailed step-by-step instructions for installing {product}.
-Each step is clearly explained to guide you through the process.
+Detailed explanations walk you through each step.
 
 [INFO]
 ====
@@ -11,7 +11,7 @@ Before you proceed with the installation, please ensure you have the following x
 * https://www.docker.com/[Docker] installed, or an existing xref:requirements.adoc[supported database] installation with a user that has administrator privileges.
 ====
 
-== Get SysON
+== Get {product}
 [#download]
 
 {product} is distributed as a single _executable Java Archive_ (JAR) which contains the complete {product} application along with all its dependencies.
@@ -23,13 +23,13 @@ To download the latest pre-built JAR for {product}, follow these steps:
 . Identify the {product} latest available version for download.
 +
 image::latest-version.png[Latest version]
-. Click on the latest version to open its specific page.
+. Click the latest version to open its specific page.
 . In the `Assets` section, locate the JAR file named `{product-jar}`.
 +
 image::download.png[Download JAR file]
-. Click on the JAR file to initiate the download to your local machine.
+. Click the JAR file to start the download to your local machine.
 
-This process ensures that you obtain the most recent version of the {product} application in the form of a pre-built JAR file.
+This process ensures that you get the most recent version of the {product} application in the form of a pre-built JAR file.
 
 == Start the database instance
 

@@ -5,7 +5,7 @@
 [NOTE]
 ====
 The SysML v2 API is unavailable.
-For interoperability with SysON, use the provided file exchange format.
+For interoperability with {product}, use the provided file exchange format.
 ====
 
 {product}'s vision includes a dedicated commitment to interoperability, with a future-oriented perspective on supporting standard APIs for seamless connections with a diverse array of modeling resources.

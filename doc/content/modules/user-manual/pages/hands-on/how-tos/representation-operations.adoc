@@ -1,7 +1,7 @@
-= Representation Operations
+= Representation operations
 
 [#create-representation]
-== Create a New Representation
+== Create a new representation
 
 To create a representation, follow these steps:
 
@@ -14,10 +14,10 @@ To create a representation, follow these steps:
 
 image::hands-on-new-representation.png[Create representation]
 
-Once completed, the newly created representation will be open automatically and listed in the {explorer} under the element.
+Upon creation, the new representation automatically opens and appears in the {explorer} under the element.
 
 [#delete-representation]
-== Delete a Representation
+== Delete a representation
 
 It's possible to delete a representation either from the {explorer} or the {representations-view}.
 
@@ -46,7 +46,7 @@ You can delete a representation from the {representations-view}:
 
 . Open the {representations-view}.
 . Select the representation you want to delete.
-. Click on the `Delete` button.
+. Click the `Delete` button.
 
 image::hands-on-delete-representation-from-representation-view.png[Delete representation from the {representations-view}]
 
@@ -59,23 +59,23 @@ image::manage-elements-semantic-deletion.png[Semantic Deletion]
 [TIP]
 ====
 This preference is stored in the local storage of the browser.
-You can reset it by deleting the SysON data in cache of your browser.
+You can reset it by deleting the {product} data in cache of your browser.
 ====
 
 [#rename-representation]
-== Rename a Representation
+== Rename a representation
 
 You can update the representation name from the {explorer}:
 
-. Click on the {explorer-menu} next to the representation in the {explorer}.
+. Click the {explorer-menu} next to the representation in the {explorer}.
 . Select the `Rename` option.
 . Update the name in the editable field.
-. Click on `Rename`.
+. Click `Rename`.
 
 image::hands-on-rename-representation.png[Rename representation]
 
 [#share-representation]
-== Share a Representation
+== Share a representation
 
 Facilitating collaboration through representation sharing within {product} is a straightforward process.
 Users can effortlessly share a representation by providing its URL to collaborators.

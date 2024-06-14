@@ -1,15 +1,17 @@
 = {iv}
 
-The {iv} is employed to show encapsulated structural contents of _Usage- element: Parts, Properties, Connectors, Ports, and Interfaces.
+include::user-manual:partial$before-you-start-os-experimental-all.adoc[]
+
+The {iv} is used to show encapsulated structural contents of _Usage- element: Parts, Properties, Connectors, Ports, and Interfaces.
 
 // Unsynchronized
 include::user-manual:partial$view-unsynchronized.adoc[]
 
 image::interconnection-view-overview.png[{iv} Overview]
 
-== Create New {iv} Diagram
+== Create new {iv}
 
-User can create {iv} diagram on any _Usage_ or _Definition_ element.
+User can create {iv} on any _Usage_ or _Definition_ element.
 
 image::interconnection-view-diagram-creation.png[{iv} Diagram Creation]
 

@@ -1,9 +1,10 @@
-= Version Control and change management
+= Version control and change management
 
-No built-in versioning tools exists in SysOn for now. 
+{product} doesn't include built-in version control tools.
 
-If user want to control version of its project, user can use an external Git repository.
-Indeed, for each version/iteration of its project, user can xref:hands-on/how-tos/project-management.adoc#download-project[download] its project. 
-Then user merges the zip archive result on the Git repository. 
+If you want to manage different versions of your project, you can use an external Git repository.
+Here's how:
+* For each version or iteration of your project, you can download it as a zip archive by following these instructions: xref:hands-on/how-tos/project-management.adoc#download-project[download project].
+* Then you can integrate the downloaded zip archive into your Git repository.
 
-Feel free to xref:ROOT:help.adoc[contact us] for more details. 
+Feel free to xref:ROOT:help.adoc[contact us] for more details.

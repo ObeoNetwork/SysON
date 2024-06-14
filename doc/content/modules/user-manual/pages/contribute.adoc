@@ -1,11 +1,11 @@
 = Contribute
 
-== Make a Difference!
+== Make a difference
 
-{product} is an open source project and, we encourage everyone to participate and contribute to its development!
-There are numerous ways to contribute, including:
+{product}, being an open source project, encourages everyone to contribute to its development.
+You can contribute to {product} in different ways, including:
 
-* Joining our active community forum,
+* Joining the active community forum,
 * Identifying and reporting bugs,
 * Proposing new features,
 * Enhancing the documentation,
@@ -14,42 +14,42 @@ There are numerous ways to contribute, including:
 
 == Get involved
 
-=== Joining the Forum
+=== Joining the forum
 
-For any questions or inquiries, don't hesitate to participate in our xref:user-manual:forum.adoc[forum] on GitHub.
+For any questions or inquiries, don't hesitate to contribute in the xref:user-manual:forum.adoc[forum] on GitHub.
 
-=== Sharing your Feedback
+=== Sharing your feedback
 
 Your feedback is crucial to the continuous improvement of {product}.
-If you believe something is missing, encounter strange behavior, or simply want to express your satisfaction with the current state, feel free to share your thoughts.
+If you believe something is missing, meet strange behavior, or want to express your satisfaction with the current state, feel free to share your thoughts.
 
 [#reporting-issues]
 === Reporting issues
 
-Bug reports are essential, so please report any issues you encounter.
-When reporting bugs, provide detailed descriptions, reproducible tests, example code, or any other relevant information that can aid in resolving the issue.
+Bug reports are essential, so report any issues you meet.
+When reporting bugs, offer detailed descriptions, reproducible tests, example code, or any other relevant information that can aid in resolving the issue.
 
-Our issue tracker is hosted on GitHub: {bug-url}.
+The issue tracker is hosted on GitHub: {bug-url}.
 
 To submit a new issue, you'll need a GitHub account.
-For guidance on searching for issues, refer to GitHub's help page.
+For guidance on searching for issues, see GitHub's help page.
 
-=== Enriching the Documentation
+=== Enriching the documentation
 
-Have you found errors or inconsistencies in our documentation?
-We welcome your contributions!
+Have you found errors or inconsistencies in the documentation?
+We welcome your contributions.
 
-{product}’s documentation resides on GitHub: {source-code-url}/tree/main/doc.
+{product}’s documentation can be found on GitHub: {source-code-url}/tree/main/doc.
 
-Clone our repository, update the documentation, and trigger a pull request.
-Our documentation is written in AsciiDoc syntax, making it straightforward to contribute.
-Refer to the developer guide's Documentation section for insights into our documentation building process.
+Clone the repository, update the documentation, and trigger a pull request.
+The documentation is written in AsciiDoc syntax, making it straightforward to contribute.
+Refer to the developer guide's Documentation section for insights into the documentation building process.
 
-== Contributing to the Code
+== Contributing to the code
 
-{product}'s code is hosted on GitHub, making it simple to retrieve and build from source.
-Simply clone our repository, make your modifications, align them with our requirements, and initiate a pull request.
+{Product} leverages GitHub for code hosting, enabling straightforward retrieval and source-code builds.
+Clone the repository, make your modifications, align them with {product} requirements, and start a pull request.
 
 Follow the xref:developer-guide:index.adoc[developer guide] to gain insights into setting up your development environment and get started with contributing to the {product} codebase.
 
-Embark on your {product} contribution journey today!
+Embark on your {product} contribution journey today.

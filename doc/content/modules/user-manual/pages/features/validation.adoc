@@ -1,8 +1,10 @@
 = {validation}
 
-The {validation} view displays diagnostics for the entire project, organized by their kind (such as `ERROR`, `WARNING`, or `INFO`).
-Users can conveniently toggle the visibility of diagnostics using an accordion widget.
+include::user-manual:partial$before-you-start-os-experimental-all.adoc[]
 
-Validation view is disable for now and no diagnostic are available.
+The {validation} view displays diagnostics for the entire project, organized by their kind such as `ERROR`, `WARNING`, or `INFO`.
+Users can conveniently toggle the visibility of diagnostics by using an accordion widget.
 
-Feel free to xref:ROOT:help.adoc[contact us] for more details. 
+Validation view is turn-off for now and no diagnostic are available.
+
+Feel free to xref:ROOT:help.adoc[contact us] for more details.

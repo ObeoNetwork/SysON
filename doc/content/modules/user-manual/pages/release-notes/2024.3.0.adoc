@@ -1,5 +1,16 @@
 = 2024.3.0
 
+== Key highlights
+
+- *Improved User Interactivity*: New features such as direct editing allow users to change element details seamlessly, without data loss.
+This enhances the overall user experience by making it more intuitive and reducing the time required to make changes.
+- *Expanded Library and Standard Support*: All {kerml} and {sysmlv2} standard libraries are now included by default.
+This expands the tool's capabilities and ensures compatibility with industry standards, making it easier to integrate and reference standard elements in projects.
+- *Advanced Filtering*: New filters have been added to the Explorer view, allowing users to hide specific elements and libraries, which simplifies the interface and focuses on relevant data.
+- *Import Capabilities*: Additionally, {sysmlv2} textual files can now be imported directly, enhancing data integration and compatibility with other tools.
+- *Enhanced Diagram Development*: We've restructured and streamlined our diagrams implementation, including the introduction of specific modules and tools for better cross-diagram functionality.
+This ensures that all graphical representations are more cohesive and easier to maintain.
+
 == Breaking changes
 
 - Node Descriptions Providers in General View has been modified with mainly rename of these providers to match with all `Definitions` and `Usages` Node Descriptions.
@@ -33,7 +44,7 @@ image::release-notes-add-existing-elements.png[Add existing elements (recursive)
 image::release-notes-package-header.png[Package header]
 
 - It's now impossible to have Package children overlapping the `Package` node body's west border.
-- All KerML and SysML standard libraries have been added in project definition.
+- All {kerml} and {sysml} standard libraries have been added in project definition.
 These libraries aren't visible in the Explorer.
 Users can reference these libraries elements from the Details view or through the direct edit of elements in diagrams.
 - Tools names have been renamed by adding spaces between type words and removing "Usage" from tool names.
@@ -68,4 +79,4 @@ image::release-notes-feature-typing-tool.png[Feature typing tool]
 image::release-notes-filters.png[Explorer filters]
 - `{afv}` diagrams are now available on Package elements.
 - `Requirement view` diagrams are now available on Package elements.
-- It's now possible to import SysMLv2 textual files into SysON, through the existing document upload modal.
+- It's now possible to import SysMLv2 textual files into {product}, through the existing document upload modal.
