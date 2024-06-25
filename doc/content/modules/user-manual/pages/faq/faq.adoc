@@ -91,6 +91,53 @@ For those requiring professional support, we recommend referring to the xref:use
 No.
 ====
 
+.*What are the best practices for modeling complex systems with {product}?*
+[%collapsible%open]
+====
+You can find and contribute to the xref:user-manual:best-practices.adoc[best-practices] page in the documentation.
+====
+
+.*How do I learn more about {sysmlv2} modeling and best practices?*
+[%collapsible%open]
+====
+To learn more about {sysmlv2} modeling and best practices, explore the official https://www.omgsysml.org/SysML-2.htm[{sysmlv2} website from the OMG], join the xref:user-manual:help.adoc[{product} online community], and consider attending webinars and industry conferences.
+For hands-on learning, check out the xref:user-manual:hands-on/hands-on.adoc[{product} tutorials] and for more detailed guidance, refer to xref:user-manual:support.adoc[professional support options].
+====
+
+== Features and capabilities
+
+.*Is there a mobile version of {product} available?*
+[%collapsible%open]
+====
+{product} is a web application that can be accessed from mobile devices; however,it's optimized for use with a minimum screen resolution of 1024 * 768 in a maximized browser window.
+See xref:installation-guide:requirements.adoc[] for more details.
+====
+
+.*How does version control work in {product}?*
+[%collapsible%open]
+====
+{product} doesn't include built-in version control, allowing users to integrate their preferred solutions.
+For more details, see xref:user-manual:features/cm.adoc[].
+====
+
+.*Is there a limit to the number of projects or models I can create in {product}?*
+[%collapsible%open]
+====
+Yes, refer to the xref:user-manual:features/scaling-limits.adoc[scaling limits] page for more details.
+====
+
+.*How do I import and export models in {product}?*
+[%collapsible%open]
+====
+Read the xref:user-manual:integration/interoperability.adoc#import-export[] section of the documentation.
+====
+
+.*What collaboration features are available in {product}?*
+[%collapsible%open]
+====
+Read the xref:user-manual:features/collaboration.adoc[] page of the documentation.
+====
+
 == Integration with other tools
 
 .*Will the {sysmlv2} tool support textual notation?*
@@ -135,6 +182,7 @@ Currently, {sysmlv1} models can't coexist within {product}, but coexistence migh
 {product} is designed to be a specialized tool for {sysmlv2}, focusing on the latest standards and methodologies.
 Currently, as an open source product, {product} is primarily focused on ensuring robust compatibility within the {sysmlv2} ecosystem.
 This includes integration capabilities such as:
+
 * Textual Notation Support: {product} supports importing and exporting models using the {sysmlv2} textual notation.
 This facilitates sharing and integration with other {sysmlv2} compatible tools.
 * {sysmlv2} API: {product} is fully compatible with the xref:user-manual:integration/api.adoc[{sysmlv2} API], allowing seamless interaction with other tools and systems that adhere to this standard.
@@ -151,6 +199,12 @@ We invite those who share our vision and are committed to enhancing {product}'s 
 ====
 
 == Troubleshooting
+
+.*How do I access professional support for {product}?*
+[%collapsible%open]
+====
+To access professional support for {product}, refer to the xref:user-manual:support.adoc[] page in the documentation, which provides comprehensive information about how to get help and the services available.
+====
 
 * xref:installation-guide:requirements.adoc[What are the recommended system requirements for {product}?]
 * xref:installation-guide:how-tos/https.adoc[]
@@ -172,57 +226,6 @@ For users seeking professional help or customization services, feel free to xref
 You can extend {product} with custom add-ons or extensions by using its modular architecture.
 Refer to the developer documentation for guidelines on xref:developer-guide:extend.adoc[creating and integrating new modules].
 For further help, consult the xref:user-manual:forum.adoc[community forum] or consider the xref:user-manual:support.adoc[professional support] options.
-====
-
-.*What are the best practices for modeling complex systems with {product}?*
-[%collapsible%open]
-====
-You can find and contribute to the xref:user-manual:best-practices.adoc[best-practices] page in the documentation.
-====
-
-.*How do I learn more about {sysmlv2} modeling and best practices?*
-[%collapsible%open]
-====
-To learn more about {sysmlv2} modeling and best practices, explore the official https://www.omgsysml.org/SysML-2.htm[{sysmlv2} website from the OMG], join the xref:user-manual:help.adoc[{product} online community], and consider attending webinars and industry conferences.
-For hands-on learning, check out the xref:user-manual:hands-on/hands-on.adoc[{product} tutorials] and for more detailed guidance, refer to xref:user-manual:support.adoc[professional support options].
-====
-
-.*Is there a mobile version of {product} available?*
-[%collapsible%open]
-====
-{product} is a web application that can be accessed from mobile devices; however,it's optimized for use with a minimum screen resolution of 1024 * 768 in a maximized browser window.
-See xref:installation-guide:requirements.adoc[] for more details.
-====
-
-.*How does version control work in {product}?*
-[%collapsible%open]
-====
-{product} doesn't include built-in version control, allowing users to integrate their preferred solutions.
-For more details, see xref:user-manual:features/cm.adoc[].
-====
-
-.*How do I access professional support for {product}?*
-[%collapsible%open]
-====
-To access professional support for {product}, refer to the xref:user-manual:support.adoc[] page in the documentation, which provides comprehensive information about how to get help and the services available.
-====
-
-.*Is there a limit to the number of projects or models I can create in {product}?*
-[%collapsible%open]
-====
-Yes, refer to the xref:user-manual:features/scaling-limits.adoc[scaling limits] page for more details.
-====
-
-.*How do I import and export models in {product}?*
-[%collapsible%open]
-====
-Read the xref:user-manual:integration/interoperability.adoc#import-export[] section of the documentation.
-====
-
-.*What collaboration features are available in {product}?*
-[%collapsible%open]
-====
-Read the xref:user-manual:features/collaboration.adoc[] page of the documentation.
 ====
 
 .*Does {product} provides a method?*
