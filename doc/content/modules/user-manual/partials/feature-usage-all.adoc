@@ -1,1 +1,1 @@
-icon:users[] This feature is available to all users.
+👥 This feature is available to all users.
