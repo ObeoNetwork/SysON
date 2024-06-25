@@ -8,7 +8,7 @@ Below, we outline the primary scaling factors and limitations related to model s
 
     * Maximum Model Size:
     {product} is built to manage large models, but there are practical limits to its capacity.
-    The system can efficiently handle models up to about 10 GB in size.
+    The system can efficiently handle models up to about 10 MB in size.
     Models larger than this might experience performance degradation, especially in terms of loading times and responsiveness.
     * Impact on Performance:
     As model size increases, users might meet longer loading times and slower response rates when performing operations such as editing or navigating the model.
@@ -52,7 +52,7 @@ Below, we outline the primary scaling factors and limitations related to model s
 == Number of concurrent users
 
   * User Capacity:
-    The system is designed to support up to 200 concurrent users on a single server.
+    The system is designed to support up to 80 concurrent users on a single server.
     This capacity ensures that people can collaborate in real-time without encountering significant slowdowns or access issues.
   * Collaboration Dynamics:
     The performance of collaborative features, such as live editing and real-time updates, might vary depending on the number of users and the complexity of the operations being performed.
@@ -75,3 +75,5 @@ Below, we outline the primary scaling factors and limitations related to model s
     * Contact us for custom solutions:
     If your needs exceed the outlined limits or you require specific performance optimizations, please xref:ROOT:help.adoc[contact us].
     Our team can provide tailored solutions and advice to ensure that {product} meets your scaling requirements effectively.
+
+If you need to go upper than the detailed limits contact-us.
