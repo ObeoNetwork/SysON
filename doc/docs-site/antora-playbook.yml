@@ -1,5 +1,5 @@
 site:
-  title: SysOn documentation
+  title: SysON Docs
   start_page: syson::index.adoc
 
 output:

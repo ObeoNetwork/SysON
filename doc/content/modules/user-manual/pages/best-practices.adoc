@@ -1,12 +1,12 @@
-= {product} Best Practices
+= {product} best practices
 
-Explore in-depth or quickly grasp best Practices and tips.
+Explore in-depth or quickly grasp best-practices and tips.
 
 == Best practices
 
 A compilation of in-depth guides to help you make the most of {product}.
 
-{product} invites contributions of best practices from end user on system engineering subjects for example but also from the specifier/developer on the design of DSL view for example.
+{product} invites contributions of best practices from users on systems engineering topics, as well as from studio makers and developers on {product} extensions.
 
 Please xref:ROOT:help.adoc[contact us] to share your best practices.
 

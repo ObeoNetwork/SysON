@@ -19,7 +19,8 @@ The commitment to open source and interoperability serves as a cornerstone for f
 
 In essence, {product} stands as an open source enabler, promoting collaboration, flexibility, and adaptability—fundamental principles in the ever-evolving landscape of `MBSE`.
 
-== Import / Export
+[#import-export]
+== Import and export
 
 === JSON format
 

@@ -17,7 +17,8 @@ A Requirement Definition is represented by rectangular node style whereas a Requ
 
 image::requirement-managment-node-representation.png[Requirement creation from Requirement]
 
-For now, {gv} diagram authorize only to create requirement Definition and Usage. _Satisfy_ relationship to define connection between requirements aren't available.
+For now, {gv} diagram authorize only to create requirement Definition and Usage.
+_Satisfy_ relationship to define connection between requirements aren't available.
 Work around requirements are among the topics to be processed soon.
 
 Feel free to xref:ROOT:help.adoc[contact us] for more details.

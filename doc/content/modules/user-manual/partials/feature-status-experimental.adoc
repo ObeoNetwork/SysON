@@ -1,3 +1,3 @@
-icon:fire[] This feature is currently considered experimental.
-Try it out and provide feedback by reporting bugs and suggesting new features.
+🔥 This feature is currently considered experimental.
+Try it out and give feedback by reporting bugs and suggesting new features.
 It's not recommended for production use.

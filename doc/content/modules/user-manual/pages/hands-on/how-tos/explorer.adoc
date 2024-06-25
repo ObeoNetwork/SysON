@@ -3,6 +3,8 @@
 [#sync-editor]
 == Synchronize {explorer} / {editor}
 
+include::user-manual:partial$before-you-start-os-experimental-all.adoc[]
+
 It's possible to turn-off and turn-on the synchronization between the {explorer} and the current selection in the {editor}.
 
 When synchronization is enabled, if you selects an element inside a representation, the {explorer} view will ensure that the corresponding semantic element is visible and selected.
@@ -21,6 +23,8 @@ When synchronization is disabled, tree items that are already expanded in the {e
 [#expand-all]
 == Expand all
 
+include::user-manual:partial$before-you-start-os-experimental-all.adoc[]
+
 [WARNING]
 ====
 This operation may take a considerable amount of time for projects with a massive hierarchy and a high number of children.
@@ -38,6 +42,8 @@ This action expands the selected element and all its children recursively, offer
 
 [#explorer-filter]
 == Filter elements in the {explorer}
+
+include::user-manual:partial$before-you-start-os-experimental-all.adoc[]
 
 === Filter from name
 

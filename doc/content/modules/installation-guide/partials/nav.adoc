@@ -4,5 +4,6 @@
 // Each navigation file must be declared in the component descriptor if you want it to be displayed in the component’s navigation menu.
 * xref:installation-guide:requirements.adoc[]
 * xref:installation-guide:how-tos/install.adoc[]
+* xref:installation-guide:how-tos/https.adoc[]
 * xref:installation-guide:troubleshooting.adoc[]
 * xref:installation-guide:migration-process.adoc[]

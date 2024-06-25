@@ -2,7 +2,7 @@
 
 == Key highlights
 
-- icon:trophy[] Initial release!
+- 🏆 Initial release!
 
 == Dependencies update
 
