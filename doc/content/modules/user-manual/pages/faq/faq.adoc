@@ -154,7 +154,11 @@ We're currently working on integrating {product} with SysIDE,  an open source te
 To import /export models, read the xref:user-manual:integration/interoperability.adoc[Interoperability] section in the user manual.
 ====
 
-* xref:user-manual:features/collaboration.adoc[How do I collaborate with others on models?]
+.*How do I collaborate with others on models?*
+[%collapsible%open]
+====
+Read the xref:user-manual:features/collaboration.adoc[] section to learn more about how to collaborate using {product}.
+====
 
 .*How will models developed in your tool, be shared with other vendor {sysmlv2} tools? Are there any limitations we should be aware of?*
 [%collapsible%open]
@@ -187,6 +191,7 @@ This includes integration capabilities such as:
 This facilitates sharing and integration with other {sysmlv2} compatible tools.
 * {sysmlv2} API: {product} is fully compatible with the xref:user-manual:integration/api.adoc[{sysmlv2} API], allowing seamless interaction with other tools and systems that adhere to this standard.
 * Integration with Capella: We're working on establishing xref:user-manual:integration/capella.adoc[integration pathways with Capella], a comprehensive model-based engineering solution.
+
 This will enable users to leverage {product}'s {sysmlv2} capabilities alongside Capella's powerful system architecture modeling tools, ensuring model interoperability.
 ====
 
