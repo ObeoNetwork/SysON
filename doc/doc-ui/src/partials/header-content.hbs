@@ -14,7 +14,12 @@
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
         
-        <a class="navbar-item" href="{{{relativize (resolvePageURL 'home::index.adoc')}}}">Home</a>
+        <a class="navbar-item" target="_blank" href="https://github.com/eclipse-syson/syson">
+          <img class="icon" src="{{{uiRootPath}}}/img/github-mark-white.svg" alt="GitHub"/>
+        </a>
+        <a class="navbar-item" target="_blank" href="https://github.com/eclipse-syson/syson/discussions">
+          <img class="icon" src="{{{uiRootPath}}}/img/chat.svg" alt="Chat"/>
+        </a>
 
         {{#if env.SITE_SEARCH_PROVIDER}}
         <div class="navbar-item search hide-for-print">
